@@ -1,0 +1,83 @@
+<table
+  mat-table
+  [dataSource]="dataSource"
+  multiTemplateDataRows
+>
+  <!-- <ng-container matColumnDef="toggle">
+    <th mat-header-cell *matHeaderCellDef>
+      <span class="visuallyhidden">toggle</span>
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <a
+        href="javascript:void()"
+        (click)="element.isExpanded = !element.isExpanded"
+      >
+        <mat-icon *ngIf="element.isExpanded">expand_less</mat-icon>
+        <mat-icon *ngIf="!element.isExpanded">expand_more</mat-icon>
+      </a>
+    </td>
+  </ng-container> -->
+  <ng-container matColumnDef="type">
+    <th mat-header-cell *matHeaderCellDef>Type</th>
+    <td mat-cell *matCellDef="let element">{{element.contactType}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="subcontractorName">
+    <th mat-header-cell *matHeaderCellDef>Subcontractor Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.fullName }}</td>
+  </ng-container> 
+
+  <ng-container matColumnDef="firstName">
+    <th mat-header-cell *matHeaderCellDef>First Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.firstName }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="lastName">
+    <th mat-header-cell *matHeaderCellDef>Last Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="Phone">
+    <th mat-header-cell *matHeaderCellDef>Phone</th>
+    <td mat-cell *matCellDef="let element">{{ element.phoneNo }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Email">
+    <th mat-header-cell *matHeaderCellDef>Email</th>
+    <td mat-cell *matCellDef="let element">{{ element.emailId }}</td>
+  </ng-container>
+
+  <!-- <ng-container matColumnDef="expandedDetail">
+    <td
+      mat-cell
+      *matCellDef="let element"
+      [attr.colspan]="committeegrid.length"
+    >
+      <div
+        *ngIf="element.isExpanded"
+        class="row student-element-detail"
+        [@detailExpand]="element.isExpanded ? 'expanded' : 'collapsed'"
+      >
+        <div class="container">
+          <div class="categories">
+            <div class="categories_item">
+              <div>
+                <label class="toggle-font-weght">First and Last</label>
+              </div>
+              <br />
+              <div class="mar-height">{{ element.address1}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </td>
+  </ng-container> -->
+
+  <tr mat-header-row *matHeaderRowDef="subcontractorgrid"></tr>
+  <tr mat-row *matRowDef="let row; columns: subcontractorgrid"></tr>
+
+  <!-- <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="student-detail-row"
+  [ngClass]="{'hide':!row.isExpanded}"></tr> -->
+
+</table>

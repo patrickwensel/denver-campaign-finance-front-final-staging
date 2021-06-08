@@ -1,0 +1,81 @@
+.finelist {
+  padding-left: 30px;
+  padding-top: 20px;
+}
+
+.feegroup {
+  padding-left: 30px;
+}
+
+.head {
+  color: #0f5597;
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 30px;
+  // padding-left: 20px;
+}
+
+.width-20 {
+  width: 20%;
+}
+
+.flex {
+  display: flex;
+  justify-content: normal;
+}
+
+.create-full-width {
+  width: 80%;
+}
+
+.transaction {
+  width: 43%;
+}
+
+.forms {
+  margin-bottom: 4%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6%;
+}
+
+.replybtn {
+  background: #0f5597;
+  color: white;
+  border: 2px solid rgb(15 85 151);
+  padding: 6px 25px;
+  font-weight: 500;
+  float: right;
+}
+
+h3 {
+  color: #063461;
+  font-size: 25px;
+}
+
+.material-icons {
+  color: #005596;
+  cursor: pointer;
+}
+
+.flex {
+  text-align: right;
+}
+
+mat-label {
+  margin-right: 20px;
+  color: black;
+}
+
+.desc {
+  max-width: 40px; /* feel free to include any other value */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.activelogpg {
+  text-align: center;
+  font-size: 19px;
+  padding-top: 3%;
+}
+

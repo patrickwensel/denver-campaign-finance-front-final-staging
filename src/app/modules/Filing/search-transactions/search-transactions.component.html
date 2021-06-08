@@ -1,0 +1,144 @@
+<div class="container" style="padding: 30px;">
+    <div class="matform-Container">
+        <div>
+            <div>
+                <h2 class="name">{{name}}</h2>
+            </div>
+            <h2 class="tabhead title">{{static_data?.search_transactions?.search_trans}}</h2>
+        </div>
+    </div>
+    <form class="search-form">
+    <div class="flex">
+     <div>
+        <mat-form-field class="search-full-width" floatLabel="never">
+            <mat-label>Search</mat-label>
+            <input #myInput attr.aria-label="{{static_data.create_account.search_placeholder.ie_entity}}" type="text"
+                matInput [(ngModel)]="searchpopular" name="SearchControl" id="search-popular">
+            <mat-icon matPrefix>search</mat-icon>
+            <!-- *ngIf="!isFromSwitchComm" -->
+            <button type="button" attr.aria-label="Search" class="btn-search" mat-flat-button color="primary"
+                matSuffix>
+                SEARCH
+            </button>
+        </mat-form-field>
+     </div>
+     <div>
+        <button id="addInfo" type="button" mat-flat-button color="primary"
+         class="nrmlfillbtn">{{static_data?.search_transactions?.add_trans}}</button>
+     </div>
+    </div>
+    <!-- <div>
+        <h1>Filter By:</h1>
+    </div> -->
+    <div class="flex">
+        <div class="grid">
+          <div>
+            <mat-label class="size-19">{{static_data?.search_transactions?.filter_by}}</mat-label>
+        </div>
+        <div>
+            <mat-label>{{static_data?.search_transactions?.trans_Type}}</mat-label><br>
+            <mat-form-field appearance="fill"  [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-select [(ngModel)]="typeID">
+                    <mat-option >
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+       
+        <div>
+            <mat-label>{{static_data?.search_transactions?.trans_Date}}</mat-label><br>
+            <div class="grid-date">
+                <mat-form-field appearance="fill" class="width-49">
+                    <mat-label for="start_date">{{static_data?.manage_committee?.start_date}}</mat-label>
+                    <input id="start_date" aria-labelledby="start_date create-info" aria-label="start date"
+                        matInput [matDatepicker]="picker1" formControlName="start_date">
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                    <!-- <mat-error class="error">
+                        {{errorService.checkErrorMessage(publicfunding.get('start_date'), 'start_date')}}
+                    </mat-error> -->
+                </mat-form-field>
+    
+                <mat-form-field appearance="fill" class="width-49">
+                    <mat-label for="end_date">{{static_data?.manage_committee?.end_date}}</mat-label>
+                    <input id="end_date" aria-labelledby="end_date create-info" aria-label="end date"
+                         matInput [matDatepicker]="picker2"
+                        formControlName="end_date">
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2></mat-datepicker>
+                    <!-- <mat-error class="error">
+                        {{errorService.checkErrorMessage(publicfunding.get('end_date'), 'end_date')}}
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div>
+            <mat-label>{{static_data?.search_transactions?.trans_Amount}}</mat-label><br>
+            <div class="grid-date">
+                <mat-form-field appearance="fill" class="width-49">
+                    <mat-label for="start_date">{{static_data?.search_transactions?.min_Amount}}</mat-label>
+                    <input formControlName="amount" attr.aria-label="{{static_data?.filer?.amount}}" matInput
+                    type="text" autocomplete="off" form-fields placeholder="" id="amount" keyPrevent
+                    [AlphaSpace]="true" >
+                </mat-form-field>
+    
+                <mat-form-field appearance="fill" class="width-49">
+                    <mat-label for="end_date">{{static_data?.search_transactions?.max_Amount}}</mat-label>
+                    <input formControlName="amount" attr.aria-label="{{static_data?.filer?.amount}}" matInput
+                    type="text" autocomplete="off" form-fields placeholder="" id="amount" keyPrevent
+                    [AlphaSpace]="true" >
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+
+
+</div>
+        
+<table mat-table [dataSource]="dataMatchingList" multiTemplateDataRows>
+
+    <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> {{static_data?.search_transactions?.trans_Type}} </th>
+        <td mat-cell *matCellDef="let element"> ferf </td>
+    </ng-container>
+
+    <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>{{static_data?.filer?.date}} </th>
+        <td mat-cell *matCellDef="let element"> fref </td>
+    </ng-container>
+
+    <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef> {{static_data?.filer?.amount}} </th>
+        <td mat-cell *matCellDef="let element"> fref</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> {{static_data?.search_transactions?.name}} </th>
+        <td mat-cell *matCellDef="let element"> ferf </td>
+    </ng-container>
+
+    <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef>{{static_data?.committee_registration?.commitee_office.city}} </th>
+        <td mat-cell *matCellDef="let element"> fref </td>
+    </ng-container>
+
+    <ng-container matColumnDef="state">
+        <th mat-header-cell *matHeaderCellDef> {{static_data?.create_account?.contact_info?.state}} </th>
+        <td mat-cell *matCellDef="let element"> fref</td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> {{static_data.public_funding.action}} </th>
+        <td mat-cell *matCellDef="let element" class="click-hand">
+            <span class="material-icons">mode_edit_outline</span>&nbsp;&nbsp;
+            <span class="material-icons">delete_forever</span>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedStudentsColumnsList;sticky: true"></tr>
+    <tr mat-row *matRowDef="let element; columns: displayedStudentsColumnsList;"
+        class="student-element-row" [class.student-expanded-row]="element.isExpanded"></tr>
+</table>

@@ -1,0 +1,30 @@
+.footer {
+    display: flex;
+    justify-content: flex-end;
+}
+.textonfos p{
+    margin:8px 0px;
+    letter-spacing: 0.24px;
+    color: #00000099;
+    font-size: 16px;
+    font-weight: 500;
+}
+.matpopupbody-section{
+    width: 400px;
+}
+.matpopupheader-section {
+    margin-bottom: 16px;
+}
+
+.matpopupheader-section h2 {
+    letter-spacing: 0.25px;
+    color: #0f5597;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.matpopupheader-section p {
+    letter-spacing: 0.24px;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 0;
+}

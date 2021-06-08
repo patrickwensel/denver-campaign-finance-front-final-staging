@@ -1,0 +1,270 @@
+    .container,
+    .mat-container {
+        padding-left: 30px;
+    }
+    
+    .mar-bot-50 {
+        margin-bottom: 50px;
+    }
+    
+    .mar-bot-30 {
+        margin-bottom: 30px;
+    }
+    
+    .heading-section {
+        margin-bottom: 30px;
+        padding-left: 20px;
+    }
+    
+    .title {
+        color: #0f5597;
+        font-size: 28px;
+        font-weight: 700;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    #heading {
+        margin-bottom: 50px;
+    }
+    
+    .sub-heading {
+        color: #0f5597;
+        font-size: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .card {
+        padding: 15px;
+        box-shadow: 0 3px 6px rgb(0 0 0 / 16%);
+        margin-bottom: 40px;
+    }
+    
+    .small_icon {
+        font-size: small;
+        font-weight: 700;
+        color: #0f5597;
+    }
+    
+    .expenditure-amount ul {
+        list-style: none;
+    }
+    
+    .block-1 {
+        flex: 1;
+        // max-width: 500px;
+    }
+    
+    .financial-block {
+        min-width: 600px;
+    }
+    
+    .support-block {
+        margin-left: -15px;
+        max-width: 420px;
+    }
+    
+    .example-margin,
+    li {
+        padding: 5px;
+    }
+    
+    .help-icon {
+        font-size: small;
+    }
+    
+    .search-button {
+        width: 300px;
+        height: fit-content;
+        margin-top: 100px;
+        margin-right: 80px;
+        float: right;
+        font-weight: 500;
+    }
+    
+    .text {
+        margin-top: 40px;
+        margin-bottom: 0;
+    }
+    
+    .disable::ng-deep .mat-checkbox-inner-container {
+        opacity: 0.2;
+    }
+    
+    .heading-level-3 {
+        font-size: 18px;
+    }
+    
+    .link {
+        color: #0f5597;
+        font-weight: 500;
+        margin-left: 20px;
+    }
+    
+    .opposition-card {
+        height: 300px;
+    }
+    
+    .opposition-block {
+        max-width: 500px;
+        margin-right: 70px;
+    }
+    
+    .expenditure-block {
+        max-width: 500px;
+    }
+    
+    #chart {
+        max-width: 650px;
+        max-height: 100px;
+    }
+    
+    #opposingChart {
+        max-width: 400px;
+    }
+    
+    .amount {
+        height: 100px;
+        line-height: 170px;
+        font-size: 20px;
+        color: #0f5597;
+        font-weight: 500;
+    }
+    
+    .opposingChartDiv {
+        max-width: 650px;
+    }
+    
+    .info {
+        font-size: 20px;
+        text-align: center;
+        color: #0f5597;
+    }
+    /*commite page design start here*/
+    
+    .committe-details-page {
+        .commite-details {
+            .block-1,
+            .block-2 {
+                width: 45%;
+            }
+        }
+        .opposition-card {
+            height: auto;
+        }
+        .txt-none {
+            text-decoration: none;
+        }
+        .font-16 {
+            font-size: 16px;
+        }
+    }
+    
+    .caps {
+        text-transform: capitalize;
+    }
+    
+    .font-18 {
+        li a {
+            font-size: 18px;
+        }
+    }
+    
+    .dark-blue {
+        color: #162d54;
+    }
+    
+    .blue {
+        color: #0f5597;
+    }
+    
+    .flex-spcebwn {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .flxe-width-70 {
+        width: 80%;
+    }
+    
+    .flex-table {
+        width: 40%;
+        h3 {
+            font-size: 18px;
+        }
+        tr {
+            td {
+                font-size: 18px;
+                border-bottom: 1px solid #9b9b9b;
+                text-transform: capitalize;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                vertical-align: middle;
+                &:nth-child(even) {
+                    text-align: right;
+                }
+            }
+        }
+    }
+    
+    .flxe-with-100 {
+        width: 100%;
+        display: inline-table;
+    }
+    
+    .search-table {
+        mat-label {
+            width: 100%;
+            display: block;
+        }
+    }
+    
+    .mat-select-box {
+        width: 140px;
+        float: left;
+        margin-right: 30px;
+    }
+    
+    .trans-btn {
+        padding: 5px 30px;
+        font-size: 15px;
+        margin-right: 30px;
+        position: relative;
+        top: 18px;
+        color: #fff;
+    }
+    
+    .btn-blue {
+        background: #005596;
+    }
+    
+    .btn-showmore {
+        background: #838383;
+    }
+    
+    .download {
+        color: #005596;
+        border: 1px solid #005596;
+        background: #fff;
+    }
+    
+    .drop-table {
+        tr {
+            th {
+                background: #f7f7f7;
+                padding: 12px 5px;
+                font-weight: 600;
+                color: #2e2e2e;
+            }
+            td {
+                padding: 12px 5px;
+                border-bottom: 1px solid #9b9b9b;
+            }
+        }
+    }
+    
+    .blue-align {
+        position: relative;
+        top: 7px;
+        left: 10px;
+    }
+    /*commite page design end here*/

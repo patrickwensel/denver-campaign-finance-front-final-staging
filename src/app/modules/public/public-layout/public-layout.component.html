@@ -1,0 +1,1371 @@
+<!-- ***********************STACIC CHART ONLY IMPLEMENT BASED ON THE API DATA PLEASE CHANGE THE CHART DESIGN ************************************************************** REF : 1) CHART.JS (https://www.chartjs.org/docs/latest/) 2) ng2-charts (https://www.npmjs.com/package/ng2-charts)************************************************** -->
+
+<!-- Landing page html conversion start here .... -->
+<!-- 0900. Public - Lobbying - Landing Page -->
+<div class="contanier public-layoutpage">
+
+    <div class="search-section">
+        <h1>
+            {{static_data.public.title}}
+        </h1>
+        <div class="search-bar relative">
+            <input type="text" placeholder="{{static_data.public.searchPlaceholder}}">
+            <span class="material-icons search-icon"> search </span>
+            <span class="material-icons help-icon"> help  </span>
+        </div>
+        <div class="btn-group">
+            <div class="mat-button padding-0 mar-rt-20">
+                <button mat-button class="mat-basic" title="{{static_data.publicLayoutButton.seeAllCandidates}}" role="button" attr.aria-label="{{static_data.publicLayoutButton.seeAllCandidates}}">{{static_data.publicLayoutButton.seeAllCandidates}}</button>
+            </div>
+            <div class="mat-button mr-b-20">
+                <mat-form-field appearance="fill">
+                    <mat-label> {{static_data.publicLayoutButton.searchContributors}}</mat-label>
+                    <mat-select attr.aria-label="{{static_data.publicLayoutButton.searchContributors}}">
+                        <mat-option *ngFor="let food of foods" [value]="food.value">
+                            {{food.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="mat-button mr-b-20">
+                <mat-form-field appearance="fill">
+                    <mat-label> {{static_data.publicLayoutButton.searchBallotIssues}} </mat-label>
+                    <mat-select attr.aria-label="{{static_data.publicLayoutButton.searchBallotIssues}}">
+                        <mat-option *ngFor="let food of foods" [value]="food.value">
+                            {{food.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="mat-button mr-b-20">
+                <mat-form-field appearance="fill">
+                    <mat-label> {{static_data.publicLayoutButton.searchTransaction}} </mat-label>
+                    <mat-select attr.aria-label="{{static_data.publicLayoutButton.searchTransaction}}">
+                        <mat-option *ngFor="let food of foods" [value]="food.value">
+                            {{food.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-section width-100">
+        <!-- bar chart 1  sample design start here  -->
+        <div class="chart-box">
+            <div class="width-100">
+                <h1>
+                    {{static_data.chartText.BallotIssues}}
+                </h1>
+                <div class="chart-select">
+                    <label> {{static_data.chartText.electionCycle}}</label>
+                    <select attr.aria-label="static_data.chartText.electionCycle">
+                        <option>2018</option>
+                        <option>2019</option>
+                        <option>2020</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="width-100">
+                <!-- <canvas id="myChart"></canvas> -->
+                <div class="chart-left">
+                    <div class="option-one option-level">
+                        <h2>
+                            {{static_data.chartText.issue1}}
+                        </h2>
+                        <div class="option">
+                            <label class="option-txt mar-bot-55">{{static_data.chartText.support}}</label>
+                            <label class="option-txt"> {{static_data.chartText.oppose}}</label>
+                        </div>
+
+                    </div>
+                    <div class="option-two option-level">
+                        <h2>
+                            {{static_data.chartText.issue2}}
+                        </h2>
+                        <div class="option">
+                            <label class="option-txt mar-bot-55">{{static_data.chartText.support}}</label>
+                            <label class="option-txt"> {{static_data.chartText.oppose}}</label>
+                        </div>
+
+                    </div>
+                    <div class="option-three option-level">
+                        <h2>
+                            {{static_data.chartText.issue3}}
+                        </h2>
+                        <div class="option">
+                            <label class="option-txt mar-bot-55">{{static_data.chartText.support}}</label>
+                            <label class="option-txt"> {{static_data.chartText.oppose}}</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="chart-right">
+                    <canvas baseChart [chartType]="'horizontalBar'" [datasets]="chartData" [labels]="labels" [options]="chartOptions" [legend]="false" [colors]="colors" (chartClick)="onChartClick($event)"> </canvas>
+
+                    <canvas baseChart [chartType]="'horizontalBar'" [datasets]="chartData" [labels]="labels" [options]="chartOptions" [legend]="false" [colors]="colors" (chartClick)="onChartClick($event)"> </canvas>
+
+                    <canvas baseChart [chartType]="'horizontalBar'" [datasets]="chartData" [labels]="labels" [options]="chartOptions" [legend]="false" [colors]="colors" (chartClick)="onChartClick($event)"> </canvas>
+                </div>
+                <p>
+                    Chart shows total contributions and independent expendent affecting ballot in the 2019 election
+                </p>
+            </div>
+            <div class="legends">
+                <ul>
+                    <li class="campaign">
+                        <span>color</span>
+                        <a href="javascript:void(0)">Campaign Contributions</a>
+                    </li>
+                    <li class="independent">
+                        <span>color</span>
+                        <a href="javascript:void(0)">Independent Expendtures</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- bar chart 1  sample design end here  -->
+
+        <!-- bar chart 2  sample design start here  -->
+        <div class="chart-box">
+            <div class="width-100">
+                <h1>
+                    {{static_data.public.Candidates}}
+                </h1>
+                <div class="chart-select mar-rt-30">
+                    <label>{{static_data.public.electionCycle}} </label>
+                    <select attr.aria-label="{{static_data.public.electionCycle}}">
+                    <option>2018</option>
+                    <option>2019</option>
+                    <option>2020</option>
+                </select>
+                </div>
+
+                <div class="chart-select">
+                    <label>{{static_data.public.office}}</label>
+                    <select attr.aria-label="{{static_data.public.office}}">
+                    <option>Mayor</option>
+                    <option>unix</option>
+                    
+                </select>
+                </div>
+            </div>
+
+            <div class="width-100">
+                <!-- <canvas id="myChart"></canvas> -->
+                <div class="chart-left">
+                    <div class="option-one option-level">
+                        <h2>
+                            {{static_data.chartText.issue1}}
+                        </h2>
+                        <div class="option">
+                            <label class="option-txt mar-bot-55">{{static_data.chartText.support}}</label>
+                            <label class="option-txt"> {{static_data.chartText.oppose}}</label>
+                        </div>
+
+                    </div>
+                    <div class="option-two option-level">
+                        <h2>
+                            {{static_data.chartText.issue2}}
+                        </h2>
+                        <div class="option">
+                            <label class="option-txt mar-bot-55">{{static_data.chartText.support}}</label>
+                            <label class="option-txt"> {{static_data.chartText.oppose}}</label>
+                        </div>
+
+                    </div>
+                    <div class="option-three option-level">
+                        <h2>
+                            {{static_data.chartText.issue3}}
+                        </h2>
+                        <div class="option">
+                            <label class="option-txt mar-bot-55">{{static_data.chartText.support}}</label>
+                            <label class="option-txt"> {{static_data.chartText.oppose}}</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="chart-right">
+                    <canvas baseChart [chartType]="'horizontalBar'" [datasets]="chartData" [labels]="labels" [options]="chartOptions" [legend]="false" [colors]="colors" (chartClick)="onChartClick($event)"> </canvas>
+
+                    <canvas baseChart [chartType]="'horizontalBar'" [datasets]="chartData" [labels]="labels" [options]="chartOptions" [legend]="false" [colors]="colors" (chartClick)="onChartClick($event)"> </canvas>
+
+                    <canvas baseChart [chartType]="'horizontalBar'" [datasets]="chartData" [labels]="labels" [options]="chartOptions" [legend]="false" [colors]="colors" (chartClick)="onChartClick($event)"> </canvas>
+                </div>
+                <p>
+                    Chart shows the 5 committees with the greatest sum of contributions received and independdent expenditures in support of their campaign in the 2019 election cycle. Independent expenditures opposing the candidate or opposing their rivals are not included.
+                </p>
+            </div>
+            <div class="legends">
+                <ul>
+                    <li class="campaign">
+                        <span>color</span>
+                        <a href="javascript:void(0)">Campaign Contributions</a>
+                    </li>
+                    <li class="independent">
+                        <span>color</span>
+                        <a href="javascript:void(0)">Independent Expendtures</a>
+                    </li>
+                    <li class="fair">
+                        <span>color</span>
+                        <a href="javascript:void(0)">Fair Election Fund</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- bar chart 2  sample design start here  -->
+
+        <!-- pie  sample design start here  -->
+        <div class="width-100">
+            <div class="piechart-box">
+                <div class="piechart">
+                    <h1>
+                        {{static_data.chartText.fairElectionsParticipatingCandidates}}
+                    </h1>
+                    <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)" [colors]="colors" [legend]="false"></canvas>
+                    <div class="pie-legends">
+                        <h3>
+                            {{static_data.chartText.additionalDetailsAboutPieChart}}
+                        </h3>
+                        <ul>
+                            <li>
+                                <span class="blue"></span>
+                                <a href="javascript:void(0)">Partipating Candidates </a>
+                            </li>
+                            <li>
+                                <span class="blue-mid"></span>
+                                <a href="javascript:void(0)">Non-participating Candidates  </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="piechart">
+                    <h1>
+                        {{static_data.chartText.contributionsByLocations}}
+                    </h1>
+                    <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)" [colors]="colors" [legend]="false"></canvas>
+
+                    <div class="pie-legends">
+                        <h3>
+                            {{static_data.chartText.additionalDetailsAboutPieChart}}
+                        </h3>
+                        <ul>
+                            <li>
+                                <span class="blue">color</span>
+                                <a href="javascript:void(0)">Denver  </a>
+                            </li>
+                            <li>
+                                <span class="blue-mid">color</span>
+                                <a href="javascript:void(0)">Colorado </a>
+                            </li>
+                            <li>
+                                <span class="blue-dark">color</span>
+                                <a href="javascript:void(0)">Out of State  </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="piechart">
+                    <h1>
+                        {{static_data.chartText.fairElectionsDistributions}}
+                    </h1>
+                    <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)" [colors]="colors" [legend]="false"></canvas>
+
+                    <div class="pie-legends">
+                        <h3>
+                            {{static_data.chartText.additionalDetailsAboutPieChart}}
+                        </h3>
+                        <ul>
+                            <li>
+                                <span class="blue">color</span>
+                                <a href="javascript:void(0)">Available Fair Election Funds </a>
+                            </li>
+                            <li>
+                                <span class="blue-mid">color</span>
+                                <a href="javascript:void(0)">Disbursed Fair Elections Funds  </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="btn-group">
+            <div class="mat-button mat-bottom even-space padding-0 mar-rt-20">
+                <button mat-button class="mat-basic" attr.aria-label="{{static_data.publicLayoutButton.Lobbying}}" title="{{static_data.publicLayoutButton.Lobbying}}"> {{static_data.publicLayoutButton.Lobbying}}</button>
+                <button mat-button class="mat-basic" attr.aria-label="{{static_data.publicLayoutButton.ethicsReports}}" title="{{static_data.publicLayoutButton.ethicsReports}}"> {{static_data.publicLayoutButton.ethicsReports}}</button>
+                <button mat-button class="mat-basic" attr.aria-label="{{static_data.publicLayoutButton.ethicsReports}}" title="{{static_data.publicLayoutButton.ethicsReports}}"> {{static_data.publicLayoutButton.fillingCalendar}}</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- *************************** Landing page html conversion start here .... *********************** -->
+
+<!-- ************************ Landing page two html conversion start here ********************  -->
+<!-- 0020. Lobbying Landing Page -->
+
+<div class="container public-layoutpage padding-0" style="display: none;">
+
+    <p class="red-bg">
+        {{static_data.public.NofilingcurrencyavailableThefirstreportsinthissystemareexceptedon10}}
+    </p>
+    <h1 class="mar-bot-55 pad-lt-20">
+        {{static_data.public.title}}
+    </h1>
+    <div class="landingsearch">
+        <div class="searchbox width-100 ">
+            <div class="searchbox-left">
+
+                <div class="width-100 mar-bot-55">
+                    <div class="width-100 mar-bot-15 relative">
+                        <span class="material-icons search-icon"> search </span>
+                        <input type="text" placeholder="{{static_data.public.searchLobbyingClients}}">
+                        <button>Search</button>
+                    </div>
+                    <p>
+                        Instructions go here lorem ipsum dolor iorem ipsum dolor
+                    </p>
+                </div>
+
+                <div class="width-100 mar-bot-55">
+                    <div class="width-100 mar-bot-15 relative">
+                        <span class="material-icons search-icon"> search </span>
+                        <input type="text" placeholder="{{static_data.public.searchLobbyingClients}}">
+                        <button>Search</button>
+                    </div>
+                    <p>
+                        Instructions go here lorem ipsum dolor iorem ipsum dolor
+                    </p>
+                </div>
+                <div class="width-100">
+                    <h3 class="label-txt">
+                        Lobbying data from before 10/1/21 is available through the archive here :
+                    </h3>
+                </div>
+            </div>
+            <div class="searchbox-right">
+                <div class="btngroup">
+                    <button mat-button class="mat-basic" attr.aria-label="{{static_data.publicLayoutButton.allLobbyingClients}" title="{{static_data.publicLayoutButton.allLobbyingClients}}"> {{static_data.publicLayoutButton.allLobbyingClients}} </button>
+                    <button mat-button title="{{static_data.publicLayoutButton.allLobbyingClients}}" attr.aria-label="{{static_data.publicLayoutButton.allLobbyingClients}}" class="mat-basic">{{static_data.publicLayoutButton.allLobbyingClients}}</button>
+                    <button mat-button title="{{static_data.publicLayoutButton.archivedLobbyingData}}" attr.aria-label="{{static_data.publicLayoutButton.archivedLobbyingData}}" class="mat-basic">{{static_data.publicLayoutButton.archivedLobbyingData}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-group">
+        <button mat-button class="mat-basic" attr.aria-label="{{static_data.publicLayoutButton.campaignFinance}}" title="{{static_data.publicLayoutButton.campaignFinance}}">{{static_data.publicLayoutButton.campaignFinance}}</button>
+        <button mat-button class="mat-basic" title="{{static_data.publicLayoutButton.ethicsReport}}" attr.aria-label="{{static_data.publicLayoutButton.ethicsReport}}">{{static_data.publicLayoutButton.ethicsReport}} </button>
+        <button mat-button class="mat-basic" title="{{static_data.publicLayoutButton.fillingCalendar}}" attr.aria-label="{{static_data.publicLayoutButton.fillingCalendar}}">{{static_data.publicLayoutButton.fillingCalendar}}</button>
+    </div>
+
+</div>
+
+<!-- *********************** Landing page two html conversion end here *************************  -->
+
+
+<!-- *************** All Lobbying Clients page html conversion start here **********************  -->
+
+<!-- 0910. Public - Lobbying - All Clients -->
+
+<div class="container public-layoutpage padding-0" style="display: none;">
+    <div class="width-100 client-module">
+        <h1 class="mar-bot-55 pad-lt-20">
+            {{static_data.public.title}}
+        </h1>
+        <h2 class="pad-lt-20">
+            {{static_data.public.allLobbyingClients}}
+        </h2>
+        <h3 class="mar-bot-15 pad-lt-20">
+            {{static_data.public.additionaltextaboutlobbyingclientshere}}
+        </h3>
+        <div class="chartbox-table">
+            <div class="width-80 center-align">
+                <div class="width-100 mar-bot-20">
+                    <div class="custom-select left">
+                        <label> {{static_data.public.year}}</label>
+                        <select attr.aria-label="{{static_data.public.year}}">
+                        <option>2018</option>
+                        <option>2019</option>
+                        <option>2020</option>
+                    </select>
+                    </div>
+                    <button mat-button class="mat-basic right" title="{{static_data.publicLayoutButton.fillingCalendar}}" attr.aria-lable="{{static_data.publicLayoutButton.fillingCalendar}}"> {{static_data.publicLayoutButton.fillingCalendar}} </button>
+                </div>
+
+                <div class="width-100">
+                    <div class="chart-table">
+                        <table class="table mar-bot-55">
+                            <thead>
+                                <tr>
+                                    <th [attr.role]="null">
+                                        client name
+                                    </th>
+                                    <th [attr.role]="null">
+                                        Registered Lobbying
+                                    </th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td [attr.role]="null">
+                                        <a href="javscriot:void(0)">  company</a>
+                                    </td>
+                                    <td [attr.role]="null">
+                                        <a href="javscriot:void(0)">  Amy levin </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td [attr.role]="null">
+                                        <a href="javscriot:void(0)">  company</a>
+                                    </td>
+                                    <td [attr.role]="null">
+                                        <a href="javscriot:void(0)">  Amy levin </a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td [attr.role]="null">
+                                        <a href="javscriot:void(0)">  company</a>
+                                    </td>
+                                    <td [attr.role]="null">
+                                        <a href="javscriot:void(0)">  Amy levin </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="btn-group">
+                            <button mat-button class="mat-basic right" title="{{static_data.publicLayoutButton.archivedLobbyingData}}" attr.aria-label="{{static_data.publicLayoutButton.archivedLobbyingData}}"> {{static_data.publicLayoutButton.archivedLobbyingData}} </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <button mat-button class="mat-basic" title="{{static_data.publicLayoutButton.campaignFinance}}" attr.aria-lable=" {{static_data.publicLayoutButton.campaignFinance}} ">{{static_data.publicLayoutButton.campaignFinance}}</button>
+            <button mat-button class="mat-basic" title="{{static_data.publicLayoutButton.ethicsReport}}" attr.aria-lable="{{static_data.publicLayoutButton.ethicsReport}}">{{static_data.publicLayoutButton.ethicsReport}} </button>
+            <button mat-button class="mat-basic" title="{{static_data.publicLayoutButton.fillingCalendar}}" attr.aria-lable="{{static_data.publicLayoutButton.fillingCalendar}}">{{static_data.publicLayoutButton.fillingCalendar}}</button>
+        </div>
+
+    </div>
+
+</div>
+<!-- *************** All Registered lobbyis page html conversion end here **********************  -->
+
+
+<!-- 0930. Public - Lobbying - All Registered Lobbyists -->
+
+<div class="container public-layoutpage padding-0" style="display: none;">
+    <div class="width-100 client-details ">
+        <h1 class="mar-bot-55 ">
+            {{static_data.public.title}}
+        </h1>
+
+        <div class="chartbox-table ">
+
+            <div class="width-100 mar-bot-20 ">
+                <h1>
+                    {{static_data.public.acmeLobbyingClient}}
+                </h1>
+                <div class="custom-select mar-bot-55 ">
+                    <label>{{static_data.public.reportYear}}</label>
+                    <select attr.aria-label="{{static_data.public.reportYear}}">
+                        <option>2018</option>
+                        <option>2019</option>
+                        <option>2020</option>
+                    </select>
+                </div>
+                <h3 class="mar-bot-20 ">
+                    {{static_data.public.registeredLobbyists}} <span class="material-icons rt-arrow ">
+                            keyboard_arrow_right
+                            </span>
+                </h3>
+                <div class="width-100 box-shadow pad-bot-30 registerblock mar-bot-55 ">
+
+                    <h1>
+                        {{static_data.public.registeredLobbyists}}
+                    </h1>
+                    <ul class="companylist ">
+                        <li>
+                            <a role="button" href="javascript:void(0) ">Company Name 1</a>
+                        </li>
+                        <li>
+                            <a role="button" href="javascript:void(0) ">Company Name 2</a>
+                        </li>
+                        <li>
+                            <a role="button" href="javascript:void(0) ">Company Name 3</a>
+                        </li>
+                        <li>
+                            <a role="button" href="javascript:void(0) ">Company Name 4</a>
+                        </li>
+                        <li>
+                            <a role="button" href="javascript:void(0) ">Company Name 5</a>
+                        </li>
+                        <li>
+                            <a role="button" href="javascript:void(0) ">Company Name 6</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="width-100 ">
+                <h3 class="mar-bot-20 ">
+                    {{static_data.public.lobbyingExpenses}} <span class="material-icons rt-arrow ">keyboard_arrow_right </span>
+                </h3>
+                <div class="chart-table ">
+                    <h3 class="mar-bot-20 ">
+                        {{static_data.public.lobbyingExpenses}}
+                    </h3>
+                    <label class="width-100 mar-bot-10 ">{{static_data.public.fillingPeriod}}</label>
+                    <select class="select-blue mar-bot-30" title="{{static_data.public.fillingPeriod}}" attr.aria-lable="{{static_data.public.fillingPeriod}}">
+                        <option>2020 4th Pre-Election Report </option>
+                        <option>2021 4th Pre-Election Report </option>
+                        <option>2022 4th Pre-Election Report </option>
+                    </select>
+                    <table class="table mar-bot-55 ">
+                        <thead>
+                            <tr>
+                                <th [attr.role]="null">
+                                    Lobbyist Name
+                                </th>
+                                <th [attr.role]="null">
+                                    Name of covered offical
+                                </th>
+                                <th [attr.role]="null">
+                                    Date
+                                </th>
+                                <th [attr.role]="null">
+                                    Official Title
+                                </th>
+                                <th [attr.role]="null">
+                                    Legislative Matter
+                                </th>
+                                <th [attr.role]="null">
+                                    Estimated Dollar Value
+                                </th>
+                                <th [attr.role]="null">
+                                    Client
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td [attr.role]="null">
+                                    Michael Stration
+                                </td>
+                                <td [attr.role]="null">
+                                    Eulois Clark
+                                </td>
+                                <td [attr.role]="null">
+                                    03/14/2020
+                                </td>
+                                <td [attr.role]="null">
+                                    Mayor
+                                </td>
+                                <td [attr.role]="null">
+                                    Telecommunications Policy
+                                </td>
+                                <td [attr.role]="null">
+                                    $0
+                                </td>
+                                <td [attr.role]="null">
+                                    Verizon
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td [attr.role]="null">
+                                    Michael Stration
+                                </td>
+                                <td [attr.role]="null">
+                                    Eulois Clark
+                                </td>
+                                <td [attr.role]="null">
+                                    03/14/2020
+                                </td>
+                                <td [attr.role]="null">
+                                    Mayor
+                                </td>
+                                <td [attr.role]="null">
+                                    Telecommunications Policy
+                                </td>
+                                <td [attr.role]="null">
+                                    $0
+                                </td>
+                                <td [attr.role]="null">
+                                    Verizon
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td [attr.role]="null">
+                                    Michael Stration
+                                </td>
+                                <td [attr.role]="null">
+                                    Eulois Clark
+                                </td>
+                                <td [attr.role]="null">
+                                    03/14/2020
+                                </td>
+                                <td [attr.role]="null">
+                                    Mayor
+                                </td>
+                                <td [attr.role]="null">
+                                    Telecommunications Policy
+                                </td>
+                                <td [attr.role]="null">
+                                    $0
+                                </td>
+                                <td [attr.role]="null">
+                                    Verizon
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td [attr.role]="null">
+                                    Michael Stration
+                                </td>
+                                <td [attr.role]="null">
+                                    Eulois Clark
+                                </td>
+                                <td [attr.role]="null">
+                                    03/14/2020
+                                </td>
+                                <td [attr.role]="null">
+                                    Mayor
+                                </td>
+                                <td [attr.role]="null">
+                                    Telecommunications Policy
+                                </td>
+                                <td [attr.role]="null">
+                                    $0
+                                </td>
+                                <td [attr.role]="null">
+                                    Verizon
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="btn-group ">
+                        <button mat-button class="mat-basic right" title="{{static_data.publicLayoutButton.archivedLobbyingData}}" attr.aria-label="{{static_data.publicLayoutButton.archivedLobbyingData}}"> {{static_data.publicLayoutButton.archivedLobbyingData}} </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- *************** All Registered lobbyis page html conversion end here **********************  -->
+
+
+<!-- ************************** Lobbyist Profile html Page start here *********************************  -->
+<!-- 0940. Public - Lobbying - Registered Lobbyist Details -->
+
+
+<div class="container public-layoutpage padding-0" style="display: none;">
+    <div class="width-100 client-details ">
+        <h1 class="mar-bot-55 ">
+            {{static_data.public.title}}
+        </h1>
+
+        <div class="chartbox-table ">
+
+            <div class="width-100 mar-bot-20 ">
+                <h1>
+                    Acme Lobbying Client
+                </h1>
+                <div class="custom-select mar-bot-55 ">
+                    <label>{{static_data.public.reportYear}}</label>
+                    <select attr.aria-label="{{static_data.public.reportYear}}">
+                        <option>2018</option>
+                        <option>2019</option>
+                        <option>2020</option>
+                    </select>
+                </div>
+                <h3 class="mar-bot-20 ">
+                    {{static_data.public.clients}} <span class="material-icons rt-arrow ">
+                            keyboard_arrow_right
+                            </span>
+                </h3>
+                <div class="width-100 box-shadow pad-bot-30 registerblock mar-bot-55 ">
+                    <h1>
+                        {{static_data.public.clients}}
+                    </h1>
+                    <ul class="companylist ">
+                        <li>
+                            <a role="button" href="javascript:void(0) ">Company Name 1</a>
+                        </li>
+                        <li>
+                            <a role="button" href="javascript:void(0) ">Company Name 2</a>
+                        </li>
+                        <li>
+                            <a role="button" href="javascript:void(0) ">Company Name 3</a>
+                        </li>
+                        <li>
+                            <a role="button" href="javascript:void(0) ">Company Name 4</a>
+                        </li>
+                        <li>
+                            <a role="button" href="javascript:void(0) ">Company Name 5</a>
+                        </li>
+                        <li>
+                            <a role="button" href="javascript:void(0) ">Company Name 6</a>
+                        </li>
+                    </ul>
+                </div>
+                <h3 class="mar-bot-20 ">
+                    {{static_data.public.lobbyistEmployees}} <span class="material-icons rt-arrow ">
+                            keyboard_arrow_right
+                            </span>
+                </h3>
+                <div class="width-100 box-shadow pad-bot-30 registerblock mar-bot-55 ">
+
+                    <h1>
+                        {{static_data.public.lobbyistEmployees}}
+                    </h1>
+                    <ul class="companylist ">
+                        <li>
+                            <a role="button" href="javascript:void(0) ">Sarah Hudson</a>
+                        </li>
+                        <li>
+                            <a role="button" href="javascript:void(0) ">Amnda Fils</a>
+                        </li>
+                        <li>
+                            <a role="button" href="javascript:void(0) ">Sarah Hudson</a>
+                        </li>
+                        <li>
+                            <a role="button" href="javascript:void(0) ">Amnda Fils</a>
+                        </li>
+                        <li>
+                            <a role="button" href="javascript:void(0) ">Sarah Hudson</a>
+                        </li>
+                        <li>
+                            <a role="button" href="javascript:void(0) ">Amnda Fils</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="width-100 mar-bot-55 ">
+                <h3 class="mar-bot-20 ">
+                    {{static_data.public.lobbyingExpenses}} <span class="material-icons rt-arrow ">keyboard_arrow_right </span>
+                </h3>
+                <div class="chart-table ">
+                    <h3 class="mar-bot-20 ">
+                        {{static_data.public.lobbyingExpenses}}
+                    </h3>
+                    <label class="width-100 mar-bot-10 "> {{static_data.public.fillingPeriod}} </label>
+                    <select class="select-blue mar-bot-30" title="{{static_data.public.fillingPeriod}}" attr.aria-label="{{static_data.public.fillingPeriod}}">
+                        <option>2020 4th Pre-Election Report </option>
+                        <option>2021 4th Pre-Election Report </option>
+                        <option>2022 4th Pre-Election Report </option>
+                    </select>
+                    <table class="table mar-bot-55 ">
+                        <thead>
+                            <tr>
+                                <th [attr.role]="null">
+                                    Lobbyist Name
+                                </th>
+                                <th [attr.role]="null">
+                                    Name of covered offical
+                                </th>
+                                <th [attr.role]="null">
+                                    Date
+                                </th>
+                                <th [attr.role]="null">
+                                    Official Title
+                                </th>
+                                <th [attr.role]="null">
+                                    Legislative Matter
+                                </th>
+                                <th [attr.role]="null">
+                                    Estimated Dollar Value
+                                </th>
+                                <th [attr.role]="null">
+                                    Client
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td [attr.role]="null">
+                                    Michael Stration
+                                </td>
+                                <td [attr.role]="null">
+                                    Eulois Clark
+                                </td>
+                                <td [attr.role]="null">
+                                    03/14/2020
+                                </td>
+                                <td [attr.role]="null">
+                                    Mayor
+                                </td>
+                                <td [attr.role]="null">
+                                    Telecommunications Policy
+                                </td>
+                                <td [attr.role]="null">
+                                    $0
+                                </td>
+                                <td [attr.role]="null">
+                                    Verizon
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td [attr.role]="null">
+                                    Michael Stration
+                                </td>
+                                <td [attr.role]="null">
+                                    Eulois Clark
+                                </td>
+                                <td [attr.role]="null">
+                                    03/14/2020
+                                </td>
+                                <td [attr.role]="null">
+                                    Mayor
+                                </td>
+                                <td [attr.role]="null">
+                                    Telecommunications Policy
+                                </td>
+                                <td [attr.role]="null">
+                                    $0
+                                </td>
+                                <td [attr.role]="null">
+                                    Verizon
+                                </td>
+                            </tr>
+                            <tr>
+                                <td [attr.role]="null">
+                                    Michael Stration
+                                </td>
+                                <td [attr.role]="null">
+                                    Eulois Clark
+                                </td>
+                                <td [attr.role]="null">
+                                    03/14/2020
+                                </td>
+                                <td [attr.role]="null">
+                                    Mayor
+                                </td>
+                                <td [attr.role]="null">
+                                    Telecommunications Policy
+                                </td>
+                                <td [attr.role]="null">
+                                    $0
+                                </td>
+                                <td [attr.role]="null">
+                                    Verizon
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td [attr.role]="null">
+                                    Michael Stration
+                                </td>
+                                <td [attr.role]="null">
+                                    Eulois Clark
+                                </td>
+                                <td [attr.role]="null">
+                                    03/14/2020
+                                </td>
+                                <td [attr.role]="null">
+                                    Mayor
+                                </td>
+                                <td [attr.role]="null">
+                                    Telecommunications Policy
+                                </td>
+                                <td [attr.role]="null">
+                                    $0
+                                </td>
+                                <td [attr.role]="null">
+                                    Verizon
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="width-100 mar-bot-55 ">
+                <h3 class="mar-bot-20 ">
+                    Bi-Monthly Reports <span class="material-icons rt-arrow ">keyboard_arrow_right </span>
+                </h3>
+                <div class="chart-table ">
+                    <h3 class="mar-bot-20 ">
+                        Bi-Monthly Reports
+                    </h3>
+
+                    <table class="table mar-bot-55 ">
+                        <thead>
+                            <tr>
+                                <th [attr.role]="null">
+                                    Filling Period
+                                </th>
+                                <th [attr.role]="null">
+                                    Reporting Period
+                                </th>
+                                <th [attr.role]="null">
+                                    AMendment Version
+                                </th>
+                                <th [attr.role]="null">
+                                    Date Submitted
+                                </th>
+
+                                <th [attr.role]="null">
+                                    View
+                                </th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td [attr.role]="null">
+                                    2020 for pre-Election Report
+                                </td>
+                                <td [attr.role]="null">
+                                    Oct-1-oct-31, 2020
+                                </td>
+                                <td [attr.role]="null">
+                                    Amendent
+                                </td>
+                                <td [attr.role]="null">
+                                    11/12/2020 <span class="material-icons rt-arrow ">
+                                        keyboard_arrow_right
+                                        </span>
+                                </td>
+                                <td [attr.role]="null">
+                                    <button class="view-btn" title="{{static_data.publicLayoutButton.View}}" attr.aria-label="{{static_data.publicLayoutButton.View}}"> {{static_data.publicLayoutButton.View}} </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td [attr.role]="null">
+                                    2020 for pre-Election Report
+                                </td>
+                                <td [attr.role]="null">
+                                    Oct-1-oct-31, 2020
+                                </td>
+                                <td [attr.role]="null">
+                                    Amendent
+                                </td>
+                                <td [attr.role]="null">
+                                    11/12/2020 <span class="material-icons rt-arrow ">
+                                        keyboard_arrow_right
+                                        </span>
+                                </td>
+                                <td [attr.role]="null">
+                                    <button class="view-btn" title="{{static_data.publicLayoutButton.View}}" attr.aria-label="{{static_data.publicLayoutButton.View}}"> {{static_data.publicLayoutButton.View}} </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td [attr.role]="null">
+                                    2020 for pre-Election Report
+                                </td>
+                                <td [attr.role]="null">
+                                    Oct-1-oct-31, 2020
+                                </td>
+                                <td [attr.role]="null">
+                                    Amendent
+                                </td>
+                                <td [attr.role]="null">
+                                    11/12/2020 <span class="material-icons rt-arrow ">
+                                        keyboard_arrow_right
+                                        </span>
+                                </td>
+                                <td [attr.role]="null">
+                                    <button class="view-btn" title="{{static_data.publicLayoutButton.View}}" attr.aria-label="{{static_data.publicLayoutButton.View}}"> {{static_data.publicLayoutButton.View}} </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td [attr.role]="null">
+                                    2020 for pre-Election Report
+                                </td>
+                                <td [attr.role]="null">
+                                    Oct-1-oct-31, 2020
+                                </td>
+                                <td [attr.role]="null">
+                                    Amendent
+                                </td>
+                                <td [attr.role]="null">
+                                    11/12/2020 <span class="material-icons rt-arrow ">
+                                        keyboard_arrow_right
+                                        </span>
+                                </td>
+                                <td [attr.role]="null">
+                                    <button class="view-btn" title="{{static_data.publicLayoutButton.View}}" attr.aria-label="{{static_data.publicLayoutButton.View}}"> {{static_data.publicLayoutButton.View}} </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td [attr.role]="null">
+                                    2020 for pre-Election Report
+                                </td>
+                                <td [attr.role]="null">
+                                    Oct-1-oct-31, 2020
+                                </td>
+                                <td [attr.role]="null">
+                                    Amendent
+                                </td>
+                                <td [attr.role]="null">
+                                    11/12/2020 <span class="material-icons rt-arrow ">
+                                        keyboard_arrow_right
+                                        </span>
+                                </td>
+                                <td [attr.role]="null">
+                                    <button class="view-btn" title="{{static_data.publicLayoutButton.View}}" attr.aria-label="{{static_data.publicLayoutButton.View}}"> {{static_data.publicLayoutButton.View}} </button>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="width-100 mar-bot-55 ">
+                <h3 class="mar-bot-20 ">
+                    Penalties <span class="material-icons rt-arrow ">keyboard_arrow_right </span>
+                </h3>
+                <div class="chart-table ">
+                    <h3 class="mar-bot-20 ">
+                        Penalties
+                    </h3>
+
+                    <table class="table mar-bot-55 ">
+                        <thead>
+                            <tr>
+                                <th [attr.role]="null">
+                                    Filling Period
+                                </th>
+                                <th [attr.role]="null">
+                                    Reporting Period
+                                </th>
+                                <th [attr.role]="null">
+                                    AMendment Version
+                                </th>
+                                <th [attr.role]="null">
+                                    Date Submitted
+                                </th>
+
+                                <th [attr.role]="null">
+                                    View
+                                </th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td [attr.role]="null">
+                                    2020 for pre-Election Report
+                                </td>
+                                <td [attr.role]="null">
+                                    Oct-1-oct-31, 2020
+                                </td>
+                                <td [attr.role]="null">
+                                    Amendent
+                                </td>
+                                <td [attr.role]="null">
+                                    11/12/2020
+                                </td>
+                                <td [attr.role]="null">
+                                    <button class="view-btn" title="{{static_data.publicLayoutButton.View}}" attr.aria-label="{{static_data.publicLayoutButton.View}}"> {{static_data.publicLayoutButton.View}} </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td [attr.role]="null">
+                                    2020 for pre-Election Report
+                                </td>
+                                <td [attr.role]="null">
+                                    Oct-1-oct-31, 2020
+                                </td>
+                                <td [attr.role]="null">
+                                    Amendent
+                                </td>
+                                <td [attr.role]="null">
+                                    11/12/2020
+                                </td>
+                                <td [attr.role]="null">
+                                    <button class="view-btn" title="{{static_data.publicLayoutButton.View}}" attr.aria-label="{{static_data.publicLayoutButton.View}}"> {{static_data.publicLayoutButton.View}} </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td [attr.role]="null">
+                                    2020 for pre-Election Report
+                                </td>
+                                <td [attr.role]="null">
+                                    Oct-1-oct-31, 2020
+                                </td>
+                                <td [attr.role]="null">
+                                    Amendent
+                                </td>
+                                <td [attr.role]="null">
+                                    11/12/2020
+                                </td>
+                                <td [attr.role]="null">
+                                    <button class="view-btn" title="{{static_data.publicLayoutButton.View}}" attr.aria-label="{{static_data.publicLayoutButton.View}}"> {{static_data.publicLayoutButton.View}} </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td [attr.role]="null">
+                                    2020 for pre-Election Report
+                                </td>
+                                <td [attr.role]="null">
+                                    Oct-1-oct-31, 2020
+                                </td>
+                                <td [attr.role]="null">
+                                    Amendent
+                                </td>
+                                <td [attr.role]="null">
+                                    11/12/2020
+                                </td>
+                                <td [attr.role]="null">
+                                    <button class="view-btn" title="{{static_data.publicLayoutButton.View}}" attr.aria-label="{{static_data.publicLayoutButton.View}}"> {{static_data.publicLayoutButton.View}} </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td [attr.role]="null">
+                                    2020 for pre-Election Report
+                                </td>
+                                <td [attr.role]="null">
+                                    Oct-1-oct-31, 2020
+                                </td>
+                                <td [attr.role]="null">
+                                    Amendent
+                                </td>
+                                <td [attr.role]="null">
+                                    11/12/2020
+                                </td>
+                                <td [attr.role]="null">
+                                    <button class="view-btn" title="{{static_data.publicLayoutButton.View}}" attr.aria-label="{{static_data.publicLayoutButton.View}}"> {{static_data.publicLayoutButton.View}} </button>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="btn-group ">
+                <button mat-button class="mat-basic right" title="{{static_data.publicLayoutButton.archivedLobbyingData}}" attr.aria-label="{{static_data.publicLayoutButton.archivedLobbyingData}}"> {{static_data.publicLayoutButton.archivedLobbyingData}} </button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<!-- ************************** Lobbyist Profile html Page end here *********************************  -->
+
+
+
+<!-- 0950. Public - Lobbying - Lobbying Bi Monthly Financial Report page html conversion start here -->
+
+
+<div class="container public-layoutpage padding-0 " style="display: none;">
+    <div class="width-100 report-details ">
+        <h1 class="dark-blue mar-bot-15 pad-lt-30 ">
+            {{static_data.public.jonRiosforCityCouncil}}
+        </h1>
+        <h1 class="mar-bot-55 pad-lt-30 ">
+            {{static_data.public.lobbyingBiMonthlyReport}}
+        </h1>
+
+        <div class="Filling-info mar-bot-55 pad-lt-30 ">
+            <div class="form-table ">
+                <table class="table ">
+                    <tr>
+                        <td class="blue-txt" [attr.role]="null">
+                            Name of submitter
+                        </td>
+                        <td [attr.role]="null">
+                            Michael Stratton
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="blue-txt " [attr.role]="null">
+                            Name of submitter
+                        </td>
+                        <td [attr.role]="null">
+                            Michael Stratton
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="blue-txt " [attr.role]="null">
+                            Name of submitter
+                        </td>
+                        <td [attr.role]="null">
+                            Michael Stratton
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="blue-txt " [attr.role]="null">
+                            Name of submitter
+                        </td>
+                        <td [attr.role]="null">
+                            Michael Stratton
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="blue-txt " [attr.role]="null">
+                            Name of submitter
+                        </td>
+                        <td [attr.role]="null">
+                            Michael Stratton
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="chartbox-table bor-0 ">
+            <div class="width-100 ">
+                <div class="chart-select pad-lt-30 ">
+                    <label class="mar-bot-10 blue-txt ">{{static_data.public.fillingPeriod}}</label>
+                    <select attr.aria-label="{{static_data.public.fillingPeriod}}">
+                        <option>First Filling Period</option>
+                        <option>First Filling Period</option>
+                        <option>First Filling Period</option>
+                    </select>
+                </div>
+                <p class="width-100 blue-txt mar-bot-20 pad-lt-30 ">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                </p>
+                <div class="chart-table non-shadow ">
+                    <table class="table mar-bot-55 ">
+                        <thead>
+                            <tr>
+                                <th [attr.role]="null">
+                                    Lobbyist Name
+                                </th>
+                                <th [attr.role]="null">
+                                    Name of covered offical
+                                </th>
+                                <th [attr.role]="null">
+                                    Date
+                                </th>
+                                <th [attr.role]="null">
+                                    Official Title
+                                </th>
+                                <th [attr.role]="null">
+                                    Legislative Matter
+                                </th>
+                                <th [attr.role]="null">
+                                    Estimated Dollar Value
+                                </th>
+                                <th [attr.role]="null">
+                                    Client
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td [attr.role]="null">
+                                    Michael Stration
+                                </td>
+                                <td [attr.role]="null">
+                                    Eulois Clark
+                                </td>
+                                <td [attr.role]="null">
+                                    03/14/2020
+                                </td>
+                                <td [attr.role]="null">
+                                    Mayor
+                                </td>
+                                <td [attr.role]="null">
+                                    Telecommunications Policy
+                                </td>
+                                <td [attr.role]="null">
+                                    $0
+                                </td>
+                                <td [attr.role]="null">
+                                    Verizon
+                                </td>
+                            </tr>
+                            <tr>
+                                <td [attr.role]="null">
+                                    Michael Stration
+                                </td>
+                                <td [attr.role]="null">
+                                    Eulois Clark
+                                </td>
+                                <td [attr.role]="null">
+                                    03/14/2020
+                                </td>
+                                <td [attr.role]="null">
+                                    Mayor
+                                </td>
+                                <td [attr.role]="null">
+                                    Telecommunications Policy
+                                </td>
+                                <td [attr.role]="null">
+                                    $0
+                                </td>
+                                <td [attr.role]="null">
+                                    Verizon
+                                </td>
+                            </tr>
+                            <tr>
+                                <td [attr.role]="null">
+                                    Michael Stration
+                                </td>
+                                <td [attr.role]="null">
+                                    Eulois Clark
+                                </td>
+                                <td [attr.role]="null">
+                                    03/14/2020
+                                </td>
+                                <td [attr.role]="null">
+                                    Mayor
+                                </td>
+                                <td [attr.role]="null">
+                                    Telecommunications Policy
+                                </td>
+                                <td [attr.role]="null">
+                                    $0
+                                </td>
+                                <td [attr.role]="null">
+                                    Verizon
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="width-100 ">
+                    <section class="example-section pad-lt-30 ">
+                        <mat-checkbox class="example-margin ">Lorem ipsum dolor sit amet, consectetur adipiscing elit</mat-checkbox>
+                        <mat-checkbox class="example-margin ">Lorem ipsum dolor sit amet, consectetur adipiscing elit</mat-checkbox>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- 0950. Public - Lobbying - Lobbying Bi Monthly Financial Report page html conversion end here -->

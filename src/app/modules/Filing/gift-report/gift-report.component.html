@@ -1,0 +1,368 @@
+<div class="giftreport">
+    <div class="head">
+        <span class="title"> Gift Report</span>
+    </div>
+    <span class="out-class">Outstanding Fees</span><br>
+
+    <div class="navigatepadding">
+        <div>
+            <span class="fontcolorblck"> {{static_data.giftreport.filingperiod}} </span>
+            <span class="value"> 20/05/21 </span>
+            <hr>
+        </div>
+        <div>
+            <span class="fontcolorblck"> {{static_data.giftreport.areyou}} </span>
+            <span class="value"> Elected </span>
+            <hr>
+        </div>
+        <div>
+            <span class="fontcolorblck"> {{static_data.giftreport.youwereelected}} </span>
+            <span class="value"> City Councilmember </span>
+            <hr>
+        </div>
+        <div>
+            <span class="fontcolorblck">
+                {{static_data.giftreport.firstname}} </span>
+            <span class="value"> Jaime </span>
+            <hr>
+        </div>
+        <div>
+            <span class="fontcolorblck">
+                {{static_data.giftreport.lastname}} </span>
+            <span class="value"> Torres </span>
+            <hr>
+        </div>
+        <div>
+            <span class="fontcolorblck">
+                {{static_data.giftreport.bsnadd1}} </span>
+            <span class="value"> 1437, Buisiness </span>
+            <hr>
+        </div>
+        <div>
+            <span class="fontcolorblck"> {{static_data.giftreport.bsnadd2}} </span>
+            <span class="value">Test nom</span>
+            <hr>
+        </div>
+        <div>
+            <span class="fontcolorblck">
+                {{static_data.giftreport.city}} </span>
+            <span class="value">Denver</span>
+            <hr>
+        </div>
+        <div>
+            <span class="fontcolorblck">
+                {{static_data.giftreport.state}} </span>
+            <span class="value">Co</span>
+            <hr>
+        </div>
+
+        <div>
+            <span class="fontcolorblck">
+                {{static_data.giftreport.bsnphn}} </span>
+            <span class="value"> 4545246464</span>
+            <hr>
+        </div>
+
+        <div>
+            <span class="fontcolorblck">
+                {{static_data.giftreport.bsnmail}} </span>
+            <span class="value"> jiji@yopmail.com </span>
+            <hr>
+        </div>
+
+
+    </div>
+
+    <div class="list-report">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="dategiftreceived">
+                <th mat-header-cell *matHeaderCellDef> Date Gift Received </th>
+                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="donororg">
+                <th mat-header-cell *matHeaderCellDef> Donor's Organization </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="orgtype">
+                <th mat-header-cell *matHeaderCellDef> Organization Type </th>
+                <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="donorname">
+                <th mat-header-cell *matHeaderCellDef> Donor Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="donorcity">
+                <th mat-header-cell *matHeaderCellDef> Donor City </th>
+                <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+            </ng-container>
+            <ng-container matColumnDef="donorstate">
+                <th mat-header-cell *matHeaderCellDef> Donor State </th>
+                <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+            </ng-container>
+            <ng-container matColumnDef="giftdesc">
+                <th mat-header-cell *matHeaderCellDef> Gift Description </th>
+                <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+    </div>
+    <div class="addgiftform">
+        <span class="out-class">New Gift</span><br>
+        <div style="display: flex; margin-top: 5px">
+            <div class="formleft" style="width: 50%">
+                <form class="add_gift_form" id="create-info" autocomplete="off" [formGroup]="addgiftform">
+                    <div>
+                        <mat-label class="width-20">Date Gift Received</mat-label> <br>
+                        <mat-form-field appearance="fill" appearance="fill" class="create-full-width"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">Date Gift Received
+                            </mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                                id="department" maxlength="80" formControlName="dategiftreceived" keyPrevent
+                                [AlphaSpace]="true">
+                            <mat-error class="error">
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-label class="width-20">Donor's Organization</mat-label> <br>
+                        <mat-form-field appearance="fill" appearance="fill" class="create-full-width"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">Donor's Organization</mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                                id="type" maxlength="150" formControlName="donororg" keyPrevent [mailAddress]="true">
+                            <mat-error class="error">
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-label class="width-20">Organization Type</mat-label> <br>
+                        <mat-form-field appearance="fill" class="create-full-width"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">Organization Type
+                            </mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                                id="app_authority" maxlength="150" formControlName="orgtype">
+                            <mat-error class="error">
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-label class="width-20">Donor Name</mat-label> <br>
+                        <mat-form-field appearance="fill" class="create-full-width"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">Donor Name
+                            </mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                                id="prsl_email" formControlName="donorname" keyPrevent [AlphaSpace]="true">
+                            <mat-error class="error">
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-label class="width-20">Donor City
+                        </mat-label> <br>
+                        <mat-form-field appearance="fill" class="create-full-width"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">Donor City</mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                                id="user" maxlength="10" minlength="2" formControlName="donorcity" keyPrevent>
+                            <mat-error class="error">
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-label class="width-20">Donor State</mat-label> <br>
+
+                        <mat-form-field appearance="fill" class="create-full-width"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">Donor State
+                            </mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                                id="comments" maxlength="150" formControlName="donorstate">
+                            <mat-error class="error">
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </form>
+            </div>
+            <div class="formright" style="width: 50%">
+                <form class="add_gift_form" id="create-info" autocomplete="off" [formGroup]="addgiftform">
+                    <div>
+                        <mat-label class="width-20">Gift Description</mat-label> <br>
+                        <mat-form-field appearance="fill" appearance="fill" class="create-full-width"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">Gift Description
+                            </mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                                id="department" maxlength="80" formControlName="giftdescription" keyPrevent
+                                [AlphaSpace]="true">
+                            <mat-error class="error">
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-label class="width-20">Estimated Value</mat-label> <br>
+                        <mat-form-field appearance="fill" appearance="fill" class="create-full-width"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">Estimated Value</mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                                id="type" maxlength="150" formControlName="estimatedvalue" keyPrevent
+                                [mailAddress]="true">
+                            <mat-error class="error">
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-label class="width-20">Remibursement</mat-label> <br>
+                        <mat-form-field appearance="fill" class="create-full-width"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">Remibursement
+                            </mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                                id="app_authority" maxlength="150" formControlName="remibursement">
+                            <mat-error class="error">
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-label class="width-20">Who was Remibursed?</mat-label> <br>
+                        <mat-form-field appearance="fill" class="create-full-width"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">Who was Remibursed?
+                            </mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                                id="prsl_email" formControlName="whowasreim" keyPrevent [AlphaSpace]="true">
+                            <mat-error class="error">
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-label class="width-20">Amount
+                        </mat-label> <br>
+                        <mat-form-field appearance="fill" class="create-full-width"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">Amount</mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                                id="user" maxlength="10" minlength="2" formControlName="amount" keyPrevent>
+                            <mat-error class="error">
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-label class="width-20">Gift Type</mat-label> <br>
+
+                        <mat-form-field appearance="fill" class="create-full-width"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">Gift Type
+                            </mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                                id="comments" maxlength="150" formControlName="giftype">
+                            <mat-error class="error">
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <button type="submit" class="replybtn" id="addbtn">Add</button>
+        <button type="submit" class="cancelbtn" id="addbtn">Cancel</button>
+
+    </div>
+    <div style="margin-bottom: 30px;">
+        <mat-checkbox>{{static_data.filer.refund}}</mat-checkbox> <span> I did not receive more than $300(combined
+            total) in meals, tickets or free or reduced-priced admissions from the same for-profit pursuant to D.R.M.C &
+            2-50(b)</span> <br>
+        <div style="margin-top: 50px">
+            <mat-checkbox>{{static_data.filer.refund}}</mat-checkbox> <span> Was this statement prepared for you by
+                another person?</span> <br> <br>
+            <span> If Yes, who prepared this statement for you? </span>
+            <div>
+                <form class="add_gift_form" id="create-info" autocomplete="off" [formGroup]="sttmtname">
+                    <mat-form-field appearance="fill" appearance="fill" class="create-full-width" style="width: 35%"
+                        [hideRequiredMarker]='hideRequiredMarker'>
+                        <!-- <mat-label class="width-20" class="visuallyhidden">Gift Description
+            </mat-label> -->
+                        <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                            id="department" maxlength="80" formControlName="statmentprepname" keyPrevent
+                            [AlphaSpace]="true">
+                        <mat-error class="error">
+                        </mat-error>
+                    </mat-form-field>
+                </form>
+            </div>
+        </div>
+        <mat-checkbox>{{static_data.filer.refund}}</mat-checkbox> <span>Your cover letter is where you can show your passion for the position and the company, and highlight your most relevant qualifications. </span>
+
+        <div>
+                <form class="add_gift_form" id="create-info" autocomplete="off" [formGroup]="enddetails">
+                        <mat-form-field appearance="fill" appearance="fill" class="create-full-width" style="width: 35%"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <!-- <mat-label class="width-20" class="visuallyhidden">Gift Description
+                </mat-label> -->
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                                id="department" maxlength="80" formControlName="firstname" keyPrevent
+                                [AlphaSpace]="true">
+                            <mat-error class="error">
+                            </mat-error>
+                        </mat-form-field> <br>
+                        <mat-form-field appearance="fill" appearance="fill" class="create-full-width" style="width: 35%"
+                        [hideRequiredMarker]='hideRequiredMarker'>
+                        <!-- <mat-label class="width-20" class="visuallyhidden">Gift Description
+            </mat-label> -->
+                        <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                            id="department" maxlength="80" formControlName="lastname" keyPrevent
+                            [AlphaSpace]="true">
+                        <mat-error class="error">
+                        </mat-error>
+                    </mat-form-field> <br>
+                    <mat-form-field appearance="fill" appearance="fill" class="create-full-width" style="width: 35%"
+                    [hideRequiredMarker]='hideRequiredMarker'>
+                    <!-- <mat-label class="width-20" class="visuallyhidden">Gift Description
+        </mat-label> -->
+                    <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                        id="department" maxlength="80" formControlName="email" keyPrevent
+                        [AlphaSpace]="true">
+                    <mat-error class="error">
+                    </mat-error>
+                </mat-form-field>
+                    </form>
+        </div>
+
+        <div    >
+    <div class="wrapper"  style="border: 1px solid #0f0f0f;border-style: dotted; margin-bottom: 30px">
+<div>
+        <canvas id="signature-pad" class="signature-pad"></canvas>
+</div>
+
+<div class="low">
+        <button mat-button  color="primary"  style="color: #005596;" (click)="clear()"><span class="material-icons">
+                clear
+                </span></button> <hr>
+                <div class="sig">
+                    <span class="btn-sign-draw">Draw Signature</span>
+                </div>
+</div>
+        
+
+    </div>
+    <span style="color: #7a7575">Signed at: January 21, 2021 2:23pm America/Denver</span>
+    <div style="margin-bottom: 30px">
+            <button type="submit" class="savebtn" id="save">Save</button>
+            <button type="submit" class="submitbtn" id="submit">Submit</button>
+    </div>
+
+        </div>
+
+    </div>
+
+</div>

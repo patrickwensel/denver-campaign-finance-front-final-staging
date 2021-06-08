@@ -1,0 +1,61 @@
+<table
+  mat-table
+  [dataSource]="dataSource"
+  multiTemplateDataRows
+>
+
+<ng-container matColumnDef="companyName">
+  <th mat-header-cell *matHeaderCellDef>Company Name</th>
+  <td mat-cell *matCellDef="let element">{{element.organisationName}}</td>
+</ng-container>
+
+   <ng-container matColumnDef="type">
+    <th mat-header-cell *matHeaderCellDef>Type</th>
+    <td mat-cell *matCellDef="let element">{{element.userType}}</td>
+  </ng-container>
+
+   <ng-container matColumnDef="business">
+    <th mat-header-cell *matHeaderCellDef>Nature of Business</th>
+    <td mat-cell *matCellDef="let element">{{ element.natureOfBusiness }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="legislativeMatters">
+    <th mat-header-cell *matHeaderCellDef>Legislative Matters</th>
+    <td mat-cell *matCellDef="let element">{{ element.lMatters }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="address1">
+    <th mat-header-cell *matHeaderCellDef>Address 1</th>
+    <td mat-cell *matCellDef="let element">{{ element.cAddress1 }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="address2">
+    <th mat-header-cell *matHeaderCellDef>Address 2</th>
+    <td mat-cell *matCellDef="let element">{{ element.cAddress2 }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="city">
+    <th mat-header-cell *matHeaderCellDef>City</th>
+    <td mat-cell *matCellDef="let element">{{ element.ccity }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="state">
+    <th mat-header-cell *matHeaderCellDef>State</th>
+    <td mat-cell *matCellDef="let element">{{ element.cstate }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="zip">
+    <th mat-header-cell *matHeaderCellDef>Zip Code</th>
+    <td mat-cell *matCellDef="let element">{{ element.czip }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="clientgrid"></tr>
+  <tr mat-row *matRowDef="let row; columns: clientgrid"></tr>
+
+
+  <!-- <tr mat-header-row *matHeaderRowDef="clientgrid"></tr>
+  <tr mat-row *matRowDef="let row; columns: clientgrid"></tr> -->
+
+
+
+</table>

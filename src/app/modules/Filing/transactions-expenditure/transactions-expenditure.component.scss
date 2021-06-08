@@ -1,0 +1,127 @@
+.name {
+    font-size: 30px;
+    width: 85%;
+    top: 1%;
+    color: #0b365f;
+    font-weight: 500;
+    padding-left: 20px;
+}
+
+.tabhead {
+    font-size: 25px;
+}
+
+.title {
+    color: #0f5597;
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    padding-left: 20px;
+}
+
+.tab-width {
+    width: 100%;
+}
+
+.create-form {
+    width: 100%;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 14px !important;
+}
+
+.mat-error {
+    font-size: 12px !important;
+}
+
+.width-40 {
+    width: 45%;
+    display: inline-block;
+}
+
+.width-50 {
+    width: 50%;
+    display: inline-block;
+}
+
+.width-20 {
+    width: 30%;
+    padding-top: 11px;
+    margin-right: 13px;
+    text-align: right;
+}
+
+.create-full-width {
+    width: 70%;
+}
+
+.btn-search {
+    width: 100px;
+    height: 34px;
+    margin-right: -10px;
+    border-radius: 0px;
+}
+
+.mat-icon {
+    top: 7px;
+    position: relative;
+    right: 4px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.help-icon {
+    top: -5px;
+    position: relative;
+    cursor: pointer;
+    color: gray;
+    font-size: 21px;
+}
+
+::ng-deep .mat-form-field-flex {
+    background-color: transparent;
+}
+
+.btn-cancel-alg {
+    float: right;
+}
+
+.btn-mar-back {
+    margin-left: -15px;
+}
+
+.mat-warn {
+    color: orange;
+    font-weight: 400;
+}
+
+.bottom-btns {
+    left: 20px;
+    right: 20px;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+// overwrite the checkbox background
+::ng-deep .mat-checkbox-checked .mat-checkbox-background,
+.mat-checkbox-indeterminate .mat-checkbox-background {
+    background-color: #005691 !important;
+}
+
+// overwrite the ripple overlay on hover and click
+::ng-deep .mat-checkbox:not(.mat-checkbox-disabled) .mat-checkbox-ripple .mat-ripple-element {
+    background-color: #005691 !important;
+}
+
+.uploadclss {
+    color: #073d6e;
+    float: left;
+    border: 2px solid rgb(15 85 151);
+    padding: 9px 9px;
+    font-weight: 600;
+    background: transparent;
+}

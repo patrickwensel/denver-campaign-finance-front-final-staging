@@ -1,0 +1,255 @@
+.head {
+  color: #0f5597;
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 30px;
+  // padding-left: 20px;
+}
+
+.finelist {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+.initialcost {
+  color: #063461;
+  font-weight: 400;
+  line-height: 1.6;
+}
+.out-class {
+  font-size: 20px;
+}
+.sum-detail {
+  font-size: 17px;
+}
+
+.forms {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6%;
+}
+.transaction {
+  width: 43%;
+}
+.penalty {
+  width: 45%;
+}
+
+//form
+
+.create-full-width {
+  width: 80%;
+}
+
+h3 {
+  color: #063461;
+  font-size: 20px;
+}
+
+mat-label {
+  /* color: #005596; */
+  width: 30%;
+  margin-right: 20px;
+}
+
+.sidelabel {
+  width: 20%;
+}
+
+.create-full-width-side {
+  width: 70%;
+}
+
+.flex {
+  display: flex;
+  justify-content: normal;
+  text-align: right;
+}
+
+.btmcontent {
+  display: flex;
+}
+
+.uploadclss {
+  color: #073d6e;
+  // float: left;
+  // margin-left: 44%;
+  border: 2px solid rgb(15 85 151);
+  padding: 7px 14px;
+  font-weight: 500;
+  background: white;
+}
+
+.select_attch {
+  color: #073d6e;
+  // float: left;
+  margin-left: 39%;
+  border: 2px solid rgb(15 85 151);
+  padding: 7px 14px;
+  font-weight: 500;
+  background: white;
+}
+
+.replybtn {
+  background: #0f5597;
+  color: white;
+  border: 2px solid rgb(15 85 151);
+  padding: 6px 25px;
+  font-weight: 500;
+  margin-left: 26%;
+}
+
+.addbtn {
+  background: #0f5597;
+  color: white;
+  border: 2px solid rgb(15 85 151);
+  padding: 6px 25px;
+  font-weight: 500;
+  margin-left: 19%;
+}
+
+
+.forms {
+  margin-bottom: 4%;
+}
+// table 
+.hide {
+  display: none;
+}
+
+::ng-deep.mat-tab-label.mat-tab-label-active:not(.mat-tab-disabled),
+::ng-deep.mat-tab-label.mat-tab-label-active.cdk-keyboard-focused:not(.mat-tab-disabled) {
+  font-weight: 700;
+  color: rgb(15 85 151);
+  opacity: 1;
+}
+
+tr.mat-row, tr.mat-footer-row {
+  height: 55px;
+}
+th {
+   width: 10%
+}
+
+.mat-form-field {
+  margin-right: 12px;
+}
+
+.list-view-table {
+  padding-bottom: 80px;
+  th.mat-header-cell {
+    background: #f9f9f9;
+  }
+  tr.mat-header-row {
+    height: 40px;
+  }
+}
+
+table {
+  box-shadow: none
+}
+
+.inpbtn {
+  background: rgb(15 85 151);
+  padding: 5px 15px;
+  color: #ffffff;
+  border: white;
+  opacity: 1;
+  border-radius: 1px;
+  font-weight: 500;
+}
+
+.material-icons {
+color: rgb(15 85 151);
+font-size: 18px;
+}
+.lobbyhead {
+    width: 100%;
+}
+.heading {
+  font-size: 15px;
+  color: #5d5555;
+}
+
+//ballot issue try
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.btn-cancel-alg {
+  float: right;
+}
+
+.container {
+  float: left;
+  width: 100%;
+}
+
+
+.categories_item {
+  flex: 15% 0;                /* NEW */
+}
+
+
+
+.mar-height {
+  // margin-top: -15px;
+}
+
+.toggle-font-weght {
+  font-weight: 500;
+  // color: #000000;
+}
+
+.left-35{
+  position:relative;
+  // left:150px;
+  left: 33px;
+}
+.left-20{
+  position: relative;
+  left: 25px;
+}
+
+.secondelement {
+  padding-left: 86px;
+}
+.thrdelement {
+  padding-left: 139px;
+
+}
+
+.mat-column-dropdwn {
+  width: 2% !important;
+}
+
+
+.categories {
+  display: flex;
+  justify-content: end;
+  flex-wrap: wrap;                /* NEW */
+} 
+
+
+.statusinner {
+  position: relative;
+  left: 192px;
+}
+
+mat-icon {
+  cursor: pointer;
+}
+
+.activelogpg {
+  text-align: center;
+  font-size: 19px;
+  padding-top: 3%;
+}
+
+
+.expheading {
+  color: #5d5555;
+}

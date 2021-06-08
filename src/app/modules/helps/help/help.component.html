@@ -1,0 +1,162 @@
+<div class="container">
+    <div class="matform-Container">
+        <div>
+            <div>
+                <h2 class="name">{{name}}</h2>
+            </div>
+
+            <h2 class="tabhead title">{{static_data.help.header_title?.need_help}}</h2>
+        </div>
+    </div>
+
+    <div class="container">
+        <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="">
+            <div fxFlex="100" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="90" fxFlex.sm="90">
+                <div fxLayout="row">
+                    <span class="sub-head-cls">{{static_data.help.header_title?.faq}}</span>
+                </div>
+
+                <div fxLayout="row">
+                    <p class="pragrph-cls">Lorem ipsum dolor sit amet, ullum viris id sea, sed et corpora ullamcorper.
+                        Copiosae sententiae sadipscing vim ei, quod falli evertitur mel ut. Est no enim discere
+                        dissentias, ut posse possit placerat est. Ut quo elit antiopam, sed id enim volumus, vix possim
+                        apeirian principes an. Est cu quas civibus apeirian.</p>
+                </div>
+            </div>
+            <div fxFlex="100" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="90" fxFlex.sm="90">
+                <div fxLayout="row">
+                    <span class="sub-head-cls">{{static_data.help.header_title?.law_rule}}</span>
+                </div>
+
+                <div fxLayout="row">
+                    <p class="pragrph-cls"> Lorem ipsum dolor sit amet, ullum viris id sea, sed et corpora ullamcorper.
+                        Copiosae sententiae sadipscing vim ei, quod falli evertitur mel ut. Est no enim discere
+                        dissentias, ut posse possit placerat est. Ut quo elit antiopam, sed id enim volumus, vix possim
+                        apeirian principes an. Est cu quas civibus apeirian.</p>
+                </div>
+            </div>
+            <div fxFlex="100" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="90" fxFlex.sm="90">
+                <div fxLayout="row">
+                    <span class="sub-head-cls">{{static_data.help.header_title.user_manual}}</span>
+                </div>
+
+                <div fxLayout="row">
+                    <p class="pragrph-cls"> Lorem ipsum dolor sit amet, ullum viris id sea, sed et corpora ullamcorper.
+                        Copiosae sententiae sadipscing vim ei, quod falli evertitur mel ut. Est no enim discere
+                        dissentias, ut posse possit placerat est. Ut quo elit antiopam, sed id enim volumus, vix possim
+                        apeirian principes an. Est cu quas civibus apeirian.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Part two -->
+    <div class="container">
+        <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="">
+            <div fxFlex="30" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="30" fxFlex.sm="90">
+                <div fxLayout="row">
+                    <span class="sub-head-cls">{{static_data.help.header_title.contact_us}}</span>
+                </div>
+
+                <div fxLayout="row">
+                    <p class="pragrph-cls">Lorem ipsum dolor sit amet, ullum viris id sea, sed et corpora ullamcorper.
+                        Copiosae sententiae sadipscing vim ei, quod falli evertitur mel ut. Est no enim discere
+                        dissentias, ut posse possit placerat est. Ut quo elit antiopam, sed id enim volumus, vix possim
+                        apeirian principes an. Est cu quas civibus apeirian.</p>
+                </div>
+            </div>
+            <div fxFlex="90" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="10" fxFlex.sm="90"></div>
+            <div fxFlex="90" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="55" fxFlex.sm="90">
+                <div class="account-inner-view">
+                    <form class="create-form" id="create-info" autocomplete="off" [formGroup]="contactInformationForm">
+                        <mat-label for="fullName" class="width-20">{{static_data.help.formLables.full_name}}</mat-label>
+                        <br>
+                        <mat-form-field appearance="fill" appearance="fill" class="create-full-width frm-min-width"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label for="fullName" class="width-20" class="visuallyhidden">
+                                {{static_data.help.formLables.full_name}}</mat-label>
+                            <input attr.aria-label="{{static_data.help.formLables.full_name}}" matInput type="text"
+                                autocomplete="off" autofocus form-fields placeholder="" id="fullName"
+                                formControlName="fullName" keyPrevent [AlphaSpace]="true" maxlength="80">
+                            <!-- <mat-error class="error">
+                          {{errorService.checkErrorMessage(contactInformationForm.get('committeeName'), 'committeeName')}}
+                        </mat-error> -->
+                        </mat-form-field>
+                        <mat-label for="email" class="width-20">{{static_data.help.formLables.email_address}}
+                        </mat-label>
+                        <br>
+                        <mat-form-field appearance="fill" appearance="fill" class="create-full-width frm-min-width"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label for="email" class="width-20" class="visuallyhidden">
+                                {{static_data.help.formLables.email_address}}</mat-label>
+                            <input f attr.aria-label="{{static_data.help.formLables.email_address}}" matInput
+                                type="text" autocomplete="off" form-fields placeholder="" id="email"
+                                formControlName="email" maxlength="150">
+                            <!-- <mat-error class="error">
+                          {{errorService.checkErrorMessage(contactInformationForm.get('committeeName'), 'committeeName')}}
+                        </mat-error> -->
+                        </mat-form-field>
+                        <mat-label for="committeeName" class="width-20">
+                            {{static_data.committee_registration.committee_info.committee_name}}</mat-label>
+                        <br>
+                        <mat-form-field appearance="fill" appearance="fill" class="create-full-width frm-min-width"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label for="committeeName" class="width-20" class="visuallyhidden">
+                                {{static_data.committee_registration.committee_info.committee_name}}</mat-label>
+                            <input
+                                attr.aria-label="{{static_data.committee_registration.committee_info.committee_name}}"
+                                matInput type="text" autocomplete="off" form-fields placeholder="" id="committeeName"
+                                formControlName="committeeName" keyPrevent [AlphaSpace]="true" maxlength="80">
+                            <!-- <mat-error class="error">
+                          {{errorService.checkErrorMessage(contactInformationForm.get('committeeName'), 'committeeName')}}
+                        </mat-error> -->
+                        </mat-form-field>
+                        <mat-label for="issue_category" class="width-20">{{static_data.help.formLables.issue_category}}
+                        </mat-label>
+                        <br>
+                        <mat-form-field appearance="fill" appearance="fill" class="create-full-width  frm-min-width"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label for="issue_category" class="width-20" class="visuallyhidden">
+                                {{static_data.help.formLables.issue_category}}</mat-label>
+                            <mat-select id="issue_category"
+                                attr.aria-label="{{static_data.help.formLables.issue_category}}"
+                                formControlName="issueCategory">
+                                <mat-option> issue_category 1</mat-option>
+                            </mat-select>
+                            <!-- <mat-error class="error">
+                          {{errorService.checkErrorMessage(contactInformationForm.get('committeeType'), 'committeeType')}}
+                        </mat-error> -->
+                        </mat-form-field>
+                        <mat-label for="subject" class="width-20">{{static_data.help.formLables.subject}}</mat-label>
+                        <br>
+                        <mat-form-field appearance="fill" appearance="fill" class="create-full-width frm-min-width"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label for="subject" class="width-20" class="visuallyhidden">
+                                {{static_data.help.formLables.subject}}</mat-label>
+                            <input attr.aria-label="{{static_data.help.formLables.subject}}" matInput type="text"
+                                autocomplete="off" form-fields placeholder="" id="subject" formControlName="subject"
+                                maxlength="150">
+
+                        </mat-form-field>
+
+                        <mat-label for="message" class="width-20">{{static_data.help.formLables.message}}</mat-label>
+                        <br>
+                        <mat-form-field appearance="fill" appearance="fill" class="create-full-width frm-min-width"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label for="message" class="width-20" class="visuallyhidden">
+                                {{static_data.help.formLables.message}}</mat-label>
+                            <textarea formControlName="message"
+                                attr.aria-label="{{static_data.help.formLables.message}}" matInput type="text"
+                                autocomplete="off" form-fields placeholder="" id="message" keyPrevent
+                                [AlphaSpace]="true" rows="5"></textarea>
+
+                        </mat-form-field>
+                        <div style="float: right;">
+                            <button id="addInfo" title="send the details" type="button" mat-flat-button color="primary"
+                                (click)="send()" class="nrmlfillbtn">{{static_data?.button?.send}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

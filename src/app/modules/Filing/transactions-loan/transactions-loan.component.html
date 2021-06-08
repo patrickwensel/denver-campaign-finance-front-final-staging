@@ -1,0 +1,395 @@
+<form class="create-form" id="create-info" autocomplete="off" [formGroup]="loan">
+    <div class="flex">
+        <div class="width-40">
+            <div class="flex">
+                <mat-label class="width-20">{{static_data?.filer?.lender}}
+                    <mat-icon class="help-icon" matsuffix>help</mat-icon>
+                </mat-label>
+                <mat-form-field class="create-full-width" floatLabel="never">
+                    <mat-label>Search</mat-label>
+                    <input #myInput attr.aria-label="Search" type="text" matInput formControlName="SearchEvent" name="SearchControl" [matAutocomplete]="auto" id="search-popular" (keyup)="this.txtQueryChanged.next(loan.value.SearchEvent)">
+                    <mat-icon matPrefix>search</mat-icon>
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <div>
+                            <mat-option *ngFor="let type of searchPayeeType" [value]="type.fullname" (click)="getContactDetailsById(type.contactId)">
+                                {{type.fullname}}
+                            </mat-option>
+                            <mat-option *ngIf="!searchPayeeType?.length">
+                                {{data.notFound.notfound}}
+                            </mat-option>
+                        </div>
+                    </mat-autocomplete>
+                    <button type="button" attr.aria-label="Search" class="btn-search" mat-flat-button color="primary" matSuffix>
+                              SEARCH
+                          </button>
+                </mat-form-field>
+            </div>
+            <div class="flex">
+                <mat-label class="width-20">{{static_data?.filer?.lenderType}}</mat-label>
+                <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-label class="width-20" class="visuallyhidden">{{static_data?.filer?.lenderType}}
+                    </mat-label>
+                    <mat-select formControlName="lenderType" required>
+                        <mat-option *ngFor="let lender of lenderTypes" [value]="lender.lookUpTypeId" (click)="changeContributor(lender)">
+                            {{lender.lookUpName}}
+                        </mat-option>
+
+                    </mat-select>
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(loan.get('lenderType'), 'lenderType')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="flex" *ngIf="conType == 'CON-I'">
+                <mat-label class="width-20">{{static_data?.create_account?.contact_info?.first_name}}
+                </mat-label>
+                <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-label class="width-20" class="visuallyhidden">
+                        {{static_data?.create_account?.contact_info.first_name}}
+                    </mat-label>
+                    <input formControlName="firstName" matInput type="text" autocomplete="off" autofocus form-fields id="available" keyPrevent required>
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(loan.get('firstName'), 'firstName')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="flex" *ngIf="conType == 'CON-I'">
+                <mat-label class="width-20">{{static_data?.create_account?.contact_info.last_name}}</mat-label>
+                <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-label class="width-20" class="visuallyhidden">
+                        {{static_data?.create_account?.contact_info.last_name}}
+                    </mat-label>
+                    <input formControlName="lastName" matInput type="text" autocomplete="off" autofocus form-fields id="available" keyPrevent required>
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(loan.get('lastName'), 'lastName')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="flex" *ngIf="conType == 'CON-O'">
+                <mat-label class="width-20" for="organization">
+                    {{static_data?.create_account?.additional_information_IEF.organizationName}}
+                </mat-label>
+                <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-label class="width-20" for="organization" class="visuallyhidden">
+                        {{static_data?.create_account?.additional_information_IEF.organizationName}}
+                    </mat-label>
+                    <input aria-labelledby="organization create-info-2" attr.aria-label="{{static_data?.create_account?.contact_info?.organizationName}}" keyPrevent [AlphaSpace]="true" maxlength="80" matInput type="text" autocomplete="off" form-fields placeholder="" id="organization"
+                        formControlName="organization" minlength="2">
+
+                </mat-form-field>
+            </div>
+            <div class="flex" *ngIf="conType == 'CON-I'">
+                <mat-label class="width-20" for="MailingAdd1">
+                    {{static_data?.create_account?.additional_information_IEF.employer}}</mat-label>
+                <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-label class="width-20" for="MailingAdd1" class="visuallyhidden">
+                        {{static_data?.create_account?.additional_information_IEF.employer}}</mat-label>
+                    <input formControlName="employer" attr.aria-label="{{static_data?.create_account?.additional_information_IEF.employer}}" matInput type="text" autocomplete="off" form-fields placeholder="" id="employer" maxlength="150" keyPrevent [mailAddress]="true" required>
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(loan.get('employer'), 'employer')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="flex" *ngIf="conType == 'CON-I'">
+                <mat-label class="width-20" for="MailingAdd1">
+                    {{static_data?.create_account?.additional_information_IEF.occupation}}</mat-label>
+                <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-label class="width-20" for="MailingAdd1" class="visuallyhidden">
+                        {{static_data?.create_account?.additional_information_IEF.occupation}}</mat-label>
+                    <input formControlName="occupation" attr.aria-label="{{static_data?.create_account?.additional_information_IEF.occupation}}" matInput type="text" autocomplete="off" form-fields placeholder="" id="occupation" maxlength="150" keyPrevent [mailAddress]="true"
+                        required>
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(loan.get('occupation'), 'occupation')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="flex" *ngIf="conType == 'CON-I'">
+                <mat-label class="width-20" for="voterId">{{static_data?.filer?.voterId}}</mat-label>
+                <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-label class="width-20" for="voterId" class="visuallyhidden">
+                        {{static_data?.filer?.voterId}}</mat-label>
+                    <input formControlName="voterId" attr.aria-label="{{static_data?.filer?.voterId}}" (keypress)="numericOnly($event)" matInput type="text" autocomplete="off" (keypress)="numericOnly($event)" form-fields placeholder="" id="voterId" maxlength="150" keyPrevent
+                        required>
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(loan.get('voterId'), 'voterId')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+
+            <div class="flex">
+                <mat-label class="width-20" for="Address1">
+                    {{static_data?.committee_registration?.commitee_office.address_1}}</mat-label>
+                <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-label class="width-20" for="Address1" class="visuallyhidden">
+                        {{static_data?.committee_registration?.commitee_office.address_1}}</mat-label>
+                    <input formControlName="Address1" attr.aria-label="{{static_data?.committee_registration?.commitee_office.address_1}}" matInput type="text" autocomplete="off" form-fields placeholder="" id="Address1" maxlength="150" keyPrevent [mailAddress]="true" required>
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(loan.get('Address1'), 'committee-address1')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="flex">
+                <mat-label class="width-20" for="Address2">
+                    {{static_data?.committee_registration?.commitee_office.address_2}}</mat-label>
+                <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-label class="width-20" for="Address2" class="visuallyhidden">
+                        {{static_data?.committee_registration?.commitee_office.address_2}}</mat-label>
+                    <input formControlName="Address2" attr.aria-label="{{static_data?.committee_registration?.commitee_office.address_2}}" matInput type="text" autocomplete="off" form-fields placeholder="" id="MailingAdd2" maxlength="150" keyPrevent [mailAddress]="true">
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(loan.get('Address2'), 'committee-address2')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="flex">
+                <mat-label class="width-20" for="City">
+                    {{static_data?.committee_registration?.commitee_office.city}}</mat-label>
+                <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-label class="width-20" for="City" class="visuallyhidden">
+                        {{static_data?.create_account?.contact_info?.city}}</mat-label>
+                    <input formControlName="city" attr.aria-label="{{static_data?.create_account?.contact_info?.city}}" matInput type="text" autocomplete="off" form-fields placeholder="" id="City" keyPrevent [AlphaSpace]="true" required>
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(loan.get('city'), 'contactcity')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="flex">
+                <mat-label class="width-20" for="state">{{static_data?.create_account?.contact_info?.state}}
+                </mat-label>
+                <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-label class="width-20" for="state" class="visuallyhidden">
+                        {{static_data?.create_account?.contact_info?.state}}</mat-label>
+
+                    <mat-select attr.aria-label="{{static_data?.create_account?.contact_info?.state}}" id="state" formControlName="state" required #select>
+                        <mat-option *ngFor="let state of getState" [value]="state.stateCode">
+                            {{state.stateDesc}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(loan.get('state'), 'contactState')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="flex">
+                <mat-label class="width-20" for="Zipcode">{{static_data?.create_account?.contact_info?.zipcode}}
+                </mat-label>
+                <mat-form-field appearance="fill" class="create-full-width">
+                    <input formControlName="zipcode" attr.aria-label="{{static_data?.create_account?.contact_info?.zipcode}}" (keypress)="numericOnly($event)" matInput type="text" autocomplete="off" form-fields placeholder="" id="Zipcode" keyPrevent [Alphanumeric]="true"
+                        minlength="5" maxlength="9" required>
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(loan.get('zipcode'), 'contactzipcode')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="btn-cancel-alg">
+                <!-- <a class="color-BrightBlue" href="javascript:void(0)">{{static_data?.button?.cancel}}</a>
+                <span id="save-btn" class="margin-left-20">
+                      <button id="btnSave" attr.aria-label="Save" role="button" type="button" mat-flat-button
+                          color="primary">Save</button>
+                  </span> -->
+                <button class="uploadclss" (click)="clearForm()">Clear Form</button>
+            </div>
+
+        </div>
+        <div class="width-50">
+            <div class="flex">
+                <mat-label class="width-20">{{static_data?.filer?.loanType}}</mat-label>
+                <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-label class="width-20" class="visuallyhidden">{{static_data?.filer?.loanType}}
+                    </mat-label>
+                    <mat-select formControlName="loanType" required>
+                        <mat-option *ngFor="let loan of loanTypes" [value]="loan.lookUpTypeId">
+                            {{loan.lookUpName}}
+                        </mat-option>
+
+                    </mat-select>
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(loan.get('loanType'), 'loanType')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="flex">
+                <mat-label class="width-20">{{static_data?.filer?.dateLoan}}</mat-label>
+                <mat-form-field appearance="fill" class="create-full-width">
+                    <mat-label></mat-label>
+                    <input formControlName="dateReceived" matInput [matDatepicker]="picker7">
+                    <mat-datepicker-toggle matSuffix [for]="picker7"></mat-datepicker-toggle>
+                    <mat-datepicker #picker7></mat-datepicker>
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(loan.get('dateReceived'), 'dateLoan')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="flex">
+                <mat-label class="width-20" for="amount">{{static_data?.filer?.amount}}</mat-label>
+                <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-label class="width-20" for="amount" class="visuallyhidden">
+                        {{static_data?.filer?.amount}}</mat-label>
+                    <input formControlName="amount" attr.aria-label="{{static_data?.filer?.amount}}" matInput type="text" (keypress)="numericOnly($event)" autocomplete="off" form-fields placeholder="" id="amount" keyPrevent required>
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(loan.get('amount'), 'amount')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="flex">
+                <mat-label class="width-20">{{static_data.filer.endorser}}</mat-label>
+                <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-label class="width-20" class="visuallyhidden">{{static_data.filer.endorser}}
+                    </mat-label>
+                    <input formControlName="endorser" attr.aria-label="{{static_data?.filer?.endorser}}" matInput type="text" autocomplete="off" form-fields placeholder="" id="endorser" keyPrevent required>
+
+                    <!-- <mat-select formControlName="endorser" required>
+                        <mat-option>
+                        </mat-option>
+                    </mat-select> -->
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(loan.get('endorser'), 'endorser')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="flex">
+                <mat-label class="width-20" for="contributionAmount">{{static_data?.filer?.guaranteed}}
+                </mat-label>
+                <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                    <input formControlName="guaranteed" attr.aria-label="{{static_data?.filer?.guaranteed}}" matInput type="text" (keypress)="numericOnly($event)" autocomplete="off" form-fields placeholder="" id="contributionAmount" keyPrevent required>
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(loan.get('guaranteed'), 'guaranteed')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="flex">
+                <mat-label class="width-20" for="contributionAmount">{{static_data?.filer?.termsOrRate}}
+                </mat-label>
+                <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                    <input formControlName="termsOrRate" attr.aria-label="{{static_data?.filer?.contributionAmount}}" matInput type="text" (keypress)="numericOnly($event)" autocomplete="off" form-fields placeholder="" id="contributionAmount" keyPrevent required>
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(loan.get('termsOrRate'), 'termsOrRate')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="flex">
+                <mat-label class="width-20">{{static_data?.filer?.dueDate}}</mat-label>
+                <mat-form-field appearance="fill" class="create-full-width">
+                    <mat-label></mat-label>
+                    <input formControlName="dueDate" matInput [matDatepicker]="picker8">
+                    <mat-datepicker-toggle matSuffix [for]="picker8"></mat-datepicker-toggle>
+                    <mat-datepicker #picker8></mat-datepicker>
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(loan.get('dueDate'), 'dueDate')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="flex">
+                <mat-label class="width-20">
+                </mat-label>
+                <mat-form-field class="create-full-width" floatLabel="never">
+                    <mat-label>Balance:</mat-label>
+                    <input #myInput attr.aria-label="Balance:" type="text" matInput name="Balance" id="Balance">
+                </mat-form-field>
+            </div>
+
+        </div>
+    </div>
+</form>
+<div class="flex">
+    <div class="width-40">
+        <h2 class="tabhead title">{{static_data.filer.sub_Transactions}}</h2>
+        <form class="create-form" id="create-info" autocomplete="off" [formGroup]="sub_transForm">
+            <div class="flex">
+                <mat-label class="width-20">{{static_data?.filer?.sub_Trans_Type}}</mat-label>
+                <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-label class="width-20" class="visuallyhidden">{{static_data?.filer?.sub_Trans_Type}}
+                    </mat-label>
+                    <mat-select formControlName="transaction_type" required>
+                        <mat-option *ngFor="let subTypes of subContractTypes" [value]="subTypes.lookUpTypeId">
+                            {{subTypes.lookUpName}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(sub_transForm.get('transaction_type'), 'sub_Trans_Type')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="flex">
+                <mat-label class="width-20">{{static_data?.filer?.date}}</mat-label>
+                <mat-form-field appearance="fill" class="create-full-width">
+                    <mat-label></mat-label>
+                    <input formControlName="dateReceived" matInput [matDatepicker]="picker9">
+                    <mat-datepicker-toggle matSuffix [for]="picker9"></mat-datepicker-toggle>
+                    <mat-datepicker #picker9></mat-datepicker>
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(sub_transForm.get('dateReceived'), 'date')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="flex">
+                <mat-label class="width-20" for="amount">{{static_data?.filer?.amount}}</mat-label>
+                <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-label class="width-20" for="amount" class="visuallyhidden">
+                        {{static_data?.filer?.amount}}</mat-label>
+                    <input formControlName="amount" attr.aria-label="{{static_data?.filer?.amount}}" (keypress)="numericOnly($event)" matInput type="text" autocomplete="off" form-fields placeholder="" id="amount" keyPrevent required>
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(sub_transForm.get('amount'), 'amount')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="btn-cancel-alg">
+
+                <button class="uploadclss" (click)="addSubTransaction()">Add</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="width-50">
+        <table mat-table [dataSource]="dataMatchingList" multiTemplateDataRows>
+
+            <ng-container matColumnDef="type">
+                <th mat-header-cell *matHeaderCellDef> {{static_data?.filer?.sub_Trans_Type}} </th>
+                <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef>{{static_data?.filer?.date}} </th>
+                <td mat-cell *matCellDef="let element"> {{element.date|date:this.masterDate.dateFormat}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="amount">
+                <th mat-header-cell *matHeaderCellDef> {{static_data?.filer?.amount}} </th>
+                <td mat-cell *matCellDef="let element"> {{element.amount}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef> {{static_data.public_funding.action}} </th>
+                <td mat-cell *matCellDef="let element" class="click-hand">
+                    <span class="material-icons" (click)="editSubTrans(element)">mode_edit_outline</span>&nbsp;&nbsp;
+                    <span class="material-icons" (click)="deleteSubTrans(element)">delete_forever</span>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedStudentsColumnsList;sticky: true"></tr>
+            <tr mat-row *matRowDef="let element; columns: displayedStudentsColumnsList;" class="student-element-row" [class.student-expanded-row]="element.isExpanded"></tr>
+        </table>
+    </div>
+
+
+</div>
+<div class="bottom-btns margin-bottom-10">
+    <a class="color-BrightBlue" href="javascript:void(0)">{{static_data?.button?.cancel}}</a>
+    <span id="save-btn" class="margin-left-20">
+    <button id="btnSave" attr.aria-label="Save" role="button" type="button" mat-flat-button
+        color="primary" (click)='saveLoan()'>Save</button>
+</span>
+</div>

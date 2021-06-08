@@ -1,0 +1,124 @@
+<div class="giftreport">
+  <div class="head">
+      <span class="title"> City Items Report</span>
+  </div>
+
+  <span class="out-class">Filling Information</span><br>
+<br><br>
+  <div class="navigatepadding">
+    <div>
+        <span class="fontcolorblck"> {{static_data.giftreport.filingperiod}} </span>
+        <span class="value"> 20/05/21 </span>
+        <hr>
+    </div>
+    <div>
+        <span class="fontcolorblck"> {{static_data.giftreport.areyou}} </span>
+        <span class="value"> Elected </span>
+        <hr>
+    </div>
+    <div>
+        <span class="fontcolorblck"> {{static_data.giftreport.youwereelected}} </span>
+        <span class="value"> City Councilmember </span>
+        <hr>
+    </div>
+    <div>
+        <span class="fontcolorblck">
+            {{static_data.giftreport.firstname}} </span>
+        <span class="value"> Jaime </span>
+        <hr>
+    </div>
+    <div>
+        <span class="fontcolorblck">
+            {{static_data.giftreport.lastname}} </span>
+        <span class="value"> Torres </span>
+        <hr>
+    </div>
+    <div>
+        <span class="fontcolorblck">
+            {{static_data.giftreport.city}} </span>
+        <span class="value">Denver</span>
+        <hr>
+    </div>
+    <div>
+        <span class="fontcolorblck">
+            {{static_data.giftreport.state}} </span>
+        <span class="value">Co</span>
+        <hr>
+    </div>
+    <div>
+      <span class="fontcolorblck">
+          {{static_data.giftreport.zipcode}} </span>
+      <span class="value">12345</span>
+      <hr>
+  </div>
+
+</div>
+
+
+<div class="list-report">
+  <table mat-table [dataSource]="dataSource" class="table-class">
+
+      <ng-container matColumnDef="dategiftreceived">
+          <th mat-header-cell *matHeaderCellDef> Item or Thing </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="donororg">
+          <th mat-header-cell *matHeaderCellDef> Source </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="orgtype">
+          <th mat-header-cell *matHeaderCellDef> Value </th>
+          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+<br><br>
+<div>
+
+      <mat-checkbox class="check"></mat-checkbox> <span> Was this statement prepared for you by another person?</span> <br><br>
+      <span class="statement"> If yes, who prepared this statement for you?</span><br><br>
+
+      <form class="create-form" id="create-info" autocomplete="off" formGroup="giftForm">
+        <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+          <mat-label for="name" class="width-20" class="visuallyhidden">{{static_data.committee_registration.commitee_contact.address_2}}</mat-label>
+          <input attr.aria-label="{{static_data.public_funding.name}}" matInput type="text" autocomplete="off" form-fields placeholder="" id="name"
+          formControlName="name" keyPrevent AlphaSpace="true" maxlength="80">
+          <!-- <mat-error class="error">
+              {{errorService.checkErrorMessage(createCommitteeInformationForm.get('address2'), 'committee-address2')}}
+          </mat-error> -->
+      </mat-form-field><br>
+
+      <mat-checkbox></mat-checkbox> <span class="declare_statement">By checking this box, I declare that I have this Officer Semi-Annual Gift Disclosure Statement and that the information provided is true, correct, and accurately lists all amount and </span><br>
+        <span class="statement"> sources of gifts I received during the reporting period.</span> <br><br>
+
+        <mat-label for="firstName" class="width-20">{{static_data.public_funding.firstName}}</mat-label><br><br>
+
+        <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+          <mat-label for="firstName" class="width-20" class="visuallyhidden">{{static_data.public_funding.firstName}}</mat-label>
+          <input attr.aria-label="{{static_data.public_funding.firstName}}" matInput type="text" autocomplete="off" form-fields placeholder="" id="firstName"
+          formControlName="firstName" keyPrevent AlphaSpace="true" maxlength="80">
+          <!-- <mat-error class="error">
+              {{errorService.checkErrorMessage(createCommitteeInformationForm.get('address2'), 'committee-address2')}}
+          </mat-error> -->
+      </mat-form-field><br>
+
+
+      <mat-label for="lastName" class="width-20">{{static_data.public_funding.lastName}}</mat-label><br><br>
+      <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+
+        <mat-label for="lastName" class="width-20" class="visuallyhidden">{{static_data.public_funding.lastName}}</mat-label>
+        <input attr.aria-label="{{static_data.public_funding.lastName}}" matInput type="text" autocomplete="off" form-fields placeholder="" id="lastName"
+        formControlName="lastName" keyPrevent AlphaSpace="true" maxlength="80">
+        <!-- <mat-error class="error">
+            {{errorService.checkErrorMessage(createCommitteeInformationForm.get('address2'), 'committee-address2')}}
+        </mat-error> -->
+    </mat-form-field><br>
+</form>
+      </div>
+
+  </div>

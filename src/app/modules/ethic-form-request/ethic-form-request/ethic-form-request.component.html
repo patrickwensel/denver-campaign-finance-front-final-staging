@@ -1,0 +1,175 @@
+<div class="container" *ngIf="!showform">
+    <div class="matform-Container">
+        <h2 class="name">Welcome</h2>
+        <div (click)= "gotoScreen()" > 
+                <h2 class="fontcolorblck"> Request Access to Ethics Form <span class="material-icons">
+                        arrow_forward_ios
+                    </span> </h2>
+            </div>
+            <hr>
+
+    </div>
+</div>
+
+
+<div class="container" *ngIf="showform">
+    <h2 class="tabhead title">Request Access to Ethics Forms</h2>
+    <div class="flex ethicpage">
+        <div style="width: 50%">
+            <form class="create-form" id="create-info" autocomplete="off" [formGroup]="requestethicsForm">
+                <div class="flex" style="margin-bottom: 15px;">
+                    <mat-label class="width-20">Are you</mat-label>
+                    <mat-radio-group aria-label="Select an option" formControlName="officerType" class="optionselect">
+                        <mat-radio-button style="margin-right: 25px;" value="1">Elected or appointed officer
+                        </mat-radio-button>
+                        <mat-radio-button value="2">Staff or employee</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div class="flex">
+                    <mat-label class="width-20">{{static_data.ethic_form.department}}</mat-label>
+                    <mat-form-field appearance="fill" appearance="fill" class="create-full-width"
+                        [hideRequiredMarker]='hideRequiredMarker'>
+                        <mat-label class="width-20" class="visuallyhidden">{{static_data.ethic_form.department}}
+                        </mat-label>
+                        <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                            id="department" maxlength="80" formControlName="department" keyPrevent [AlphaSpace]="true">
+                        <mat-error class="error">
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="flex">
+                    <mat-label class="width-20">{{static_data.ethic_form.title}}</mat-label>
+                    <mat-form-field appearance="fill" appearance="fill" class="create-full-width"
+                        [hideRequiredMarker]='hideRequiredMarker'>
+                        <mat-label class="width-20" class="visuallyhidden">{{static_data.ethic_form.title}}</mat-label>
+                        <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="" id="title"
+                            maxlength="150" formControlName="title" keyPrevent [mailAddress]="true">
+                        <mat-error class="error">
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="flex">
+                    <mat-label class="width-20">{{static_data.ethic_form.app_authority}}</mat-label>
+                    <mat-form-field appearance="fill" class="create-full-width"
+                        [hideRequiredMarker]='hideRequiredMarker'>
+                        <mat-label class="width-20" class="visuallyhidden">{{static_data.ethic_form.app_authority}}
+                        </mat-label>
+                        <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                            id="app_authority" maxlength="150" formControlName="app_authority">
+                        <mat-error class="error">
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="flex">
+                    <mat-label class="width-20">{{static_data.ethic_form.prsl_email}}<mat-icon matsuffix 
+                            class="help-icon">help</mat-icon>
+                    </mat-label>
+                    <mat-form-field appearance="fill" class="create-full-width"
+                        [hideRequiredMarker]='hideRequiredMarker'>
+                        <mat-label class="width-20" class="visuallyhidden">{{static_data.ethic_form.prsl_email}}
+                        </mat-label>
+                        <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                            id="prsl_email" formControlName="prsl_email" keyPrevent [AlphaSpace]="true">
+                        <mat-error class="error">
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="flex">
+                    <mat-label class="width-20">{{static_data.ethic_form.prsl_phn}} <mat-icon class="help-icon"
+                            matsuffix>help</mat-icon>
+                    </mat-label>
+                    <mat-form-field appearance="fill" class="create-full-width"
+                        [hideRequiredMarker]='hideRequiredMarker'>
+                        <mat-label class="width-20" class="visuallyhidden">{{static_data.ethic_form.prsl_phn}}
+                        </mat-label>
+                        <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                            id="[prsl_phn]" maxlength="10" minlength="2" formControlName="prsl_phn" keyPrevent
+                            (keypress)="numericOnly($event)">
+                        <mat-error class="error">
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="flex">
+                    <mat-label class="width-20">{{static_data.ethic_form.comments}}</mat-label>
+
+                    <mat-form-field appearance="fill" class="create-full-width"
+                        [hideRequiredMarker]='hideRequiredMarker'>
+                        <mat-label class="width-20" class="visuallyhidden">{{static_data.ethic_form.comments}}
+                        </mat-label>
+                        <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                            id="comments" maxlength="150" formControlName="comments">
+                        <mat-error class="error">
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <div>
+        <div class="navigatepadding ">
+            <div >
+                <h2 class="fontcolorblck"> Request Secondary User access <span class="material-icons">
+                        arrow_forward_ios
+                    </span> </h2>
+            </div>
+            <div>
+                <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8  list-view-table">
+    
+                    <ng-container matColumnDef="date">
+                        <th mat-header-cell *matHeaderCellDef class="heading">
+                            Date Submitted </th>
+                        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                    </ng-container>
+        
+                    <ng-container matColumnDef="period">
+                        <th mat-header-cell *matHeaderCellDef class="heading">
+                            Filing Period </th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+        
+                    <ng-container matColumnDef="formtype">
+                        <th mat-header-cell *matHeaderCellDef class="heading">
+                            Form Type</th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+        
+                    <ng-container matColumnDef="details">
+                        <th mat-header-cell *matHeaderCellDef class="heading"> Details
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <!-- <button class="compbtn">Completed</button> -->
+                            <button class="inpbtn">View</button>
+                        </td>
+                    </ng-container>
+        
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+        </div>
+        <div class="pointer">
+            <span>
+                {{static_data.ethic_passage}}
+            </span>
+        </div>
+        <div class="pointer" style="margin-top: 15px">
+            <div style="margin-bottom: 8px;">
+                <span>Email Address</span>
+            </div>
+            <mat-form-field appearance="fill" style="width: 30%">
+                <input matInput [(ngModel)]="email" keyPrevent autocomplete="off">
+                <mat-error class="error">
+                    <!-- Please enter Valid Date -->
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="btns">
+            <button id="addInfo" type="button" mat-flat-button style="color:#0f5597; margin-right: 20px" (click)="goBacktoreq()"
+                class="nrmlfillbtn">Cancel</button>
+            <button id="addInfo" type="button" mat-flat-button color="primary"
+                class="nrmlfillbtn">{{static_data?.button?.submit}}</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+.uploadclss {
+    color: #073d6e;
+    float: left;
+    border: 2px solid rgb(15 85 151);
+    padding: 8px 40px;
+    font-weight: 600;
+    background: transparent;
+  }
+  .postimage-uploadbtn {
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.postimage-uploadbtn input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
+    cursor: pointer;
+}
+.close-icon{
+  position: relative;
+  top: -65px;
+  left: -30px;
+  cursor: pointer;
+}
+.close-icon:hover{
+  background-color: #fff;
+}
+input[type=file]::file-selector-button:hover {
+  background-color: #81ecec;
+  border: 2px solid #00cec9;
+}
+
+.label_style {
+  color: #535353;font-size: 18px;
+}
+.spacing {
+  margin-top: 10px;
+}

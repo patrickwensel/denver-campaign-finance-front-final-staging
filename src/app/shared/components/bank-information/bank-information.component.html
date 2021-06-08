@@ -1,0 +1,85 @@
+<div class="tab-width">
+    <form class="create-form" id="create-info" autocomplete="off" [formGroup]="bankForm">
+        <div class="flex">
+            <mat-label for="bankName" class="width-20">{{static_data.committee_registration.bank_info.bankName}}</mat-label>
+            <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label for="bankName" class="width-20" class="visuallyhidden">{{static_data.committee_registration.bank_info.bankName}}</mat-label>
+                <input attr.aria-label="{{static_data.committee_registration.bank_info.bankName}}" matInput type="text" autocomplete="off" autofocus form-fields id="bankName" formControlName="bankName">
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(bankForm.get('bankName'), 'bankName')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-label for="Address1" class="width-20">{{static_data.committee_registration.bank_info.Address1}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label for="Address1" class="width-20" class="visuallyhidden">{{static_data.committee_registration.bank_info.Address1}}</mat-label>
+                <input attr.aria-label="{{static_data.committee_registration.bank_info.Address1}}" matInput type="text" autocomplete="off" autofocus form-fields id="Address1" formControlName="address1">
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(bankForm.get('address1'), 'committee-address1')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-label for="Address2" class="width-20">{{static_data.committee_registration.bank_info.Address2}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label for="Address2" class="width-20" class="visuallyhidden">{{static_data.committee_registration.bank_info.Address2}}</mat-label>
+                <input attr.aria-label="{{static_data.committee_registration.bank_info.Address2}}" matInput type="text" autocomplete="off" autofocus form-fields id="Address2" formControlName="address2">
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(bankForm.get('address2'), 'committee-address1')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-label for="city" class="width-20">{{static_data.committee_registration.bank_info.city}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label for="city" class="width-20" class="visuallyhidden">{{static_data.committee_registration.bank_info.city}}</mat-label>
+                <input attr.aria-label="{{static_data.committee_registration.bank_info.city}}" matInput type="text" autocomplete="off" autofocus form-fields id="city" maxlength="120" formControlName="city">
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(bankForm.get('city'), 'city')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-label for="state" class="width-20">{{static_data.committee_registration.bank_info.state}}</mat-label>
+            <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label for="state" class="width-20" class="visuallyhidden">{{static_data.committee_registration.bank_info.state}}</mat-label>
+                <mat-select attr.aria-label="{{static_data.committee_registration.bank_info.state}}" formControlName="state">
+                    <mat-option *ngFor="let state of stateList" value="{{state.stateCode}}">{{state.stateDesc}}</mat-option>
+                </mat-select>
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(bankForm.get('state'), 'state')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-label for="zipcode" class="width-20">{{static_data.committee_registration.bank_info.zipcode}}</mat-label>
+            <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label for="zipcode" class="width-20" class="visuallyhidden">{{static_data.committee_registration.bank_info.zipcode}}</mat-label>
+                <input attr.aria-label="{{static_data.committee_registration.bank_info.zipcode}}" matInput type="text" autocomplete="off" autofocus form-fields keyPrevent (keypress)="numericOnly($event)" id="zipcode" formControlName="zipcode" minlength="5" maxlength="9">
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(bankForm.get('zipcode'), 'zipcode')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+<!-- 
+        <div class="flex bottom-btn margin-bottom-25">
+            <span>
+        <a class="color-BrightBlue back-btn" href="javascript:void(0)" (click)="goBack()">{{static_data.button.back}}</a>
+      </span>
+            <span class="btn-sub-align">
+        <button id="addInfo"  type="button" mat-flat-button color="primary" (click)="submitBankForm()"
+          class="nrmlfillbtn">{{static_data.button.submit}}</button>
+      </span>
+        </div> -->
+    </form>
+
+
+</div>
+
+<br><br><br>
+<div>
+    <button role="button"  id="btnNext" title="Submit committee Information" attr.aria-label="{{static_data.button.submit}}" mat-raised-button color="primary" class="right" (click)="submitBankForm()">{{static_data.button.submit}}</button>
+    <a id="btnBack" role= "button" tabindex="3" attr.aria-label="{{static_data?.button?.back}}" class="color-BrightBlue back-btn goToBack" id="back" type="button" (click)="goBack()">{{static_data.button.back}} </a>
+</div>

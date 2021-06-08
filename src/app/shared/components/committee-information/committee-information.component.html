@@ -1,0 +1,151 @@
+<div class="tab-width">
+  <form class="create-form" id="create-info" autocomplete="off" [formGroup]="committeeInformationForm">
+    <div class="flex">
+        <!-- *ngIf="!otherCommittee" -->
+      <mat-label for="committeeName" class="width-20">{{static_data.committee_registration.committee_info.committee_name}}</mat-label>
+      <mat-form-field appearance="fill" appearance="fill"  class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+        <mat-label for="committeeName" class="width-20" class="visuallyhidden">{{static_data.committee_registration.committee_info.committee_name}}</mat-label>
+        <input attr.aria-label="{{static_data.committee_registration.committee_info.committee_name}}" matInput type="text" autocomplete="off" autofocus form-fields placeholder="" id="committeeName"
+          formControlName="committeeName" keyPrevent [AlphaSpace]="true" maxlength="80">
+        <mat-error class="error">
+          {{errorService.checkErrorMessage(committeeInformationForm.get('committeeName'), 'committeeName')}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="flex">
+      <mat-label for="committeetype" class="width-20">{{static_data.committee_registration.committee_info.committee_type}}</mat-label>
+      <mat-form-field appearance="fill" appearance="fill"  class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+        <mat-label for="committeetype" class="width-20" class="visuallyhidden">{{static_data.committee_registration.committee_info.committee_type}}</mat-label>
+        <mat-select id="committeetype" aria-label="committee type" formControlName="committeeType" [disabled]="canUser == 'AC-CAN'">
+          <mat-option  *ngFor="let type of typeCommittee" [value]="type.lookUpTypeId" (click)="changevalue(type)"> {{type.lookUpName}}</mat-option>
+        </mat-select>
+        <mat-error class="error">
+          {{errorService.checkErrorMessage(committeeInformationForm.get('committeeType'), 'committeeType')}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div *ngIf="userType == 'AC-CAN' && !otherCommittee">
+    <div class="flex">
+      <mat-label for="candidateFirstName" class="width-20">{{static_data.committee_registration.committee_info.candidateFirstName}}</mat-label>
+      <mat-form-field appearance="fill" appearance="fill"  class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+        <mat-label for="candidateFirstName" class="width-20" class="visuallyhidden">{{static_data.committee_registration.committee_info.candidateFirstName}}</mat-label>
+        <input attr.aria-label="{{static_data.committee_registration.committee_info.candidateFirstName}}" matInput type="text" autocomplete="off"  form-fields placeholder="" maxlength="80" id="candidateFirstName"
+          formControlName="candidateFirstName" keyPrevent [AlphaSpace]="true">
+        <mat-error class="error">
+          {{errorService.checkErrorMessage(committeeInformationForm.get('candidateFirstName'), 'candidateFirstName')}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="flex">
+      <mat-label for="candidateLastName" class="width-20">{{static_data.committee_registration.committee_info.candidateLastName}}</mat-label>
+      <mat-form-field appearance="fill" appearance="fill"  class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+        <mat-label for="candidateLastName" class="width-20" class="visuallyhidden">{{static_data.committee_registration.committee_info.candidateLastName}}</mat-label>
+        <input attr.aria-label="{{static_data.committee_registration.committee_info.candidateLastName}}" matInput type="text" autocomplete="off"  form-fields placeholder="" maxlength="80" id="candidateLastName"
+          formControlName="candidateLastName"  keyPrevent [AlphaSpace]="true">
+        <mat-error class="error">
+          {{errorService.checkErrorMessage(committeeInformationForm.get('candidateLastName'), 'candidateLastName')}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="flex">
+      <mat-label for="officeSought" class="width-20">{{static_data.committee_registration.committee_info.office_sought}}</mat-label>
+      <mat-form-field appearance="fill" appearance="fill"  class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+        <mat-label for="officeSought" class="width-20" class="visuallyhidden">{{static_data.committee_registration.committee_info.office_sought}}</mat-label>
+        <mat-select id="officeSought" attr.aria-label="{{static_data.committee_registration.committee_info.office_sought}}" formControlName="office_sought">
+          <mat-option (click)="changeOffice(office)" *ngFor="let office of getAllOfficeListApi" [value]="office.typeId">{{office.typeName}}</mat-option>
+        </mat-select>
+        <mat-error class="error">
+          {{errorService.checkErrorMessage(committeeInformationForm.get('office_sought'), 'office_sought')}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="flex">
+      <mat-label for="district" class="width-20">{{static_data.committee_registration.committee_info.district}}</mat-label>
+      <mat-form-field appearance="fill" appearance="fill"  class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+        <mat-label for="district" class="width-20" class="visuallyhidden">{{static_data.committee_registration.committee_info.district}}</mat-label>
+        <input attr.aria-label="{{static_data.committee_registration.committee_info.district}}" matInput type="text" autocomplete="off" maxlength="80" form-fields placeholder="" id="district"
+          formControlName="district">
+          <mat-error class="error">
+            {{errorService.checkErrorMessage(committeeInformationForm.get('district'), 'district')}}
+          </mat-error>
+      </mat-form-field>
+    </div>
+    </div>
+    <div *ngIf="userType == 'AC-TSR' && !otherCommittee">
+    <div class="flex">
+      <mat-label for="ballotIssue" class="width-20">{{static_data.committee_registration.committee_info.ballot_issue}}
+        <mat-icon matsuffix attr.title="{{static_data.committee_registration.committee_info.ballot_issue}}">help</mat-icon>
+      </mat-label>
+      <mat-form-field appearance="fill" appearance="fill"  class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+        <mat-label for="ballotIssue" class="width-20" class="visuallyhidden">{{static_data.committee_registration.committee_info.ballot_issue}}</mat-label>
+        <mat-select id="ballotIssue" attr.aria-label="{{static_data.committee_registration.committee_info.ballot_issue}}" formControlName="ballotIssue" (selectionChange)="onChangeType($event)">
+          <mat-option *ngFor="let ballot of getBallotIssueList" [value]="ballot.ballotId">{{ballot.ballotIssue}}</mat-option>
+        </mat-select>
+        <mat-error class="error">
+          {{errorService.checkErrorMessage(committeeInformationForm.get('ballotIssue'), 'ballotIssue')}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="flex">
+      <mat-label for="ballotIssueNo" class="width-20"></mat-label>
+      <mat-form-field appearance="fill"  class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+        <mat-label for="ballotIssueNo" class="width-20" class="visuallyhidden">ballot Number</mat-label>
+        <input id="ballotIssueNo" aria-label="ballot Number" matInput type="text" formControlName="ballotIssueNo" autocomplete="off"  form-fields placeholder="" maxlength="150">
+      </mat-form-field>
+    </div>
+  </div>
+    <div class="flex" *ngIf="!otherCommittee">
+      <mat-label for="electionDate" class="width-20">{{static_data.committee_registration.committee_info.election_date}}</mat-label>
+      <mat-form-field appearance="fill"  class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+        <mat-label for="electionDate" class="width-20" class="visuallyhidden">{{static_data.committee_registration.committee_info.election_date}}</mat-label>
+        <mat-select id="electionDate" aria-label="election date" formControlName="electionDate">
+          <mat-option *ngFor="let date of electionDate" [value]="date.electionCycleId">{{date.electionDate | date:masterDate.dateFormat}}</mat-option>
+        </mat-select>
+        <mat-error class="error">
+          {{errorService.checkErrorMessage(committeeInformationForm.get('electionDate'), 'electionDate')}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="flex" *ngIf="userType == 'AC-TSR' && !otherCommittee">
+      <mat-label for="position" class="width-20">{{static_data.committee_registration.committee_info.position}}</mat-label>
+      <mat-form-field appearance="fill"  class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+        <mat-label for="position" class="width-20" class="visuallyhidden">{{static_data.committee_registration.committee_info.position}}</mat-label>
+        <mat-select id="position" attr.aria-label="{{static_data.committee_registration.committee_info.position}}" formControlName="position">
+          <mat-option *ngFor="let position of position" [value]="position"> {{position}} </mat-option>
+        </mat-select>
+        <mat-error class="error">
+          {{errorService.checkErrorMessage(committeeInformationForm.get('position'), 'position')}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="left-20" *ngIf="userType == 'AC-TSR' || otherCommittee">
+      <mat-label for="purpose">{{static_data.committee_registration.committee_info.purpose}}</mat-label>
+      <div>
+        <mat-form-field appearance="fill" class="width-100"  [hideRequiredMarker]='hideRequiredMarker'>
+          <mat-label for="purpose" class="width-20" class="visuallyhidden">{{static_data.committee_registration.committee_info.purpose}}</mat-label>
+          <textarea attr.aria-label="{{static_data.committee_registration.committee_info.purpose}}" matInput id="purpose" formControlName="purpose" rows="4" ></textarea>
+          <mat-error class="error">
+            {{errorService.checkErrorMessage(committeeInformationForm.get('purpose'), 'purpose')}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+     <!-- <div class="flex bottom-btn margin-bottom-25">
+    <span>
+      <a class="color-BrightBlue back-btn"  (click)="back()"> Back</a>
+    </span>
+    <span>
+      <button mat-raised-button color="primary" (click)="validateSubmitContactInfo()">{{static_data.button.next}}</button>
+    </span>
+  </div> -->
+
+  </form>
+</div>
+<br><br><br>
+<div>
+  <button id="btnNext" title="go to contact Information tab" attr.aria-label="{{static_data.button.next}}" mat-raised-button color="primary" style="float: right" [disabled]='nextDisabled' (click)="validateSubmitContactInfo()">{{static_data.button.next}}</button>
+  <a id="btnBack"  role="button" tabindex="0" attr.aria-label="{{static_data?.button?.back}}" class="color-BrightBlue back-btn goToBack" id="back" type="button" (click)="back()"
+  >{{static_data?.button?.back}}</a>
+</div>

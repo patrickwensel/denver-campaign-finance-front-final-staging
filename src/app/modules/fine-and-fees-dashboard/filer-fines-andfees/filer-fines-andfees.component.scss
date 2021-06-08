@@ -1,0 +1,79 @@
+.container{
+    padding: 12px;
+    display: grid;
+    align-items: center;
+  }
+  .account-modules h1 {
+    text-align: left;
+  }
+
+  .title {
+    color: #0f5597;
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    padding-left: 20px;
+  
+  }
+  .tabhead {
+    font-size: 25px;
+  }
+
+  .name {
+    font-size: 30px;
+    width: 85%;
+    top: 1%;
+    color: #0b365f;
+    font-weight: 500;
+    padding-left: 20px;
+  }
+
+  .sub-head-cls{
+      color:#059ec0;
+      padding-bottom:3%;
+      font-weight: bold;
+      font-size: 16px;
+  }
+
+  .pragrph-cls {
+    padding-right: 5%;
+    white-space: break-spaces;
+  }
+
+  .frm-min-width {
+      min-width: 100%;
+  }
+
+  .hide {
+      display: none;
+  }
+
+  .sub-title {
+    color: #0b365f;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 30px;
+      padding-left: 0px;
+  }
+  .mat-flat-button {
+      max-height: 33px;
+  }
+  .prg-clr{
+    color: #0b365f;
+    font-size: 15px;
+
+  }
+
+  .initialcost {
+    color: #063461;
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 2%;
+  }
+
+
+  .activelogpg {
+    text-align: center;
+    font-size: 19px;
+    padding-top: 3%;
+  }

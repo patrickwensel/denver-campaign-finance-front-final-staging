@@ -1,0 +1,129 @@
+<div class="container">
+    <div class="tab-width">
+        <form class="create-form" id="create-info" autocomplete="off" [formGroup]="eventCalander">
+            <div class="flex">
+                <div class="width-40">
+                    <div class="flex">
+                        <mat-label class="width-20">{{static_data.ethic_form.title}}</mat-label>
+
+                        <mat-form-field appearance="fill" class="create-full-width"
+                        [hideRequiredMarker]='hideRequiredMarker'>
+                        <mat-label class="width-20" class="visuallyhidden">{{static_data.ethic_form.title}}
+                        </mat-label>
+                        <input matInput type="text" autocomplete="off" autofocus form-fields id="title"
+                        formControlName="title" required>
+                        <mat-error class="error">
+                            {{errorService.checkErrorMessage(eventCalander.get('title'), 'title')}}
+                        </mat-error>
+                    </mat-form-field>
+                       
+                    </div>
+                    <div class="flex">
+                        <mat-label class="width-20">{{static_data.committee_registration.commitee_office.description}}</mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width"
+                        [hideRequiredMarker]='hideRequiredMarker'>
+                        <mat-label class="width-20" class="visuallyhidden">{{static_data.committee_registration.commitee_office.description}}
+                        </mat-label>
+                        <input matInput type="text" autocomplete="off" autofocus form-fields id="description" maxlength="120"
+                        formControlName="description">
+                        <mat-error class="error">
+                            {{errorService.checkErrorMessage(eventCalander.get('description'), 'description')}}
+                        </mat-error>
+                    </mat-form-field>
+                    </div>
+                </div>
+                <div class="width-50">
+                    <div class="flex">
+                        <mat-label class="width-20">{{static_data.manage_committee.filer_type}}</mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width"
+                        [hideRequiredMarker]='hideRequiredMarker'>
+                        <mat-label class="width-20" class="visuallyhidden">
+                            {{static_data.manage_committee.filer_type}}</mat-label>
+                            <mat-select id="filer_type" aria-labelledby="filer_type create-info"
+                            aria-label="filer_type" multiple id="filer_type" required
+                            formControlName="filer_type" (selectionChange)="onChangeoffice($event)">
+                            <mat-option #allSelectedOffice (click)="toggleAllSelectionOffice()" [value]="0">All
+                                filers</mat-option>
+                            <mat-option (click)="tosslePerOneOffice(allSelectedOffice.viewValue)"
+                            [value]="filer.lookUpTypeId" *ngFor="let filer of fil">
+                            {{filer.lookUpName}}
+                            </mat-option>
+                        </mat-select> 
+                        <mat-error class="error">
+                            {{errorService.checkErrorMessage(eventCalander.get('filer_type'), 'filerType')}}
+                        </mat-error>
+                    </mat-form-field>
+                    </div>
+                    <div class="flex">
+                        <mat-label class="width-20">{{static_data.calendar.submitted}}</mat-label>
+                        <div class="grid-date">
+                            <mat-form-field appearance="fill" class="width-49">
+                                <mat-label>Start Date</mat-label>
+                                <input matInput [matDatepicker]="picker1" formControlName="date" required>
+                                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
+                                <mat-error class="error">
+                                    {{errorService.checkErrorMessage(eventCalander.get('date'), 'start_date')}}
+                                </mat-error>
+                              </mat-form-field>
+                              
+                              <mat-form-field appearance="fill" class="width-49">
+                                <mat-label>Time (optional)</mat-label>
+                                <input matInput formControlName="time">
+                                <!-- <input matInput formControlName="time" [ngxTimepicker]="toggleTimepicker" [disableClick]="true">
+                                <ngx-material-timepicker-toggle matPrefix [for]="toggleTimepicker"></ngx-material-timepicker-toggle>
+                                <ngx-material-timepicker #toggleTimepicker></ngx-material-timepicker> -->
+                                </mat-form-field>
+                              </div>
+                    </div>
+                    <div class="flex">
+                        <mat-label class="width-20"></mat-label>
+                    <mat-checkbox (change)="check($event)" formControlName="bump_filing" class="example-margin">{{static_data.calendar.filing_due_dates}}</mat-checkbox>
+                    </div>
+                    <div class="btn-cancel-alg">
+                        <!-- <span class="btn-mar-back">
+                            <button mat-button color="primary" >Cancel</button>
+                        </span> -->
+                        <span id="save-btn">
+                            <button id="addInfo" type="button" mat-flat-button color="primary" class="nrmlfillbtn" (click)="save()"
+                            >{{editGrid ? static_data.button.update : static_data.button.add}}</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
+    <table mat-table [dataSource]="dataMatchingList" multiTemplateDataRows>
+     
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef> {{static_data.ethic_form.title}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef>{{static_data.committee_registration.commitee_office.description}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.descr}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef> {{static_data.calendar.date}} </th>
+            <td mat-cell *matCellDef="let element">{{element.eventdate | date:'short'}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="filer_type">
+            <th mat-header-cell *matHeaderCellDef> {{static_data.manage_committee.filer_type}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.filertype}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> {{static_data.public_funding.action}} </th>
+            <td mat-cell *matCellDef="let element" class="click-hand">
+                <span class="material-icons" (click)="editOfficerForm(element)">mode_edit_outline</span>&nbsp;&nbsp;
+                <span class="material-icons" (click)="openConfirmationModal(element.event_id)">delete_forever</span>
+            </td>
+        </ng-container>
+   
+        <tr mat-header-row *matHeaderRowDef="displayedStudentsColumnsList;sticky: true"></tr>
+        <tr mat-row *matRowDef="let element; columns: displayedStudentsColumnsList;" class="student-element-row" [class.student-expanded-row]="element.isExpanded"></tr>
+    </table>

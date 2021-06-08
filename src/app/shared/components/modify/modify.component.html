@@ -1,0 +1,22 @@
+<div id="modify-forms" class="flex" *ngFor="let modify of modifyItems;let idx=index">
+  <div class="margin-bottom-15">
+    <!-- <h3 >{{modify.displayName}}</h3> -->
+    <mat-label attr.for="select_{{idx}}" class="width-20 label_style">{{modify.displayName}}</mat-label>
+    <div class="spacing postimage-uploadbtn" *ngIf="!modify.imageSource">
+      <input attr.aria-labelledby="select_{{idx}} modify-forms" attr.aria-label="Upload {{modify.displayName}}"
+        type="file" attr.id="select_{{idx}}" name="select-img" accept="image/x-png,image/jpeg/*"
+        (change)="selectImage($event,idx)">
+      <button class="uploadclss">Select Image</button>
+    </div>
+    <div *ngIf="modify.imageSource">
+      <img title="{{name}}" width="30%" [src]="modify.imageSource" class="image">
+      <mat-icon class="close-icon" (click)="removeImage(idx)">close</mat-icon>
+    </div>
+  </div>
+</div>
+<div class="margin-bottom-10">
+  <button title="Cancel the changes" style="width: 7.8%;" id="btnCancel" type="button"
+    mat-flat-button>{{static_data.button.cancel}}</button>
+  <button title="validate and Save the changes" style="width: 7.5%;" id="btnSave" type="button" mat-flat-button
+    color="primary" class="nrmlfillbtn" (click)="save()">{{static_data.button.save}}</button>
+</div>

@@ -1,0 +1,157 @@
+<div class="container">
+    <div class="regisLobby">
+        <h2 class="managemnet-title">
+            <mat-icon matPrefix class="size-27 pointer" (click)="back()">arrow_back_ios</mat-icon>
+            {{static_data.contribution.limits}}
+        </h2>
+    </div>
+    <br>
+    <div class="tab-width">
+        <form class="create-form" id="create-info" autocomplete="off" [formGroup]="contribution">
+            <!-- <div class="flex"> -->
+            <div class="flex">
+                <mat-label for="comm_type" class="width-20">
+                    {{static_data.committee_registration.committee_info.committee_type}}</mat-label>
+                <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-label for="comm_type" class="width-20" class="visuallyhidden">
+                        {{static_data.committee_registration.committee_info.committee_type}}</mat-label>
+                    <mat-select id="comm_type" aria-labelledby="comm_type create-info" aria-label="committee type"
+                        multiple formControlName="filer_type" (selectionChange)="onChangeType($event)">
+                        <mat-option #allSelectedCType (click)="toggleAllSelectionCType()" [value]="0">All Committee Type
+                        </mat-option>
+                        <mat-option (click)="tosslePerOneCType(allSelectedCType.viewValue)"
+                            *ngFor="let filer of getFilerTypeData" [value]="filer.typeId">
+                            {{filer.typeName}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(contribution.get('filer_type'), 'committee')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="flex" *ngIf="showOffice">
+                <mat-label for="office" class="width-20">{{static_data.contribution.off}}</mat-label>
+                <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-label for="office" class="width-20" class="visuallyhidden">{{static_data.contribution.off}}
+                    </mat-label>
+                    <mat-select id="office" aria-labelledby="office create-info" aria-label="select officer" multiple
+                        formControlName="office" (selectionChange)="onChangeoffice($event)">
+                        <mat-option #allSelectedOffice (click)="toggleAllSelectionOffice()" [value]="0">All Offices
+                        </mat-option>
+                        <mat-option (click)="tosslePerOneOffice(allSelectedCType.viewValue)"
+                            *ngFor="let office of getOfficeTypeData" [value]="office.typeId">
+                            {{office.typeName}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(contribution.get('office'), 'office')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="flex">
+                <mat-label for="donar_type" class="width-20">{{static_data.contribution.donor}}</mat-label>
+                <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-label for="donar_type" class="width-20" class="visuallyhidden">
+                        {{static_data.contribution.donor}}</mat-label>
+                    <mat-select id="donar_type" aria-labelledby="donar_type create-info" aria-label="select donar"
+                        formControlName="donar_type">
+                        <mat-option *ngFor="let donor of getDonorTypeData" [value]="donor.lookUpTypeId">
+                            {{donor.lookUpName}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(contribution.get('donar_type'), 'donor')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="flex">
+                <mat-label for="contribution_limit" class="width-20">{{static_data.contribution.con_limit}}</mat-label>
+                <mat-form-field appearance="fill" appearance="fill" class="create-full-width"
+                    [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-label for="contribution_limit" class="width-20" class="visuallyhidden">
+                        {{static_data.contribution.con_limit}}</mat-label>
+                    <input aria-labelledby="contribution_limit create-info" aria-label="contribution limit"   (keyup)="commaKey()" matInput type="text" autocomplete="off" autofocus form-fields id="contribution_limit" formControlName="contribution_limit"
+                    keyPrevent (keypress)="numericOnly($event)" maxlength="10">
+                    <!-- <mat-error class="error">
+                        {{errorService.checkErrorMessage(contribution.get('contribution_limit'), 'contribution_limit')}}
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+            <div class="flex">
+                <mat-label for="elect_cycle" class="width-20">{{static_data.contribution.election_cycle}}</mat-label>
+                <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-label for="elect_cycle" class="width-20" class="visuallyhidden">
+                        {{static_data.contribution.election_cycle}}</mat-label>
+                    <mat-select id="elect_cycle" aria-labelledby="elect_cycle create-info"
+                        aria-label="select elect cycle" formControlName="elect_cycle">
+                        <mat-option *ngFor="let election of getElectionDate" [value]="election.electionCycle">
+                            {{election.electionCycle}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error class="error">
+                        {{errorService.checkErrorMessage(contribution.get('elect_cycle'), 'election_cycle')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="btn-cancel-alg">
+                <!-- <span class="btn-mar-back">
+                    <button mat-button color="primary" >Cancel</button>
+                </span> -->
+                <span id="save-btn">
+                    <button title="Add contribution" id="addInfo" type="button" mat-flat-button color="primary"
+                        class="nrmlfillbtn" (click)="save()">{{editGrid ? static_data.button.update :
+                        static_data.button.add}}</button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+<table mat-table [dataSource]="dataContributionList" multiTemplateDataRows>
+
+    <ng-container matColumnDef="filerType">
+        <th [attr.role]="null" mat-header-cell *matHeaderCellDef> {{static_data.committee_registration.committee_info.committee_type}}
+        </th>
+        <td [attr.role]="null" mat-cell *matCellDef="let element" title="{{element.commiteeType}}"> {{element.commiteeType}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="officeTypeId">
+        <th [attr.role]="null" mat-header-cell *matHeaderCellDef>{{static_data.contribution.off}} </th>
+        <td [attr.role]="null" mat-cell *matCellDef="let element" title="{{element.officeType}}"> {{element.officeType ? element.officeType
+            : 'NA' }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="electionYear">
+        <th [attr.role]="null" mat-header-cell *matHeaderCellDef> {{static_data.contribution.election_cycle}} </th>
+        <td [attr.role]="null" mat-cell *matCellDef="let element"> {{element.electionYear}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="donorTypeId">
+        <th [attr.role]="null" mat-header-cell *matHeaderCellDef> {{static_data.contribution.donor}} </th>
+        <td [attr.role]="null" mat-cell *matCellDef="let element"> {{element.donorType}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="limit">
+        <th [attr.role]="null" mat-header-cell *matHeaderCellDef> {{static_data.contribution.con_limit}} </th>
+        <td [attr.role]="null" mat-cell *matCellDef="let element"> <span *ngIf="element.contLimit == 0">Unlimited</span>
+            <span *ngIf="element.contLimit > 1">{{element.contLimit | currency}}</span>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+        <th [attr.role]="null" mat-header-cell *matHeaderCellDef> {{static_data.contribution.action}} </th>
+        <td [attr.role]="null" mat-cell *matCellDef="let element" class="click-hand">
+            <span class="material-icons" (click)="editOfficerForm(element)">mode_edit_outline</span>&nbsp;&nbsp;
+            <span class="material-icons" (click)="openConfirmationModal(element.id)">delete_forever</span>
+        </td>
+
+    </ng-container>
+
+    <tr [attr.role]="null" mat-header-row *matHeaderRowDef="displayedStudentsColumnsList;sticky: true"></tr>
+    <tr [attr.role]="null" mat-row *matRowDef="let element; columns: displayedStudentsColumnsList;" class="student-element-row"></tr>
+
+    <!-- Extra row to show detail content column -->
+    <!-- <div *ngIf="isTableExpanded"> -->
+    <!-- <tr [attr.role]="null" mat-row *matRowDef="let row; columns: ['expandedDetail']" class="student-detail-row"
+        [ngClass]="{'hide':!row.isExpanded}"></tr> -->
+    <!-- </div> -->
+</table>

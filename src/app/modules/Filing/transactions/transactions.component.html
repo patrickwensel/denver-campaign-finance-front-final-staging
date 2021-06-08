@@ -1,0 +1,402 @@
+<div class="container" style="padding: 30px;">
+    <div class="matform-Container">
+        <div>
+            <div>
+                <h2 class="name">{{name}}</h2>
+            </div>
+            <h2 class="tabhead title">{{static_data.header_section.transactions}}</h2>
+        </div>
+        <div style="width: 30%;padding-left: 20px;">
+            <mat-label>Transaction Type</mat-label><br>
+            <mat-form-field appearance="outline" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-select [(ngModel)]="typeID">
+                    <mat-option *ngFor="let type of getTransactionType" [value]="type.lookUpTypeId" (onSelectionChange)="changeTransType($event)">
+                        {{type.lookUpName}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="tab-width" *ngIf="typeID == 'TRN-CONT'">
+        <form class="create-form" id="create-info" autocomplete="off" [formGroup]="contribution">
+            <div class="flex">
+                <div class="width-40">
+                    <div class="flex">
+                        <mat-label class="width-20">{{static_data?.filer?.contributor}}
+                            <mat-icon class="help-icon" matsuffix>help</mat-icon>
+                        </mat-label>
+                        <mat-form-field class="create-full-width" floatLabel="never">
+                            <mat-label>Search</mat-label>
+                            <input #myInput attr.aria-label="Search" type="text" matInput formControlName="SearchEvent" name="SearchControl" [matAutocomplete]="auto" id="search-popular" (keyup)="this.txtQueryChanged.next(contribution.value.SearchEvent)">
+                            <mat-icon matPrefix>search</mat-icon>
+                            <mat-autocomplete #auto="matAutocomplete">
+                                <div>
+                                    <mat-option *ngFor="let type of searchContributorType" [value]="type.fullname" (click)="getContactDetailsById(type.contactId)">
+                                        {{type.fullname}}
+                                    </mat-option>
+                                    <mat-option *ngIf="!searchContributorType?.length">
+                                        {{data.notFound.notfound}}
+                                    </mat-option>
+                                </div>
+                            </mat-autocomplete>
+                            <button type="button" attr.aria-label="Search" class="btn-search" mat-flat-button color="primary" matSuffix>
+                                SEARCH
+                            </button>
+                        </mat-form-field>
+                    </div>
+                    <div class="flex">
+                        <mat-label class="width-20">{{static_data?.filer?.contributorType}}</mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">{{static_data?.filer?.contributorType}}
+                            </mat-label>
+                            <mat-select formControlName="contributorType">
+                                <mat-option *ngFor="let type of getContributorType" [value]="type.lookUpTypeId" (click)="changeContributor(type)">
+                                    {{type.lookUpName}}
+                                </mat-option>
+                            </mat-select>
+                            <!-- <mat-error class="error">
+                                {{errorService.checkErrorMessage(contribution.get('contributionType'), 'contributionType')}}
+                            </mat-error> -->
+                        </mat-form-field>
+                    </div>
+                    <div class="flex" *ngIf="conType == 'CON-I'">
+                        <mat-label class="width-20">{{static_data?.create_account?.contact_info?.first_name}}
+                        </mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">
+                                {{static_data?.create_account?.contact_info.first_name}}
+                            </mat-label>
+                            <input formControlName="firstName" matInput type="text" autocomplete="off" autofocus minlength="2" maxlength="80" form-fields id="available" keyPrevent [AlphaSpace]="true" required>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(contribution.get('firstName'), 'firstName')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="flex" *ngIf="conType == 'CON-I'">
+                        <mat-label class="width-20">{{static_data?.create_account?.contact_info.last_name}}</mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">
+                                {{static_data?.create_account?.contact_info.last_name}}
+                            </mat-label>
+                            <input formControlName="lastName" matInput type="text" autocomplete="off" autofocus maxlength="80" minlength="2" form-fields id="available" keyPrevent [AlphaSpace]="true" required>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(contribution.get('lastName'), 'lastName')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="flex" *ngIf="conType == 'CON-I'">
+                        <mat-label class="width-20" for="MailingAdd1">
+                            {{static_data?.create_account?.additional_information_IEF.employer}}</mat-label>
+                        <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" for="MailingAdd1" class="visuallyhidden">
+                                {{static_data?.create_account?.additional_information_IEF.employer}}</mat-label>
+                            <input formControlName="employer" attr.aria-label="{{static_data?.create_account?.additional_information_IEF.employer}}" matInput type="text" autocomplete="off" form-fields placeholder="" id="employer" minlength="2" maxlength="80" keyPrevent [AlphaSpace]="true"
+                                required>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(contribution.get('employer'), 'employer')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="flex" *ngIf="conType == 'CON-I'">
+                        <mat-label class="width-20" for="occupation">
+                            {{static_data?.create_account?.additional_information_IEF.occupation}}</mat-label>
+                        <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" for="occupation" class="visuallyhidden">
+                                {{static_data?.create_account?.additional_information_IEF.occupation}}</mat-label>
+                            <input formControlName="occupation" attr.aria-label="{{static_data?.create_account?.additional_information_IEF.occupation}}" matInput type="text" autocomplete="off" form-fields placeholder="" id="occupation" minlength="2" maxlength="80" keyPrevent [AlphaSpace]="true"
+                                required>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(contribution.get('occupation'), 'occupation')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="flex" *ngIf="conType == 'CON-I'">
+                        <mat-label class="width-20" for="voterId">{{static_data?.filer?.voterId}}</mat-label>
+                        <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" for="voterId" class="visuallyhidden">
+                                {{static_data?.filer?.voterId}}</mat-label>
+                            <input formControlName="voterId" attr.aria-label="{{static_data?.filer?.voterId}}" matInput type="text" autocomplete="off" form-fields placeholder="" id="voterId" maxlength="80" minlength="2" keyPrevent [Alphanumeric]="true" required>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(contribution.get('voterId'), 'voterId')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="flex" *ngIf="conType == 'CON-O'">
+                        <mat-label class="width-20" for="organization">
+                            {{static_data?.create_account?.additional_information_IEF.organizationName}}
+                        </mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" for="organization" class="visuallyhidden">
+                                {{static_data?.create_account?.additional_information_IEF.organizationName}}
+                            </mat-label>
+                            <input aria-labelledby="organization create-info-2" attr.aria-label="{{static_data?.create_account?.contact_info?.organizationName}}" keyPrevent [AlphaSpace]="true" maxlength="80" matInput type="text" autocomplete="off" form-fields placeholder="" id="organization"
+                                formControlName="employer" minlength="2" required>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(contribution.get('employer'), 'organizationName')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="flex">
+                        <mat-label class="width-20" for="Address1">
+                            {{static_data?.committee_registration?.commitee_office.address_1}}</mat-label>
+                        <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" for="Address1" class="visuallyhidden">
+                                {{static_data?.committee_registration?.commitee_office.address_1}}</mat-label>
+                            <input formControlName="Address1" attr.aria-label="{{static_data?.committee_registration?.commitee_office.address_1}}" matInput type="text" autocomplete="off" form-fields placeholder="" id="Address1" minlength="2" maxlength="150" keyPrevent [mailAddress]="true"
+                                required>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(contribution.get('Address1'), 'committee-address1')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="flex">
+                        <mat-label class="width-20" for="Address2">
+                            {{static_data?.committee_registration?.commitee_office.address_2}}</mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" for="Address2" class="visuallyhidden">
+                                {{static_data?.committee_registration?.commitee_office.address_2}}</mat-label>
+                            <input formControlName="Address2" attr.aria-label="{{static_data?.committee_registration?.commitee_office.address_2}}" matInput type="text" autocomplete="off" form-fields placeholder="" id="MailingAdd2" minlength="2" maxlength="150" keyPrevent [mailAddress]="true">
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(contribution.get('Address2'), 'committee-address2')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="flex">
+                        <mat-label class="width-20" for="City">
+                            {{static_data?.committee_registration?.commitee_office.city}}</mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" for="City" class="visuallyhidden">
+                                {{static_data?.create_account?.contact_info?.city}}</mat-label>
+                            <input formControlName="city" attr.aria-label="{{static_data?.create_account?.contact_info?.city}}" matInput maxlength="80" minlength="2" type="text" autocomplete="off" form-fields placeholder="" id="City" keyPrevent [AlphaSpace]="true" required>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(contribution.get('city'), 'contactcity')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="flex">
+                        <mat-label class="width-20" for="state">{{static_data?.create_account?.contact_info?.state}}
+                        </mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" for="state" class="visuallyhidden">
+                                {{static_data?.create_account?.contact_info?.state}}</mat-label>
+                            <mat-select attr.aria-label="{{static_data?.create_account?.contact_info?.state}}" id="state" formControlName="state" required #select>
+                                <!-- <mat-select-trigger>
+              {{ select.value}}
+            </mat-select-trigger> -->
+                                <mat-option *ngFor="let state of getState" [value]="state.stateCode">
+                                    {{state.stateDesc}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(contribution.get('state'), 'contactState')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="flex">
+                        <mat-label class="width-20" for="Zipcode">{{static_data?.create_account?.contact_info?.zipcode}}
+                        </mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width">
+                            <input formControlName="zipcode" attr.aria-label="{{static_data?.create_account?.contact_info?.zipcode}}" matInput type="text" autocomplete="off" form-fields placeholder="" id="Zipcode" keyPrevent [Alphanumeric]="true" minlength="5" maxlength="9" required>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(contribution.get('zipcode'), 'contactzipcode')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="btn-cancel-alg">
+                        <!-- <a class="color-BrightBlue" href="javascript:void(0)">{{static_data?.button?.cancel}}</a>
+                        <span id="save-btn" class="margin-left-20">
+                            <button id="btnSave" attr.aria-label="Save" role="button" type="button" mat-flat-button
+                                color="primary">Save</button>
+                        </span> -->
+                        <button type="button" class="uploadclss" (click)="clearForm()">Clear Form</button>
+                    </div>
+                </div>
+                <div class="width-50">
+                    <div class="flex">
+                        <mat-label class="width-20">{{static_data?.filer?.contributionType}}</mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">{{static_data?.filer?.contributionType}}
+                            </mat-label>
+                            <mat-select formControlName="contributionType" required>
+                                <mat-option *ngFor="let type of getContributionType" [value]="type.lookUpTypeId" (click)="changeContribution(type)">
+                                    {{type.lookUpName}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(contribution.get('contributionType'), 'contributionType')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="flex" *ngIf="contributionType == 'MON'">
+                        <mat-label class="width-20">{{static_data?.filer?.monetaryType}}
+                            <mat-icon class="help-icon" matsuffix>help</mat-icon>
+                        </mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-select formControlName="monetaryType">
+                                <mat-option *ngFor="let type of getMonetaryType" [value]="type.lookUpTypeId">
+                                    {{type.lookUpName}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(contribution.get('monetaryType'), 'monetaryType')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="flex">
+                        <mat-label class="width-20">{{static_data?.filer?.dateReceived}}</mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width">
+                            <mat-label>Start Date</mat-label>
+                            <input formControlName="dateReceived" matInput [matDatepicker]="picker1">
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1></mat-datepicker>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(contribution.get('dateReceived'), 'start_date')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="flex">
+                        <mat-label class="width-20" for="contributionAmount">{{static_data?.filer?.contributionAmount}}
+                        </mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" for="contributionAmount" class="visuallyhidden">
+                                {{static_data?.filer?.contributionAmount}}</mat-label>
+                            <input formControlName="contributionAmount" attr.aria-label="{{static_data?.filer?.contributionAmount}}" matInput type="text" (keyup)="commaKey('CA')" autocomplete="off" form-fields placeholder="" id="contributionAmount" keyPrevent maxlength="10" [OnlyNumber]="true"
+                                required>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(contribution.get('contributionAmount'), 'contributionAmount')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="flex">
+                        <mat-label class="width-20"></mat-label>
+                        <div class="create-full-width">
+                            <div class="flex">
+                                <h3 class="width-50">Cycle Total:$40.00</h3>
+                                <div class="width-50" style="display: flex;">
+                                    <mat-icon class="mat-warn" matPrefix>warning_amber</mat-icon>
+                                    <span>Total contribution in this cycle are over the contribution limit
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex">
+                        <mat-label class="width-20">{{static_data.public_funding.election_cycle}}</mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">
+                                {{static_data.public_funding.election_cycle}}
+                            </mat-label>
+                            <mat-select formControlName="electionType" required>
+                                <mat-option [value]="election.electionCycleId" *ngFor="let election of getElectionTypeData">
+                                    {{election.electionCycle}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(contribution.get('electionType'), 'electionCycle')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="flex" *ngIf="contributionType == 'MON'">
+                        <mat-label class="width-20"></mat-label>
+                        <div class="create-full-width ">
+                            <div class="flex">
+                                <mat-checkbox>{{static_data.filer.submit_funding}}</mat-checkbox>
+                                <button mat-button class="color-BrightBlue">Upload Receipt</button>
+                            </div>
+                            <div class="margin-bottom-10">
+                                <mat-icon class="mat-warn">warning_amber</mat-icon> Contributor address is not a valid Denver address
+                            </div>
+                            <mat-checkbox (change)="check($event)" formControlName="refund">Refund</mat-checkbox>
+                        </div>
+                    </div>
+
+                    <div class="flex" *ngIf="contributionType == 'INK'">
+                        <mat-label class="width-20" for="description">{{static_data?.filer?.description}}
+                        </mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <textarea formControlName="description" attr.aria-label="{{static_data?.filer?.description}}" matInput type="text" autocomplete="off" maxlength="250" form-fields placeholder="" id="description"></textarea>
+                            <!-- <mat-error class="error">
+                                        {{errorService.checkErrorMessage(contribution.get('city'), 'contactcity')}}
+                                    </mat-error> -->
+                        </mat-form-field>
+                    </div>
+
+                    <div class="flex" *ngIf="contribution.value.refund">
+                        <mat-label class="width-20">{{static_data?.filer?.refundDate}}</mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width">
+                            <mat-label>Start Date</mat-label>
+                            <input matInput [matDatepicker]="picker2" formControlName="refundDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                            <mat-datepicker #picker2></mat-datepicker>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(contribution.get('refundDate'), 'start_date')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="flex" *ngIf="contribution.value.refund">
+                        <mat-label class="width-20" for="refundAmount">{{static_data?.filer?.refundAmount}}
+                        </mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <input formControlName="refundAmount" attr.aria-label="{{static_data?.filer?.refundAmount}}" matInput type="text" (keyup)="commaKey('RA')" autocomplete="off" form-fields placeholder="" id="refundAmount" keyPrevent maxlength="10" [OnlyNumber]="true">
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(contribution.get('refundAmount'), 'refundAmount')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="flex" *ngIf="contribution.value.refund">
+                        <mat-label class="width-20" for="contributionAmount">{{static_data?.filer?.reasonForrefund}}
+                        </mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <input formControlName="reasonForrefund" attr.aria-label="{{static_data?.filer?.reasonForrefund}}" matInput type="text" autocomplete="off" form-fields placeholder="" id="reasonForrefund" keyPrevent maxlength="80" minlength="2" [AlphaSpace]="true">
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(contribution.get('reasonForrefund'), 'reasonForrefund')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="flex">
+                        <mat-label class="width-20" for="notes">{{static_data?.filer?.notes}}
+                            <mat-icon class="help-icon" matsuffix>help</mat-icon>
+                        </mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                            <textarea formControlName="notes" attr.aria-label="{{static_data?.filer?.notes}}" matInput type="text" autocomplete="off" maxlength="250" form-fields placeholder="" id="notes"></textarea>
+                            <!-- <mat-error class="error">
+                                    {{errorService.checkErrorMessage(contribution.get('city'), 'contactcity')}}
+                                </mat-error> -->
+                        </mat-form-field>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+        <div class="bottom-btns margin-bottom-10">
+            <a class="color-BrightBlue" href="javascript:void(0)">{{static_data?.button?.cancel}}</a>
+            <span id="save-btn" class="margin-left-20">
+                <button id="btnSave" attr.aria-label="Save" role="button" type="button" mat-flat-button
+                    color="primary" (click)="save()">Save</button>
+            </span>
+        </div>
+    </div>
+
+    <div class="tab-width" *ngIf="typeID == 'TRN-EXPT'">
+        <app-transactions-expenditure [showexp]="showexp" (changeExpenditure)="changeExpenditure"></app-transactions-expenditure>
+    </div>
+
+    <div class="tab-width" *ngIf="typeID == 'TRN-UPOB'">
+        <app-transactions-unpaidoblication></app-transactions-unpaidoblication>
+    </div>
+
+    <div class="tab-width" *ngIf="typeID == 'TRN-LOAN'">
+        <app-transactions-loan></app-transactions-loan>
+    </div>
+</div>

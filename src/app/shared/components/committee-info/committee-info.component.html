@@ -1,0 +1,139 @@
+<div class="navigatepadding" *ngIf="Type=='AC-CAN'">
+    <div>
+        <strong class="fontcolorblck"> {{static_data.Committee_Information.commitee_name}} </strong>
+        <span class="value"> {{bindItems?.entityName}} </span>
+        <hr>
+    </div>
+    <div>
+        <strong class="fontcolorblck"> {{static_data.Committee_Information.commitee_id}} </strong>
+        <span class="value"> {{bindItems?.contactId}} </span>
+        <hr>
+    </div>
+    <div>
+        <strong class="fontcolorblck"> {{static_data.Committee_Information.committee_type}} </strong>
+        <span class="value">{{bindItems?.entityType=='COM-CAN'?"Candidate Committee":bindItems?.entityType=='COM-IC'?"Issue Committee":bindItems?.entityType=='COM-PAC'?"Political Action Committee":bindItems?.entityType=='COM-OFF'?"Officer Committee":bindItems?.entityType}}</span>
+        <hr>
+    </div>
+    <div *ngIf="bindItems?.entityType == 'COM-CAN'">
+        <strong class="fontcolorblck">
+            {{static_data.Committee_Information.Candidate_name}} </strong>
+        <span class="value"> {{bindItems?.candidateName}} </span>
+        <hr>
+    </div>
+    <div *ngIf="bindItems?.entityType == 'Issue Committee'">
+        <strong class="fontcolorblck">
+            {{static_data.Committee_Information.ballot_issue}} </strong>
+        <span class="value"> {{bindItems?.ballotIssue}} </span>
+        <hr>
+    </div>
+    <div *ngIf="bindItems?.entityType == 'Issue Committee'">
+        <strong class="fontcolorblck">
+            {{static_data.Committee_Information.position}} </strong>
+        <span class="value"> {{bindItems?.positionDesc}} </span>
+        <hr>
+    </div>
+    <div>
+        <strong class="fontcolorblck"> {{static_data.Committee_Information.tresurer_name}} </strong>
+        <span class="value"> {{bindItems?.treasurerName}} </span>
+        <hr>
+    </div>
+    <div *ngIf="(bindItems?.entityType == 'Issue Committee') || (bindItems?.entityType == 'COM-CAN')">
+        <strong class="fontcolorblck">
+            {{static_data.Committee_Information.election_date}} </strong>
+        <span class="value"> {{bindItems?.electionDate | date:masterDate.dateFormat}} </span>
+        <hr>
+    </div>
+    <div *ngIf="bindItems?.entityType == 'COM-CAN'">
+        <strong class="fontcolorblck">
+            {{static_data.Committee_Information.public_funding_status}} </strong>
+        <span class="value"> {{bindItems?.publicFund}} </span>
+        <hr>
+    </div>
+    <div *ngIf="bindItems?.entityType == 'Issue Committee'">
+        <strong class="fontcolorblck">
+            {{static_data.Committee_Information.purpose}} </strong>
+        <span class="value"> {{bindItems?.purposeDesc}} </span>
+        <hr>
+    </div>
+
+</div>
+
+<div class="navigatepadding" *ngIf="Type=='AC-IEF'">
+    <div>
+        <strong class="fontcolorblck"> {{static_data.Independent_expenditure_Details.ie_filer_name}} </strong>
+        <span class="value"> {{bindItems?.entityName }}  </span>
+        <hr>
+    </div>
+    <div>
+        <strong class="fontcolorblck"> {{static_data.Independent_expenditure_Details.ie_filerid}} </strong>
+        <span class="value">{{bindItems?.contactId }} </span>
+        <hr>
+    </div>
+    <div>
+        <strong class="fontcolorblck"> {{static_data.Independent_expenditure_Details.ie_filer_type}} </strong>
+        <span class="value"> {{bindItems?.entityType=='FT-ORG'?"Organization":bindItems?.entityType=='FT-IND'?"Individual":bindItems?.entityType}}  </span>
+        <hr>
+    </div>
+    <div>
+        <strong class="fontcolorblck">
+            {{static_data.Independent_expenditure_Details.organization_name}} </strong>
+        <span class="value">{{bindItems?.orgName }}  </span>
+        <hr>
+    </div>
+    <div>
+        <strong class="fontcolorblck">
+            {{static_data.Independent_expenditure_Details.employer}} </strong>
+        <span class="value"> {{bindItems?.orgName }} </span>
+        <hr>
+    </div>
+    <div>
+        <strong class="fontcolorblck">
+            {{static_data.Independent_expenditure_Details.occupation}} </strong>
+        <span class="value"> {{bindItems?.ie_occupation }}  </span>
+        <hr>
+    </div>
+</div>
+
+
+<div class="navigatepadding" *ngIf="Type=='AC-LOB'">
+    <div>
+        <strong class="fontcolorblck"> {{static_data.Lobbyist_Details.lobbyist_filer_name}} </strong>
+        <span class="value"> {{bindItems?.entityName}}</span>
+        <hr>
+    </div>
+    <div>
+        <strong class="fontcolorblck"> {{static_data.Lobbyist_Details.lobbyist_filerId}} </strong>
+        <span class="value">{{bindItems?.contactId}} </span>
+        <hr>
+    </div>
+    <div>
+        <strong class="fontcolorblck"> {{static_data.Lobbyist_Details.lobbyist_filer_type}} </strong>
+        <span class="value"> {{(bindItems?.entityType==='LOB-I')?'Individual':(bindItems?.entityType==='LOB-O')?'Organization':''}} </span>
+        <hr>
+    </div>
+    <div *ngIf="bindItems?.entityType !== 'LOB-I'">
+        <strong class="fontcolorblck">
+            {{static_data.Lobbyist_Details.organization_name}} </strong>
+        <span class="value">{{bindItems?.orgName}} </span>
+        <hr>
+    </div>
+    <div>
+        <strong class="fontcolorblck">
+            {{static_data.Lobbyist_Details.primary_reg_lobby_name}} </strong>
+        <span class="value"> {{bindItems?.primaryName}}</span>
+        <hr>
+    </div>
+</div>
+
+<div class="navigatepadding" *ngIf="localrole=='USER-Ethic'">
+    <div>
+        <strong class="fontcolorblck"> {{static_data.Ethics_File.ethics_filer_name}} </strong>
+        <span class="value"> {{bindItems?.entityName }} </span>
+        <hr>
+    </div>
+    <div>
+        <strong class="fontcolorblck"> {{static_data.Ethics_File.ethics_filer_id}} </strong>
+        <span class="value">{{bindItems?.entityId }} </span>
+        <hr>
+    </div>
+</div>

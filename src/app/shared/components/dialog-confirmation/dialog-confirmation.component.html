@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>{{data.heading}}</h2>
+<mat-dialog-content class="mat-typography">
+    Your current changes are not saved. Do you really want leave this Page ? 
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-flat-button color="danger" [mat-dialog-close]="true" cdkFocusInitial>Confirm</button>
+</mat-dialog-actions>

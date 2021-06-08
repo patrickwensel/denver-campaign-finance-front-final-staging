@@ -1,0 +1,31 @@
+<div class="navigatepadding pointer">
+    <div fxLayout="row">
+        <div fxFlex="74" fxLayoutGap="12px">
+            <!-- <div fxFlex="3">
+            </div> -->
+            <h2 class="calendar-title">
+                <mat-icon matPrefix class="size-27 pointer">arrow_back_ios</mat-icon>
+                Edit Calendar 
+            </h2>
+        </div>
+    </div>
+<app-admin-calender [eventsChange]="eventsCalenderToChange.asObservable()"></app-admin-calender>
+<div *ngIf="isadmin">
+<div *ngFor="let item of listItems">
+    <div> 
+        <h2 class="fontcolorblck" (click)="view(item)"> {{item.displayName}} <span class="material-icons">
+                arrow_forward_ios
+            </span> </h2>
+        <div class="margin-bottom-25">
+            <app-filing-period (onsaveChangesEvent)="onSaveChange()" *ngIf="filing && (item.displayName == 'Filing Period')"></app-filing-period>
+        </div>
+        <div class="margin-bottom-25">
+            <app-event-calendar  (onsaveChangesEvent)="onSaveChange()"  *ngIf="event && (item.displayName == 'Event')"></app-event-calendar>
+        </div>
+        <div class="margin-bottom-25">
+            <app-election-cycle  (onsaveChangesEvent)="onSaveChange()"  *ngIf="election && (item.displayName == 'Election Cycle')"></app-election-cycle>
+        </div>
+        </div>
+    </div>
+</div>
+</div>

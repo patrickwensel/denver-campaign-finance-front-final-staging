@@ -1,0 +1,93 @@
+<table mat-table [dataSource]="monetaryContrebutions" multiTemplateDataRows>
+
+    <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> {{static_data?.filer?.date}} </th>
+        <td mat-cell *matCellDef="let element"> ferf </td>
+    </ng-container>
+
+    <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef>{{static_data?.filer?.amount}} </th>
+        <td mat-cell *matCellDef="let element"> fref </td>
+    </ng-container>
+
+    <ng-container matColumnDef="contributionName">
+        <th mat-header-cell *matHeaderCellDef> {{static_data?.summary?.contributorName}} </th>
+        <td mat-cell *matCellDef="let element"> fref</td>
+    </ng-container>
+
+    <ng-container matColumnDef="contributionType">
+        <th mat-header-cell *matHeaderCellDef> {{static_data?.filer?.contributorType}} </th>
+        <td mat-cell *matCellDef="let element"> ferf </td>
+    </ng-container>
+
+    <ng-container matColumnDef="filer">
+        <th mat-header-cell *matHeaderCellDef> {{static_data?.summary?.filerId}} </th>
+        <td mat-cell *matCellDef="let element"> ferf </td>
+    </ng-container>
+
+    <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> {{static_data?.create_account?.additional_information_IEF?.occupation}} </th>
+        <td mat-cell *matCellDef="let element"> ferf </td>
+    </ng-container>
+
+    <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef>{{static_data?.committee_registration?.commitee_office.city}} </th>
+        <td mat-cell *matCellDef="let element"> fref </td>
+    </ng-container>
+
+    <ng-container matColumnDef="state">
+        <th mat-header-cell *matHeaderCellDef> {{static_data?.create_account?.contact_info?.state}} </th>
+        <td mat-cell *matCellDef="let element"> fref</td>
+    </ng-container>
+
+    <ng-container matColumnDef="zip">
+        <th mat-header-cell *matHeaderCellDef> {{static_data?.committee_registration?.commitee_office?.zip}} </th>
+        <td mat-cell *matCellDef="let element"> fref</td>
+    </ng-container>
+
+    <ng-container matColumnDef="employer">
+        <th mat-header-cell *matHeaderCellDef> {{static_data?.create_account?.additional_information_IEF?.employer}} </th>
+        <td mat-cell *matCellDef="let element"> ferf </td>
+    </ng-container>
+
+    <ng-container matColumnDef="occupation">
+        <th mat-header-cell *matHeaderCellDef> {{static_data?.create_account?.additional_information_IEF?.occupation}} </th>
+        <td mat-cell *matCellDef="let element"> ferf </td>
+    </ng-container>
+
+    <ng-container matColumnDef="cycle">
+        <th mat-header-cell *matHeaderCellDef> {{static_data?.summary?.dateTotal}} </th>
+        <td mat-cell *matCellDef="let element"> ferf </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ytd">
+        <th mat-header-cell *matHeaderCellDef> {{static_data?.summary?.ytd}} </th>
+        <td mat-cell *matCellDef="let element"> ferf </td>
+    </ng-container>
+
+    <ng-container matColumnDef="public">
+        <th mat-header-cell *matHeaderCellDef> {{static_data?.summary?.public}} </th>
+        <td mat-cell *matCellDef="let element"> ferf </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> {{static_data?.summary?.publicStatus}} </th>
+        <td mat-cell *matCellDef="let element"> ferf </td>
+    </ng-container>
+
+    <ng-container matColumnDef="receipt">
+        <th mat-header-cell *matHeaderCellDef> {{static_data?.summary?.receipt}} </th>
+        <td mat-cell *matCellDef="let element"> ferf </td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef> {{static_data?.committee_registration?.commitee_office?.edit}} </th>
+        <td mat-cell *matCellDef="let element" class="click-hand">
+            <span class="material-icons">mode_edit_outline</span>&nbsp;&nbsp;
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedStudentsColumnsList;sticky: true"></tr>
+    <tr mat-row *matRowDef="let element; columns: displayedStudentsColumnsList;"
+        class="student-element-row"></tr>
+</table>

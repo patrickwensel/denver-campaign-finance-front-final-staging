@@ -1,0 +1,326 @@
+<div class="finelist">
+    <div class="head">
+        <span class="title">
+            <mat-icon class="material-icons" (click)="back()">
+                arrow_back_ios
+            </mat-icon>Fines and Fees Management
+        </span>
+    </div>
+    <div class="latefine">
+        <div class="forms">
+            <div class="transaction">
+                <h3>Late Fine</h3>
+                <form class="create-form" id="create-info" autocomplete="off" [formGroup]="latefinegroup">
+                    <div class="flex">
+                        <mat-label class="width-20">Name</mat-label>
+                        <mat-form-field appearance="fill" appearance="fill" class="create-full-width"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">Name
+                            </mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="" required
+                                maxlength="120" id="department" formControlName="name" keyPrevent [AlphaSpace]="true">
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(latefinegroup.get('name'), 'name')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="flex">
+                        <mat-label class="width-20">Amount</mat-label>
+                        <mat-form-field appearance="fill" appearance="fill" class="create-full-width"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">Amount</mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                                keyPrevent (keypress)="numericOnly($event)" required maxlength="13" (keyup)="commaKey('latefine')"
+                                id="type" formControlName="amount" keyPrevent [mailAddress]="true">
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(latefinegroup.get('amount'), 'amount')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="flex">
+                        <mat-label class="width-20">Grace Period</mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">Grace Period
+                            </mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                                keyPrevent (keypress)="numericOnly($event)" maxlength="3" id="app_authority"
+                                formControlName="graceperiod">
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(latefinegroup.get('graceperiod'), 'graceperiod')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="flex">
+                        <mat-label class="width-20">Filer Type</mat-label>
+
+                        <mat-form-field appearance="fill" appearance="fill" class="create-full-width"
+                            [hideRequiredMarker]="hideRequiredMarker">
+                            <mat-label for="filertype" class="width-20" class="visuallyhidden">{{
+                              static_data.manage_committee.search_committees
+                              }}</mat-label>
+                            <mat-select aria-labelledby="filertype create-info" id="filertype"
+                                attr.aria-label="{{ static_data.manage_committee.filer_type}}"
+                                formControlName="filertype" multiple (selectionChange)="onChangeType($event)">
+                                <mat-option #allSelected (click)="toggleAllSelectionType()" [value]="0">All Filer Types
+                                </mat-option>
+                                <mat-option *ngFor="let type of filerType" [value]="type.lookUpTypeId"
+                                    (click)="tosslePerOneType(allSelected.viewValue)">{{ type.lookUpName }}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error class="error">
+                                {{
+                              errorService.checkErrorMessage(latefinegroup.get("filertype"),"filertype")}}
+                            </mat-error>
+                        </mat-form-field>
+
+                        <!-- <mat-form-field appearance="fill" class="create-full-width"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" for="state" class="visuallyhidden">
+                                Filer Type</mat-label>
+                            <mat-select aria-labelledby="filertype latefine"
+                                attr.aria-label="{{static_data?.create_account?.contact_info?.state}}" id="state"
+                                formControlName="filertype" #select>
+                                <mat-option *ngFor="let filer of fil" [value]="filer.lookUpTypeId">
+                                    {{filer.lookUpName}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error class="error">
+                     
+                                error
+                            </mat-error>
+                        </mat-form-field> -->
+                    </div>
+                    <div class="flex">
+                        <mat-label class="width-20">Frequency
+                        </mat-label>
+                        <mat-form-field appearance="fill" class="create-full-width"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" for="frequency" class="visuallyhidden">
+                                Filer Type</mat-label>
+                            <mat-select aria-labelledby="frequency latefine"
+                                attr.aria-label="{{static_data?.create_account?.contact_info?.state}}" id="state"
+                                formControlName="frequency" #select>
+                                <mat-option *ngFor="let x of frequencies" [value]="x.value">
+                                    {{x.viewValue}}
+                                </mat-option>
+
+                            </mat-select>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(latefinegroup.get('frequency'),'frequency')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </form>
+                <div class="btmcontent">
+                    <button type="submit" class="replybtn" (click)='addfunc()' id="addbtn">{{editGrid ? static_data.button.update :
+                            static_data.button.add}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="margin-bottom: 50px">
+    <table mat-table [dataSource]="dataSource" multiTemplateDataRows>
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name</th>
+            <td mat-cell *matCellDef="let element" class="desc" title="{{element.fineName}}"> {{element.fineName}}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef> Amount</th>
+            <td mat-cell *matCellDef="let element"> {{element.amount | currency}}
+            </td>
+        </ng-container>
+
+
+
+        <ng-container matColumnDef="graceperiod">
+            <th mat-header-cell *matHeaderCellDef>Grace Period </th>
+            <td mat-cell *matCellDef="let element"> {{element.gracePeriod}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="filertype">
+            <th mat-header-cell *matHeaderCellDef>Filer Type </th>
+            <td mat-cell *matCellDef="let element" class="desc" title="{{element.filerType}}"> {{element.filerType}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="frequency">
+            <th mat-header-cell *matHeaderCellDef> Frequency</th>
+            <td mat-cell *matCellDef="let element">
+                {{element.frequency == "D" ? "Daily": (element.frequency == "W" ? "Weekly" : (element.frequency == "M" ? "Monthly" : null))}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="icons">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let element">
+                <span class="material-icons" (click)="editlatefine(element)">mode_edit_outline</span>&nbsp;&nbsp;
+                <span class="material-icons" (click)="openConfirmationModal(element.fineId)">delete_forever</span>
+            </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <div class="activelogpg"  *ngIf="datasource_length==0" >
+                <p> No Record Found </p>
+    </div>
+   
+</div>
+<div class="feegroup">
+
+    <div class="fee">
+        <div class="forms">
+
+            <div class="transaction">
+                <h3>Fee</h3>
+                <form class="create-form" id="create-info" autocomplete="off" [formGroup]="feegroup">
+                    <div class="flex">
+                        <mat-label class="width-20">Name</mat-label>
+                        <mat-form-field appearance="fill" appearance="fill" class="create-full-width"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">Name
+                            </mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder="" required
+                                maxlength="120" id="department" maxlength="80" formControlName="name" keyPrevent
+                                [AlphaSpace]="true">
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(feegroup.get('name'),'name')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="flex">
+                        <mat-label class="width-20">Amount</mat-label>
+                        <mat-form-field appearance="fill" appearance="fill" class="create-full-width"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">Amount</mat-label>
+                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                                keyPrevent (keypress)="numericOnly($event)" required maxlength="13" id="type"
+                                formControlName="amount" (keyup)="commaKey('feegroup')">
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(feegroup.get('amount'),'amount')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="flex">
+                        <mat-label class="width-20 sidelabel"> Due Date</mat-label>
+                        <mat-form-field appearance="fill" appearance="fill" class="create-full-width"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">Date
+                            </mat-label>
+                            <input matInput [matDatepicker]="picker2" formControlName="duedate" keyPrevent
+                                autocomplete="off" required [DateField]="true">
+                            <mat-datepicker-toggle matPrefix [for]="picker2">
+                                <!-- <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon> -->
+                            </mat-datepicker-toggle>
+                            <mat-datepicker #picker2></mat-datepicker>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(feegroup.get('duedate'),'duedate')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="flex">
+                        <mat-label class="width-20 sidelabel"> Invoice Date</mat-label>
+                        <mat-form-field appearance="fill" appearance="fill" class="create-full-width" 
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label class="width-20" class="visuallyhidden">Date
+                            </mat-label>
+                            <input matInput [matDatepicker]="picker" formControlName="invoicedate" keyPrevent [max]="this.feegroup.value.duedate"
+                                autocomplete="off" required [DateField]="true" >
+                            <mat-datepicker-toggle matPrefix [for]="picker" >
+                                <!-- <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon> -->
+                            </mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(feegroup.get('invoicedate'),'invoicedate')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="flex">
+                        <mat-label class="width-20">Filer Type</mat-label>
+                        <mat-form-field appearance="fill" appearance="fill" class="create-full-width"
+                            [hideRequiredMarker]="hideRequiredMarker">
+                            <mat-label for="filertype" class="width-20" class="visuallyhidden">{{
+                              static_data.manage_committee.search_committees
+                              }}</mat-label>
+                            <mat-select aria-labelledby="filertype create-info" id="filertype"
+                                attr.aria-label="{{ static_data.manage_committee.filer_type}}"
+                                formControlName="filertype" multiple (selectionChange)="onChangeTypeFee($event)">
+                                <mat-option #allSelectedFeefiler (click)="toggleAllSelectionTypeFees()" [value]="0">All
+                                    Filer Types</mat-option>
+                                <mat-option *ngFor="let type of fil" [value]="type.lookUpTypeId"
+                                    (click)="tosslePerOneTypefee(allSelectedFeefiler.viewValue)">{{ type.lookUpName }}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error class="error">
+                                {{errorService.checkErrorMessage(feegroup.get('filertype'),'filertype')}}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                </form>
+                <div class="btmcontent">
+                    <button type="submit" class="replybtn" (click)='addfees()' id="addbtn">{{editFeeGrid ? static_data.button.update :
+                            static_data.button.add}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="margin-bottom: 50px">
+    <table mat-table [dataSource]="dataSourcefees" multiTemplateDataRows>
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name</th>
+            <td mat-cell *matCellDef="let element" class="desc" title="{{element.name}}"> {{element.name}}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef> Amount</th>
+            <td mat-cell *matCellDef="let element"> {{element.amount | currency}}
+            </td>
+        </ng-container>
+
+
+
+        <ng-container matColumnDef="graceperiod">
+            <th mat-header-cell *matHeaderCellDef>Due Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.duedate| date:this.masterDate.dateFormat}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="filertype">
+            <th mat-header-cell *matHeaderCellDef>Invoice Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.invoice_date| date:this.masterDate.dateFormat}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="frequency">
+            <th mat-header-cell *matHeaderCellDef> Filer Type</th>
+            <td mat-cell *matCellDef="let element" class="desc" title="{{element.type_id}}"> {{element.type_id}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="icons">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let element">
+                <span class="material-icons" (click)="editfee(element)">mode_edit_outline</span>&nbsp;&nbsp;
+                <span class="material-icons" (click)="openConfirmationModalfee(element.feeid)">delete_forever</span>
+            </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <div class="activelogpg"  *ngIf="dataSourcefees_length==0" >
+        <p> No Record Found </p>
+</div>
+</div>

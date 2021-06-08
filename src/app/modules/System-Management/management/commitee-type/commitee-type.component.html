@@ -1,0 +1,62 @@
+<div class="container">
+<div class="regisLobby">
+    <h2 class="managemnet-title"><mat-icon matPrefix class="size-27 pointer" (click)="back()">arrow_back_ios</mat-icon>
+        {{static_data.commitee_type.commitee}}
+    </h2>
+</div>
+<br>
+<div class="tab-width">
+    <form class="create-form" id="create-info" autocomplete="off" [formGroup]="commiteeForm">
+        <!-- <div class="flex"> -->
+        <div class="flex">
+            <mat-label for="types" class="width-20">{{static_data.commitee_type.commitee_typ}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label for="types" class="width-20" class="visuallyhidden">{{static_data.commitee_type.commitee_typ}}</mat-label>
+                <input aria-labelledby="types create-info" aria-label="Committee type" matInput type="text" autocomplete="off" autofocus form-fields id="types"
+                    formControlName="type" maxlength="120">
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(commiteeForm.get('type'), 'committeeType')}}
+                </mat-error>
+            </mat-form-field>
+        <!-- </div> -->
+        <div class="btn-cancel-alg">
+            <span id="save-btn">
+                <button  title="Add committee type" id="addInfo" type="button" mat-flat-button color="primary" class="nrmlfillbtn"
+                   (click)="addCommittee()">{{editGrid ? static_data.button.update : static_data.button.add}}</button>
+            </span>
+        </div>
+        </div>
+    </form>
+</div>
+<div>
+    <h2 class="color-BrightBlue header-pad-top header-size">
+        {{static_data.commitee_type.current_settings}}
+    </h2>
+</div>
+</div>
+<table mat-table [dataSource]="dataOfficerList" multiTemplateDataRows >
+
+    <ng-container matColumnDef="Committee">
+        <th [attr.role]="null" mat-header-cell *matHeaderCellDef> {{static_data.commitee_type.commitee_typ}} </th>
+        <td [attr.role]="null" mat-cell *matCellDef="let element"> {{element.typeName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+        <th [attr.role]="null" mat-header-cell *matHeaderCellDef> {{static_data.commitee_type.action}} </th>
+        <td [attr.role]="null" mat-cell *matCellDef="let element" class="click-hand">
+            <span *ngIf="element.typeId != 'COM-IC' && element.typeId != 'COM-CAN'" class="material-icons" (click)="editCommitteeForm(element)">mode_edit_outline</span>&nbsp;&nbsp;
+            <span *ngIf="element.typeId != 'COM-IC' && element.typeId != 'COM-CAN'" class="material-icons" (click)="openConfirmationModal(element.typeId)">delete_forever</span>
+        </td>
+
+    </ng-container>
+
+    <tr [attr.role]="null" mat-header-row *matHeaderRowDef="displayedStudentsColumnsList;sticky: true"></tr>
+    <tr [attr.role]="null" mat-row *matRowDef="let element; columns: displayedStudentsColumnsList;" class="student-element-row"
+        ></tr>
+
+    <!-- Extra row to show detail content column -->
+    <!-- <div *ngIf="isTableExpanded"> -->
+    <!-- <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="student-detail-row"
+        [ngClass]="{'hide':!row.isExpanded}"></tr> -->
+    <!-- </div> -->
+</table>

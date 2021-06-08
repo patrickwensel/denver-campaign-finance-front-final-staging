@@ -1,0 +1,120 @@
+.head {
+    color: #0f5597;
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    // padding-left: 20px;
+  }
+
+  .giftreport {
+    padding-left: 20px;
+    padding-top: 20px;
+    margin-bottom: 10%;
+    margin-right: 3%
+  }
+
+  .navigatepadding {
+    // padding-left: 20px;
+    width: 50%;
+    margin-top: 10px;
+  }
+  .fontcolorblck {
+    // color: #0f5597;
+    // font-size: 19px;
+    color: #074784;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  .value {
+    // color: #0f5597;
+    float: right;
+    font-size: 19px;
+  }
+  
+  .out-class {
+    font-size: 20px;
+    color: #063461;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  .width-20{
+    width: 30%;
+    // text-align: right;
+    // padding-top: 11px;
+    // margin-right: 25px;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: normal;
+}
+
+.addgiftform {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.replybtn {
+  background: #0f5597;
+  color: white;
+  border: 2px solid rgb(15 85 151);
+  padding: 6px 25px;
+  font-weight: 500;
+  // margin-left: 21%;
+  float: right;
+  margin-right: 15%;
+}
+
+.cancelbtn {
+  background: transparent;
+    color: black;
+    border: 2px solid white;
+    padding: 6px 25px;
+    font-weight: 500;
+    float: right;
+  }
+  .savebtn {
+    background: #0f5597;
+    color: white;
+    border: 2px solid rgb(15 85 151);
+    padding: 6px 25px;
+    font-weight: 500;
+    // margin-left: 21%;
+    float: right;
+    }
+    .submitbtn {
+      background: #0f5597;
+      color: white;
+      border: 2px solid rgb(15 85 151);
+      padding: 6px 25px;
+      font-weight: 500;
+      // margin-left: 21%;
+      float: right;
+      margin-right: 20px;
+    }
+  
+
+  .mat-form-field {
+width: 70%;
+  }
+
+  // overwrite the checkbox background
+::ng-deep .mat-checkbox-checked .mat-checkbox-background, 
+.mat-checkbox-indeterminate .mat-checkbox-background {
+background-color: #005691 !important;
+}
+
+// overwrite the ripple overlay on hover and click
+::ng-deep .mat-checkbox:not(.mat-checkbox-disabled) .mat-checkbox-ripple .mat-ripple-element {
+background-color: #005691 !important;
+}
+
+.low {
+  padding: 0px 180px;
+  padding-bottom: 20px;
+}
+
+.sig {
+  display: flex;
+  justify-content: center;
+}

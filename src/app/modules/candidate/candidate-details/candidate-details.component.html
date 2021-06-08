@@ -1,0 +1,3441 @@
+<!-- 0830. Public - CFR - Candidate Details -->
+<div class="container" style="display: none;">
+    <div class="heading-section">
+        <h2 id="heading" class="title">{{ static_data.candidateDetails.denverPoliticalMoneyTrackerTitle }}
+        </h2>
+
+        <h2 class="title">Newson, Gavin</h2>
+        <mat-label>{{ static_data.candidateDetails.electionCycle }} &nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+        <mat-form-field appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+            <mat-label class="width-20" class="visuallyhidden">
+                {{ static_data.candidateDetails.electionCycle }}</mat-label>
+            <mat-select id="election_cycle" attr.aria-label="{{static_data.candidateDetails.electionCycle}}" [(value)]="selectedYear">
+                <mat-option *ngFor="let year of electionYearList" [value]="year">{{year}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <h3 class="sub-heading">Candidate for City Council</h3>
+        <h3 class="sub-heading">Fair Elections Fund Participant</h3>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.overview }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.financialOverview }}</h2>
+
+        <div style="display: flex;">
+            <div class="block-1" id="chart">
+                <apx-chart [series]="supportingChartOptions.series" [chart]="supportingChartOptions.chart" [dataLabels]="supportingChartOptions.dataLabels" [plotOptions]="supportingChartOptions.plotOptions" [xaxis]="supportingChartOptions.xaxis" [stroke]="supportingChartOptions.stroke"
+                    [fill]="supportingChartOptions.fill" [yaxis]="supportingChartOptions.yaxis" [title]="supportingChartOptions.title" [tooltip]="supportingChartOptions.tooltip" [legend]="supportingChartOptions.legend" [grid]="supportingChartOptions.grid"></apx-chart>
+            </div>
+            <div class="amount">
+                <span>$50,192,861.97</span>
+            </div>
+        </div>
+
+        <div style="display: flex;">
+            <div class="block-1 opposingChartDiv">
+                <div id="opposingChart">
+                    <apx-chart [series]="opposingChartOptions.series" [chart]="opposingChartOptions.chart" [dataLabels]="opposingChartOptions.dataLabels" [plotOptions]="opposingChartOptions.plotOptions" [xaxis]="opposingChartOptions.xaxis" [stroke]="opposingChartOptions.stroke"
+                        [fill]="opposingChartOptions.fill" [yaxis]="opposingChartOptions.yaxis" [title]="opposingChartOptions.title" [tooltip]="opposingChartOptions.tooltip" [legend]="opposingChartOptions.legend" [grid]="opposingChartOptions.grid"></apx-chart>
+                </div>
+            </div>
+            <div class="amount">
+                <span>$20,816,264.97</span>
+            </div>
+
+        </div>
+
+        <div style="display: flex;">
+            <div class="block-1 financial-block">
+                <mat-checkbox [checked]="true" color="primary" class="example-margin">Fair Elections Funds to Newson, Gavin
+                    <span class="material-icons help-icon">help</span>
+                </mat-checkbox>
+                <br>
+                <mat-checkbox [checked]="true" color="primary" class="example-margin">Fair Elections Funds to other candidates
+                </mat-checkbox>
+
+                <br>
+                <br>
+                <mat-checkbox [checked]="true" color="primary" class="example-margin light"> Independent Expenditures supporting Newson, Gavin
+                    <span class="material-icons help-icon">help</span>
+                </mat-checkbox>
+                <div class="medium-light">
+                    <mat-checkbox [checked]="true" color="primary" class="example-margin"> Independent Expenditures supporting other candidates
+                    </mat-checkbox>
+                </div>
+
+                <p class="text">Includes contributions to and expenditures supporting</p>
+                <span>See all opponents</span>
+            </div>
+            <div>
+                <mat-checkbox [checked]="true" color="primary" class="example-margin">Campaign Contributions to Newson, Gavin
+                    <span class="material-icons help-icon">help</span>
+                </mat-checkbox>
+                <mat-checkbox [checked]="true" color="primary" class="example-margin">Campaign Contributions to other candidates
+                </mat-checkbox>
+                <br>
+                <br>
+
+                <mat-checkbox [checked]="true" color="primary" class="example-margin disable"> Independent Expenditures opposing Newson, Gavin</mat-checkbox>
+                <mat-checkbox [checked]="true" color="primary" class="example-margin disable"> Independent Expenditures opposing other candidates
+                    <span class="material-icons help-icon">help</span>
+                </mat-checkbox>
+                <div class="search-button">
+                    <button mat-stroked-button color="primary">{{ static_data.candidateDetails.searchTransactions
+                        }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.support }}&nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">Who Support Newson, Gavin?</h2>
+        <div style="display: flex;">
+            <div class="block-1">
+                <h3 class="heading-level-3">{{ static_data.candidateDetails.topContributors }}</h3>
+                <div style="display: flex;">
+                    <div class="block-1 support-block">
+                        <ol>
+                            <li>California Democratic Party</li>
+                            <li>Winklevoss, Tyler</li>
+                            <li>Winklevoss, Cameron</li>
+                            <li>Weldler, David Z.</li>
+                            <li>UnitedHealth Group, Inc.</li>
+                            <li>United Food and Commercial Workers Local 770 PAC</li>
+                            <li>United Association Political Action Fund</li>
+                            <li>Union of American Physicians and Dentists Medical Action Medical Action Committee Small Contribute Committee</li>
+                            <li>U.A. Local 342 PAC Fund</li>
+                            <li>Swanson, Richard E.</li>
+                        </ol>
+                        <p class="link">Show More Contributors</p>
+                    </div>
+                    <div class="expenditure-amount">
+                        <ul>
+                            <li>$4,622,764</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="heading-level-3">No Independent Expenditures supporting Gavin Newsom in this election.</h3>
+
+            </div>
+        </div>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.opposition }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card opposition-card">
+        <h2 class="title">Who Opposes Newsom, Gavin?</h2>
+        <div style="display: flex;">
+            <div class="block-1 opposition-block">
+                <h3 class="heading-level-3">No Independent Expenditures in oppostion to Gavin Newsom in this election.
+                </h3>
+            </div>
+            <div>
+                <h3 class="heading-level-3">No Candidates are running agains Gavin Newsom in this election.</h3>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.expenditures }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.expenditures }}</h2>
+
+        <div style="display: flex;">
+            <div class="block-1 expenditure-block">
+                <h3 class="heading-level-3">{{ static_data.candidateDetails.totalExpenditures }}&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span style="color: #0f5597;">$50,192,861.97</span>
+                </h3>
+            </div>
+            <div>
+                <h3 class="heading-level-3">{{ static_data.candidateDetails.topExpenditures }}</h3>
+                <div style="display: flex;">
+                    <div class="block-1">
+                        <ol>
+                            <li>1/20/20 - Acme Printing Company</li>
+                            <li>2/20/20 - California Correctional Peace Officers Association</li>
+                            <li>3/20/20 - Educational Organizations</li>
+                            <li>4/20/20 - African American Voter Registrations</li>
+                            <li>5/20/20 - Nurses for Newsom for Governor 2018</li>
+                            <li>6/20/20 - California Statewide Law Enforcement Association</li>
+                            <li>7/20/20 - California Building Industry Association</li>
+                            <li>8/20/20 - Independent Voter PAC</li>
+                            <li>9/20/20 - Newsom for Governor, 2018</li>
+                            <li>10/20/20 - Outfront Media LLC</li>
+                        </ol>
+                    </div>
+                    <div class="expenditure-amount">
+                        <ul>
+                            <li>$50,108,006.16</li>
+                            <li>$2,825,000</li>
+                            <li>$1,387,802.64</li>
+                            <li>$540,207.78</li>
+                            <li>$491,376.25</li>
+                            <li>$227,548</li>
+                            <li>$151,748.30</li>
+                            <li>$99,000</li>
+                            <li>$81,025.86</li>
+                            <li>$72,571</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="link">See All Expenditures</p>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.fillings }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.campaignFillings }}</h2>
+
+        <span>
+            <mat-label>{{ static_data.candidateDetails.reportYear }} &nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+            <mat-form-field appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label class="width-20" class="visuallyhidden">
+                    {{ static_data.candidateDetails.reportYear }}</mat-label>
+                <mat-select id="report_year" [(value)]="selectedReportYear"
+                    attr.aria-label="{{static_data.candidateDetails.reportYear}}">
+                    <mat-option *ngFor="let year of yearList" [value]="year">{{year}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </span>
+        <table mat-table [dataSource]="campaignFillingsData">
+            <ng-container matColumnDef="fillingPeriod">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Filling Period </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.fillingPeriod}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="reportingPeriod">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Reporting Period </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.reportingPeriod}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="amendmentVersion">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Amendment Version </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.amendmentVersion}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dateSubmitted">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Date Submitted </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.dateSubmitted}}
+                    <span style="margin-left: 35px;" class="material-icons small_icon">
+                        arrow_forward_ios
+                    </span>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="view">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> View </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> <button mat-raised-button color="primary">View</button> </td>
+            </ng-container>
+
+            <tr [attr.role]="null" mat-header-row *matHeaderRowDef="reportsColumns"></tr>
+            <tr [attr.role]="null" mat-row *matRowDef="let row; columns: reportsColumns;"></tr>
+        </table>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.otherReports }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.otherReports }}</h2>
+
+        <table mat-table [dataSource]="otherReportsData">
+            <ng-container matColumnDef="fillingPeriod">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Filling Period </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.fillingPeriod}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="reportingPeriod">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Reporting Period </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.reportingPeriod}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="amendmentVersion">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Amendment Version </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.amendmentVersion}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dateSubmitted">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Date Submitted </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.dateSubmitted}} <span style="margin-left: 35px;" class="material-icons small_icon">
+                        arrow_forward_ios
+                    </span></td>
+            </ng-container>
+
+            <ng-container matColumnDef="view">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> View </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> <button mat-raised-button color="primary">View</button> </td>
+            </ng-container>
+
+            <tr [attr.role]="null" mat-header-row *matHeaderRowDef="reportsColumns"></tr>
+            <tr [attr.role]="null" mat-row *matRowDef="let row; columns: reportsColumns;"></tr>
+        </table>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.penalties }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.penalties }}</h2>
+
+        <table mat-table [dataSource]="penaltyData">
+            <ng-container matColumnDef="penalty">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Penalty </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.penalty}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="paymentStatus">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Payment Status </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.paymentStatus}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="waiverRequest">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Waiver Request </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.waiverRequest}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="decision">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Decision </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.decision}} </td>
+            </ng-container>
+            <ng-container matColumnDef="amount">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Amount </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.amount}} </td>
+            </ng-container>
+
+            <tr [attr.role]="null" mat-header-row *matHeaderRowDef="penaltyColumns"></tr>
+            <tr [attr.role]="null" mat-row *matRowDef="let row; columns: penaltyColumns;"></tr>
+        </table>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.complaints }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.complaints }}</h2>
+
+        <table mat-table [dataSource]="complaintData">
+            <ng-container matColumnDef="description">
+                <th [attr.role]="null" mat-header-cell *matHeaderCellDef> Description </th>
+                <td [attr.role]="null" mat-cell *matCellDef="let element"> {{element.description}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <th [attr.role]="null" mat-header-cell *matHeaderCellDef> Status </th>
+                <td [attr.role]="null" mat-cell *matCellDef="let element"> {{element.status}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="view">
+                <th [attr.role]="null" mat-header-cell *matHeaderCellDef> View </th>
+                <td [attr.role]="null" mat-cell *matCellDef="let element"> <button mat-raised-button color="primary">View</button> </td>
+            </ng-container>
+
+            <tr [attr.role]="null" mat-header-row *matHeaderRowDef="complaintColumns"></tr>
+            <tr [attr.role]="null" mat-row *matRowDef="let row; columns: complaintColumns;"></tr>
+        </table>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.audit }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.audit }}</h2>
+        <table mat-table [dataSource]="auditData">
+            <ng-container matColumnDef="date">
+                <th [attr.role]="null" mat-header-cell *matHeaderCellDef> Date </th>
+                <td [attr.role]="null" mat-cell *matCellDef="let element"> {{element.date}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="description">
+                <th [attr.role]="null" mat-header-cell *matHeaderCellDef> Description </th>
+                <td [attr.role]="null" mat-cell *matCellDef="let element"> {{element.description}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="view">
+                <th [attr.role]="null" mat-header-cell *matHeaderCellDef> View </th>
+                <td [attr.role]="null" mat-cell *matCellDef="let element"> <button mat-raised-button color="primary">View</button> </td>
+            </ng-container>
+
+            <tr [attr.role]="null" mat-header-row *matHeaderRowDef="auditColumns"></tr>
+            <tr [attr.role]="null" mat-row *matRowDef="let row; columns: auditColumns;"></tr>
+        </table>
+    </div>
+
+    <p class="info">
+        For additional infomation contact us <a href="javascript:void(0)"> here </a>
+    </p>
+</div>
+<!--!! 0830. Public - CFR - Candidate Details -->
+
+<!-- 0835. Public - CFR - Committee Details -->
+
+<div class="container committe-details-page" style="display: none;">
+    <div class="heading-section">
+        <h2 id="heading" class="title">{{ static_data.candidateDetails.denverPoliticalMoneyTrackerTitle }}
+        </h2>
+
+        <h2 class="title">Newson, Gavin</h2>
+        <mat-label>{{ static_data.candidateDetails.electionCycle }} &nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+        <mat-form-field appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+            <mat-label class="width-20" class="visuallyhidden">
+                {{ static_data.candidateDetails.electionCycle }}</mat-label>
+            <mat-select id="election_cycle" attr.aria-label="{{static_data.candidateDetails.electionCycle}}" [(value)]="selectedYear">
+                <mat-option *ngFor="let year of electionYearList" [value]="year">{{year}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <h3 class="sub-heading">Candidate for City Council</h3>
+        <h3 class="sub-heading">Fair Elections Fund Participant</h3>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.overview }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.financialOverview }}</h2>
+
+        <div style="display: flex;">
+            <div class="block-1" id="chart">
+                <apx-chart [series]="supportingChartOptions.series" [chart]="supportingChartOptions.chart" [dataLabels]="supportingChartOptions.dataLabels" [plotOptions]="supportingChartOptions.plotOptions" [xaxis]="supportingChartOptions.xaxis" [stroke]="supportingChartOptions.stroke"
+                    [fill]="supportingChartOptions.fill" [yaxis]="supportingChartOptions.yaxis" [title]="supportingChartOptions.title" [tooltip]="supportingChartOptions.tooltip" [legend]="supportingChartOptions.legend" [grid]="supportingChartOptions.grid"></apx-chart>
+            </div>
+            <div class="amount">
+                <span>$50,192,861.97</span>
+            </div>
+        </div>
+
+        <div style="display: flex;">
+            <div class="block-1 opposingChartDiv">
+                <div id="opposingChart">
+                    <apx-chart [series]="opposingChartOptions.series" [chart]="opposingChartOptions.chart" [dataLabels]="opposingChartOptions.dataLabels" [plotOptions]="opposingChartOptions.plotOptions" [xaxis]="opposingChartOptions.xaxis" [stroke]="opposingChartOptions.stroke"
+                        [fill]="opposingChartOptions.fill" [yaxis]="opposingChartOptions.yaxis" [title]="opposingChartOptions.title" [tooltip]="opposingChartOptions.tooltip" [legend]="opposingChartOptions.legend" [grid]="opposingChartOptions.grid"></apx-chart>
+                </div>
+            </div>
+            <div class="amount">
+                <span>$20,816,264.97</span>
+            </div>
+
+        </div>
+
+        <div style="display: flex;">
+            <div class="block-1 financial-block">
+                <mat-checkbox [checked]="true" color="primary" class="example-margin">Fair Elections Funds to Newson, Gavin
+                    <span class="material-icons help-icon">help</span>
+                </mat-checkbox>
+                <br>
+                <mat-checkbox [checked]="true" color="primary" class="example-margin">Fair Elections Funds to other candidates
+                </mat-checkbox>
+
+                <br>
+                <br>
+                <mat-checkbox [checked]="true" color="primary" class="example-margin light"> Independent Expenditures supporting Newson, Gavin
+                    <span class="material-icons help-icon">help</span>
+                </mat-checkbox>
+                <div class="medium-light">
+                    <mat-checkbox [checked]="true" color="primary" class="example-margin"> Independent Expenditures supporting other candidates
+                    </mat-checkbox>
+                </div>
+
+                <p class="text">Includes contributions to and expenditures supporting</p>
+                <span>See all opponents</span>
+            </div>
+            <div>
+                <mat-checkbox [checked]="true" color="primary" class="example-margin">Campaign Contributions to Newson, Gavin
+                    <span class="material-icons help-icon">help</span>
+                </mat-checkbox>
+                <mat-checkbox [checked]="true" color="primary" class="example-margin">Campaign Contributions to other candidates
+                </mat-checkbox>
+                <br>
+                <br>
+
+                <mat-checkbox [checked]="true" color="primary" class="example-margin disable"> Independent Expenditures opposing Newson, Gavin</mat-checkbox>
+                <mat-checkbox [checked]="true" color="primary" class="example-margin disable"> Independent Expenditures opposing other candidates
+                    <span class="material-icons help-icon">help</span>
+                </mat-checkbox>
+                <div class="search-button">
+                    <button mat-stroked-button color="primary">{{ static_data.candidateDetails.searchTransactions
+                        }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.support }}&nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card commite-details">
+        <h2 class="title">Who Support Newson, Gavin?</h2>
+        <div style="display: flex;" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+            <div class="block-1" fxFlex="100" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="40">
+                <h3 class="heading-level-3">{{ static_data.candidateDetails.topContributors }}</h3>
+                <div style="display: flex;">
+                    <div class="block-1 support-block">
+                        <ol>
+                            <li>California Democratic Party</li>
+                            <li>Winklevoss, Tyler</li>
+                            <li>Winklevoss, Cameron</li>
+                            <li>Weldler, David Z.</li>
+                            <li>UnitedHealth Group, Inc.</li>
+                            <li>United Food and Commercial Workers Local 770 PAC</li>
+                            <li>United Association Political Action Fund</li>
+                            <li>Union of American Physicians and Dentists Medical Action Medical Action Committee Small Contribute Committee</li>
+                            <li>U.A. Local 342 PAC Fund</li>
+                            <li>Swanson, Richard E.</li>
+                        </ol>
+                        <p class="link">Show More Contributors</p>
+                    </div>
+                    <div class="expenditure-amount">
+                        <ul>
+                            <li>$4,622,764</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="block-2" fxFlex="100" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="40">
+                <h3 class="heading-level-3">No Independent Expenditures supporting Gavin Newsom in this election.</h3>
+                <div style="display: flex;">
+                    <div class="block-1 support-block">
+                        <ol>
+                            <li>California Democratic Party</li>
+                            <li>Winklevoss, Tyler</li>
+                            <li>Winklevoss, Cameron</li>
+                            <li>Weldler, David Z.</li>
+                            <li>UnitedHealth Group, Inc.</li>
+                            <li>United Food and Commercial Workers Local 770 PAC</li>
+                            <li>United Association Political Action Fund</li>
+                            <li>Union of American Physicians and Dentists Medical Action Medical Action Committee Small Contribute Committee</li>
+                            <li>U.A. Local 342 PAC Fund</li>
+                            <li>Swanson, Richard E.</li>
+                        </ol>
+                        <p class="link">See All Independent Expenditures </p>
+                    </div>
+                    <div class="expenditure-amount">
+                        <ul>
+                            <li>$4,622,764</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.opposition }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card opposition-card">
+        <h2 class="title">Who Opposes Newsom, Gavin?</h2>
+        <div style="display: flex;">
+            <div class="block-1 opposition-block">
+                <h3 class="heading-level-3"> Top Independent Spenders in Opposition
+                </h3>
+
+                <div style="display: flex;">
+                    <div class="block-1 support-block">
+                        <ol>
+                            <li>California Democratic Party</li>
+                            <li>Winklevoss, Tyler</li>
+                            <li>Winklevoss, Cameron</li>
+                            <li>Weldler, David Z.</li>
+                            <li>UnitedHealth Group, Inc.</li>
+                            <li>United Food and Commercial Workers Local 770 PAC</li>
+                            <li>United Association Political Action Fund</li>
+                            <li>Union of American Physicians and Dentists Medical Action Medical Action Committee Small Contribute Committee</li>
+                            <li>U.A. Local 342 PAC Fund</li>
+                            <li>Swanson, Richard E.</li>
+                        </ol>
+
+                    </div>
+                    <div class="expenditure-amount">
+                        <ul>
+                            <li>$4,622,764</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 class="heading-level-3">
+                    Examine Money Behind the Candidates Running Against Newsom, avin
+                    <ul>
+                        <li>
+                            <a class="txt-none font-16" href="javascript:void(0)"> COX, John H.</a>
+                        </li>
+                    </ul>
+                </h3>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.expenditures }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.expenditures }}</h2>
+
+        <div style="display: flex;">
+            <div class="block-1 expenditure-block">
+                <h3 class="heading-level-3">{{ static_data.candidateDetails.totalExpenditures }}&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span style="color: #0f5597;">$50,192,861.97</span>
+                </h3>
+                <h3 class="heading-level-3">{{ static_data.candidateDetails.totalExpenditures }}&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span style="color: #0f5597;">$50,192,861.97</span>
+                </h3>
+                <h3 class="heading-level-3">{{ static_data.candidateDetails.totalExpenditures }}&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span style="color: #0f5597;">$50,192,861.97</span>
+                </h3>
+
+            </div>
+            <div>
+                <h3 class="heading-level-3">{{ static_data.candidateDetails.topExpenditures }}</h3>
+                <div style="display: flex;">
+                    <div class="block-1">
+                        <ol>
+                            <li>1/20/20 - Acme Printing Company</li>
+                            <li>2/20/20 - California Correctional Peace Officers Association</li>
+                            <li>3/20/20 - Educational Organizations</li>
+                            <li>4/20/20 - African American Voter Registrations</li>
+                            <li>5/20/20 - Nurses for Newsom for Governor 2018</li>
+                            <li>6/20/20 - California Statewide Law Enforcement Association</li>
+                            <li>7/20/20 - California Building Industry Association</li>
+                            <li>8/20/20 - Independent Voter PAC</li>
+                            <li>9/20/20 - Newsom for Governor, 2018</li>
+                            <li>10/20/20 - Outfront Media LLC</li>
+                        </ol>
+                    </div>
+                    <div class="expenditure-amount">
+                        <ul>
+                            <li>$50,108,006.16</li>
+                            <li>$2,825,000</li>
+                            <li>$1,387,802.64</li>
+                            <li>$540,207.78</li>
+                            <li>$491,376.25</li>
+                            <li>$227,548</li>
+                            <li>$151,748.30</li>
+                            <li>$99,000</li>
+                            <li>$81,025.86</li>
+                            <li>$72,571</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="link">See All Expenditures</p>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.fillings }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.campaignFillings }}</h2>
+
+        <span>
+            <mat-label>{{ static_data.candidateDetails.reportYear }} &nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+            <mat-form-field appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label class="width-20" class="visuallyhidden">
+                    {{ static_data.candidateDetails.reportYear }}</mat-label>
+                <mat-select id="report_year" [(value)]="selectedReportYear"
+                    attr.aria-label="{{static_data.candidateDetails.reportYear}}">
+                    <mat-option *ngFor="let year of yearList" [value]="year">{{year}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </span>
+        <table mat-table [dataSource]="campaignFillingsData">
+            <ng-container matColumnDef="fillingPeriod">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Filling Period </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.fillingPeriod}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="reportingPeriod">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Reporting Period </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.reportingPeriod}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="amendmentVersion">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Amendment Version </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.amendmentVersion}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dateSubmitted">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Date Submitted </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.dateSubmitted}}
+                    <span style="margin-left: 35px;" class="material-icons small_icon">
+                        arrow_forward_ios
+                    </span>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="view">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> View </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> <button mat-raised-button color="primary">View</button> </td>
+            </ng-container>
+
+            <tr [attr.role]="null" mat-header-row *matHeaderRowDef="reportsColumns"></tr>
+            <tr [attr.role]="null" mat-row *matRowDef="let row; columns: reportsColumns;"></tr>
+        </table>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.otherReports }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.otherReports }}</h2>
+
+        <table mat-table [dataSource]="otherReportsData">
+            <ng-container matColumnDef="fillingPeriod">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Filling Period </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.fillingPeriod}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="reportingPeriod">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Reporting Period </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.reportingPeriod}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="amendmentVersion">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Amendment Version </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.amendmentVersion}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dateSubmitted">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Date Submitted </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.dateSubmitted}} <span style="margin-left: 35px;" class="material-icons small_icon">
+                        arrow_forward_ios
+                    </span></td>
+            </ng-container>
+
+            <ng-container matColumnDef="view">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> View </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> <button mat-raised-button color="primary">View</button> </td>
+            </ng-container>
+
+            <tr [attr.role]="null" mat-header-row *matHeaderRowDef="reportsColumns"></tr>
+            <tr [attr.role]="null" mat-row *matRowDef="let row; columns: reportsColumns;"></tr>
+        </table>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.penalties }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.penalties }}</h2>
+
+        <table mat-table [dataSource]="penaltyData">
+            <ng-container matColumnDef="penalty">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Penalty </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.penalty}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="paymentStatus">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Payment Status </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.paymentStatus}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="waiverRequest">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Waiver Request </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.waiverRequest}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="decision">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Decision </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.decision}} </td>
+            </ng-container>
+            <ng-container matColumnDef="amount">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Amount </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.amount}} </td>
+            </ng-container>
+
+            <tr [attr.role]="null" mat-header-row *matHeaderRowDef="penaltyColumns"></tr>
+            <tr [attr.role]="null" mat-row *matRowDef="let row; columns: penaltyColumns;"></tr>
+        </table>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.complaints }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.complaints }}</h2>
+
+        <table mat-table [dataSource]="complaintData">
+            <ng-container matColumnDef="description">
+                <th [attr.role]="null" mat-header-cell *matHeaderCellDef> Description </th>
+                <td [attr.role]="null" mat-cell *matCellDef="let element"> {{element.description}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <th [attr.role]="null" mat-header-cell *matHeaderCellDef> Status </th>
+                <td [attr.role]="null" mat-cell *matCellDef="let element"> {{element.status}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="view">
+                <th [attr.role]="null" mat-header-cell *matHeaderCellDef> View </th>
+                <td [attr.role]="null" mat-cell *matCellDef="let element"> <button mat-raised-button color="primary">View</button> </td>
+            </ng-container>
+
+            <tr [attr.role]="null" mat-header-row *matHeaderRowDef="complaintColumns"></tr>
+            <tr [attr.role]="null" mat-row *matRowDef="let row; columns: complaintColumns;"></tr>
+        </table>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.audit }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.audit }}</h2>
+        <table mat-table [dataSource]="auditData">
+            <ng-container matColumnDef="date">
+                <th [attr.role]="null" mat-header-cell *matHeaderCellDef> Date </th>
+                <td [attr.role]="null" mat-cell *matCellDef="let element"> {{element.date}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="description">
+                <th [attr.role]="null" mat-header-cell *matHeaderCellDef> Description </th>
+                <td [attr.role]="null" mat-cell *matCellDef="let element"> {{element.description}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="view">
+                <th [attr.role]="null" mat-header-cell *matHeaderCellDef> View </th>
+                <td [attr.role]="null" mat-cell *matCellDef="let element"> <button mat-raised-button color="primary">View</button> </td>
+            </ng-container>
+
+            <tr [attr.role]="null" mat-header-row *matHeaderRowDef="auditColumns"></tr>
+            <tr [attr.role]="null" mat-row *matRowDef="let row; columns: auditColumns;"></tr>
+        </table>
+    </div>
+
+    <p class="info">
+        For additional infomation contact us <a href="javascript:void(0)"> here </a>
+    </p>
+</div>
+
+<!-- !! 0835. Public - CFR - Committee Details -->
+
+<!-- 0840. Public - CFR - Committee Details (Non Candidate) -->
+<div class="container committe-details-page" style="display: none;">
+    <div class="heading-section">
+        <h2 id="heading" class="title">{{ static_data.candidateDetails.denverPoliticalMoneyTrackerTitle }}
+        </h2>
+
+        <h2 class="title">Newson, Gavin</h2>
+        <mat-label>{{ static_data.candidateDetails.electionCycle }} &nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+        <mat-form-field appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+            <mat-label class="width-20" class="visuallyhidden">
+                {{ static_data.candidateDetails.electionCycle }}</mat-label>
+            <mat-select id="election_cycle" attr.aria-label="{{static_data.candidateDetails.electionCycle}}" [(value)]="selectedYear">
+                <mat-option *ngFor="let year of electionYearList" [value]="year">{{year}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.overview }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.financialOverview }}</h2>
+
+        <div style="display: flex;">
+            <div class="block-1" id="chart">
+                <apx-chart [series]="supportingChartOptions.series" [chart]="supportingChartOptions.chart" [dataLabels]="supportingChartOptions.dataLabels" [plotOptions]="supportingChartOptions.plotOptions" [xaxis]="supportingChartOptions.xaxis" [stroke]="supportingChartOptions.stroke"
+                    [fill]="supportingChartOptions.fill" [yaxis]="supportingChartOptions.yaxis" [title]="supportingChartOptions.title" [tooltip]="supportingChartOptions.tooltip" [legend]="supportingChartOptions.legend" [grid]="supportingChartOptions.grid"></apx-chart>
+            </div>
+            <div class="amount">
+                <span>$50,192,861.97</span>
+            </div>
+        </div>
+
+
+
+        <div style="display: flex;">
+
+            <div>
+                <mat-checkbox [checked]="true" color="primary" class="example-margin">Campaign Contributions to Newson, Gavin
+                    <span class="material-icons help-icon">help</span>
+                </mat-checkbox>
+
+                <br>
+                <mat-checkbox [checked]="true" color="primary" class="example-margin"> Independent Expenditures opposing Newson, Gavin</mat-checkbox>
+
+                <div class="search-button">
+                    <button mat-stroked-button color="primary">{{ static_data.candidateDetails.searchTransactions
+                        }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.support }}&nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card commite-details">
+        <h2 class="title">Who Support Newson, Gavin?</h2>
+        <div style="display: flex;" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+            <div class="block-1" fxFlex="100" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="40">
+                <h3 class="heading-level-3">{{ static_data.candidateDetails.topContributors }}</h3>
+                <div style="display: flex;">
+                    <div class="block-1 support-block">
+                        <ol>
+                            <li>California Democratic Party</li>
+                            <li>Winklevoss, Tyler</li>
+                            <li>Winklevoss, Cameron</li>
+                            <li>Weldler, David Z.</li>
+                            <li>UnitedHealth Group, Inc.</li>
+                            <li>United Food and Commercial Workers Local 770 PAC</li>
+                            <li>United Association Political Action Fund</li>
+                            <li>Union of American Physicians and Dentists Medical Action Medical Action Committee Small Contribute Committee</li>
+                            <li>U.A. Local 342 PAC Fund</li>
+                            <li>Swanson, Richard E.</li>
+                        </ol>
+                        <p class="link">Show More Contributors</p>
+                    </div>
+                    <div class="expenditure-amount">
+                        <ul>
+                            <li>$4,622,764</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.expenditures }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.expenditures }}</h2>
+
+        <div style="display: flex;">
+            <div class="block-1 expenditure-block">
+                <h3 class="heading-level-3">{{ static_data.candidateDetails.totalExpenditures }}&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span style="color: #0f5597;">$50,192,861.97</span>
+                </h3>
+
+
+            </div>
+            <div>
+                <h3 class="heading-level-3">{{ static_data.candidateDetails.topExpenditures }}</h3>
+                <div style="display: flex;">
+                    <div class="block-1">
+                        <ol>
+                            <li>1/20/20 - Acme Printing Company</li>
+                            <li>2/20/20 - California Correctional Peace Officers Association</li>
+                            <li>3/20/20 - Educational Organizations</li>
+                            <li>4/20/20 - African American Voter Registrations</li>
+                            <li>5/20/20 - Nurses for Newsom for Governor 2018</li>
+                            <li>6/20/20 - California Statewide Law Enforcement Association</li>
+                            <li>7/20/20 - California Building Industry Association</li>
+                            <li>8/20/20 - Independent Voter PAC</li>
+                            <li>9/20/20 - Newsom for Governor, 2018</li>
+                            <li>10/20/20 - Outfront Media LLC</li>
+                        </ol>
+                    </div>
+                    <div class="expenditure-amount">
+                        <ul>
+                            <li>$50,108,006.16</li>
+                            <li>$2,825,000</li>
+                            <li>$1,387,802.64</li>
+                            <li>$540,207.78</li>
+                            <li>$491,376.25</li>
+                            <li>$227,548</li>
+                            <li>$151,748.30</li>
+                            <li>$99,000</li>
+                            <li>$81,025.86</li>
+                            <li>$72,571</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="link">See All Expenditures</p>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.fillings }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.campaignFillings }}</h2>
+
+        <span>
+            <mat-label>{{ static_data.candidateDetails.reportYear }} &nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+            <mat-form-field appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label class="width-20" class="visuallyhidden">
+                    {{ static_data.candidateDetails.reportYear }}</mat-label>
+                <mat-select id="report_year" [(value)]="selectedReportYear"
+                    attr.aria-label="{{static_data.candidateDetails.reportYear}}">
+                    <mat-option *ngFor="let year of yearList" [value]="year">{{year}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </span>
+        <table mat-table [dataSource]="campaignFillingsData">
+            <ng-container matColumnDef="fillingPeriod">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Filling Period </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.fillingPeriod}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="reportingPeriod">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Reporting Period </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.reportingPeriod}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="amendmentVersion">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Amendment Version </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.amendmentVersion}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dateSubmitted">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Date Submitted </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.dateSubmitted}}
+                    <span style="margin-left: 35px;" class="material-icons small_icon">
+                        arrow_forward_ios
+                    </span>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="view">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> View </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> <button mat-raised-button color="primary">View</button> </td>
+            </ng-container>
+
+            <tr [attr.role]="null" mat-header-row *matHeaderRowDef="reportsColumns"></tr>
+            <tr [attr.role]="null" mat-row *matRowDef="let row; columns: reportsColumns;"></tr>
+        </table>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.otherReports }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.otherReports }}</h2>
+
+        <table mat-table [dataSource]="otherReportsData">
+            <ng-container matColumnDef="fillingPeriod">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Filling Period </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.fillingPeriod}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="reportingPeriod">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Reporting Period </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.reportingPeriod}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="amendmentVersion">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Amendment Version </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.amendmentVersion}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dateSubmitted">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Date Submitted </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.dateSubmitted}} <span style="margin-left: 35px;" class="material-icons small_icon">
+                        arrow_forward_ios
+                    </span></td>
+            </ng-container>
+
+            <ng-container matColumnDef="view">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> View </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> <button mat-raised-button color="primary">View</button> </td>
+            </ng-container>
+
+            <tr [attr.role]="null" mat-header-row *matHeaderRowDef="reportsColumns"></tr>
+            <tr [attr.role]="null" mat-row *matRowDef="let row; columns: reportsColumns;"></tr>
+        </table>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.penalties }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.penalties }}</h2>
+
+        <table mat-table [dataSource]="penaltyData">
+            <ng-container matColumnDef="penalty">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Penalty </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.penalty}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="paymentStatus">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Payment Status </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.paymentStatus}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="waiverRequest">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Waiver Request </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.waiverRequest}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="decision">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Decision </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.decision}} </td>
+            </ng-container>
+            <ng-container matColumnDef="amount">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Amount </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.amount}} </td>
+            </ng-container>
+
+            <tr [attr.role]="null" mat-header-row *matHeaderRowDef="penaltyColumns"></tr>
+            <tr [attr.role]="null" mat-row *matRowDef="let row; columns: penaltyColumns;"></tr>
+        </table>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.complaints }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.complaints }}</h2>
+
+        <table mat-table [dataSource]="complaintData">
+            <ng-container matColumnDef="description">
+                <th [attr.role]="null" mat-header-cell *matHeaderCellDef> Description </th>
+                <td [attr.role]="null" mat-cell *matCellDef="let element"> {{element.description}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <th [attr.role]="null" mat-header-cell *matHeaderCellDef> Status </th>
+                <td [attr.role]="null" mat-cell *matCellDef="let element"> {{element.status}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="view">
+                <th [attr.role]="null" mat-header-cell *matHeaderCellDef> View </th>
+                <td [attr.role]="null" mat-cell *matCellDef="let element"> <button mat-raised-button color="primary">View</button> </td>
+            </ng-container>
+
+            <tr [attr.role]="null" mat-header-row *matHeaderRowDef="complaintColumns"></tr>
+            <tr [attr.role]="null" mat-row *matRowDef="let row; columns: complaintColumns;"></tr>
+        </table>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.audit }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.audit }}</h2>
+        <table mat-table [dataSource]="auditData">
+            <ng-container matColumnDef="date">
+                <th [attr.role]="null" mat-header-cell *matHeaderCellDef> Date </th>
+                <td [attr.role]="null" mat-cell *matCellDef="let element"> {{element.date}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="description">
+                <th [attr.role]="null" mat-header-cell *matHeaderCellDef> Description </th>
+                <td [attr.role]="null" mat-cell *matCellDef="let element"> {{element.description}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="view">
+                <th [attr.role]="null" mat-header-cell *matHeaderCellDef> View </th>
+                <td [attr.role]="null" mat-cell *matCellDef="let element"> <button mat-raised-button color="primary">View</button> </td>
+            </ng-container>
+
+            <tr [attr.role]="null" mat-header-row *matHeaderRowDef="auditColumns"></tr>
+            <tr [attr.role]="null" mat-row *matRowDef="let row; columns: auditColumns;"></tr>
+        </table>
+    </div>
+
+    <p class="info">
+        For additional infomation contact us <a href="javascript:void(0)"> here </a>
+    </p>
+</div>
+<!-- !! 0840. Public - CFR - Committee Details (Non Candidate) -->
+
+<!-- 0850. Public - CFR - Ballot Issue Details page 1 -->
+
+<div class="container committe-details-page" style="display: none;">
+    <div class="heading-section">
+        <h2 id="heading" class="title">{{ static_data.candidateDetails.denverPoliticalMoneyTrackerTitle }}
+        </h2>
+
+        <h2 class="title">
+            Issue 2A
+        </h2>
+        <h3 class="sub-heading caps">
+            November 3, 2020
+        </h3>
+        <h3 class="sub-heading caps">
+            sales tax to found environment and climate-related programs and TABOR spending limit increase
+        </h3>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.overview }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.financialOverview }}</h2>
+
+        <div style="display: flex;">
+            <div class="block-1" id="chart">
+                <apx-chart [series]="supportingChartOptions.series" [chart]="supportingChartOptions.chart" [dataLabels]="supportingChartOptions.dataLabels" [plotOptions]="supportingChartOptions.plotOptions" [xaxis]="supportingChartOptions.xaxis" [stroke]="supportingChartOptions.stroke"
+                    [fill]="supportingChartOptions.fill" [yaxis]="supportingChartOptions.yaxis" [title]="supportingChartOptions.title" [tooltip]="supportingChartOptions.tooltip" [legend]="supportingChartOptions.legend" [grid]="supportingChartOptions.grid"></apx-chart>
+            </div>
+            <div class="amount">
+                <span>$50,192,861.97</span>
+            </div>
+        </div>
+
+        <div style="display: flex;">
+            <div class="block-1 opposingChartDiv">
+                <div id="opposingChart">
+                    <apx-chart [series]="opposingChartOptions.series" [chart]="opposingChartOptions.chart" [dataLabels]="opposingChartOptions.dataLabels" [plotOptions]="opposingChartOptions.plotOptions" [xaxis]="opposingChartOptions.xaxis" [stroke]="opposingChartOptions.stroke"
+                        [fill]="opposingChartOptions.fill" [yaxis]="opposingChartOptions.yaxis" [title]="opposingChartOptions.title" [tooltip]="opposingChartOptions.tooltip" [legend]="opposingChartOptions.legend" [grid]="opposingChartOptions.grid"></apx-chart>
+                </div>
+            </div>
+            <div class="amount">
+                <span>$20,816,264.97</span>
+            </div>
+
+        </div>
+
+        <div style="display: flex;">
+            <div class="block-1 financial-block">
+                <mat-checkbox [checked]="true" color="primary" class="example-margin">Campaign Contributions to Newson, Gavin
+                    <span class="material-icons help-icon">help</span>
+                </mat-checkbox>
+                <mat-checkbox [checked]="true" color="primary" class="example-margin">Campaign Contributions to Newson, Gavin
+                    <span class="material-icons help-icon">help</span>
+                </mat-checkbox>
+
+                <p class="text">Includes contributions to and expenditures supporting</p>
+
+            </div>
+            <div>
+
+                <mat-checkbox [checked]="true" color="primary" class="example-margin disable"> Independent Expenditures opposing Newson, Gavin</mat-checkbox>
+                <mat-checkbox [checked]="true" color="primary" class="example-margin disable"> Independent Expenditures opposing other candidates
+                    <span class="material-icons help-icon">help</span>
+                </mat-checkbox>
+                <div class="search-button">
+                    <button mat-stroked-button color="primary">{{ static_data.candidateDetails.searchTransactions
+                        }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="width-100">
+        <h3 class="sub-heading">Committees &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+        <div class="card commite-details">
+            <h2 class="title">Committees </h2>
+            <div style="display: flex;" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+                <div class="block-1" fxFlex="100" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="40">
+                    <h3 class="heading-level-3">Supporting Committees</h3>
+                    <div style="display: flex;">
+                        <div class="block-1 support-block">
+                            <ul class="font-18">
+                                <li>
+                                    <a href="javascript:void(0)">Lorem Ipsum</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Lorem Ipsum</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Lorem Ipsum</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Lorem Ipsum</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="block-2" fxFlex="100" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="40">
+                    <h3 class="heading-level-3">Oppsing Committees</h3>
+                    <div style="display: flex;">
+                        <div class="block-1 support-block">
+                            <ul class="font-18">
+                                <li>
+                                    <a href="javascript:void(0)">Lorem Ipsum</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Lorem Ipsum</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Lorem Ipsum</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Lorem Ipsum</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.support }}&nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card commite-details">
+        <h2 class="title">Who Support Issue 2A?</h2>
+        <div style="display: flex;" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+            <div class="block-1" fxFlex="100" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="40">
+                <h3 class="heading-level-3">{{ static_data.candidateDetails.topContributors }}</h3>
+                <div style="display: flex;">
+                    <div class="block-1 support-block">
+                        <ol>
+                            <li>California Democratic Party</li>
+                            <li>Winklevoss, Tyler</li>
+                            <li>Winklevoss, Cameron</li>
+                            <li>Weldler, David Z.</li>
+                            <li>UnitedHealth Group, Inc.</li>
+                            <li>United Food and Commercial Workers Local 770 PAC</li>
+                            <li>United Association Political Action Fund</li>
+                            <li>Union of American Physicians and Dentists Medical Action Medical Action Committee Small Contribute Committee</li>
+                            <li>U.A. Local 342 PAC Fund</li>
+                            <li>Swanson, Richard E.</li>
+                        </ol>
+                        <p class="link">Show More Contributors</p>
+                    </div>
+                    <div class="expenditure-amount">
+                        <ul>
+                            <li>$4,622,764</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="block-2" fxFlex="100" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="40">
+                <h3 class="heading-level-3">No Independent Expenditures supporting Gavin Newsom in this election.</h3>
+                <div style="display: flex;">
+                    <div class="block-1 support-block">
+                        <ol>
+                            <li>California Democratic Party</li>
+                            <li>Winklevoss, Tyler</li>
+                            <li>Winklevoss, Cameron</li>
+                            <li>Weldler, David Z.</li>
+                            <li>UnitedHealth Group, Inc.</li>
+                            <li>United Food and Commercial Workers Local 770 PAC</li>
+                            <li>United Association Political Action Fund</li>
+                            <li>Union of American Physicians and Dentists Medical Action Medical Action Committee Small Contribute Committee</li>
+                            <li>U.A. Local 342 PAC Fund</li>
+                            <li>Swanson, Richard E.</li>
+                        </ol>
+                        <p class="link">See All Independent Expenditures </p>
+                    </div>
+                    <div class="expenditure-amount">
+                        <ul>
+                            <li>$4,622,764</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.opposition }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card opposition-card">
+        <h2 class="title">Who Opposes Issue 2A?</h2>
+        <div style="display: flex;">
+            <div class="block-1 opposition-block">
+                <h3 class="heading-level-3"> Top Independent Spenders in Opposition
+                </h3>
+
+                <div style="display: flex;">
+                    <div class="block-1 support-block">
+                        <ol>
+                            <li>California Democratic Party</li>
+                            <li>Winklevoss, Tyler</li>
+                            <li>Winklevoss, Cameron</li>
+                            <li>Weldler, David Z.</li>
+                            <li>UnitedHealth Group, Inc.</li>
+                            <li>United Food and Commercial Workers Local 770 PAC</li>
+                            <li>United Association Political Action Fund</li>
+                            <li>Union of American Physicians and Dentists Medical Action Medical Action Committee Small Contribute Committee</li>
+                            <li>U.A. Local 342 PAC Fund</li>
+                            <li>Swanson, Richard E.</li>
+                        </ol>
+
+                    </div>
+                    <div class="expenditure-amount">
+                        <ul>
+                            <li>$4,622,764</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="block-1 opposition-block">
+                    <h3 class="heading-level-3"> Top Independent Spenders in Opposition
+                    </h3>
+
+                    <div style="display: flex;">
+                        <div class="block-1 support-block">
+                            <ol>
+                                <li>California Democratic Party</li>
+                                <li>Winklevoss, Tyler</li>
+                                <li>Winklevoss, Cameron</li>
+                                <li>Weldler, David Z.</li>
+                                <li>UnitedHealth Group, Inc.</li>
+                                <li>United Food and Commercial Workers Local 770 PAC</li>
+                                <li>United Association Political Action Fund</li>
+                                <li>Union of American Physicians and Dentists Medical Action Medical Action Committee Small Contribute Committee</li>
+                                <li>U.A. Local 342 PAC Fund</li>
+                                <li>Swanson, Richard E.</li>
+                            </ol>
+
+                        </div>
+                        <div class="expenditure-amount">
+                            <ul>
+                                <li>$4,622,764</li>
+                                <li>$58,400</li>
+                                <li>$58,400</li>
+                                <li>$58,400</li>
+                                <li>$58,400</li>
+                                <li>$58,400</li>
+                                <li>$58,400</li>
+                                <li>$58,400</li>
+                                <li>$58,400</li>
+                                <li>$58,400</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.expenditures }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.expenditures }}</h2>
+
+        <div style="display: flex;">
+            <div class="block-1 expenditure-block">
+                <h3 class="heading-level-3">{{ static_data.candidateDetails.totalExpenditures }}&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span style="color: #0f5597;">$50,192,861.97</span>
+                </h3>
+
+                <h3 class="heading-level-3">{{ static_data.candidateDetails.topExpenditures }}</h3>
+                <div style="display: flex;">
+                    <div class="block-1">
+                        <ol>
+                            <li>1/20/20 - Acme Printing Company</li>
+                            <li>2/20/20 - California Correctional Peace Officers Association</li>
+                            <li>3/20/20 - Educational Organizations</li>
+                            <li>4/20/20 - African American Voter Registrations</li>
+                            <li>5/20/20 - Nurses for Newsom for Governor 2018</li>
+                            <li>6/20/20 - California Statewide Law Enforcement Association</li>
+                            <li>7/20/20 - California Building Industry Association</li>
+                            <li>8/20/20 - Independent Voter PAC</li>
+                            <li>9/20/20 - Newsom for Governor, 2018</li>
+                            <li>10/20/20 - Outfront Media LLC</li>
+                        </ol>
+                    </div>
+                    <div class="expenditure-amount">
+                        <ul>
+                            <li>$50,108,006.16</li>
+                            <li>$2,825,000</li>
+                            <li>$1,387,802.64</li>
+                            <li>$540,207.78</li>
+                            <li>$491,376.25</li>
+                            <li>$227,548</li>
+                            <li>$151,748.30</li>
+                            <li>$99,000</li>
+                            <li>$81,025.86</li>
+                            <li>$72,571</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 class="heading-level-3">{{ static_data.candidateDetails.totalExpenditures }}&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span style="color: #0f5597;">$50,192,861.97</span>
+                </h3>
+                <h3 class="heading-level-3">{{ static_data.candidateDetails.topExpenditures }}</h3>
+                <div style="display: flex;">
+                    <div class="block-1">
+                        <ol>
+                            <li>1/20/20 - Acme Printing Company</li>
+                            <li>2/20/20 - California Correctional Peace Officers Association</li>
+                            <li>3/20/20 - Educational Organizations</li>
+                            <li>4/20/20 - African American Voter Registrations</li>
+                            <li>5/20/20 - Nurses for Newsom for Governor 2018</li>
+                            <li>6/20/20 - California Statewide Law Enforcement Association</li>
+                            <li>7/20/20 - California Building Industry Association</li>
+                            <li>8/20/20 - Independent Voter PAC</li>
+                            <li>9/20/20 - Newsom for Governor, 2018</li>
+                            <li>10/20/20 - Outfront Media LLC</li>
+                        </ol>
+                    </div>
+                    <div class="expenditure-amount">
+                        <ul>
+                            <li>$50,108,006.16</li>
+                            <li>$2,825,000</li>
+                            <li>$1,387,802.64</li>
+                            <li>$540,207.78</li>
+                            <li>$491,376.25</li>
+                            <li>$227,548</li>
+                            <li>$151,748.30</li>
+                            <li>$99,000</li>
+                            <li>$81,025.86</li>
+                            <li>$72,571</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="link">See All Expenditures</p>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.fillings }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.campaignFillings }}</h2>
+
+        <h3 class="sub-heading">
+            Committee to Support Issue 2A - Support
+        </h3>
+        <table class="mar-bot-50" mat-table [dataSource]="campaignFillingsData">
+            <ng-container matColumnDef="fillingPeriod">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Filling Period </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.fillingPeriod}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="reportingPeriod">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Reporting Period </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.reportingPeriod}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="amendmentVersion">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Amendment Version </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.amendmentVersion}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dateSubmitted">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Date Submitted </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.dateSubmitted}}
+                    <span style="margin-left: 35px;" class="material-icons small_icon">
+                        arrow_forward_ios
+                    </span>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="view">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> View </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> <button mat-raised-button color="primary">View</button> </td>
+            </ng-container>
+
+            <tr [attr.role]="null" mat-header-row *matHeaderRowDef="reportsColumns"></tr>
+            <tr [attr.role]="null" mat-row *matRowDef="let row; columns: reportsColumns;"></tr>
+        </table>
+
+        <h3 class="sub-heading">
+            A Second Committee on 2A - Support
+        </h3>
+        <table class="mar-bot-50" mat-table [dataSource]="campaignFillingsData">
+            <ng-container matColumnDef="fillingPeriod">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Filling Period </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.fillingPeriod}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="reportingPeriod">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Reporting Period </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.reportingPeriod}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="amendmentVersion">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Amendment Version </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.amendmentVersion}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dateSubmitted">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Date Submitted </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.dateSubmitted}}
+                    <span style="margin-left: 35px;" class="material-icons small_icon">
+                        arrow_forward_ios
+                    </span>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="view">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> View </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> <button mat-raised-button color="primary">View</button> </td>
+            </ng-container>
+
+            <tr [attr.role]="null" mat-header-row *matHeaderRowDef="reportsColumns"></tr>
+            <tr [attr.role]="null" mat-row *matRowDef="let row; columns: reportsColumns;"></tr>
+        </table>
+
+        <h3 class="sub-heading">
+            Neighbors Opposed to 2A - Oppose
+        </h3>
+        <table class="mar-bot-50" mat-table [dataSource]="campaignFillingsData">
+            <ng-container matColumnDef="fillingPeriod">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Filling Period </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.fillingPeriod}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="reportingPeriod">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Reporting Period </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.reportingPeriod}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="amendmentVersion">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Amendment Version </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.amendmentVersion}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dateSubmitted">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Date Submitted </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.dateSubmitted}}
+                    <span style="margin-left: 35px;" class="material-icons small_icon">
+                        arrow_forward_ios
+                    </span>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="view">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> View </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> <button mat-raised-button color="primary">View</button> </td>
+            </ng-container>
+
+            <tr [attr.role]="null" mat-header-row *matHeaderRowDef="reportsColumns"></tr>
+            <tr [attr.role]="null" mat-row *matRowDef="let row; columns: reportsColumns;"></tr>
+        </table>
+    </div>
+
+
+
+    <p class="info">
+        For additional infomation contact us <a href="javascript:void(0)"> here </a>
+    </p>
+</div>
+<!-- !! 0850. Public - CFR - Ballot Issue Details page-1 -->
+
+<!-- 0850. Public - CFR - Ballot Issue Details page 2 -->
+
+<div class="container committe-details-page" style="display:none">
+    <div class="heading-section">
+        <h2 id="heading" class="title">{{ static_data.candidateDetails.denverPoliticalMoneyTrackerTitle }}
+        </h2>
+
+        <h2 class="title">
+            Issue 2A
+        </h2>
+        <h3 class="sub-heading caps">
+            November 3, 2020
+        </h3>
+        <h3 class="sub-heading caps">
+            sales tax to found environment and climate-related programs and TABOR spending limit increase
+        </h3>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.overview }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.financialOverview }}</h2>
+
+        <div style="display: flex;">
+            <div class="block-1" id="chart">
+                <apx-chart [series]="supportingChartOptions.series" [chart]="supportingChartOptions.chart" [dataLabels]="supportingChartOptions.dataLabels" [plotOptions]="supportingChartOptions.plotOptions" [xaxis]="supportingChartOptions.xaxis" [stroke]="supportingChartOptions.stroke"
+                    [fill]="supportingChartOptions.fill" [yaxis]="supportingChartOptions.yaxis" [title]="supportingChartOptions.title" [tooltip]="supportingChartOptions.tooltip" [legend]="supportingChartOptions.legend" [grid]="supportingChartOptions.grid"></apx-chart>
+            </div>
+            <div class="amount">
+                <span>$50,192,861.97</span>
+            </div>
+        </div>
+
+        <div style="display: flex;">
+            <div class="block-1 opposingChartDiv">
+                <div id="opposingChart">
+                    <apx-chart [series]="opposingChartOptions.series" [chart]="opposingChartOptions.chart" [dataLabels]="opposingChartOptions.dataLabels" [plotOptions]="opposingChartOptions.plotOptions" [xaxis]="opposingChartOptions.xaxis" [stroke]="opposingChartOptions.stroke"
+                        [fill]="opposingChartOptions.fill" [yaxis]="opposingChartOptions.yaxis" [title]="opposingChartOptions.title" [tooltip]="opposingChartOptions.tooltip" [legend]="opposingChartOptions.legend" [grid]="opposingChartOptions.grid"></apx-chart>
+                </div>
+            </div>
+            <div class="amount">
+                <span>$20,816,264.97</span>
+            </div>
+
+        </div>
+
+        <div style="display: flex;">
+            <div class="block-1 financial-block">
+                <mat-checkbox [checked]="true" color="primary" class="example-margin">Campaign Contributions to Newson, Gavin
+                    <span class="material-icons help-icon">help</span>
+                </mat-checkbox>
+                <mat-checkbox [checked]="true" color="primary" class="example-margin">Campaign Contributions to Newson, Gavin
+                    <span class="material-icons help-icon">help</span>
+                </mat-checkbox>
+
+                <p class="text">Includes contributions to and expenditures supporting</p>
+
+            </div>
+            <div>
+
+                <mat-checkbox [checked]="true" color="primary" class="example-margin disable"> Independent Expenditures opposing Newson, Gavin</mat-checkbox>
+                <mat-checkbox [checked]="true" color="primary" class="example-margin disable"> Independent Expenditures opposing other candidates
+                    <span class="material-icons help-icon">help</span>
+                </mat-checkbox>
+                <div class="search-button">
+                    <button mat-stroked-button color="primary">{{ static_data.candidateDetails.searchTransactions
+                        }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="width-100">
+        <h3 class="sub-heading">Committees &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+        <div class="card commite-details">
+            <h2 class="title">Committees </h2>
+            <div style="display: flex;" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+                <div class="block-1" fxFlex="100" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="40">
+                    <h3 class="heading-level-3">Supporting Committees</h3>
+                    <div style="display: flex;">
+                        <div class="block-1 support-block">
+                            <ul class="font-18">
+                                <li>
+                                    <a href="javascript:void(0)">Lorem Ipsum</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Lorem Ipsum</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Lorem Ipsum</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Lorem Ipsum</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="block-2" fxFlex="100" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="40">
+                    <h3 class="heading-level-3">Oppsing Committees</h3>
+                    <div style="display: flex;">
+                        <div class="block-1 support-block">
+                            <ul class="font-18">
+                                <li>
+                                    <a href="javascript:void(0)">Lorem Ipsum</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Lorem Ipsum</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Lorem Ipsum</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Lorem Ipsum</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.support }}&nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card commite-details">
+        <h2 class="title">Who Support Issue 2A?</h2>
+        <div style="display: flex;" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+            <div class="block-1" fxFlex="100" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="40">
+                <h3 class="heading-level-3">{{ static_data.candidateDetails.topContributors }}</h3>
+                <div style="display: flex;">
+                    <div class="block-1 support-block">
+                        <ol>
+                            <li>California Democratic Party</li>
+                            <li>Winklevoss, Tyler</li>
+                            <li>Winklevoss, Cameron</li>
+                            <li>Weldler, David Z.</li>
+                            <li>UnitedHealth Group, Inc.</li>
+                            <li>United Food and Commercial Workers Local 770 PAC</li>
+                            <li>United Association Political Action Fund</li>
+                            <li>Union of American Physicians and Dentists Medical Action Medical Action Committee Small Contribute Committee</li>
+                            <li>U.A. Local 342 PAC Fund</li>
+                            <li>Swanson, Richard E.</li>
+                        </ol>
+                        <p class="link">Show More Contributors</p>
+                    </div>
+                    <div class="expenditure-amount">
+                        <ul>
+                            <li>$4,622,764</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="block-2" fxFlex="100" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="40">
+                <h3 class="heading-level-3">No Independent Expenditures supporting Gavin Newsom in this election.</h3>
+                <div style="display: flex;">
+                    <div class="block-1 support-block">
+                        <ol>
+                            <li>California Democratic Party</li>
+                            <li>Winklevoss, Tyler</li>
+                            <li>Winklevoss, Cameron</li>
+                            <li>Weldler, David Z.</li>
+                            <li>UnitedHealth Group, Inc.</li>
+                            <li>United Food and Commercial Workers Local 770 PAC</li>
+                            <li>United Association Political Action Fund</li>
+                            <li>Union of American Physicians and Dentists Medical Action Medical Action Committee Small Contribute Committee</li>
+                            <li>U.A. Local 342 PAC Fund</li>
+                            <li>Swanson, Richard E.</li>
+                        </ol>
+                        <p class="link">See All Independent Expenditures </p>
+                    </div>
+                    <div class="expenditure-amount">
+                        <ul>
+                            <li>$4,622,764</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                            <li>$58,400</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.opposition }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card opposition-card">
+        <h2 class="title">Who Opposes Issue 2A?</h2>
+        <div style="display: flex;">
+            <div class="block-1 opposition-block">
+                <h2 class="">
+                    No committees have reistered as opposed to Issue 2A
+                </h2>
+
+            </div>
+
+        </div>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.expenditures }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.expenditures }}</h2>
+
+        <div style="display: flex;">
+            <div class="block-1 expenditure-block">
+                <h3 class="heading-level-3">{{ static_data.candidateDetails.totalExpenditures }}&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span style="color: #0f5597;">$50,192,861.97</span>
+                </h3>
+
+                <h3 class="heading-level-3">{{ static_data.candidateDetails.topExpenditures }}</h3>
+                <div style="display: flex;">
+                    <div class="block-1">
+                        <ol>
+                            <li>1/20/20 - Acme Printing Company</li>
+                            <li>2/20/20 - California Correctional Peace Officers Association</li>
+                            <li>3/20/20 - Educational Organizations</li>
+                            <li>4/20/20 - African American Voter Registrations</li>
+                            <li>5/20/20 - Nurses for Newsom for Governor 2018</li>
+                            <li>6/20/20 - California Statewide Law Enforcement Association</li>
+                            <li>7/20/20 - California Building Industry Association</li>
+                            <li>8/20/20 - Independent Voter PAC</li>
+                            <li>9/20/20 - Newsom for Governor, 2018</li>
+                            <li>10/20/20 - Outfront Media LLC</li>
+                        </ol>
+                    </div>
+                    <div class="expenditure-amount">
+                        <ul>
+                            <li>$50,108,006.16</li>
+                            <li>$2,825,000</li>
+                            <li>$1,387,802.64</li>
+                            <li>$540,207.78</li>
+                            <li>$491,376.25</li>
+                            <li>$227,548</li>
+                            <li>$151,748.30</li>
+                            <li>$99,000</li>
+                            <li>$81,025.86</li>
+                            <li>$72,571</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 class="heading-level-3">{{ static_data.candidateDetails.totalExpenditures }}&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span style="color: #0f5597;">$50,192,861.97</span>
+                </h3>
+                <h3 class="heading-level-3">{{ static_data.candidateDetails.topExpenditures }}</h3>
+                <div style="display: flex;">
+                    <div class="block-1">
+                        <ol>
+                            <li>1/20/20 - Acme Printing Company</li>
+                            <li>2/20/20 - California Correctional Peace Officers Association</li>
+                            <li>3/20/20 - Educational Organizations</li>
+                            <li>4/20/20 - African American Voter Registrations</li>
+                            <li>5/20/20 - Nurses for Newsom for Governor 2018</li>
+                            <li>6/20/20 - California Statewide Law Enforcement Association</li>
+                            <li>7/20/20 - California Building Industry Association</li>
+                            <li>8/20/20 - Independent Voter PAC</li>
+                            <li>9/20/20 - Newsom for Governor, 2018</li>
+                            <li>10/20/20 - Outfront Media LLC</li>
+                        </ol>
+                    </div>
+                    <div class="expenditure-amount">
+                        <ul>
+                            <li>$50,108,006.16</li>
+                            <li>$2,825,000</li>
+                            <li>$1,387,802.64</li>
+                            <li>$540,207.78</li>
+                            <li>$491,376.25</li>
+                            <li>$227,548</li>
+                            <li>$151,748.30</li>
+                            <li>$99,000</li>
+                            <li>$81,025.86</li>
+                            <li>$72,571</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="link">See All Expenditures</p>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="sub-heading">{{ static_data.candidateDetails.fillings }} &nbsp;<span class="material-icons small_icon">
+            arrow_forward_ios
+        </span></h3>
+    <div class="card">
+        <h2 class="title">{{ static_data.candidateDetails.campaignFillings }}</h2>
+
+        <h3 class="sub-heading">
+            Committee to Support Issue 2A - Support
+        </h3>
+        <table class="mar-bot-50" mat-table [dataSource]="campaignFillingsData">
+            <ng-container matColumnDef="fillingPeriod">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Filling Period </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.fillingPeriod}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="reportingPeriod">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Reporting Period </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.reportingPeriod}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="amendmentVersion">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Amendment Version </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.amendmentVersion}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dateSubmitted">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Date Submitted </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.dateSubmitted}}
+                    <span style="margin-left: 35px;" class="material-icons small_icon">
+                        arrow_forward_ios
+                    </span>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="view">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> View </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> <button mat-raised-button color="primary">View</button> </td>
+            </ng-container>
+
+            <tr [attr.role]="null" mat-header-row *matHeaderRowDef="reportsColumns"></tr>
+            <tr [attr.role]="null" mat-row *matRowDef="let row; columns: reportsColumns;"></tr>
+        </table>
+
+        <h3 class="sub-heading">
+            A Second Committee on 2A - Support
+        </h3>
+        <table class="mar-bot-50" mat-table [dataSource]="campaignFillingsData">
+            <ng-container matColumnDef="fillingPeriod">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Filling Period </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.fillingPeriod}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="reportingPeriod">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Reporting Period </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.reportingPeriod}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="amendmentVersion">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Amendment Version </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.amendmentVersion}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dateSubmitted">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Date Submitted </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.dateSubmitted}}
+                    <span style="margin-left: 35px;" class="material-icons small_icon">
+                        arrow_forward_ios
+                    </span>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="view">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> View </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> <button mat-raised-button color="primary">View</button> </td>
+            </ng-container>
+
+            <tr [attr.role]="null" mat-header-row *matHeaderRowDef="reportsColumns"></tr>
+            <tr [attr.role]="null" mat-row *matRowDef="let row; columns: reportsColumns;"></tr>
+        </table>
+
+        <h3 class="sub-heading">
+            Neighbors Opposed to 2A - Oppose
+        </h3>
+        <table class="mar-bot-50" mat-table [dataSource]="campaignFillingsData">
+            <ng-container matColumnDef="fillingPeriod">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Filling Period </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.fillingPeriod}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="reportingPeriod">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Reporting Period </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> {{element.reportingPeriod}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="amendmentVersion">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Amendment Version </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.amendmentVersion}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dateSubmitted">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> Date Submitted </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null">{{element.dateSubmitted}}
+                    <span style="margin-left: 35px;" class="material-icons small_icon">
+                        arrow_forward_ios
+                    </span>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="view">
+                <th mat-header-cell *matHeaderCellDef [attr.role]="null"> View </th>
+                <td mat-cell *matCellDef="let element" [attr.role]="null"> <button mat-raised-button color="primary">View</button> </td>
+            </ng-container>
+
+            <tr [attr.role]="null" mat-header-row *matHeaderRowDef="reportsColumns"></tr>
+            <tr [attr.role]="null" mat-row *matRowDef="let row; columns: reportsColumns;"></tr>
+        </table>
+    </div>
+
+
+
+    <p class="info">
+        For additional infomation contact us <a href="javascript:void(0)"> here </a>
+    </p>
+</div>
+<!-- !! 0850. Public - CFR - Ballot Issue Details page-2 -->
+
+<!-- // sidenav advanced search  -->
+
+<div class="advanced-search" style="display: none;">
+    <div class="transsearch">
+        <div class="width-100 mar-bot-15">
+            <h2>
+                <mat-icon matsuffix class="top-5"> change_circle </mat-icon> Transcation Type
+                <mat-icon class="help">help</mat-icon>
+            </h2>
+
+            <div class="mat-select-box">
+                <mat-label> &nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+                <mat-form-field appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-select id="report_year" [(value)]="selectedReportYear" attr.aria-label="{{static_data.candidateDetails.reportYear}}">
+                        <mat-option *ngFor="let year of yearList" [value]="year">{{year}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="mat-select-box ">
+                <mat-label> &nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+                <mat-form-field class="mar-rt-15" appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-select id="report_year" [(value)]="selectedReportYear" attr.aria-label="{{static_data.candidateDetails.reportYear}}">
+                        <mat-option *ngFor="let year of yearList" [value]="year">{{year}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-icon class="help">help</mat-icon>
+            </div>
+        </div>
+        <div class="width-100 mar-bot-15">
+            <h2>
+                <mat-icon matsuffix class="top-5"> change_circle </mat-icon> Contributions From
+
+            </h2>
+            <mat-radio-group aria-label="Select an option">
+                <mat-radio-button value="1">All Contributions</mat-radio-button>
+                <mat-icon class="help right">help</mat-icon>
+            </mat-radio-group>
+            <div class="mat-select-box">
+                <mat-label> &nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+                <mat-form-field appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-select id="report_year" [(value)]="selectedReportYear" attr.aria-label="{{static_data.candidateDetails.reportYear}}">
+                        <mat-option *ngFor="let year of yearList" [value]="year">{{year}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="mat-select-box ">
+                <mat-label> &nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+                <mat-form-field class="mar-rt-15" appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-select id="report_year" [(value)]="selectedReportYear" attr.aria-label="{{static_data.candidateDetails.reportYear}}">
+                        <mat-option *ngFor="let year of yearList" [value]="year">{{year}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-icon class="help right">help</mat-icon>
+            </div>
+        </div>
+        <div class="width-100 mar-bot-15">
+            <h2>
+                <mat-icon matsuffix class="top-5"> change_circle </mat-icon> Contributions To
+            </h2>
+            <mat-radio-group aria-label="Select an option">
+                <mat-radio-button value="1">Everning <br> (Candidates, Ballots <br> Measures & Other <br> Committees)</mat-radio-button>
+                <mat-icon class="help right">help</mat-icon>
+            </mat-radio-group>
+        </div>
+        <div class="width-100 mar-bot-15">
+            <h2>
+                <mat-icon matsuffix class="top-5"> change_circle </mat-icon> Candidates
+
+            </h2>
+            <mat-radio-group aria-label="Select an option">
+                <mat-radio-button value="1">All Contributions</mat-radio-button>
+                <mat-icon class="help right">help</mat-icon>
+            </mat-radio-group>
+            <div class="mat-select-box">
+                <mat-label> &nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+                <mat-form-field appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-select id="report_year" [(value)]="selectedReportYear" attr.aria-label="{{static_data.candidateDetails.reportYear}}">
+                        <mat-option *ngFor="let year of yearList" [value]="year">{{year}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="mat-select-box">
+                <mat-label> &nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+                <mat-form-field class="mar-rt-15" appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-select id="report_year" [(value)]="selectedReportYear" attr.aria-label="{{static_data.candidateDetails.reportYear}}">
+                        <mat-option *ngFor="let year of yearList" [value]="year">{{year}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-icon class="help right">help</mat-icon>
+            </div>
+        </div>
+        <div class="width-100 mar-bot-15">
+            <h2>
+                <mat-icon matsuffix class="top-5"> change_circle </mat-icon> Ballot Measures
+            </h2>
+            <mat-radio-group aria-label="Select an option">
+                <mat-radio-button value="1">All Contributions</mat-radio-button>
+                <mat-icon class="help right">help</mat-icon>
+            </mat-radio-group>
+            <div class="mat-select-box">
+                <mat-label> &nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+                <mat-form-field appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-select id="report_year" [(value)]="selectedReportYear" attr.aria-label="{{static_data.candidateDetails.reportYear}}">
+                        <mat-option *ngFor="let year of yearList" [value]="year">{{year}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="mat-select-box">
+                <mat-label> &nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+                <mat-form-field class="mar-rt-15" appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-select id="report_year" [(value)]="selectedReportYear" attr.aria-label="{{static_data.candidateDetails.reportYear}}">
+                        <mat-option *ngFor="let year of yearList" [value]="year">{{year}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="mat-select-box">
+                <mat-label> &nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+                <mat-form-field class="mar-rt-15" appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+                    <mat-select id="report_year" [(value)]="selectedReportYear" attr.aria-label="{{static_data.candidateDetails.reportYear}}">
+                        <mat-option *ngFor="let year of yearList" [value]="year">{{year}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <section class="example-section">
+                <mat-checkbox class="example-margin">Exclude Contributions <br> Between Alled <br> Committees</mat-checkbox>
+            </section>
+        </div>
+        <div class="width-100 mar-bot-15">
+            <h2>
+                <mat-icon matsuffix class="top-5"> change_circle </mat-icon> Committees
+            </h2>
+            <div class="radio-align">
+                <mat-radio-group aria-label="Select an option">
+                    <mat-radio-button value="1"></mat-radio-button>
+                </mat-radio-group>
+                <div class="mat-select-box">
+                    <mat-form-field appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+                        <mat-select id="report_year" [(value)]="selectedReportYear" attr.aria-label="{{static_data.candidateDetails.reportYear}}">
+                            <mat-option *ngFor="let year of yearList" [value]="year">{{year}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="width-100 mar-bot-15">
+            <h2>
+                <mat-icon matsuffix class="top-5"> date_range </mat-icon> Dates
+                <mat-icon class="help right">help</mat-icon>
+            </h2>
+            <mat-radio-group class="left" aria-label="Select an option">
+                <mat-radio-button value="1">All Dates and Election cycle </mat-radio-button>
+                <mat-radio-button value="1">Date Range</mat-radio-button>
+            </mat-radio-group>
+            <mat-radio-group class="left" aria-label="Select an option">
+                <mat-radio-button value="1">Election cycles </mat-radio-button>
+            </mat-radio-group>
+            <section class="example-section date-chkbox">
+                <mat-checkbox class="example-margin">2019 - 2020</mat-checkbox>
+                <mat-checkbox class="example-margin">2020 - 2021</mat-checkbox>
+                <mat-checkbox class="example-margin">2021 - 2022</mat-checkbox>
+            </section>
+        </div>
+        <div class="btn-group">
+            <button class="btn-blue trans-btn" mat-raised-button>Clear Form</button>
+            <button class="btn-blue trans-btn" mat-raised-button>Search</button>
+        </div>
+    </div>
+</div>
+
+<!-- !! left nav Advanced Search  -->
+
+<!-- 0860. Public - CFR - Search Contributions -->
+<div class="mat-container" style="display: none;">
+    <h1 class="title">
+        {{static_data.transcationSearch.title}}
+    </h1>
+    <h2 class="dark-blue">
+        <b> $85,869,934,63 in </b> 3,000 Contributions
+    </h2>
+    <div class="search-table flex-spcebwn flxe-width-70 mar-bot-50" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+
+        <div class="flex-table">
+            <h3>
+                {{static_data.transcationSearch.employeeContributions}}
+            </h3>
+            <table class="bot-table">
+                <tr>
+                    <td [attr.role]="null">
+                        candidates
+                    </td>
+                    <td [attr.role]="null">
+                        $1209765
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        candidates
+                    </td>
+                    <td [attr.role]="null">
+                        $1209765
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        candidates
+                    </td>
+                    <td [attr.role]="null">
+                        $1209765
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        candidates
+                    </td>
+                    <td [attr.role]="null">
+                        $1209765
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        candidates
+                    </td>
+
+                    <td [attr.role]="null">
+                        $1209765
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="flex-table">
+            <h3>
+                {{static_data.transcationSearch.organizationalContributions}}
+            </h3>
+            <table class="bot-table">
+                <tr>
+                    <td [attr.role]="null">
+                        candidates
+                    </td>
+                    <td [attr.role]="null">
+                        $1209765
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        candidates
+                    </td>
+                    <td [attr.role]="null">
+                        $1209765
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        candidates
+                    </td>
+                    <td [attr.role]="null">
+                        $1209765
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        candidates
+                    </td>
+                    <td [attr.role]="null">
+                        $1209765
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        candidates
+                    </td>
+                    <td [attr.role]="null">
+                        $1209765
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="search-table  flxe-width-100 mar-bot-50" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+        <div class="mat-select-box">
+            <mat-label> {{static_data.transcationSearch.show }} &nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+            <mat-form-field appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+                <!-- <mat-label class="width-20" class="visuallyhidden">
+            {{ static_data.candidateDetails.reportYear }}</mat-label> -->
+                <mat-select id="report_year" [(value)]="selectedReportYear" attr.aria-label=" {{static_data.transcationSearch.show }}">
+                    <mat-option *ngFor="let year of yearList" [value]="year">{{year}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="mat-select-box">
+            <mat-label> {{static_data.transcationSearch.sortBy}} &nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+            <mat-form-field appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+                <!-- <mat-label class="width-20" class="visuallyhidden">
+            {{ static_data.candidateDetails.reportYear }}</mat-label> -->
+                <mat-select id="report_year" [(value)]="selectedReportYear" attr.aria-label="{{static_data.transcationSearch.sortBy}}">
+                    <mat-option *ngFor="let year of yearList" [value]="year">{{year}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="mat-select-box">
+            <mat-label> &nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+            <mat-form-field appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+                <!-- <mat-label class="width-20" class="visuallyhidden">
+            {{ static_data.candidateDetails.reportYear }}</mat-label> -->
+                <mat-select id="report_year" [(value)]="selectedReportYear" attr.aria-label="{{static_data.candidateDetails.reportYear}}">
+                    <mat-option *ngFor="let year of yearList" [value]="year">{{year}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <button title="{{static_data.transcationSearch.UpdateBtn}}" class="btn-blue trans-btn" mat-raised-button>{{static_data.transcationSearch.UpdateBtn}}</button>
+        <button title="{{static_data.transcationSearch.ShowMoreFields}}" class="btn-showmore trans-btn" mat-raised-button>{{static_data.transcationSearch.ShowMoreFields}}</button>
+        <button title="{{static_data.transcationSearch.DownloadCSV}}" class="download trans-btn" mat-raised-button>{{static_data.transcationSearch.DownloadCSV}}</button>
+    </div>
+
+    <div class="search-table  flxe-width-100 mar-bot-50" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+        <table class="drop-table">
+            <thead>
+                <tr>
+                    <th [attr.role]="null">
+                        Recipient Name
+                    </th>
+                    <th [attr.role]="null">
+                        Recipient Committee
+                    </th>
+                    <th [attr.role]="null">
+                        Recipient Committee
+                    </th>
+                    <th [attr.role]="null">
+                        Office Sought
+                    </th>
+                    <th [attr.role]="null">
+                        District
+                    </th>
+                    <th [attr.role]="null">
+                        Ballot Issue
+                    </th>
+                    <th [attr.role]="null">
+                        Contributor Name
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td [attr.role]="null">
+                        <!-- <span class="material-icons-outlined">
+                            keyboard_arrow_down
+                            </span>  -->
+                        Gray Admin
+                    </td>
+                    <td [attr.role]="null">
+                        Gray for Assembly 2020
+                    </td>
+                    <td [attr.role]="null">
+                        12245
+                    </td>
+                    <td [attr.role]="null">
+                        City Council
+                    </td>
+                    <td [attr.role]="null">
+                        7
+                    </td>
+                    <td [attr.role]="null">
+                        N/A
+                    </td>
+                    <td [attr.role]="null">
+                        dminChevion Corporation
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        <!-- <span class="material-icons-outlined">
+                            keyboard_arrow_down
+                            </span>  -->
+                        Gray Admin
+                    </td>
+                    <td [attr.role]="null">
+                        Gray for Assembly 2020
+                    </td>
+                    <td [attr.role]="null">
+                        12245
+                    </td>
+                    <td [attr.role]="null">
+                        City Council
+                    </td>
+                    <td [attr.role]="null">
+                        7
+                    </td>
+                    <td [attr.role]="null">
+                        N/A
+                    </td>
+                    <td [attr.role]="null">
+                        dminChevion Corporation
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        <!-- <span class="material-icons-outlined">
+                            keyboard_arrow_down
+                            </span>  -->
+                        Gray Admin
+                    </td>
+                    <td [attr.role]="null">
+                        Gray for Assembly 2020
+                    </td>
+                    <td [attr.role]="null">
+                        12245
+                    </td>
+                    <td [attr.role]="null">
+                        City Council
+                    </td>
+                    <td [attr.role]="null">
+                        7
+                    </td>
+                    <td [attr.role]="null">
+                        N/A
+                    </td>
+                    <td [attr.role]="null">
+                        dminChevion Corporation
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        <!-- <span class="material-icons-outlined">
+                            keyboard_arrow_down
+                            </span>  -->
+                        Gray Admin
+                    </td>
+                    <td [attr.role]="null">
+                        Gray for Assembly 2020
+                    </td>
+                    <td [attr.role]="null">
+                        12245
+                    </td>
+                    <td [attr.role]="null">
+                        City Council
+                    </td>
+                    <td [attr.role]="null">
+                        7
+                    </td>
+                    <td [attr.role]="null">
+                        N/A
+                    </td>
+                    <td [attr.role]="null">
+                        dminChevion Corporation
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- !! 0860. Public - CFR - Search Contributions -->
+
+<!-- 0870. Public - CFR - Search Expenditures -->
+<div class="mat-container" style="display: none;">
+    <h1 class="title">
+        {{static_data.transcationSearch.title}}
+    </h1>
+    <h2 class="dark-blue">
+        <b> $85,869,934,63 in </b> 3,000 Contributions
+    </h2>
+
+    <div class="search-table  flxe-width-100 mar-bot-50" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+        <div class="mat-select-box">
+            <mat-label>{{static_data.transcationSearch.show}} &nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+            <mat-form-field appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+                <!-- <mat-label class="width-20" class="visuallyhidden">
+            {{ static_data.candidateDetails.reportYear }}</mat-label> -->
+                <mat-select id="report_year" [(value)]="selectedReportYear" attr.aria-label="{{static_data.transcationSearch.show}} ">
+                    <mat-option *ngFor="let year of yearList" [value]="year">{{year}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="mat-select-box">
+            <mat-label>{{static_data.transcationSearch.sortBy}} &nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+            <mat-form-field appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+                <!-- <mat-label class="width-20" class="visuallyhidden">
+            {{ static_data.candidateDetails.reportYear }}</mat-label> -->
+                <mat-select id="report_year" [(value)]="selectedReportYear" attr.aria-label="{{static_data.transcationSearch.sortBy}} ">
+                    <mat-option *ngFor="let year of yearList" [value]="year">{{year}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="mat-select-box">
+            <mat-label> &nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+            <mat-form-field appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+                <!-- <mat-label class="width-20" class="visuallyhidden">
+            {{ static_data.candidateDetails.reportYear }}</mat-label> -->
+                <mat-select id="report_year" [(value)]="selectedReportYear" attr.aria-label="{{static_data.candidateDetails.reportYear}}">
+                    <mat-option *ngFor="let year of yearList" [value]="year">{{year}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <button title="{{static_data.transcationSearch.UpdateBtn}}" class="btn-blue trans-btn" mat-raised-button>{{static_data.transcationSearch.UpdateBtn}}</button>
+        <button title="{{static_data.transcationSearch.ShowMoreFields}}" class="btn-showmore trans-btn" mat-raised-button>{{static_data.transcationSearch.ShowMoreFields}}</button>
+        <button title="{{static_data.transcationSearch.DownloadCSV}}" class="download trans-btn" mat-raised-button>{{static_data.transcationSearch.DownloadCSV}}</button>
+    </div>
+
+    <div class="search-table  flxe-width-100 mar-bot-50" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+        <table class="drop-table">
+            <thead>
+                <tr>
+                    <th [attr.role]="null">
+                        Committee Name
+                    </th>
+                    <th [attr.role]="null">
+                        Committee id
+                    </th>
+                    <th [attr.role]="null">
+                        Candidate Name
+                    </th>
+                    <th [attr.role]="null">
+                        Candidate Office
+                    </th>
+                    <th [attr.role]="null">
+                        Candidate District
+                    </th>
+                    <th [attr.role]="null">
+                        Ballot Issue
+                    </th>
+                    <th [attr.role]="null">
+                        Amount
+                    </th>
+                    <th [attr.role]="null">
+                        Date
+                    </th>
+                    <th [attr.role]="null">
+                        Purpose
+                    </th>
+                    <th [attr.role]="null">
+                        Payee
+                    </th>
+                    <th [attr.role]="null">
+                        Payee State
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td [attr.role]="null">
+                        Gray Admin
+                    </td>
+                    <td [attr.role]="null">
+                        12345
+                    </td>
+                    <td [attr.role]="null">
+                        Gray Admin 2020
+                    </td>
+                    <td [attr.role]="null">
+                        State Assembly
+                    </td>
+                    <td [attr.role]="null">
+                        N/A
+                    </td>
+                    <td [attr.role]="null">
+                        Lorem ippsum
+                    </td>
+                    <td [attr.role]="null">
+                        $4700
+                    </td>
+                    <td [attr.role]="null">
+                        1026
+                    </td>
+                    <td [attr.role]="null">
+                        N/A
+                    </td>
+                    <td [attr.role]="null">
+                        Chevon Corporate
+                    </td>
+                    <td [attr.role]="null">
+                        CA
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        Gray Admin
+                    </td>
+                    <td [attr.role]="null">
+                        12345
+                    </td>
+                    <td [attr.role]="null">
+                        Gray Admin 2020
+                    </td>
+                    <td [attr.role]="null">
+                        State Assembly
+                    </td>
+                    <td [attr.role]="null">
+                        N/A
+                    </td>
+                    <td [attr.role]="null">
+                        Lorem ippsum
+                    </td>
+                    <td [attr.role]="null">
+                        $4700
+                    </td>
+                    <td [attr.role]="null">
+                        1026
+                    </td>
+                    <td [attr.role]="null">
+                        N/A
+                    </td>
+                    <td [attr.role]="null">
+                        Chevon Corporate
+                    </td>
+                    <td [attr.role]="null">
+                        CA
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        Gray Admin
+                    </td>
+                    <td [attr.role]="null">
+                        12345
+                    </td>
+                    <td [attr.role]="null">
+                        Gray Admin 2020
+                    </td>
+                    <td [attr.role]="null">
+                        State Assembly
+                    </td>
+                    <td [attr.role]="null">
+                        N/A
+                    </td>
+                    <td [attr.role]="null">
+                        Lorem ippsum
+                    </td>
+                    <td [attr.role]="null">
+                        $4700
+                    </td>
+                    <td [attr.role]="null">
+                        1026
+                    </td>
+                    <td [attr.role]="null">
+                        N/A
+                    </td>
+                    <td [attr.role]="null">
+                        Chevon Corporate
+                    </td>
+                    <td [attr.role]="null">
+                        CA
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        Gray Admin
+                    </td>
+                    <td [attr.role]="null">
+                        12345
+                    </td>
+                    <td [attr.role]="null">
+                        Gray Admin 2020
+                    </td>
+                    <td [attr.role]="null">
+                        State Assembly
+                    </td>
+                    <td [attr.role]="null">
+                        N/A
+                    </td>
+                    <td [attr.role]="null">
+                        Lorem ippsum
+                    </td>
+                    <td [attr.role]="null">
+                        $4700
+                    </td>
+                    <td [attr.role]="null">
+                        1026
+                    </td>
+                    <td [attr.role]="null">
+                        N/A
+                    </td>
+                    <td [attr.role]="null">
+                        Chevon Corporate
+                    </td>
+                    <td [attr.role]="null">
+                        CA
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        Gray Admin
+                    </td>
+                    <td [attr.role]="null">
+                        12345
+                    </td>
+                    <td [attr.role]="null">
+                        Gray Admin 2020
+                    </td>
+                    <td [attr.role]="null">
+                        State Assembly
+                    </td>
+                    <td [attr.role]="null">
+                        N/A
+                    </td>
+                    <td [attr.role]="null">
+                        Lorem ippsum
+                    </td>
+                    <td [attr.role]="null">
+                        $4700
+                    </td>
+                    <td [attr.role]="null">
+                        1026
+                    </td>
+                    <td [attr.role]="null">
+                        N/A
+                    </td>
+                    <td [attr.role]="null">
+                        Chevon Corporate
+                    </td>
+                    <td [attr.role]="null">
+                        CA
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        Gray Admin
+                    </td>
+                    <td [attr.role]="null">
+                        12345
+                    </td>
+                    <td [attr.role]="null">
+                        Gray Admin 2020
+                    </td>
+                    <td [attr.role]="null">
+                        State Assembly
+                    </td>
+                    <td [attr.role]="null">
+                        N/A
+                    </td>
+                    <td [attr.role]="null">
+                        Lorem ippsum
+                    </td>
+                    <td [attr.role]="null">
+                        $4700
+                    </td>
+                    <td [attr.role]="null">
+                        1026
+                    </td>
+                    <td [attr.role]="null">
+                        N/A
+                    </td>
+                    <td [attr.role]="null">
+                        Chevon Corporate
+                    </td>
+                    <td [attr.role]="null">
+                        CA
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        Gray Admin
+                    </td>
+                    <td [attr.role]="null">
+                        12345
+                    </td>
+                    <td [attr.role]="null">
+                        Gray Admin 2020
+                    </td>
+                    <td [attr.role]="null">
+                        State Assembly
+                    </td>
+                    <td [attr.role]="null">
+                        N/A
+                    </td>
+                    <td [attr.role]="null">
+                        Lorem ippsum
+                    </td>
+                    <td [attr.role]="null">
+                        $4700
+                    </td>
+                    <td [attr.role]="null">
+                        1026
+                    </td>
+                    <td [attr.role]="null">
+                        N/A
+                    </td>
+                    <td [attr.role]="null">
+                        Chevon Corporate
+                    </td>
+                    <td [attr.role]="null">
+                        CA
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        Gray Admin
+                    </td>
+                    <td [attr.role]="null">
+                        12345
+                    </td>
+                    <td [attr.role]="null">
+                        Gray Admin 2020
+                    </td>
+                    <td [attr.role]="null">
+                        State Assembly
+                    </td>
+                    <td [attr.role]="null">
+                        N/A
+                    </td>
+                    <td [attr.role]="null">
+                        Lorem ippsum
+                    </td>
+                    <td [attr.role]="null">
+                        $4700
+                    </td>
+                    <td [attr.role]="null">
+                        1026
+                    </td>
+                    <td [attr.role]="null">
+                        N/A
+                    </td>
+                    <td [attr.role]="null">
+                        Chevon Corporate
+                    </td>
+                    <td [attr.role]="null">
+                        CA
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+
+</div>
+<!-- !! 0870. Public - CFR - Search Expenditures -->
+
+<!-- 0880. Public - CFR - Search Penalties -->
+
+<div class="mat-container" style="display: none;">
+    <h1 class="title">
+        {{static_data.transcationSearch.title}}
+    </h1>
+    <h2 class="dark-blue">
+        <b> $85,869,934,63 in </b> 3,000 Contributions
+    </h2>
+
+    <div class="search-table  flxe-width-100 mar-bot-50" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+        <div class="mat-select-box">
+            <mat-label>{{static_data.transcationSearch.show}} &nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+            <mat-form-field appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+                <!-- <mat-label class="width-20" class="visuallyhidden">
+            {{ static_data.candidateDetails.reportYear }}</mat-label> -->
+                <mat-select id="report_year" [(value)]="selectedReportYear" attr.aria-label="{{static_data.transcationSearch.show}}">
+                    <mat-option *ngFor="let year of yearList" [value]="year">{{year}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="mat-select-box">
+            <mat-label>{{static_data.transcationSearch.sortBy}}&nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+            <mat-form-field appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+                <!-- <mat-label class="width-20" class="visuallyhidden">
+            {{ static_data.candidateDetails.reportYear }}</mat-label> -->
+                <mat-select id="report_year" [(value)]="selectedReportYear" attr.aria-label="{{static_data.transcationSearch.sortBy}}">
+                    <mat-option *ngFor="let year of yearList" [value]="year">{{year}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="mat-select-box">
+            <mat-label> &nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+            <mat-form-field appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+                <!-- <mat-label class="width-20" class="visuallyhidden">
+            {{ static_data.candidateDetails.reportYear }}</mat-label> -->
+                <mat-select id="report_year" [(value)]="selectedReportYear" attr.aria-label="{{static_data.candidateDetails.reportYear}}">
+                    <mat-option *ngFor="let year of yearList" [value]="year">{{year}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+
+        <button title="{{static_data.transcationSearch.UpdateBtn}}" class="btn-blue trans-btn" mat-raised-button>{{static_data.transcationSearch.UpdateBtn}}</button>
+        <button title="{{static_data.transcationSearch.ShowMoreFields}}" class="btn-showmore trans-btn" mat-raised-button>{{static_data.transcationSearch.ShowMoreFields}}</button>
+        <button title="{{static_data.transcationSearch.DownloadCSV}}" class="download trans-btn" mat-raised-button>{{static_data.transcationSearch.DownloadCSV}}</button>
+    </div>
+
+    <div class="search-table  flxe-width-100 mar-bot-50" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+        <table class="drop-table">
+            <thead>
+                <tr>
+                    <th [attr.role]="null">
+                        Committee Name
+                    </th>
+                    <th [attr.role]="null">
+                        Committee id
+                    </th>
+                    <th [attr.role]="null">
+                        Candidate Name
+                    </th>
+                    <th [attr.role]="null">
+                        Candidate Office
+                    </th>
+                    <th [attr.role]="null">
+                        View
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td [attr.role]="null">
+                        lorem Ippsum
+                    </td>
+                    <td [attr.role]="null">
+                        lorem Ippsum
+                    </td>
+                    <td [attr.role]="null">
+                        lorem Ippsum
+                    </td>
+                    <td [attr.role]="null">
+                        lorem Ippsum
+                        <mat-icon class="blue blue-align">
+                            chevron_right
+                        </mat-icon>
+                    </td>
+                    <td>
+                        <button title="{{static_data.transcationSearch.View}}" mat-raised-button color="primary">{{static_data.transcationSearch.View}}</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        lorem Ippsum
+                    </td>
+                    <td [attr.role]="null">
+                        lorem Ippsum
+                    </td>
+                    <td [attr.role]="null">
+                        lorem Ippsum
+                    </td>
+                    <td [attr.role]="null">
+                        lorem Ippsum
+                        <mat-icon class="blue blue-align">
+                            chevron_right
+                        </mat-icon>
+                    </td>
+                    <td>
+                        <button title="{{static_data.transcationSearch.View}}" mat-raised-button color="primary">{{static_data.transcationSearch.View}}</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        lorem Ippsum
+                    </td>
+                    <td [attr.role]="null">
+                        lorem Ippsum
+                    </td>
+                    <td [attr.role]="null">
+                        lorem Ippsum
+                    </td>
+                    <td [attr.role]="null">
+                        lorem Ippsum
+                        <mat-icon class="blue blue-align">
+                            chevron_right
+                        </mat-icon>
+                    </td>
+                    <td>
+                        <button title="{{static_data.transcationSearch.View}}" mat-raised-button color="primary">{{static_data.transcationSearch.View}}</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        lorem Ippsum
+                    </td>
+                    <td [attr.role]="null">
+                        lorem Ippsum
+                    </td>
+                    <td [attr.role]="null">
+                        lorem Ippsum
+                    </td>
+                    <td [attr.role]="null">
+                        lorem Ippsum
+                        <mat-icon class="blue blue-align">
+                            chevron_right
+                        </mat-icon>
+                    </td>
+                    <td>
+                        <button title="{{static_data.transcationSearch.View}}" mat-raised-button color="primary">{{static_data.transcationSearch.View}}</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        lorem Ippsum
+                    </td>
+                    <td [attr.role]="null">
+                        lorem Ippsum
+                    </td>
+                    <td [attr.role]="null">
+                        lorem Ippsum
+                    </td>
+                    <td [attr.role]="null">
+                        lorem Ippsum
+                        <mat-icon class="blue blue-align">
+                            chevron_right
+                        </mat-icon>
+                    </td>
+                    <td>
+                        <button title="{{static_data.transcationSearch.View}}" mat-raised-button color="primary">{{static_data.transcationSearch.View}}</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        lorem Ippsum
+                    </td>
+                    <td [attr.role]="null">
+                        lorem Ippsum
+                    </td>
+                    <td [attr.role]="null">
+                        lorem Ippsum
+                    </td>
+                    <td [attr.role]="null">
+                        lorem Ippsum
+                        <mat-icon class="blue blue-align">
+                            chevron_right
+                        </mat-icon>
+                    </td>
+                    <td [attr.role]="null">
+                        <button title="{{static_data.transcationSearch.View}}" mat-raised-button color="primary">{{static_data.transcationSearch.View}}</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+
+</div>
+<!-- !! 0880. Public - CFR - Search Penalties -->
+
+<!-- 0890. Public - CFR - Search Transactions -->
+
+<div class="mat-container" style="display: none;">
+    <h1 class="title">
+        {{static_data.transcationSearch.title}}
+    </h1>
+    <h2 class="dark-blue">
+        <b> $85,869,934,63 in </b> 3,000 Contributions
+    </h2>
+    <div class="search-table flex-spcebwn flxe-width-70 mar-bot-50" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+
+        <div class="flex-table">
+            <h3>
+                {{static_data.transcationSearch.employeeContributions}}
+            </h3>
+            <table class="bot-table">
+                <tr>
+                    <td [attr.role]="null">
+                        candidates <span class="material-icons help-icon">help</span>
+                    </td>
+                    <td [attr.role]="null">
+                        $1209765
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        candidates <span class="material-icons help-icon">help</span>
+                    </td>
+                    <td [attr.role]="null">
+                        $1209765
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        candidates <span class="material-icons help-icon">help</span>
+                    </td>
+                    <td [attr.role]="null">
+                        $1209765
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        candidates <span class="material-icons help-icon">help</span>
+                    </td>
+                    <td [attr.role]="null">
+                        $1209765
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        candidates <span class="material-icons help-icon">help</span>
+                    </td>
+                    <td [attr.role]="null">
+                        $1209765
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="flex-table">
+            <h3>
+                {{static_data.transcationSearch.organizationalContributions}}
+            </h3>
+            <table class="bot-table">
+                <tr>
+                    <td [attr.role]="null">
+                        candidates <span class="material-icons help-icon">help</span>
+                    </td>
+                    <td [attr.role]="null">
+                        $1209765
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        candidates <span class="material-icons help-icon">help</span>
+                    </td>
+                    <td [attr.role]="null">
+                        $1209765
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        candidates <span class="material-icons help-icon">help</span>
+                    </td>
+                    <td [attr.role]="null">
+                        $1209765
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        candidates <span class="material-icons help-icon">help</span>
+                    </td>
+                    <td [attr.role]="null">
+                        $1209765
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        candidates <span class="material-icons help-icon">help</span>
+                    </td>
+                    <td [attr.role]="null">
+                        $1209765
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="search-table  flxe-width-100 mar-bot-50" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+        <div class="mat-select-box">
+            <mat-label>{{static_data.transcationSearch.show}} &nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+            <mat-form-field appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+                <!-- <mat-label class="width-20" class="visuallyhidden">
+            {{ static_data.candidateDetails.reportYear }}</mat-label> -->
+                <mat-select id="report_year" [(value)]="selectedReportYear" attr.aria-label="{{static_data.transcationSearch.show}}">
+                    <mat-option *ngFor="let year of yearList" [value]="year">{{year}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="mat-select-box">
+            <mat-label>{{static_data.transcationSearch.sortBy}}&nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+            <mat-form-field appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+                <!-- <mat-label class="width-20" class="visuallyhidden">
+            {{ static_data.candidateDetails.reportYear }}</mat-label> -->
+                <mat-select id="report_year" [(value)]="selectedReportYear" attr.aria-label="{{static_data.transcationSearch.sortBy}}">
+                    <mat-option *ngFor="let year of yearList" [value]="year">{{year}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="mat-select-box">
+            <mat-label> &nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+            <mat-form-field appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+                <!-- <mat-label class="width-20" class="visuallyhidden">
+            {{ static_data.candidateDetails.reportYear }}</mat-label> -->
+                <mat-select id="report_year" [(value)]="selectedReportYear" attr.aria-label="{{static_data.candidateDetails.reportYear}}">
+                    <mat-option *ngFor="let year of yearList" [value]="year">{{year}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <button title="{{static_data.transcationSearch.UpdateBtn}}" class="btn-blue trans-btn" mat-raised-button>{{static_data.transcationSearch.UpdateBtn}}</button>
+        <button title="{{static_data.transcationSearch.ShowMoreFields}}" class="btn-showmore trans-btn" mat-raised-button>{{static_data.transcationSearch.ShowMoreFields}}</button>
+        <button title="{{static_data.transcationSearch.DownloadCSV}}" class="download trans-btn" mat-raised-button>{{static_data.transcationSearch.DownloadCSV}}</button>
+    </div>
+
+    <div class="search-table  flxe-width-100 mar-bot-50" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+        <table class="drop-table">
+            <thead>
+                <tr>
+                    <th [attr.role]="null">
+                        Recipient Name
+                    </th>
+                    <th [attr.role]="null">
+                        Recipient Committee
+                    </th>
+                    <th [attr.role]="null">
+                        Recipient Committee
+                    </th>
+                    <th [attr.role]="null">
+                        Office Sought
+                    </th>
+                    <th [attr.role]="null">
+
+                        District
+                    </th>
+                    <th [attr.role]="null">
+                        Ballot Issue
+                    </th>
+                    <th [attr.role]="null">
+                        Contributor Name
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td [attr.role]="null">
+                        <!-- <span class="material-icons-outlined">
+                            keyboard_arrow_down
+                            </span>  -->
+                        Gray Admin
+                    </td>
+                    <td [attr.role]="null">
+                        Gray for Assembly 2020
+                    </td>
+                    <td [attr.role]="null">
+                        12245
+                    </td>
+                    <td [attr.role]="null">
+                        City Council
+                    </td>
+                    <td [attr.role]="null">
+                        7
+                    </td>
+                    <td [attr.role]="null">
+                        N/A
+                    </td>
+                    <td [attr.role]="null">
+                        dminChevion Corporation
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        <!-- <span class="material-icons-outlined">
+                            keyboard_arrow_down
+                            </span>  -->
+                        Gray Admin
+                    </td>
+                    <td [attr.role]="null">
+                        Gray for Assembly 2020
+                    </td>
+                    <td [attr.role]="null">
+                        12245
+                    </td>
+                    <td [attr.role]="null">
+                        City Council
+                    </td>
+                    <td [attr.role]="null">
+                        7
+                    </td>
+                    <td [attr.role]="null">
+                        N/A
+                    </td>
+                    <td [attr.role]="null">
+                        dminChevion Corporation
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        <!-- <span class="material-icons-outlined">
+                            keyboard_arrow_down
+                            </span>  -->
+                        Gray Admin
+                    </td>
+                    <td [attr.role]="null">
+                        Gray for Assembly 2020
+                    </td>
+                    <td [attr.role]="null">
+                        12245
+                    </td>
+                    <td [attr.role]="null">
+                        City Council
+                    </td>
+                    <td [attr.role]="null">
+                        7
+                    </td>
+                    <td [attr.role]="null">
+                        N/A
+                    </td>
+                    <td [attr.role]="null">
+                        dminChevion Corporation
+                    </td>
+                </tr>
+                <tr>
+                    <td [attr.role]="null">
+                        <!-- <span class="material-icons-outlined">
+                            keyboard_arrow_down
+                            </span>  -->
+                        Gray Admin
+                    </td>
+                    <td [attr.role]="null">
+                        Gray for Assembly 2020
+                    </td>
+                    <td [attr.role]="null">
+                        12245
+                    </td>
+                    <td [attr.role]="null">
+                        City Council
+                    </td>
+                    <td [attr.role]="null">
+                        7
+                    </td>
+                    <td [attr.role]="null">
+                        N/A
+                    </td>
+                    <td [attr.role]="null">
+                        dminChevion Corporation
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+
+</div>
+<!-- 0890. Public - CFR - Search Transactions -->

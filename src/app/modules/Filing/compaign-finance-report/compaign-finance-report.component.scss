@@ -1,0 +1,69 @@
+.name {
+    font-size: 30px;
+    width: 85%;
+    top: 1%;
+    color: #0b365f;
+    font-weight: 500;
+    padding-left: 20px;
+  }
+  .tabhead {
+    font-size: 25px;
+  }
+  .title {
+    color: #0f5597;
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    padding-left: 20px;
+  }
+  .uploadclss {
+    color: #0f5597;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 2px solid rgb(15 85 151);
+    margin-bottom: 10px;
+  }
+  ::ng-deep .mat-form-field-appearance-standard .mat-form-field-flex  {
+    background-color: transparent;
+  }
+  .categories {
+    display: flex;
+    justify-content: end;
+    flex-wrap: wrap;                /* NEW */
+  }
+  .categories_item {
+    flex: 15% 0;                /* NEW */
+  }
+  .inpbtn {
+    background: rgb(15 85 151);
+    padding: 5px 15px;
+    color: #ffffff;
+    border: white;
+    opacity: 1;
+    border-radius: 2px;
+  }
+  .navigatepadding {
+    padding-left: 20px;
+  }
+  .fontcolorblck {
+    // color: #0f5597;
+    // font-size: 19px;
+    color: #135fac;
+    // font-weight: 600;
+  }
+  .value {
+    color: #a6a2a2;
+    float: right;
+    font-size: 15px;
+  }
+  .pad-30{
+    padding: 30px;
+  }
+  .padding-30{
+    padding-left: 30px;
+  }
+  .mat-icon{
+    cursor: pointer;
+    position: relative;
+    top: 5px;
+  }

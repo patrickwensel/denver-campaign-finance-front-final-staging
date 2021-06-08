@@ -1,0 +1,62 @@
+<div class="documents">
+    <div class="head">
+            <span class="title"> Angular for City Council</span> <br>
+        <span class="title">   Documents</span>
+    </div>
+    <div class="Candidate_aff">
+        <h3>Candidate Affidavit</h3>
+    </div>
+    <div class="treasurer">
+        <h3>Treasurer Documents</h3>
+
+    </div>
+    <div class="filing">
+        <h3>Filings</h3>
+
+    </div>
+    <div class="waiver">
+        <h3>Waiver Requests</h3>
+
+    </div>
+    <div class="audit">
+        <h3>Audit Reports</h3>
+
+    </div>
+    <div class="misc">
+        <h3>Miscellaneous</h3>
+    </div>
+    <div class="doc_add">
+        <h3>Add a Document</h3>
+        <div style="display: flex">
+            <div>
+                <button class="uploadclss">Upload File</button>
+            </div>
+            <div>
+                <form class="create-form" id="create-info" autocomplete="off" [formGroup]="docaddform">
+                    <div style="display: flex">
+                        <mat-label>Category</mat-label>
+
+                        <mat-form-field class="inputsearch" style="width: 100%; margin-right: 210px">
+                            <input type="text" matInput name="SearchControl" formControlName="category"
+                                id="search-popular">
+                        </mat-form-field>
+                        <mat-label>Submitted By</mat-label>
+
+                        <mat-form-field class="inputsearch" style="width: 100%;">
+                            <input type="text" matInput name="SearchControl" formControlName="submittedby"
+                                id="search-popular">
+                        </mat-form-field>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <div class="backbtn">
+            <span>
+                    <a  class="color-BrightBlue back-btn" href="javascript:void(0)"
+                            (click)="back()">Back</a>
+            </span>
+    </div>
+
+</div>

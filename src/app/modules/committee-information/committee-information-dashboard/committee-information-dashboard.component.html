@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="matform-Container">
+        <div>
+            <div>
+                <h2 class="name">{{name}}</h2>
+            </div>
+
+            <h2 class="tabhead title">{{static_data.committee_registration.committee_info?.heading}}</h2>
+
+        </div>
+        <div class="container">
+            <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="container">
+                <div fxFlex="100" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="40" fxFlex.sm="90">
+                    <app-current-committee-information [filerType]="filerType" [showHeader]="false"
+                        [committeeInformation]="committeDetail">
+                    </app-current-committee-information>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="container">
+            <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="">
+                <div fxFlex="100" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="40" fxFlex.sm="90">
+                    <app-navigatescreen [candidateLabels]="committeeInformationlabels"></app-navigatescreen>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

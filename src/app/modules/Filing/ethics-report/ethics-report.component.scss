@@ -1,0 +1,75 @@
+.head {
+  color: #0f5597;
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 30px;
+  // padding-left: 20px;
+}
+
+.head3 {
+    color: #0f5597;
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    margin-top: 4%;
+    margin-left: 15px;
+    // padding-left: 20px;
+  }
+
+.ethicsReport {
+  padding-left: 20px;
+  padding-top: 20px;
+  margin-bottom: 10%;
+  margin-right: 3%;
+}
+
+.tophead {
+    font-size: 30px;
+    width: 85%;
+    top: 1%;
+    color: #0b365f;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+::ng-deep.mat-tab-label.mat-tab-label-active:not(.mat-tab-disabled),
+::ng-deep.mat-tab-label.mat-tab-label-active.cdk-keyboard-focused:not(.mat-tab-disabled) {
+  font-weight: 700;
+  color: rgb(15 85 151);
+  opacity: 1;
+}
+
+tr.mat-row, tr.mat-footer-row {
+  height: 55px;
+}
+th {
+   width: 10%
+}
+
+.list-view-table {
+  padding-bottom: 80px;
+  th.mat-header-cell {
+    background: #f9f9f9;
+  }
+  tr.mat-header-row {
+    height: 40px;
+  }
+}
+
+.mat-elevation-z8 {
+  box-shadow: none
+}
+
+
+.inpbtn {
+  background: rgb(15 85 151);
+  padding: 5px 15px;
+  color: #ffffff;
+  border: white;
+  opacity: 1;
+  border-radius: 1px;
+  font-weight: 500;
+}
+
+
+

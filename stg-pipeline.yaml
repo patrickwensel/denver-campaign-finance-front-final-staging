@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: stg-node-app
+  name: stg-node-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stg-node-app
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: stg-node-app
+    spec:
+      containers:
+      - image: denverstgregistry.azurecr.io/repository:#{Build.BuildId}#
+        name: stg-node-app
+        imagePullPolicy: Always
+        resources: {}
+        ports:
+          - containerPort: 80
+status: {}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: stg-node-svc
+  labels: 
+    run: stg-node-svc
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+  selector:
+    app: stg-node-app

@@ -1,0 +1,30 @@
+<div class="container" style="padding: 30px;">
+    <div class="matform-Container">
+        <div>
+            <div>
+                <h2 class="name">{{name}}</h2>
+            </div>
+            <h2 class="tabhead title">{{static_data?.search_transactions?.search_trans}}</h2>
+        </div>
+    </div>
+    <div class="width-50">
+    <div>
+        <h4>{{static_data?.upload_data?.upload_max}}</h4>
+        <button class= "uploadclss" mat-raised-button >{{static_data?.upload_data?.upload_transactions}}</button>
+    </div>
+    <div>
+        <h4>{{static_data?.upload_data?.upload_res}}</h4>
+        <button class= "uploadclss" mat-raised-button >{{static_data?.upload_data?.upload_receipt}}</button>
+    </div>
+    <div>
+        <h4>{{static_data?.upload_data?.upload_temp}}</h4>
+        <button class= "uploadclss" mat-raised-button >{{static_data?.upload_data?.download_temp}}</button>
+    </div>
+    <div class="right">
+        <a class="color-BrightBlue" href="javascript:void(0)" style="margin-left: 10px;"
+        >{{static_data?.button?.cancel}}</a>
+        <button id="addInfo" style="margin-left: 12%;" type="button" mat-flat-button color="primary"
+          class="nrmlfillbtn">{{static_data?.button?.submit}}</button>
+    </div>
+</div>
+</div>

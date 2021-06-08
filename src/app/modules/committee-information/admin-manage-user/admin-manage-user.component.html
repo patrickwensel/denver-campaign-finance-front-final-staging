@@ -1,0 +1,547 @@
+<div class="manage-Committee">
+    <h2 class="header-pad-top font-400">
+        {{ static_data.manage_admin_users.manage_user }}
+    </h2>
+</div>
+
+<div class="manage-committee-class">
+    <form class="create-form" id="create-info" autocomplete="off" [formGroup]="manageCommitteeForm">
+        <div class="form-class">
+            <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="mar-tp-header">
+                <div fxFlex="38" fxFlex.sm="90" fxFlex.xs="90" style="margin-top: -8px;">
+                    <mat-label class="width-20">{{
+                        static_data.manage_admin_users.search_user
+                        }}</mat-label><br>
+                    <mat-form-field class="search-full-width" [hideRequiredMarker]="hideRequiredMarker">
+                        <mat-label>Search</mat-label>
+                        <input style="height: 10px;" attr.aria-label="{{static_data.manage_admin_users.search_user}}"
+                            type="text" aria-label="text" matInput (input)="onInputEmpty($event.target.value)"
+                            [formControl]="searchFilers" [matAutocomplete]="auto"
+                            (keyup)="getSearchFilerName($event)" />
+                        <mat-icon matPrefix>search</mat-icon>
+                        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onChangeType($event.option.value)">
+                            <mat-option *ngFor="let option of getCommitteeList" [value]="option">
+                                {{ option }}
+                            </mat-option>
+
+                        </mat-autocomplete>
+                        <button attr.aria-label="{{static_data.button.search}}" id="search" type="button"
+                            class="btn-search" (click)="searchText();" style="
+                    width: 100px;
+                    height: 49px;
+                    margin-right: -10px;
+                    border-radius: 0px;
+                    max-height: 50px;
+                  " mat-flat-button color="primary" class="nrmlfillbtn" matSuffix aria-label="Clear">
+                            {{static_data.button.search}}
+                        </button>
+                        <!-- <mat-error class="error">
+                  {{
+                    errorService.checkErrorMessage(
+                      manageCommitteeForm.get("searchFilers"),
+                      "searchFilers"
+                    )
+                  }}
+                </mat-error> -->
+                    </mat-form-field>
+                </div>
+
+                <div fxFlex="38" fxFlex.sm="90" fxFlex.xs="90">
+                    <mat-label for="filerType" class="width-20">{{
+                        static_data.manage_admin_users.filer_type
+                        }}</mat-label><br />
+                    <mat-form-field appearance="fill" appearance="fill" class="create-full-width"
+                        [hideRequiredMarker]="hideRequiredMarker">
+                        <mat-label for="filerType" class="width-20" class="visuallyhidden">{{
+                            static_data.manage_admin_users.filer_type
+                            }}</mat-label>
+                        <mat-select aria-labelledby="filerType create-info" id="filerType"
+                            attr.aria-label="{{ static_data.manage_admin_users.filer_type}}" formControlName="filerType"
+                            multiple (selectionChange)="onChangeType($event)">
+                            <mat-option #allSelected (click)="toggleAllSelectionType()" [value]="0">All Filer Types
+                            </mat-option>
+                            <mat-option *ngFor="let type of getUserType" [value]="type.lookUpTypeId"
+                                (click)="tosslePerOneType(allSelected.viewValue)">{{ type.lookUpName }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error class="error">
+                            {{
+                            errorService.checkErrorMessage(
+                            manageCommitteeForm.get("filerType"),
+                            "filerType"
+                            )
+                            }}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div fxFlex="38" fxFlex.sm="90" fxFlex.xs="90">
+                    <mat-label for="filer_status" class="width-20">{{
+                        static_data.manage_admin_users.filer_status
+                        }}</mat-label><br />
+                    <mat-form-field appearance="fill" appearance="fill" class="create-full-width"
+                        [hideRequiredMarker]="hideRequiredMarker">
+                        <mat-label for="filer_status" class="width-20" class="visuallyhidden">{{
+                            static_data.manage_admin_users.filer_status
+                            }}</mat-label>
+                        <mat-select aria-labelledby="filer_status create-info" id="filer_status"
+                            attr.aria-label="{{static_data.manage_admin_users.filer_status}}"
+                            formControlName="filerStatus" multiple (selectionChange)="onChangeType($event)">
+                            <mat-option #allSelectedStatus (click)="toggleAllSelectionStatus()" [value]="0">All Filer
+                                Status
+                            </mat-option>
+                            <mat-option *ngFor="let status of status" [value]="status.statusDesc"
+                                (click)="tosslePerOneStatus(allSelectedStatus.viewValue)">{{ status.statusDesc }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error class="error">
+                            {{
+                            errorService.checkErrorMessage(
+                            manageCommitteeForm.get("filerStatus"),
+                            "filerStatus"
+                            )
+                            }}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div (click)="moreFilters();">
+            <span class="more-filter-class">More Filters</span>
+            <a href="javascript:void()" alt="" aria-label="expand">
+                <mat-icon *ngIf="!visible" alt="">expand_more</mat-icon>
+                <mat-icon *ngIf="visible" alt="">expand_less</mat-icon>
+            </a>
+        </div>
+
+        <br><br>
+        <div *ngIf="visible">
+            <div class="form-class">
+                <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+
+                    <div fxFlex="18" fxFlex.md="50" fxFlex.sm="90" fxFlex.xs="90"
+                        class=" textalignright leftrightmargin">
+                        <mat-label class="width-10 ">{{
+                            static_data.manage_admin_users.last_active
+                            }}</mat-label>
+                    </div>
+
+                    <div fxFlex="16" fxFlex.md="50" fxFlex.sm="70" fxFlex.xs="90">
+                        <mat-form-field appearance="fill" class="datepicker">
+                            <mat-label class="width-20">{{
+                                static_data.manage_admin_users.start_date
+                                }}</mat-label>
+                            <input class="date-picker-class"
+                                attr.aria-label="{{static_data.manage_admin_users.start_date}}" matInput
+                                [matDatepicker]="picker2" formControlName="activeStartDate"
+                                (dateChange)="onChangeType($event)" />
+                            <mat-datepicker-toggle matPrefix [for]="picker2"></mat-datepicker-toggle>
+                            <mat-datepicker #picker2></mat-datepicker>
+
+                        </mat-form-field>
+                    </div>
+
+                    <div fxFlex="16" fxFlex.md="50" fxFlex.sm="70" fxFlex.xs="90" class="mat-pad-lft">
+                        <mat-form-field appearance="fill" class="datepicker">
+                            <mat-label class="width-20">{{
+                                static_data.manage_admin_users.end_date
+                                }}</mat-label>
+                            <input attr.aria-label="{{ static_data.manage_admin_users.end_date}}" matInput
+                                [matDatepicker]="picker21" formControlName="activeEndDate"
+                                (dateChange)="onChangeType($event)" />
+                            <mat-datepicker-toggle matPrefix [for]="picker21"></mat-datepicker-toggle>
+                            <mat-datepicker #picker21></mat-datepicker>
+
+                        </mat-form-field>
+                    </div>
+
+                    <!-- <div fxFlex="20" fxFlex.md="50" fxFlex.sm="90" fxFlex.xs="90" class="mat-pad-lft textalignright">
+              <mat-label for="committeeType" class="width-20 ">{{
+                static_data.manage_admin_users.committee_type
+                }}</mat-label>
+            </div>
+            <div fxFlex="24" fxFlex.sm="70" fxFlex.xs="90" class="mat-pad-lft">
+              <div class="committee-class"> -->
+                    <!-- <mat-form-field appearance="fill" appearance="fill" class="create-full-width"
+                  [hideRequiredMarker]="hideRequiredMarker">
+                  <mat-label for="committeeType" class="width-20" class="visuallyhidden">{{
+                    static_data.manage_admin_users.committee_type
+                    }}</mat-label>
+                  <mat-select aria-labelledby="commiteeType create-info" id="committeeType" 
+                    attr.aria-label="{{static_data.manage_admin_users.committee_type}}" formControlName="committeeType"
+                    multiple (selectionChange)="onChangeType($event)">
+                    <mat-option #allSelectedCType (click)="toggleAllSelectionCType()" [value]="0">All Committee Type
+                    </mat-option>
+                    <mat-option *ngFor="let type of typeCommittee" (click)="tosslePerOneCType(allSelectedCType.viewValue)"
+                      [value]="type.lookUpTypeId">
+                      {{ type.lookUpName }}</mat-option>
+                  </mat-select>
+                </mat-form-field> -->
+                    <!-- </div>
+            </div> -->
+                    <div fxFlex="18" fxFlex.md="50" fxFlex.sm="90" fxFlex.xs="90"
+                        class=" textalignright leftrightmargin">
+                        <mat-label class="width-10 ">{{
+                            static_data.manage_admin_users.created_date
+                            }}</mat-label>
+                    </div>
+
+                    <div fxFlex="16" fxFlex.md="50" fxFlex.sm="70" fxFlex.xs="90">
+                        <mat-form-field appearance="fill" class="datepicker">
+                            <mat-label class="width-20">{{
+                                static_data.manage_admin_users.start_date
+                                }}</mat-label>
+                            <input class="date-picker-class"
+                                attr.aria-label="{{static_data.manage_admin_users.start_date}}" matInput
+                                [matDatepicker]="picker" formControlName="createdStartDate"
+                                (dateChange)="onChangeType($event)" />
+                            <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+
+                        </mat-form-field>
+                    </div>
+
+                    <div fxFlex="16" fxFlex.md="50" fxFlex.sm="70" fxFlex.xs="90" class="mat-pad-lft">
+                        <mat-form-field appearance="fill" class="datepicker">
+                            <mat-label class="width-20">{{
+                                static_data.manage_admin_users.end_date
+                                }}</mat-label>
+                            <input attr.aria-label="{{ static_data.manage_admin_users.end_date}}" matInput
+                                [matDatepicker]="picker1" formControlName="createdEndDate"
+                                (dateChange)="onChangeType($event)" />
+                            <mat-datepicker-toggle matPrefix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1></mat-datepicker>
+
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-1"></div>
+                </div>
+            </div>
+
+            <!-- <div class="form-class">
+          <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+            <br><br>
+            <div fxFlex="18" fxFlex.sm="70" fxFlex.xs="90" class="mat-pad-lft textalignright leftrightmargin">
+              <mat-label for="office" class="width-20 ">{{
+                static_data.manage_admin_users.office
+                }}</mat-label>
+            </div>
+            <div fxFlex="32" fxFlex.sm="70" fxFlex.xs="90">
+              <mat-form-field appearance="fill" appearance="fill" class="create-full-width"
+                [hideRequiredMarker]="hideRequiredMarker" style="width: 100%;">
+                <mat-label for="office" class="width-20" class="visuallyhidden">{{
+                  static_data.manage_admin_users.office
+                  }}</mat-label>
+  
+                <mat-select aria-labelledby="office create-info" id="office"
+                  attr.aria-label="{{static_data.manage_admin_users.office}}" formControlName="office" multiple
+                  (selectionChange)="onChangeType($event)">
+                  <mat-option #allSelectedOffice (click)="toggleAllSelectionOffice()" [value]="0">All Office</mat-option>
+                  <mat-option *ngFor="let office of officerList" value="{{office.lookUpTypeId}}"
+                    (click)="tosslePerOneOffice(allSelectedOffice.viewValue)">{{office.lookUpName}} </mat-option>
+                </mat-select>
+  
+              </mat-form-field>
+            </div>
+  
+            <div fxFlex="20" fxFlex.sm="70" fxFlex.xs="90" class="mat-pad-lft">
+              <div id="public-classes" class="textalignright">
+                <mat-label for="public_funding_status" class="width-20">{{
+                  static_data.manage_admin_users.public_funding_status
+                  }}</mat-label>
+              </div>
+  
+            </div>
+            <div fxFlex="24" fxFlex.sm="70" fxFlex.xs="90" class="mat-pad-lft">
+              <div class="public-field-class">
+                <mat-form-field appearance="fill" appearance="fill" class="create-full-width"
+                  [hideRequiredMarker]="hideRequiredMarker">
+  
+                  <mat-label for="public_funding_status" class="width-20" class="visuallyhidden">{{
+                    static_data.manage_admin_users.public_funding_status
+                    }}</mat-label>
+                  <mat-select aria-labelledby="public_funding_status create-info" id="public_funding_status"
+                    attr.aria-label="{{static_data.manage_admin_users.public_funding_status}}"
+                    formControlName="publicFundingStatus" multiple>
+                    <mat-option value="Not Participating">Not Participating</mat-option>
+                    <mat-option value="Not Yet Qualified">Not Yet Qualified</mat-option>
+                    <mat-option value="Participating">Participating</mat-option>
+                  </mat-select>
+  
+                </mat-form-field>
+              </div>
+            </div>
+            <div></div>
+          </div>
+        </div> -->
+        </div>
+    </form>
+
+    <br /><br />
+
+    <div class="">
+        <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+            <div fxFlex="100" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="100" fxFlex.sm="90">
+                <table mat-table [dataSource]="dataSource" multiTemplateDataRows
+                    class="mat-elevation-z8  list-view-table">
+
+                    <ng-container matColumnDef="invoice_number">
+                        <th mat-header-cell *matHeaderCellDef class="heading">
+                            {{static_data?.manage_admin_users?.filter_table?.u_name}}</th>
+                        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="type">
+                        <th mat-header-cell *matHeaderCellDef class="heading">
+                            {{static_data?.manage_admin_users?.filter_table?.filer_name}}</th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="description">
+                        <th mat-header-cell *matHeaderCellDef class="heading">
+                            {{static_data?.manage_admin_users?.filter_table?.role}}</th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="date">
+                        <th mat-header-cell *matHeaderCellDef class="heading">
+                            {{static_data?.manage_admin_users?.filter_table?.created_date}} </th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+
+
+                    <ng-container matColumnDef="amount">
+                        <th mat-header-cell *matHeaderCellDef class="heading">
+                            {{static_data?.manage_admin_users?.filter_table?.last_active}}
+                        </th>
+                        <td mat-cell *matCellDef="let element"> </td>
+                    </ng-container>
+
+
+                    <ng-container matColumnDef="view_atch">
+                        <th mat-header-cell *matHeaderCellDef class="heading">
+                            {{static_data?.manage_admin_users?.filter_table?.status}}
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <mat-select aria-labelledby="filer_status create-info" id="filer_status"
+                            attr.aria-label="{{static_data.manage_admin_users.filer_status}}">
+                            <mat-option *ngFor="let status of userStatusList" [value]="status.statusCode"
+                               >{{ status.statusDesc }}
+                            </mat-option>
+                        </mat-select>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="view_invoice">
+                        <th mat-header-cell *matHeaderCellDef class="heading">
+                            <!-- {{static_data?.manage_admin_users?.filter_table?.pay_method}} -->
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <!-- <span class="material-icons">
+                                disabled_by_default
+                                </span> -->
+                        </td>
+                    </ng-container>
+
+                    <!-- Template for details row -->
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    <!-- <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="student-detail-row"
+                        [ngClass]="{'hide':!row.isExpanded}"></tr> -->
+                </table>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div>
+        <div class="head-mar-btm-2" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+            <div fxFlex="100" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="100" fxFlex.sm="90">
+                <h4 class="sub-title">{{static_data?.manage_admin_users?.send_invitation?.send_head}}</h4>
+            </div>
+
+        </div>
+        <br>
+        <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+            <div fxFlex="100" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="100" fxFlex.sm="90">
+                <p>{{static_data?.manage_admin_users?.send_invitation?.send_message}}</p>
+
+            </div>
+        </div>
+
+    </div>
+    <br>
+    <div>
+        <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+            <div fxFlex="100" fxFlex.sm="100" fxFlex.xs="100" fxFlex.gt-sm="100" fxFlex.sm="100">
+                <form class="create-form" id="create-info" autocomplete="off" [formGroup]="emailForm">
+                    <div>
+                        <mat-label style="padding: 15px;" for="email" class="width-20">
+                            {{static_data?.manage_admin_users?.send_invitation?.email}}</mat-label>
+                        <mat-form-field style="min-width: 30%;" appearance="fill" appearance="fill"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label for="email" class="width-20" class="visuallyhidden">
+                                {{static_data?.manage_admin_users?.send_invitation?.email}}</mat-label>
+                            <input attr.aria-label="{{static_data?.manage_admin_users.send_invitation.email}}" matInput
+                                type="text" autocomplete="off" autofocus form-fields
+                                placeholder="{{static_data?.manage_admin_users.send_invitation.email}}" id="email"
+                                formControlName="email" keyPrevent [AlphaSpace]="true" maxlength="80">
+                        </mat-form-field>
+                            <br class="disp">
+                        <mat-label style="padding: 15px;" for="filerName" class="width-20">
+                            {{static_data?.manage_admin_users?.send_invitation?.filer_name}}</mat-label>
+                        <mat-form-field style="min-width: 30%;" appearance="fill" appearance="fill"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label for="filerName" class="width-20" class="visuallyhidden">
+                                {{static_data?.manage_admin_users?.send_invitation?.filer_name}}</mat-label>
+                            <input attr.aria-label="{{static_data?.manage_admin_users.send_invitation.filer_name}}"
+                                matInput type="text" autocomplete="off" autofocus form-fields
+                                placeholder="{{static_data?.manage_admin_users?.send_invitation.filer_name}}"
+                                id="filerName" formControlName="filerName" keyPrevent [AlphaSpace]="true"
+                                maxlength="80">
+                            <mat-icon matPrefix>search</mat-icon>
+                        </mat-form-field>
+                        <span style="padding: 15px;">
+                            <button attr.title="{{static_data?.manage_admin_users?.send_invitation?.send_btn}}"
+                                type="button" mat-flat-button
+                                color="primary">{{static_data?.manage_admin_users?.send_invitation?.send_btn}}</button>
+                        </span>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <br /><br />
+
+    <div class="">
+        <div class="head-mar-btm-2" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+            <div fxFlex="100" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="100" fxFlex.sm="90">
+                <h4 class="sub-title">{{static_data?.manage_admin_users?.current_admin?.curr_admin}}</h4>
+            </div>
+
+        </div>
+        <br>
+        <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+            <div fxFlex="100" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="100" fxFlex.sm="90">
+                <table mat-table [dataSource]="dataSource" multiTemplateDataRows
+                    class="mat-elevation-z8  list-view-table">
+
+                    <ng-container matColumnDef="invoice_number">
+                        <th mat-header-cell *matHeaderCellDef class="heading">
+                            {{static_data?.manage_admin_users?.current_admin?.first_name}}</th>
+                        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="type">
+                        <th mat-header-cell *matHeaderCellDef class="heading">
+                            {{static_data?.manage_admin_users?.current_admin?.last_name}}</th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="description">
+                        <th mat-header-cell *matHeaderCellDef class="heading">
+                            {{static_data?.manage_admin_users?.current_admin?.user_name}}</th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="date">
+                        <th mat-header-cell *matHeaderCellDef class="heading">
+                            {{static_data?.manage_admin_users?.current_admin?.created_date}} </th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+
+
+                    <ng-container matColumnDef="amount">
+                        <th mat-header-cell *matHeaderCellDef class="heading">
+                            {{static_data?.manage_admin_users?.current_admin?.last_active}}
+                        </th>
+                        <td mat-cell *matCellDef="let element"> </td>
+                    </ng-container>
+
+
+                    <ng-container matColumnDef="view_atch">
+                        <th mat-header-cell *matHeaderCellDef class="heading">
+                            {{static_data?.manage_admin_users?.current_admin?.action}}
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <!-- <span style="color: green;cursor: pointer;" class="material-icons">
+                                done_outline
+                            </span>
+                            <span style="padding-left: 15px;color: red;cursor: pointer;" class="material-icons">
+                                disabled_by_default
+                            </span> -->
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="view_invoice">
+                        <th mat-header-cell *matHeaderCellDef class="heading">
+                            <!-- {{static_data?.manage_admin_users?.filter_table?.pay_method}} -->
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <!-- <span class="material-icons">
+                                disabled_by_default
+                                </span> -->
+                        </td>
+                    </ng-container>
+
+                    <!-- Template for details row -->
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    <!-- <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="student-detail-row"
+                        [ngClass]="{'hide':!row.isExpanded}"></tr> -->
+                </table>
+            </div>
+        </div>
+    </div>
+    <br /><br />
+    <div>
+        <div class="head-mar-btm-2" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+            <div fxFlex="100" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="100" fxFlex.sm="90">
+                <h4 class="sub-title">{{static_data?.manage_admin_users?.current_admin?.add_admin}}</h4>
+            </div>
+
+        </div>
+        <!-- <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+            <div fxFlex="100" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="100" fxFlex.sm="90">
+                <p>{{static_data?.manage_admin_users?.add_user?.message}}</p>
+
+            </div>
+        </div> -->
+
+    </div>
+    <div>
+        <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+            <div fxFlex="100" fxFlex.sm="90" fxFlex.xs="90" fxFlex.gt-sm="80" fxFlex.sm="90">
+                <form class="create-form" id="create-info" autocomplete="off" [formGroup]="adminEmailForm">
+                    <div>
+                        <mat-label style="padding: 15px;" for="email" class="width-20">
+                            {{static_data?.manage_admin_users?.current_admin?.email}}</mat-label>
+                        <mat-form-field style="min-width: 30%;" appearance="fill" appearance="fill"
+                            [hideRequiredMarker]='hideRequiredMarker'>
+                            <mat-label for="email" class="width-20" class="visuallyhidden">
+                                {{static_data?.manage_admin_users?.current_admin?.email}}</mat-label>
+                            <input attr.aria-label="{{static_data?.manage_admin_users?.current_admin?.email}}" matInput
+                                type="text" autocomplete="off" autofocus form-fields
+                                placeholder="{{static_data?.manage_admin_users?.current_admin?.email}}" id="email"
+                                formControlName="email" keyPrevent [AlphaSpace]="true" maxlength="80">
+                            <mat-error class="error">
+                          {{errorService.checkErrorMessage(emailForm.get('email'), 'email')}}
+                        </mat-error>
+
+                        </mat-form-field>
+                        <span style="padding: 15px;">
+                            <button attr.title="{{static_data?.manage_admin_users?.current_admin?.send_btn}}"
+                                type="button" mat-flat-button
+                                color="primary">{{static_data?.manage_admin_users?.current_admin?.add}}</button>
+                        </span>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div> -->

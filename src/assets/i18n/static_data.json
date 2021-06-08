@@ -1,0 +1,913 @@
+{
+    "en": {
+        "header_section": {
+            "heading": "City of Denver",
+            "btn_spanish": "Spanish",
+            "btn_help": "Help",
+
+            "filling": "Filings",
+            "Committee_information": "Committee Information",
+            "lobby_details": "Lobbyist Details",
+            "fine_and_fees": "Fine and Fees",
+            "notification": "Messages",
+            "penalites": "Penalties",
+            "calendar": "Calendar",
+            "managecomponent": "Manage Filers",
+            "committeeInfo": "Committee Information",
+            "payment": "Fines and Fees",
+            "systemManagement": "System Management",
+            "reviewFilling": "Review Filings",
+            "publicfunding": "Public Funding",
+            "revokestatus": "Revoke Status",
+            "registration": "Registration",
+            "transactions": "Transactions"
+        },
+        "staticmessages": {
+            "noAffliatedEntityMsg1": "You are not currently affiliated with a filer.",
+            "noAffliatedMsg2": "You can register a new filer or join an existing filer through the Account menu."
+        },
+        "button": {
+            "next": "Next",
+            "submit": "Submit",
+            "back": "Back",
+            "clear": "Clear",
+            "approve": "Approve",
+            "deny": "Deny",
+            "deactivate": "Deactivate",
+            "send": "Send",
+            "save": "Save",
+            "cancel": "Cancel",
+            "add": "Add",
+            "update": "Update",
+            "search": "Search"
+        },
+        "notFound": {
+            "notfound": "No Data Found"
+        },
+        "login": {
+            "title": "Welcome",
+            "sign_in": "Enter your credentials to sign in",
+            "email_placeholder": "Email",
+            "password_placeholder": "Password",
+            "forgot_password": "Forgot Password",
+            "log_in": "Log in",
+            "Create_Account": "Create Account",
+            "reset_password": "Reset your password",
+            "email_address": "Please enter your registered email ID",
+            "reset_Link": "Send password reset link",
+            "email_Required": "Please enter your registered Email ID",
+            "back_Link": "Back",
+            "submit-button": "Submit",
+            "newpassword": "New Password",
+            "confirmpassword": "Confirm Password",
+            "change_password": "Change Password",
+            "resetpassword": "Reset Password",
+            "oldpassword": "Old Password"
+        },
+        "lobbyist": {
+            "createLobbyist": {
+                "select_entity": "Select your Lobbying Entity",
+                "create_entity": "Register a new Lobbying Entity"
+            },
+            "lobby": {
+                "heading_1": "1.Lobbyist Information",
+                "heading_2": "2.Employees",
+                "heading_3": "3.SubContractor",
+                "heading_4": "4.Clients",
+                "heading_5": "5.Relationships",
+                "heading_6": "6.Signature"
+            },
+            "register": {
+                "relationships": "Relationships",
+                "Signature": "Signature",
+                "regis_Lobby": "Lobbyist Registration",
+                "emp_Lobby": "Employees",
+                "signature_lobby": "Create Signature",
+                "subContract_lobby": "Subcontractors",
+                "relationship_lobby": "Lobbyist Relationships",
+                "clients_lobby": "Clients",
+                "heading": "Lobbyist Information",
+                "add_new_relationship": "Add New Relationship",
+                "add_new_subcontractor": "Add New Subcontractor",
+                "add_new_employee": "Add New Employee",
+                "year": "Year",
+                "lobby_type": "Lobbyist Type",
+                "primary_first_name": "Primary Registering Lobbyist",
+                "first_name": "First Name",
+                "last_name": "Last Name",
+                "firm_name": "Name of Firm or Organization",
+                "bus_Address1": "Business Address 1",
+                "bus_Address2": "Business Address 2",
+                "city": "City",
+                "state": "State",
+                "zip_code": "Zip Code",
+                "phone": "Phone",
+                "email": "Email",
+                "submit": "Submit",
+                "back": "Back",
+                "next": "Next",
+                "cancel": "Cancel",
+                "save": "Save",
+                "terminate_registration": "Terminate Registration",
+                "counsil": "for City Council 2020"
+            },
+            "relationship": {
+                "lobbyist": "Lobbyist",
+                "official_name": "Official Name",
+                "official_title": "Official Title",
+                "relationship": "Relationship",
+                "entity_name": "Entity Name"
+            },
+            "subcontractors": {
+                "type": "Type",
+                "subcontractor_name": "Subcontractor Name",
+                "phone_number": "Phone Number",
+                "email": "Email",
+                "sub_contractor": "Subcontractor Name",
+                "firstName": "First Name",
+                "lastName": "Last Name",
+                "search_contractor": "Subcontractor"
+            },
+            "clients": {
+                "client": "Client",
+                "company_name": "Company Name",
+                "lobbyist": "Lobbyist",
+                "nature_of_business": "Nature of Business",
+                "legislative_matters": "Legislative Matters",
+                "address1": "Address 1",
+                "address2": "Address 2",
+                "city": "City",
+                "state": "State",
+                "zip": "Zip",
+                "action": "Action",
+                "add_new_client": "Add New Client"
+            },
+            "employees": {
+                "lobbyist": "Lobbyist",
+                "first_name": "First Name",
+                "last_name": "Last Name",
+                "phone": "Phone",
+                "email": "Email"
+            },
+            "signature": {
+                "first_name": "First Name",
+                "last_name": "Last Name",
+                "signature": "Signature",
+                "email": "Email"
+            }
+        },
+        "ethic_form": {
+            "department": "Department",
+            "title": "Title",
+            "app_authority": "Appointing Authority",
+            "prsl_email": "Personal Email",
+            "prsl_phn": "Personal Phone",
+            "comments": "Comments"
+        },
+
+        "ethic_passage": "If you would like to request secondary user access to assist another user with their filings, enter the email of that user here. They will receive a notification of your request and can approve or deny your request within 48 hours.",
+
+        "create_account": {
+            "tab_heading": {
+                "heding_1": "1.Contact Information",
+                "heding_2": "2.Set Password",
+                "heding_3": "3.Choose User Type",
+                "heding_4": "4.Additional Information"
+            },
+            "contact_info": {
+                "heading": "Information",
+                "first_name": "First Name",
+                "last_name": "Last Name",
+                "mail_addrs_1": "Mailing Address 1",
+                "mail_addrs_2": "Mailing Address 2",
+                "city": "City",
+                "state": "State",
+                "zipcode": "Zip Code",
+                "phone": "Phone"
+            },
+            "set_password": {
+                "heading": "Email and Password",
+                "password": "Password",
+                "confirm_password": "Confirm Password",
+                "email": "Email",
+                "login_Req": "Enter the email and password you will use to login to the system"
+            },
+            "user_type": {
+                "heading": "Are you logging on as a...",
+                "password": "Passwo"
+            },
+            "additional_information_IEF": {
+                "heading": "Additional Information",
+                "filling_as": "Are you filling as an...",
+                "filer_type": "Filer Type",
+                "occupation": "Occupation",
+                "employer": "Employer",
+                "organizationName": "Organization Name"
+            },
+            "select_create_commitee": {
+                "select_entity": "Select your committee(s)",
+                "create_entity": "Register a new committee",
+                "select_ie_entity": "Select your Independent Expediture(s)"
+            },
+            "search_placeholder": {
+                "committee_entity": "Search committees",
+                "lobby_entity": "Search lobbying entity",
+                "ie_entity": "Search Independent Expenditure"
+            },
+            "select_create_lobbyist": {
+                "select_entity": "Select your Lobbying entity",
+                "create_entity": "Register a new Lobbying entity"
+            },
+            "confirm_commitee_lobbyist": {
+                "committe_confrim_text": "Selected Lobbying entity",
+                "lobby_confirm_text": "Selected new committee"
+            },
+            "confirm_submit": {
+                "submit": "Confirm and Submit",
+                "select_committee": "Selected Committees",
+                "select_lobby": "Selected lobbying entities",
+                "instruction": "By clicking submit you confirm that you are a member of the above committee. The committee treasurer will be notified of your request to be added to the committee.",
+                "success": "Success! Your account has been created and your request for access has been sent to the ",
+                "directEmail": "You will be notified at"
+            }
+        },
+        "committee_registration": {
+            "tab_heading": {
+                "heding_1": "1.Committee Information",
+                "heding_2": "2.Contact Information",
+                "heding_3": "3.Add Officers",
+                "heding_4": "4.Bank Information"
+            },
+            "committee_info": {
+                "heading": "Committee Information",
+                "register": "Committee Registration",
+                "committee_name": "Committee Name",
+                "committee_type": "Committee Type",
+                "ballot_issue": "Ballot Issue",
+                "election_date": "Election Date",
+                "position": "Position",
+                "purpose": "Purpose",
+                "candidateFirstName": "Candidate First Name",
+                "candidateLastName": "Candidate Last Name",
+                "office_sought": "Office Sought",
+                "district": "District"
+            },
+            "commitee_contact": {
+                "heading": "Committee Contact Information",
+                "address_1": "Address 1",
+                "address_2": "Address 2",
+                "city": "City",
+                "state": "State",
+                "zipcode": "Zip Code",
+                "camp_phone": "Campaign Phone",
+                "camp_email": "Campaign Email",
+                "alt_phone": "Alternate Phone",
+                "alt_email": "Alternate Email",
+                "comm_website": "Committee Website"
+            },
+            "commitee_office": {
+                "list_heading": "Current Officers",
+                "add_heading": "Add New Officer",
+                "address_1": "Address 1",
+                "address_2": "Address 2",
+                "city": "City",
+                "state": "State",
+                "zipcode": "Zip Code",
+                "camp_phone": "Campaign Phone",
+                "camp_email": "Campaign Email",
+                "alt_phone": "Alternate Phone",
+                "alt_email": "Alternate Email",
+                "comm_website": "Committee WebSite",
+                "email": "Email",
+                "phone": "Phone",
+                "zip": "Zip",
+                "office_type": "Officer Type",
+                "description": "Description",
+                "first_name": "First Name",
+                "last_name": "Last Name",
+                "search": "search",
+                "edit": "Edit"
+            },
+            "bank_info": {
+                "heading": "Bank Information",
+                "bankName": "Bank Name",
+                "Address1": "Address 1",
+                "Address2": "Address 2",
+                "city": "City",
+                "state": "State",
+                "zipcode": "Zip Code"
+            },
+            "committee_registration_success": {
+                "thank_you_message": " Thank you for Submitting your committee registration!",
+                "treasurer_message": "Before your registration can be approved by staff, You must also submit a notarized treasurer document to clerk's office.Please downdload the form below and mail it in to the Clerk's office at ",
+                "candidate_message": "As a Candidate,You also need to submit a nottarized candidate affidavit confirming your intent to run for office.Please downdload the form below and mail it in to the Clerk's office at ",
+                "contact_us_message": "You can contact us with any question here.",
+                "treasurer_btn": "Treasurer Document",
+                "candidate_btn": "Candidate Affidavit",
+                "contact_us_btn": "Contact Us"
+            }
+        },
+        "manage_admin_users":{
+            "manage_user": "Manage Users",
+            "search_user":"Search Users",
+            "filer_type": "Filer Type",
+            "filer_status": "Filer Status",
+            "last_active":"Last Active",
+            "created_date":"Created Date",
+            "end_date":"End Date",
+            "start_date":"Start Date",
+            "filter_table":{
+                "u_name":"User Name",
+                "filer_name":"Filer Name",
+                "role":"Role",
+                "created_date":"Created Date",
+                "last_active":"Last Active",
+                "status":"Status"
+            },
+            "send_invitation":{
+                "send_head":"Send account invitation",
+                "send_message":"Send a new user a invitation to create an account. You can select a Filer Name to prompt the new user to join that filer.",
+                "email": "Email Address",
+                "filer_name":"Filer Name",
+                "send_btn":"Send"
+            },
+            "current_admin":{
+                "curr_admin":"Current Administator",
+                "first_name":"First Name",
+                "last_name":"Last Name",
+                "user_name":"UserName(Email)",
+                "created_date":"Created Date",
+                "last_active":"Last Active",
+                "action":"Action",
+                "add_admin":"Add Administator",
+                "email":"Email Address",
+                "add":"Add"
+            }
+
+        },
+        "manage_committee": {
+            "manage_committee": "Manage Committees",
+            "manage_filers": "Manage Filers",
+            "search_filers": "Search Filers",
+            "filer_type": "Filer Type",
+            "filer_status": "Filer Status",
+            "search_committees": "Search Committees",
+            "committee_type": "Committee Type",
+            "committee_status": "Committee Status",
+            "date": "Last Filling Date",
+            "start_date": "Start Date",
+            "end_date": "End Date",
+            "office": "Office",
+            "public_funding_status": "Public Funding Status",
+            "download_csv": "Download CSV",
+            "view": "View",
+            "committee_information": "Committee Information",
+            "committee_registration": "Committee Registration",
+            "lobbyist_registration": "Lobbyist Registration",
+            "committee_contaact": "Committee Contact Information",
+            "bank_information": "Bank Information",
+            "officer_contact_information": "Officer Contact Information"
+        },
+        "approve_deny": {
+            "add_Note": "Add Note",
+            "subject": "Subject",
+            "message": "Message"
+        },
+        "system_Management": {
+            "ballot_Issues_heading": {
+                "ballot_Issues": "Ballot Issues",
+                "issue_Number": "Issue Number",
+                "issue_id": "Issue ID",
+                "issue_Name": "Issue Name",
+                "election_cycle": "Election Cycle",
+                "description": "Description",
+                "action": "Action",
+                "committee_id": "Committee ID",
+                "committee_Name": "Committee Name",
+                "position": "Position"
+            }
+
+        },
+        "commitee_type": {
+            "commitee": "Committee Types",
+            "commitee_typ": "Committee Type",
+            "current_settings": "Current Settings",
+            "issue_commitee": "Issue Commitee",
+            "candidate_commitee": "Candidate Commitee",
+            "small_donar_commitee": "Small Donor Commitee",
+            "con_limit":"Contribution Limit",
+            "independent_exp_commitee": "Independent Expenditure Commitee",
+            "action": "Action"
+        },
+        "office": {
+            "offs": "Offices",
+            "office_Name": "Office Name",
+            "current_settings": "Current Settings",
+            "off": "Office",
+            "action": "Action"
+        },
+        "contribution": {
+            "limits": "Contribution Limits",
+            "type": "Filer Type",
+            "donor": "Donor Type",
+            "off": "Office",
+            "con_limit": "Contribution Limit",
+            "election_cycle": "Election Cycle",
+            "action": "Action"
+        },
+        "public_funding": {
+            "public_fund": "Public Funding",
+            "election_cycle": "Election Cycle",
+            "qualify_period": "Qualifying Period",
+            "qualifying_offices": "Qualifying Offices",
+            "available": "Total Available Funds",
+            "ratio": "Match Ratio",
+            "qualifying_contribution": "Qualifying Contribution Amount",
+            "number_of_req": "Number of Required Qualifying Contributions",
+            "contr_limit": "Contribution Limits for Participants",
+            "contr_amount": "Matched Contribution Amount",
+            "action": "Action",
+            "name": "name",
+            "firstName": "First Name",
+            "lastName": "Last Name"
+        },
+        "Switch_Committee": {
+            "switch_comm": "What filer are you working on?",
+            "select_comm": "Campaign Committees",
+            "select_lobb": "Registered Lobbyists",
+            "select_IE": "Registered Independent Spender",
+            "view_other": "View Other Filers",
+            "reg_or_join": "Register or Join",
+            "new_comm": "New Committee",
+            "join_comm": "Join a Committee",
+            "new_indipendent": "New Independent Spender",
+            "join_indipendent": "Join an Independent Spender",
+            "new_lobby": "New Lobbyist",
+            "join_lobby": "Join a Lobbyist",
+            "new_cover_off": "New Covered Official",
+            "current_comm": "Current Committee",
+            "current_selection": "Current Selection",
+            "Committee_name": "Committee Name",
+            "Committee_id": "Committee ID ",
+            "Committee_type": "Committee Type",
+            "Candidate_name": "Candidate Name",
+            "treasurer_name": "Treasurer Name",
+            "election_date": "Election Date",
+            "public_fund": "Public Funding Status",
+            "new_comm_head": "New Committee Affiliation",
+            "new_lobb_head": "New Lobbyist Affiliation",
+            "new_ie_head": "New Independent Expenditure Affiliation",
+            "new_comm_head_paragh": "Select an existing committee to request access from the current committee users. The Committee teasurer is responsible for reviewing  your request. You will be receive an email notification when your request is approved or denied.",
+            "new_lob_head_paragh": "Select an existing Lobbying Entity to request access from the current lobbyist users. The Primary Lobbyist is responsible for reviewing your request. You will receive an email notification when your request is approved or denied.",
+            "add_note": "Add Note",
+            "ballot_issue": "Ballot Issue",
+            "position": "Position",
+            "purpose": "Purpose",
+            "lobby_name": "Lobbyist Name",
+            "lobby_id": "Lobbyist ID",
+            "lobby_type": "Lobbyist Type",
+            "org_name": "Organization Name",
+            "prim_reg_lobby_name": "Primary Registered Name",
+            "ie_name": "IE Name",
+            "ie_id": "IE ID",
+            "ie_type": "IE Type",
+            "ie_org_name": "Organization Name",
+            "ie_employer": "Employer",
+            "ie_occupation": "Occupation",
+            "office_Sought": "Office Sought",
+            "district": "District"
+        },
+        "Committee_Information": {
+            "commitee_name": "Committee Name",
+            "commitee_id": "Committee ID",
+            "committee_type": "Committee Type",
+            "Candidate_name": "Candidate Name",
+            "tresurer_name": "Treasurer Name",
+            "election_date": "Election Date",
+            "public_funding_status": "Public Funding Status",
+            "ballot_issue": "Ballot Issue",
+            "position": "Position",
+            "purpose": "Purpose"
+        },
+        "Independent_expenditure_Details": {
+            "ie_filer_name": "IE Filer Name",
+            "ie_filerid": "IE Filer ID",
+            "ie_filer_type": "IE Filer Type",
+            "organization_name": "Organization Name",
+            "employer": "Employer",
+            "occupation": "Occupation"
+        },
+        "Lobbyist_Details": {
+            "lobbyist_filer_name": "Lobbyist Filer Name",
+            "lobbyist_filerId": "Lobbyist Filer ID",
+            "lobbyist_filer_type": "Lobbyist Filer Type",
+            "organization_name": "Organization Name",
+            "primary_reg_lobby_name": "Primary Registered Lobbyist Name"
+        },
+        "Ethics_File": {
+            "ethics_filer_name": "Ethics Filer Name",
+            "ethics_filer_id": "Ethics Filer ID"
+        },
+        "public_funds_navigate_tools": {
+            "commitee_reg": "Committee Registration",
+            "public_fund": "Public Funding",
+
+            "filing": "Filings",
+
+            "messages": "Messages",
+            "finesandfees": "Fines and Fees",
+            "documents": "Documents",
+            "lobby_reg": "Lobby Registration"
+        },
+        "lobby_existing_reports_table": {
+            "filling_period": "Filling Period",
+            "reporting_period": "Reporting Period",
+            "data_reported": "Date Submitted",
+            "ammendment": "Ammendment",
+            "view": "View"
+        },
+        "calendar": {
+            "filling_period": "Independent Expenditures Filing Period",
+            "status": "status",
+            "ie_start_date": "IE Start Date",
+            "ie_end_date": "IE End Date",
+            "election_type": "Election Type",
+            "submitted": "Date and Time Submitted",
+            "date": "Date",
+            "due_date": "Due Date",
+            "due_time": "Due Time",
+            "date_submitted": "Date Submitted",
+            "due_date_and_time": "Due Date and Time",
+            "filing_due_dates": "Bump filing due dates",
+            "itemization_Threshold": "Itemization Threshold"
+        },
+        "filer": {
+            "voterId": "Voter ID",
+            "contributorType": "Contributor Type",
+            "contributor": "Contributor",
+            "contributionType": "Contribution Type",
+            "monetaryType": "Monetary Type",
+            "dateReceived": "Date Received",
+            "refundDate": "Refund Date",
+            "refundAmount": "Refund Amount",
+            "submit_funding":"Submit for fair Elections Funding",
+            "reasonForrefund": "Reason for Refund",
+            "notes": "Notes",
+            "description": "Description",
+            "contributionAmount": "Contribution Amount",
+            "payee": "Payee",
+            "payeeType": "Payee Type",
+            "amount": "Amount",
+            "datePaid": "Date Paid",
+            "purpose": "purpose",
+            "expenditureCategory": "Expenditure Category",
+            "post_election": "Post Election Exemption",
+            "refund": "Refund",
+            "fair_election": "Fair Election Fund Expense",
+            "paid": "Paid",
+            "lender": "Lender",
+            "lenderType": "Lender Type",
+            "loanType": "Loan Type",
+            "dateLoan": "Date of Loan",
+            "endorser": "Name of Guarantor or Endorser",
+            "guaranteed": "Amount Guaranteed",
+            "termsOrRate": "Interest Terms or Rate",
+            "dueDate": "Due Date",
+            "sub_Transactions": "Sub Transactions",
+            "sub_Trans_Type": "Sub-Transaction Type",
+            "date": "Date"
+        },
+        "search_transactions": {
+            "search_trans": "Search Transactions",
+            "add_trans": "Add Transaction",
+            "trans_Type": "Transaction Type",
+            "trans_Date": "Transaction Date",
+            "trans_Amount": "Transaction Amount",
+            "filter_by": "Filter By:",
+            "name": "Name",
+            "contributionAmount": "Contribution Amount",
+            "min_Amount": "Min Amount $",
+            "max_Amount": "Max Amount $"
+        },
+        "search_contacts": {
+            "role": "Role",
+            "state": "State",
+            "city_of_denver": "City of Denver",
+            "contact_type": "Contact Type",
+            "contact_name": "Contact Name"
+        },
+        "upload_data": {
+            "upload_max": "Upload one or more transactions in an Excel or CSV file (X MB max)",
+            "upload_transactions": "Upload Transactions",
+            "upload_res": "Upload a receipt image file (X MB max)",
+            "upload_receipt": "Upload Receipts",
+            "upload_temp": "Download a template for future transaction uploads",
+            "download_temp": "Download Template"
+        },
+        "campaignFinance": {
+            "current": "Current Draft",
+            "existing": "Existing Reports",
+            "report": "Campaign Finance Report",
+            "filing_period": "Filing Period",
+            "reporting_period": "Reporting Period",
+            "amendment": "Amendment Version",
+            "submitted": "Date Submitted"
+        },
+        "giftreport": {
+            "filingperiod": "Filing Period:",
+            "areyou": "Are you",
+            "youwereelected": "You were Elected",
+            "firstname": "First Name",
+            "lastname": "Last Name",
+            "bsnadd1": "Business Address 1",
+            "bsnadd2": "Business Address 2",
+            "city": "City",
+            "state": "State",
+            "zipcode": "Zip Code",
+            "bsnphn": "Business Phone",
+            "bsnmail": "Business Email"
+        },
+        "finance": {
+            "financestmt": "Financial Disclosure Statement",
+            "contact": "Contact Information",
+            "finance_dis": "Financial Disclosure",
+            "reprtyear": "Report Year 2020",
+            "areyou": "Are you",
+            "youwerelected": "You were elected",
+            "firstname": "First Name",
+            "lastname": "Last Name",
+            "busadd1": "Business Address 1",
+            "busadd2": "Business Address 2",
+            "city": "City",
+            "state": "State",
+            "zipcode": "Zip Code",
+            "busphn": "Business Phone",
+            "busemail": "Business Email",
+            "business_interest": "Business Interest",
+            "source_of_income": "Source of Income",
+            "source1": "A CareerBuilder survey reports that typos and grammatical errors can cost you an nterview, as can not including a cover letter.",
+            "lobby_comp": "Lobbying Compensation",
+            "lobby1": "A CareerBuilder survey reports that typos and grammatical errors can cost you an nterview, as can not including a cover letter.",
+            "private_trust": "Private Trust",
+
+            "private": "I benefit from a private trust this assets valued at $5,000 or more.",
+            "property_owner": "Property Ownership",
+            "prperty_owner1": "I own the property or interest in a property in Colorado during 2320.This includes rental properties and properties co-owned with another person, and properties held through a corporation or partnership. This does not include your personal home.",
+            "prperty_owner2": "If you only own your personal home and have no other interests in real property, please select 'No' ",
+            "asset_transfer": "Asset Transfers",
+            "asset_transfer1": "I transferred assets of $5000 or more to an immediate family member in the last two years. This can include gitfs of cash, items or real property",
+            "creditors": "Creditors",
+            "creditors1": "During 2020. I owned one or more creditor(s) an amount in excess of $5000. This can include home and car loans, and credit card balances over $5000, carried from month to month.",
+            "creditors2": "If 'Yes', list name of each creditor to whom you owned an amount in excess of $5000 at any time during 2020.",
+            "employers": "Employers",
+            "employers1": "List the name of any current employer and any employer for whom the officer worked during the period from January 1 through December 31 of 2020.",
+            "contributorType": "Contributor Type",
+            "contributor": "Contributor",
+            "contributionType": "Contribution Type",
+            "monetaryType": "Monetary Type",
+            "dateReceived": "Date Received",
+            "refundDate": "Refund Date",
+            "refundAmount": "Refund Amount",
+            "notes": "Notes",
+            "contributionAmount": "Contribution Amount"
+        },
+        "public": {
+            "title": "Denver Political Money Tracker",
+            "searchPlaceholder": "Search Candidates and Committees",
+            "searchLobbyingClients": "Search Lobbying Clients",
+            "Candidates": "Candidates",
+            "NofilingcurrencyavailableThefirstreportsinthissystemareexceptedon10/1/21": " No filing currency available. The first reports in this system are excepted on 10/1/21",
+            "additionaltextaboutlobbyingclientshere": "Additional text about lobbying clients here",
+            "year": "Year",
+            "acmeLobbyingClient": "Acme Lobbying Client",
+            "reportYear": "Report Year",
+            "registeredLobbyists": "Registered Lobbyists",
+            "lobbyingExpenses": "Lobbying Expenses",
+            "fillingPeriod": "Filling Period",
+            "clients": "Clients",
+            "lobbyistEmployees": "Lobbyist Employees",
+            "jonRiosforCityCouncil": "Jon Rios for City Council",
+            "lobbyingBiMonthlyReport": "Lobbying Bi-Monthly Report"
+
+        },
+        "publicLayoutButton": {
+            "seeAllCandidates": "See All Candidates",
+            "searchContributors": "Search Contributors",
+            "searchBallotIssues": "Search Ballot Issues",
+            "searchTransaction": "Search Transaction",
+            "Lobbying": "Lobbying",
+            "ethicsReports": "Ethics Reports",
+            "fillingCalendar": "Filling Calendar",
+            "allLobbyingClients": "All Lobbying Clients",
+            "archivedLobbyingData": "Archived Lobbying Data",
+            "campaignFinance": "Campaign Finance",
+            "ethicsReport": "Ethics Report",
+            "view": "View"
+        },
+        "chartText": {
+            "BallotIssues": "Ballot Issues",
+            "electionCycle": "Election cycle",
+            "office": "Office",
+            "fairElectionsParticipatingCandidates": "Fair Elections Participating Candidates",
+            "contributionsByLocations": "Contributions by Locations",
+            "fairElectionsDistributions": " Fair Elections Distributions",
+            "additionalDetailsAboutPieChart": "Additional details about pie chart",
+            "issue1": "Issue 1",
+            "issue2": "Issue 2",
+            "issue3": "Issue 3",
+            "support": "Support",
+            "oppose": "Oppose"
+
+
+        },
+        "help": {
+            "formLables": {
+                "full_name": "Full Name",
+                "email_address": "Email Address",
+                "committee_name": "Committee Name",
+                "issue_category": "Issue Category",
+                "subject": "Subject",
+                "message": "Message"
+            },
+            "header_title": {
+                "faq": "FAQs",
+                "law_rule": "Laws and Rules",
+                "user_manual": "User Manual",
+                "contact_us": "Contact Us",
+                "need_help": "Need some help?"
+            }
+        },
+        "fine_fees": {
+            "heading": {
+                "fine_fee": "Fine and Fees",
+                "outstanding_fee": "Outstanding Fees",
+                "payment_history": "Payment History"
+            },
+            "table_th": {
+                "invoice_num": "Invoice Number",
+                "type": "Type",
+                "desc": "Description",
+                "status": "Status",
+                "amount": "Amount",
+                "rem_balance": "Remaining Balance",
+                "view_invoice": "View Invoice"
+            },
+            "table_th_pay": {
+                "invoice_num": "Invoice #",
+                "type": "Type",
+                "desc": "Description",
+                "date": "Date",
+                "amount": "Amount",
+                "user": "User",
+                "pay_method": "Payment Method"
+            },
+            "pay_btn_info": {
+                "btn_pay": "More information about how to pay fees and what information needs to be reported in the payment system goes here.",
+                "btn_contact": "Instruction on how to request a reduction or waiver go here. Email staff for more information.",
+                "btn_pay_label": "Pay Fees",
+                "btn_contact_label": "Contact Us"
+            }
+        },
+        "manage_users": {
+            "heading": {
+                "manage_usr": "Manage Users",
+                "current_user": "Current Users",
+                "affiliation_request": "Affiliation Requests",
+                "affiliation_message": "These users have requested to access to this committee. Approved by clicking the check mark, Making that user an Officer the committee. Deny the request by clicking the 'x'",
+                "rejected_request": "Rejected Requests",
+                "rejected_message": "These users have been rejected form accessing this committee.",
+                "make_treasurer": "Make Teasurer"
+            },
+            "table_th": {
+                "role": "Roll",
+                "f_name": "First Name",
+                "l_name": "Last Name",
+                "username": "Username(Email)",
+                "permission": "Permissions",
+                "action": "Action"
+            },
+            "table_th_affiliation": {
+                "f_name": "First Name",
+                "l_name": "Last Name",
+                "username": "Username(Email)",
+                "request_note": "Request Note",
+                "action": "Action"
+            },
+            "add_user": {
+                "message": "Send a committee user request access to join this committee.",
+                "head": "Add User",
+                "label": "Email Address",
+                "send_btn": "Send"
+            },
+            "popup_msg": {
+                "p_1": "Are you sure you want to make {{data.name}} Treasure of this committee?",
+                "p_2": "Clicking 'Yes' will send {{data.name}} a notification to confirm this change. If confirmed within 48 hours, Your account will be changed to an officer account, and you will no longer be able to access this page or change your account back to Treasure",
+                "p_3": "Are you sure you want to proceed?"
+            }
+		},
+        "summary": {
+			"balance": "Opening Balance",
+			"monetary": "Total Monetary Contributions:",
+			"fef": "Total FEF Qualifying Contributions:",
+			"inKind": "Total In-Kind Contributions:",
+			"refund":"Total Refunds",
+			"expenditure": "Total Expenditures:",
+			"fair":"Total Fair Elections Funding:",
+			"loans":"Total New Loans",
+			"outstanding": "Total Outstanding Balance",
+			"close": "Closing Balance",
+            "qualifying":"Qualifying Contributions:",
+			"approve":"Approved Qualifying Contributions",
+			"amount": "Total Amount Matched",
+			"report": "New Qualifying Contribution on this Report",
+            "dateTotal":"Cycle to Date Total",
+            "contributorName": "Contributor Name",
+            "filerId":"Filer ID",
+            "ytd":"YTD Total",
+            "public":"Public Funding",
+            "publicStatus":"Public Funding Status",
+            "receipt":"View Receipt",
+            "number_of_qual": "Number of Qualifying Contributions",
+            "address":"Address",
+            "lenderName":"Lender Name",
+            "endorser": "Guarantor or Endorser",
+            "guaranteed":"Amount Guaranteed",
+            "interest":"Interest Terms"
+        },
+        "fineandfees": {
+            "paymentandwaivers": "Payments and Waivers",
+            "dwnldhead": "Download Daily Fines Report",
+            "Current_Fine_Balance":"Current Fine Balance",
+            "Fines_Collected_to_Date": "Fines Collected to Date",
+            "Total_Amount_Waived": "Total Amount Waived",
+            "Outstanding_Fees": "Outstanding Fees",
+            "Total_Amount_Reduced": "Total Amount Reduced",
+            "invoice_num": "Invoice Number",
+            "type": "Type",
+            "description": "Description",
+            "view_invoice": "View Invoice",
+            "remaining_bal": "Remaining Balance",
+            "status": "Status",
+            "view_attachment": "View Attachment",
+            "dwnld_csv": "Download CSV",
+            "date": "Date",
+            "amount": "Amount",
+            "filername": "Filer Name",
+            "user": "User",
+            "payment_method": "Payment Method"
+        },
+        "candidateDetails": {
+            "denverPoliticalMoneyTrackerTitle": "Denver Political Money Tracker",
+            "electionCycle": "Election Cycle",
+            "overview": "Overview",
+            "financialOverview": "Financial Overview",
+            "searchTransactions": "Search Transactions",
+            "support": "Support",
+            "topContributors": "Top Contributors",
+            "opposition": "Opposition",
+            "expenditures": "Expenditures",
+            "totalExpenditures": "Total Expenditures",
+            "topExpenditures": "Top Expenditures",
+            "fillings": "Fillings",
+            "campaignFillings": "Campaign Fillings",
+            "reportYear": "Report Year",
+            "otherReports": "Other Reports",
+            "penalties": "Penalties",
+            "complaints": "Complaints",
+            "audit": "Audit"
+        },
+
+        "transcationSearch": {
+            "title": "Advanced Search",
+            "employeeContributions": "Employee Contributions",
+            "organizationalContributions": "Organizational Contributions",
+            "show": "Show",
+            "sortBy": "Sort By",
+            "UpdateBtn": "Update",
+            "ShowMoreFields": "Show More Fields",
+            "DownloadCSV": "Download CSV",
+            "ViewBtn": "View",
+            "dwnldhead": "Download Daily Fines Report",
+            "Current_Fine_Balance":"Current Fine Balance",
+            "Fines_Collected_to_Date": "Fines Collected to Date",
+            "Total_Amount_Waived": "Total Amount Waived",
+            "Outstanding_Fees": "Outstanding Fees",
+            "Total_Amount_Reduced": "Total Amount Reduced",
+            "invoice_num": "Invoice Number",
+            "type": "Type",
+            "description": "Description",
+            "view_invoice": "View Invoice",
+            "remaining_bal": "Remaining Balance",
+            "status": "Status",
+            "view_attachment": "View Attachment",
+            "dwnld_csv": "Download CSV",
+            "date": "Date",
+            "amount": "Amount",
+            "filername": "Filer Type"
+
+
+        }
+
+    }
+
+}

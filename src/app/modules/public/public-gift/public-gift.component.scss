@@ -1,0 +1,73 @@
+.head {
+  color: #0f5597;
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 30px;
+  // padding-left: 20px;
+}
+
+.giftreport {
+  padding-left: 20px;
+  padding-top: 20px;
+  margin-bottom: 10%;
+  margin-right: 3%
+}
+.out-class {
+  font-size: 20px;
+  color: #063461;
+  font-weight: 400;
+  line-height: 1.6;
+}
+.giftreport {
+  padding-left: 20px;
+  padding-top: 20px;
+  margin-bottom: 10%;
+  margin-right: 3%
+}
+
+.navigatepadding {
+  // padding-left: 20px;
+  width: 50%;
+  margin-top: 10px;
+}
+.fontcolorblck {
+  // color: #0f5597;
+  // font-size: 19px;
+  color: #074784;
+  font-weight: 500;
+  font-size: 16px;
+}
+.value {
+  // color: #0f5597;
+  float: right;
+  font-size: 19px;
+}
+
+
+  // overwrite the checkbox background
+  ::ng-deep .mat-checkbox-checked .mat-checkbox-background,
+  .mat-checkbox-indeterminate .mat-checkbox-background {
+  background-color: #005691 !important;
+  }
+
+  // overwrite the ripple overlay on hover and click
+  ::ng-deep .mat-checkbox:not(.mat-checkbox-disabled) .mat-checkbox-ripple .mat-ripple-element {
+  background-color: #005691 !important;
+  }
+
+  .check{
+    padding-top: 30px;
+  }
+.statement{
+  padding-left: 23px;
+}
+.declare_statement{
+  padding-left: 5px;
+}
+.create-form{
+  padding-left: 23px;
+
+}
+.create-full-width{
+  width: 35%;
+}

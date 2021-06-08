@@ -1,0 +1,278 @@
+<div class="regisLobby">
+    <h2 class="header-pad-top font-400">
+        {{ static_data.lobbyist.register.heading }}
+    </h2>
+</div>
+
+<br />
+<form class="create-form" id="create-info" autocomplete="off" [formGroup]="LobbyRegisterForm">
+    <div class="form-class">
+        <div class="row">
+            <div class="col-sm-3">
+                <mat-label for="year">{{ static_data.lobbyist.register.year }}</mat-label>
+            </div>
+            <div class="col-sm-9">
+                <mat-form-field class="create-full-width" [hideRequiredMarker]="hideRequiredMarker">
+                    <mat-label class="visuallyhidden">{{ static_data.lobbyist.register.year }}</mat-label>
+                    <!-- <input attr.aria-label="{{static_data.lobbyist.register.year}}" matInput type="text" autocomplete="off" autofocus form-fields id="year" formControlName="year" maxlength="4" minlength="4" min="1000"/> -->
+                    <input attr.aria-label="{{static_data.lobbyist.register.year}}" matInput type="text" autocomplete="off"   form-fields id="year" formControlName="year" maxlength="4" minlength="4" min="1000" attr.max="{{curYear}}"/>
+
+                    <mat-error class="error">
+                        {{ errorService.checkErrorMessage( LobbyRegisterForm.get("year"), "year" ) }}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+  <div class="form-class">
+    <div class="row">
+      <div class="col-sm-3">
+        <mat-label for="lobbyType">{{ static_data.lobbyist.register.lobby_type }}</mat-label>
+      </div>
+      <div class="col-sm-9">
+        <mat-form-field
+          class="create-full-width"
+          [hideRequiredMarker]="hideRequiredMarker"
+        >
+        <mat-label class="visuallyhidden">{{ static_data.lobbyist.register.lobby_type }}</mat-label>
+          <mat-select attr.aria-label="{{static_data.lobbyist.register.lobby_type}}" id="lobbyType" formControlName="lobbyType" #lobby (change)="valueChange(lobby.value)">
+           <mat-option *ngFor="let lobby of LobbyType" [value]="lobby.lookUpTypeId"> {{lobby.lookUpDesc}}</mat-option>
+          </mat-select>
+          <mat-error class="error">
+            {{
+              errorService.checkErrorMessage(
+                LobbyRegisterForm.get("lobbyType"),
+                "lobbyType"
+              )
+            }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+  <div class="form-class">
+    <div class="row"  *ngIf="(LobbyRegisterForm.value.lobbyType) == 'LOB-O'">
+      <div class="col-sm-3">
+        <mat-label for="firmName">{{ static_data.lobbyist.register.firm_name }}</mat-label>
+      </div>
+      <div class="col-sm-9">
+        <mat-form-field
+          class="create-full-width"
+          [hideRequiredMarker]="hideRequiredMarker"
+        >
+        <mat-label class="visuallyhidden">{{ static_data.lobbyist.register.firm_name }}</mat-label>
+          <input attr.aria-label="{{static_data.lobbyist.register.firm_name}}"
+            matInput
+            type="text"
+            autocomplete="off"
+
+            form-fields
+            id="firmName"
+            formControlName="firmName"
+            [attr.required]="(LobbyRegisterForm.value.lobbyType) == 'LOB-O'" 
+          />
+          <mat-error class="error">
+            {{
+              errorService.checkErrorMessage(
+                LobbyRegisterForm.get("firmName"),
+                "firmName"
+              )
+            }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-class">
+        <div class="row">
+            <div class="col-sm-3">
+                <mat-label for="firstName">{{ static_data.lobbyist.register.primary_first_name }}
+                </mat-label><br />
+                <mat-label for="firstName">{{ static_data.lobbyist.register.first_name }}</mat-label>
+            </div>
+            <div class="col-sm-9">
+                <mat-form-field class="create-full-width" [hideRequiredMarker]="hideRequiredMarker">
+                    <mat-label class="visuallyhidden">{{ static_data.lobbyist.register.first_name }}</mat-label>
+                    <input attr.aria-label="{{static_data.lobbyist.register.first_name}}" matInput type="text" autocomplete="off"   form-fields id="firstName" formControlName="firstName" keyPrevent [AlphaSpace]="true" />
+
+                    <mat-error class="error">
+                        {{ errorService.checkErrorMessage( LobbyRegisterForm.get("firstName"), "firstName" ) }}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-class">
+        <div class="row">
+            <div class="col-sm-3">
+                <mat-label for="lastName">{{ static_data.lobbyist.register.last_name }}</mat-label>
+            </div>
+            <div class="col-sm-9">
+                <mat-form-field class="create-full-width" [hideRequiredMarker]="hideRequiredMarker">
+                    <mat-label class="visuallyhidden">{{ static_data.lobbyist.register.last_name }}</mat-label>
+                    <input attr.aria-label="{{static_data.lobbyist.register.last_name}}" matInput type="text" autocomplete="off"   form-fields id="lastName" formControlName="lastName" keyPrevent [AlphaSpace]="true" />
+                    <mat-error class="error">
+                        {{ errorService.checkErrorMessage( LobbyRegisterForm.get("lastName"), "lastName" ) }}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="form-class">
+        <div class="row">
+            <div class="col-sm-3">
+                <mat-label for="address1">{{ static_data.lobbyist.register.bus_Address1 }}</mat-label>
+            </div>
+            <div class="col-sm-9">
+                <mat-form-field class="create-full-width" [hideRequiredMarker]="hideRequiredMarker">
+                    <mat-label class="visuallyhidden">{{ static_data.lobbyist.register.bus_Address1 }}</mat-label>
+
+                    <input attr.aria-label="{{static_data.lobbyist.register.bus_Address1}}" matInput type="text" autocomplete="off"   form-fields id="address1" formControlName="address1" keyPrevent [mailAddress]="true" required />
+                    <mat-error class="error">
+                        {{ errorService.checkErrorMessage( LobbyRegisterForm.get("address1"), "address1" ) }}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-class">
+        <div class="row">
+            <div class="col-sm-3">
+                <mat-label for="address2">{{ static_data.lobbyist.register.bus_Address2 }}</mat-label>
+            </div>
+            <div class="col-sm-9">
+                <mat-form-field class="create-full-width" [hideRequiredMarker]="hideRequiredMarker">
+                    <mat-label class="visuallyhidden">{{ static_data.lobbyist.register.bus_Address2 }}</mat-label>
+
+                    <input attr.aria-label="{{static_data.lobbyist.register.bus_Address2}}" matInput type="text" autocomplete="off"   form-fields id="address2" formControlName="address2" keyPrevent [mailAddress]="true" />
+                    <mat-error class="error">
+                        {{ errorService.checkErrorMessage( LobbyRegisterForm.get("address2"), "address2" ) }}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-class">
+        <div class="row">
+            <div class="col-sm-3">
+                <mat-label for="City">{{ static_data.lobbyist.register.city }}</mat-label>
+            </div>
+            <div class="col-sm-9">
+                <mat-form-field class="create-full-width" [hideRequiredMarker]="hideRequiredMarker">
+                    <mat-label class="visuallyhidden">{{ static_data.lobbyist.register.city }}</mat-label>
+
+                    <input attr.aria-label="{{static_data.lobbyist.register.city}}" matInput type="text" autocomplete="off"   form-fields id="City" formControlName="city" keyPrevent [AlphaSpace]="true" />
+                    <mat-error class="error">
+                        {{ errorService.checkErrorMessage( LobbyRegisterForm.get("city"), "city" ) }}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-class">
+        <div class="row">
+            <div class="col-sm-3">
+                <mat-label for="state">{{ static_data.lobbyist.register.state }}</mat-label>
+            </div>
+            <div class="col-sm-9">
+                <mat-form-field class="create-full-width" [hideRequiredMarker]="hideRequiredMarker">
+                    <mat-label class="visuallyhidden">{{ static_data.lobbyist.register.state }}</mat-label>
+
+                    <mat-select id="state" attr.aria-label="{{static_data.lobbyist.register.state}}" formControlName="state">
+                        <mat-option *ngFor="let state of stateList" value="{{ state.stateCode }}">{{ state.stateDesc }}</mat-option>
+                    </mat-select>
+                    <mat-error class="error">
+                        {{ errorService.checkErrorMessage( LobbyRegisterForm.get("state"), "state" ) }}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-class">
+        <div class="row">
+            <div class="col-sm-3">
+                <mat-label for="Zipcode">{{ static_data.lobbyist.register.zip_code }}</mat-label>
+            </div>
+            <div class="col-sm-9">
+                <mat-form-field class="create-full-width" [hideRequiredMarker]="hideRequiredMarker">
+                    <mat-label class="visuallyhidden">{{ static_data.lobbyist.register.zip_code }}</mat-label>
+
+                    <input attr.aria-label="{{static_data.lobbyist.register.zip_code}}" matInput type="text" autocomplete="off"   form-fields id="Zipcode" formControlName="zipcode" required  minlength="5" maxlength="9" keyPrevent [Alphanumeric]="true" />
+                    <mat-error class="error">
+                        {{ errorService.checkErrorMessage( LobbyRegisterForm.get("zipcode"), "zipcode" ) }}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-class">
+        <div class="row">
+            <div class="col-sm-3">
+                <mat-label for="phone">{{ static_data.lobbyist.register.phone }}</mat-label>
+            </div>
+            <div class="col-sm-9">
+                <mat-form-field class="create-full-width" [hideRequiredMarker]="hideRequiredMarker">
+                    <mat-label class="visuallyhidden"> {{ static_data.lobbyist.register.phone }}</mat-label>
+
+                    <input attr.aria-label="{{static_data.lobbyist.register.phone}}" matInput type="text" autocomplete="off"   form-fields id="phone" formControlName="phone" required keyPrevent (keypress)="numericOnly($event)" maxlength="10" minlength="10" />
+                    <mat-error class="error">
+                        {{ errorService.checkErrorMessage( LobbyRegisterForm.get("phone"), "phone" ) }}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-class">
+        <div class="row">
+            <div class="col-sm-3">
+                <mat-label for="email">{{ static_data.lobbyist.register.email }}</mat-label>
+            </div>
+            <div class="col-sm-9">
+                <mat-form-field class="create-full-width" [hideRequiredMarker]="hideRequiredMarker">
+                    <mat-label class="visuallyhidden">{{ static_data.lobbyist.register.email }}</mat-label>
+
+                    <input attr.aria-label="{{static_data.lobbyist.register.email}}" matInput type="text" autocomplete="off"   form-fields id="email" formControlName="email" required />
+                    <mat-error class="error">
+                        {{ errorService.checkErrorMessage( LobbyRegisterForm.get("email"), "email" ) }}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</form>
+
+<div class="btmdiv">
+    <!-- <span class="btn-mar-back">
+    <button mat-flat-button color="warn" (click)="navigate()">
+      {{ static_data.lobbyist.register.terminate_registration }}
+    </button>
+  </span> -->
+  <span class="btn-mar-back">
+    <a href="javascript:void(0)" (click)="goBack()"> Back </a>
+  </span>
+    <span class="btn-mar-align">
+    <button
+      id="addInfo"
+      type="button"
+      mat-flat-button
+      color="primary"
+      class="nrmlfillbtn"
+      (click)="ValidateLobbyistRegister()"
+    >
+      {{ static_data.lobbyist.register.next }}
+    </button>
+  </span>
+</div>

@@ -1,0 +1,297 @@
+<table mat-table [dataSource]="dataOfficerList" multiTemplateDataRows>
+
+    <ng-container matColumnDef="toggle">
+        <th mat-header-cell *matHeaderCellDef> <span class="visuallyhidden">toggle</span></th>
+        <td mat-cell *matCellDef="let element">
+            <a href="javascript:void()" (click)="element.isExpanded = !element.isExpanded">
+                <mat-icon *ngIf="element.isExpanded">expand_less</mat-icon>
+                <mat-icon *ngIf="!element.isExpanded">expand_more</mat-icon>
+            </a>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef> {{static_data.committee_registration.commitee_office.first_name}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef>{{static_data.committee_registration.commitee_office.last_name}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastName }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="officerType">
+        <th mat-header-cell *matHeaderCellDef> {{static_data.committee_registration.commitee_office.office_type}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.officerType?element.officerType:element.roleName}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> {{static_data.committee_registration.commitee_office.description}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef> {{static_data.committee_registration.commitee_office.edit}} </th>
+        <td mat-cell *matCellDef="let element" class="click-hand">
+            <span class="material-icons" (click)="editOfficerForm(element)">mode_edit_outline</span>&nbsp;&nbsp;
+            <span class="material-icons" *ngIf="!(element.roleName == 'Candidate' || element.roleName == 'Treasurer')" (click)="openConfirmationModal(element.contactID)">delete_forever</span>
+        </td>
+
+    </ng-container>
+
+
+    <!-- Template for details row -->
+    <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let element" [attr.colspan]="displayedStudentsColumnsList.length">
+
+            <div *ngIf="element.isExpanded" class="row student-element-detail" [@detailExpand]="element.isExpanded ? 'expanded' : 'collapsed'">
+                <div class="container">
+                    <div class="categories">
+                        <div class="categories_item">
+                            <div><label class="toggle-font-weght">{{static_data.committee_registration.commitee_office.address_1}}</label>
+                            </div><br>
+                            <div class="mar-height ">{{element.address1}}</div>
+
+                        </div>
+                        <div class="categories_item">
+                            <div><label class="toggle-font-weght">{{static_data.committee_registration.commitee_office.address_2}}</label>
+                            </div><br>
+                            <div class="mar-height ">{{element.address2}}</div>
+
+                        </div>
+                        <div class="categories_item">
+                            <div><label class="toggle-font-weght">{{static_data.committee_registration.commitee_office.city}}</label>
+                            </div><br>
+                            <div class="mar-height ">{{element.city}}</div>
+
+                        </div>
+                        <div class="categories_item">
+                            <div><label class="toggle-font-weght">{{static_data.committee_registration.commitee_office.state}}</label>
+                            </div><br>
+                            <div class="mar-height ">{{element.state}}</div>
+
+                        </div>
+                        <div class="categories_item">
+                            <div><label class="toggle-font-weght">{{static_data.committee_registration.commitee_office.zip}}</label>
+                            </div><br>
+                            <div class="mar-height ">{{element.zipcode?element.zipcode:(element.zip || '')}}</div>
+
+                        </div>
+                        <div class="categories_item">
+                            <div><label class="toggle-font-weght">{{static_data.committee_registration.commitee_office.email}}</label>
+                            </div><br>
+                            <div class="mar-height ">{{element.email}}</div>
+
+                        </div>
+                        <div class="categories_item">
+                            <div><label class="toggle-font-weght">{{static_data.committee_registration.commitee_office.phone}}</label>
+                            </div><br>
+                            <div class="mar-height ">{{element.phone}}</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedStudentsColumnsList;sticky: true"></tr>
+    <tr mat-row *matRowDef="let element; columns: displayedStudentsColumnsList;" class="student-element-row" [class.student-expanded-row]="element.isExpanded"></tr>
+
+    <!-- Extra row to show detail content column -->
+    <!-- <div *ngIf="isTableExpanded"> -->
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="student-detail-row" [ngClass]="{'hide':!row.isExpanded}"></tr>
+    <!-- </div> -->
+</table>
+
+<div class="regisLobby">
+    <h2 class="color-BrightBlue header-pad-top">
+        {{static_data.committee_registration.commitee_office.add_heading}}
+    </h2>
+</div>
+<br>
+<div class="tab-width">
+    <form class="create-form" id="create-info" autocomplete="off" [formGroup]="addCommitteeOfficerForm">
+
+        <div class="flex">
+            <mat-label for="officerSearch" class="width-20"></mat-label>
+            <mat-form-field class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label for="officerSearch" class="width-20" class="visuallyhidden">Officer Search</mat-label>
+                <input attr.aria-label="Officer Search" type="text" id="officerSearch" aria-label="text" matInput (keyup)="getOfficerListAPI($event)" [formControl]="SearchControl" [matAutocomplete]="auto">
+                <mat-icon matPrefix>search</mat-icon>
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of officeSearchList" (click)="selectedItem(option)">
+                        {{option.firstName}} {{option.lastName}}
+                    </mat-option>
+                    <mat-option *ngIf="!officeSearchList.length">
+                        No Data Found
+                    </mat-option>
+                </mat-autocomplete>
+                <button type="button" class="btn-search" style="width: 100px;height: 50px;margin-right: -10px;border-radius: 0px;" mat-flat-button color="primary" class="nrmlfillbtn" matSuffix aria-label="Clear">
+                    Search
+                </button>
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-label for="firstName" class="width-20">{{static_data.committee_registration.commitee_office.first_name}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label for="firstName" class="width-20" class="visuallyhidden">{{static_data.committee_registration.commitee_office.first_name}}</mat-label>
+                <input attr.aria-label="{{static_data.committee_registration.commitee_office.first_name}}" matInput type="text" autocomplete="off" autofocus form-fields id="firstName" formControlName="firstName" required>
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(addCommitteeOfficerForm.get('firstName'), 'firstName')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="flex">
+            <mat-label for="lastName" class="width-20">{{static_data.committee_registration.commitee_office.last_name}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label for="lastName" class="width-20" class="visuallyhidden">{{static_data.committee_registration.commitee_office.last_name}}</mat-label>
+                <input attr.aria-label="{{static_data.committee_registration.commitee_office.last_name}}" matInput type="text" autocomplete="off" autofocus form-fields id="lastName" formControlName="lastName" required>
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(addCommitteeOfficerForm.get('lastName'), 'lastName')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="flex">
+            <mat-label for="officerType" class="width-20">{{static_data.committee_registration.commitee_office.office_type}}</mat-label>
+
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label for="officerType" class="width-20" class="visuallyhidden">{{static_data.committee_registration.commitee_office.office_type}}</mat-label>
+                <mat-select [disabled]='officeTypeDisabled' id="officerType" attr.aria-label="{{static_data.committee_registration.commitee_office.office_type}}" formControlName="officerType" required>
+                    <mat-option *ngFor="let office of officerList" value="{{office.lookUpTypeId}}">{{office.lookUpName}}</mat-option>
+                    <!-- <mat-option value="option2">Option 2 </mat-option>
+                    <mat-option value="option3">Option 3</mat-option> -->
+                </mat-select>
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(addCommitteeOfficerForm.get('officerType'), 'officerType')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="flex">
+            <mat-label for="description" class="width-20">{{static_data.committee_registration.commitee_office.description}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label for="description" class="width-20" class="visuallyhidden">{{static_data.committee_registration.commitee_office.description}}</mat-label>
+                <input attr.aria-label="{{static_data.committee_registration.commitee_office.description}}" matInput type="text" autocomplete="off" autofocus form-fields id="description" formControlName="description" maxlength="200">
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(addCommitteeOfficerForm.get('description'), 'description')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="flex">
+            <mat-label for="address1" class="width-20">{{static_data.committee_registration.commitee_office.address_1}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label for="address1" class="width-20" class="visuallyhidden">{{static_data.committee_registration.commitee_office.address_1}}</mat-label>
+                <input attr.aria-label="{{static_data.committee_registration.commitee_office.address_1}}" matInput type="text" autocomplete="off" autofocus form-fields id="address1" formControlName="address1" maxlength="150" required>
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(addCommitteeOfficerForm.get('address1'), 'address1')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="flex">
+            <mat-label for="address2" class="width-20">{{static_data.committee_registration.commitee_office.address_2}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label for="address2" class="width-20" class="visuallyhidden">{{static_data.committee_registration.commitee_office.address_2}}</mat-label>
+                <input attr.aria-label="{{static_data.committee_registration.commitee_office.address_2}}" matInput type="text" autocomplete="off" autofocus form-fields id="address2" formControlName="address2" maxlength="150">
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(addCommitteeOfficerForm.get('address2'), 'address2')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="flex">
+            <mat-label for="city" class="width-20">{{static_data.committee_registration.commitee_office.city}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label for="city" class="width-20" class="visuallyhidden">{{static_data.committee_registration.commitee_office.city}}</mat-label>
+                <input attr.aria-label="{{static_data.committee_registration.commitee_office.city}}" matInput type="text" autocomplete="off" autofocus form-fields id="city" formControlName="city" maxlength="120" required>
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(addCommitteeOfficerForm.get('city'), 'city')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="flex">
+            <mat-label for="state" class="width-20">{{static_data.committee_registration.commitee_office.state}}</mat-label>
+            <mat-form-field appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label for="state" class="width-20" class="visuallyhidden">{{static_data.committee_registration.commitee_office.state}}</mat-label>
+                <mat-select id="state" attr.aria-label="{{static_data.committee_registration.commitee_office.state}}" formControlName="state">
+                    <mat-option *ngFor="let state of stateList" value="{{state.stateCode}}">{{state.stateDesc}}</mat-option>
+                    <!-- <mat-option value="option2">Option 2 </mat-option>
+                    <mat-option value="option3">Option 3</mat-option> -->
+                </mat-select>
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(addCommitteeOfficerForm.get('state'), 'state')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="flex">
+            <mat-label for="zipcode" class="width-20">{{static_data.committee_registration.commitee_office.zipcode}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label for="zipcode" class="width-20" class="visuallyhidden">{{static_data.committee_registration.commitee_office.zipcode}}</mat-label>
+                <input attr.aria-label="{{static_data.committee_registration.commitee_office.zipcode}}" matInput type="text" autocomplete="off" autofocus form-fields id="zipcode" formControlName="zipcode" keyPrevent [Alphanumeric]="true" required maxlength="9" minlength="5">
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(addCommitteeOfficerForm.get('zipcode'), 'zipcode')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+
+        <div class="flex">
+            <mat-label for="phone" class="width-20">{{static_data.committee_registration.commitee_office.phone}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label for="phone" class="width-20" class="visuallyhidden">{{static_data.committee_registration.commitee_office.phone}}</mat-label>
+                <input attr.aria-label="{{static_data.committee_registration.commitee_office.phone}}" matInput type="text" autocomplete="off" autofocus form-fields id="phone" formControlName="phone" required maxlength="10" keyPrevent (keypress)="numericOnly($event)">
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(addCommitteeOfficerForm.get('phone'), 'phone')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+
+        <div class="flex">
+            <mat-label for="email" class="width-20">{{static_data.committee_registration.commitee_office.email}}</mat-label>
+            <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+                <mat-label for="email" class="width-20" class="visuallyhidden">{{static_data.committee_registration.commitee_office.email}}</mat-label>
+                <input attr.aria-label="{{static_data.committee_registration.commitee_office.email}}" matInput type="text" autocomplete="off" autofocus form-fields id="email" formControlName="email" maxlength="120" required>
+                <mat-error class="error">
+                    {{errorService.checkErrorMessage(addCommitteeOfficerForm.get('email'), 'email')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="btn-cancel-alg">
+            <span class="btn-mar-back">
+                <button id="btnCancel"attr.aria-label="{{static_data.button.next}}"  mat-button color="primary" (click)="clearForm()">Cancel</button>
+            </span>
+            <span id="save-btn">
+                <button id="btnSave"  title="save officer" attr.aria-label="Save"  role="button" type="button" mat-flat-button color="primary" class="nrmlfillbtn"
+                    (click)="validateAddOfficer()">Save</button>
+            </span>
+        </div>
+
+        <!-- <div class=" bottom-btn">
+            <span>
+                <a class="color-BrightBlue back-btn" href="javascript:void(0)" (click)="goBack()">{{static_data.button.back}}</a>
+            </span>
+            <span>
+                <button id="addInfo" type="button" mat-flat-button color="primary"
+                    class="nrmlfillbtn">{{static_data.button.next}}</button>
+            </span>
+        </div> -->
+
+    </form>
+</div>
+
+<br><br><br>
+<div>
+    <button id="btnNext" role="button" title="go to Bank Information tab" attr.aria-label="{{static_data.button.next}}" mat-raised-button color="primary" class="right" (click)="validateSubmitOfficer()">{{static_data.button.next}}</button>
+    <a id="btnBack" role="button" attr.aria-label="{{static_data?.button?.back}}" tabindex="2" class="color-BrightBlue back-btn goToBack" id="back" type="button" (click)="goBack()">{{static_data?.button?.back}}</a>
+</div>

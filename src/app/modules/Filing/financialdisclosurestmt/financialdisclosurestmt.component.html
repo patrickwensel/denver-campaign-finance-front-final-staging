@@ -1,0 +1,946 @@
+<div class="financepage">
+        <div class="head">
+                <span class="title"> {{static_data.finance.financestmt}}</span>
+        </div>
+        <div>
+
+                <mat-tab-group [selectedIndex]="selectIndex">
+                        <mat-tab label="1.{{static_data.finance.contact}}" [disabled]="isSelected(0)">
+                                <div style="display: flex">
+                                        <div style="margin-top: 10px; width: 50%">
+                                                <span class="tle"> {{static_data.finance.reprtyear}}</span> <br>
+                                                <span class="heading"> {{static_data.finance.contact}} </span>
+
+                                                <form class="create-form" id="create-info" autocomplete="off"
+                                                        [formGroup]="contactInfoForm">
+                                                        <div class="flex">
+                                                                <mat-label class="width-20">
+                                                                        {{static_data.giftreport.areyou}}</mat-label>
+                                                                <mat-form-field appearance="fill" appearance="fill"
+                                                                        class="create-full-width"
+                                                                        [hideRequiredMarker]='hideRequiredMarker'>
+                                                                        <mat-label class="width-20"
+                                                                                class="visuallyhidden">
+                                                                                {{static_data.giftreport.areyou}}
+                                                                        </mat-label>
+                                                                        <input matInput type="text" autocomplete="off"
+                                                                                autofocus form-fields placeholder=""
+                                                                                id="department" maxlength="80"
+                                                                                formControlName="areyou" keyPrevent
+                                                                                [AlphaSpace]="true">
+                                                                        <mat-error class="error">
+                                                                        </mat-error>
+                                                                </mat-form-field>
+                                                        </div>
+                                                        <div class="flex">
+                                                                <mat-label class="width-20">
+                                                                        {{static_data.giftreport.youwereelected}}
+                                                                </mat-label>
+                                                                <mat-form-field appearance="fill" appearance="fill"
+                                                                        class="create-full-width"
+                                                                        [hideRequiredMarker]='hideRequiredMarker'>
+                                                                        <mat-label class="width-20"
+                                                                                class="visuallyhidden">
+                                                                                {{static_data.giftreport.youwereelected}}
+                                                                        </mat-label>
+                                                                        <input matInput type="text" autocomplete="off"
+                                                                                autofocus form-fields placeholder=""
+                                                                                id="youwereelected" maxlength="80"
+                                                                                formControlName="youwereelected"
+                                                                                keyPrevent [AlphaSpace]="true">
+                                                                        <mat-error class="error">
+                                                                        </mat-error>
+                                                                </mat-form-field>
+                                                        </div>
+                                                        <div class="flex">
+                                                                <mat-label class="width-20">
+                                                                        {{static_data.giftreport.firstname}}
+                                                                </mat-label>
+                                                                <mat-form-field appearance="fill" appearance="fill"
+                                                                        class="create-full-width"
+                                                                        [hideRequiredMarker]='hideRequiredMarker'>
+                                                                        <mat-label class="width-20"
+                                                                                class="visuallyhidden">
+                                                                                {{static_data.giftreport.firstname}}
+                                                                        </mat-label>
+                                                                        <input matInput type="text" autocomplete="off"
+                                                                                autofocus form-fields placeholder=""
+                                                                                id="firstname" maxlength="150"
+                                                                                formControlName="firstname" keyPrevent
+                                                                                [mailAddress]="true">
+                                                                        <mat-error class="error">
+                                                                        </mat-error>
+                                                                </mat-form-field>
+                                                        </div>
+                                                        <div class="flex">
+                                                                <mat-label class="width-20">
+                                                                        {{static_data.giftreport.lastname}}</mat-label>
+                                                                <mat-form-field appearance="fill"
+                                                                        class="create-full-width"
+                                                                        [hideRequiredMarker]='hideRequiredMarker'>
+                                                                        <mat-label class="width-20"
+                                                                                class="visuallyhidden">
+                                                                                {{static_data.giftreport.lastname}}
+                                                                        </mat-label>
+                                                                        <input matInput type="text" autocomplete="off"
+                                                                                autofocus form-fields placeholder=""
+                                                                                id="lastname" maxlength="150"
+                                                                                formControlName="lastname">
+                                                                        <mat-error class="error">
+                                                                        </mat-error>
+                                                                </mat-form-field>
+                                                        </div>
+                                                        <div class="flex">
+                                                                <mat-label class="width-20">
+                                                                        {{static_data.giftreport.bsnadd1}}
+                                                                </mat-label>
+                                                                <mat-form-field appearance="fill"
+                                                                        class="create-full-width"
+                                                                        [hideRequiredMarker]='hideRequiredMarker'>
+                                                                        <mat-label class="width-20"
+                                                                                class="visuallyhidden">
+                                                                                {{static_data.giftreport.bsnadd1}}
+                                                                        </mat-label>
+                                                                        <input matInput type="text" autocomplete="off"
+                                                                                autofocus form-fields placeholder=""
+                                                                                id="bsnadd1" formControlName="bsnadd1"
+                                                                                keyPrevent [AlphaSpace]="true">
+                                                                        <mat-error class="error">
+                                                                        </mat-error>
+                                                                </mat-form-field>
+                                                        </div>
+                                                        <div class="flex">
+                                                                <mat-label class="width-20">
+                                                                        {{static_data.giftreport.bsnadd2}}
+                                                                </mat-label>
+                                                                <mat-form-field appearance="fill"
+                                                                        class="create-full-width"
+                                                                        [hideRequiredMarker]='hideRequiredMarker'>
+                                                                        <mat-label class="width-20"
+                                                                                class="visuallyhidden">
+                                                                                {{static_data.giftreport.bsnadd2}}
+                                                                        </mat-label>
+                                                                        <input matInput type="text" autocomplete="off"
+                                                                                autofocus form-fields placeholder=""
+                                                                                id="[bsnadd2]" maxlength="10"
+                                                                                minlength="2" formControlName="bsnadd2"
+                                                                                keyPrevent (keypress)="numericOnly($event)">
+                                                                        <mat-error class="error">
+                                                                        </mat-error>
+                                                                </mat-form-field>
+                                                        </div>
+                                                        <div class="flex">
+                                                                <mat-label class="width-20">
+                                                                        {{static_data.giftreport.city}}
+                                                                </mat-label>
+
+                                                                <mat-form-field appearance="fill"
+                                                                        class="create-full-width"
+                                                                        [hideRequiredMarker]='hideRequiredMarker'>
+                                                                        <mat-label class="width-20"
+                                                                                class="visuallyhidden">
+                                                                                {{static_data.giftreport.city}}
+                                                                        </mat-label>
+                                                                        <input matInput type="text" autocomplete="off"
+                                                                                autofocus form-fields placeholder=""
+                                                                                id="city" maxlength="150"
+                                                                                formControlName="city">
+                                                                        <mat-error class="error">
+                                                                        </mat-error>
+                                                                </mat-form-field>
+                                                        </div>
+                                                        <div class="flex">
+                                                                <mat-label class="width-20">
+                                                                        {{static_data.giftreport.state}}
+                                                                </mat-label>
+
+                                                                <mat-form-field appearance="fill"
+                                                                        class="create-full-width"
+                                                                        [hideRequiredMarker]='hideRequiredMarker'>
+                                                                        <mat-label class="width-20"
+                                                                                class="visuallyhidden">
+                                                                                {{static_data.giftreport.state}}
+                                                                        </mat-label>
+                                                                        <input matInput type="text" autocomplete="off"
+                                                                                autofocus form-fields placeholder=""
+                                                                                id="state" maxlength="150"
+                                                                                formControlName="state">
+                                                                        <mat-error class="error">
+                                                                        </mat-error>
+                                                                </mat-form-field>
+                                                        </div>
+                                                        <div class="flex">
+                                                                <mat-label class="width-20">
+                                                                        {{static_data.giftreport.zipcode}}
+                                                                </mat-label>
+
+                                                                <mat-form-field appearance="fill"
+                                                                        class="create-full-width"
+                                                                        [hideRequiredMarker]='hideRequiredMarker'>
+                                                                        <mat-label class="width-20"
+                                                                                class="visuallyhidden">
+                                                                                {{static_data.giftreport.zipcode}}
+                                                                        </mat-label>
+                                                                        <input matInput type="text" autocomplete="off"
+                                                                                autofocus form-fields placeholder=""
+                                                                                id="zipcode" maxlength="150"
+                                                                                formControlName="zipcode">
+                                                                        <mat-error class="error">
+                                                                        </mat-error>
+                                                                </mat-form-field>
+                                                        </div>
+                                                        <div class="flex">
+                                                                <mat-label class="width-20">
+                                                                        {{static_data.giftreport.bsnphn}}
+                                                                </mat-label>
+
+                                                                <mat-form-field appearance="fill"
+                                                                        class="create-full-width"
+                                                                        [hideRequiredMarker]='hideRequiredMarker'>
+                                                                        <mat-label class="width-20"
+                                                                                class="visuallyhidden">
+                                                                                {{static_data.giftreport.bsnphn}}
+                                                                        </mat-label>
+                                                                        <input matInput type="text" autocomplete="off"
+                                                                                autofocus form-fields placeholder=""
+                                                                                id="bsnphn" maxlength="150"
+                                                                                formControlName="bsnphn">
+                                                                        <mat-error class="error">
+                                                                        </mat-error>
+                                                                </mat-form-field>
+                                                        </div>
+                                                        <div class="flex">
+                                                                <mat-label class="width-20">
+                                                                        {{static_data.giftreport.bsnmail}}
+                                                                </mat-label>
+
+                                                                <mat-form-field appearance="fill"
+                                                                        class="create-full-width"
+                                                                        [hideRequiredMarker]='hideRequiredMarker'>
+                                                                        <mat-label class="width-20"
+                                                                                class="visuallyhidden">
+                                                                                {{static_data.giftreport.bsnmail}}
+                                                                        </mat-label>
+                                                                        <input matInput type="text" autocomplete="off"
+                                                                                autofocus form-fields placeholder=""
+                                                                                id="bsnmail" maxlength="150"
+                                                                                formControlName="bsnmail">
+                                                                        <mat-error class="error">
+                                                                        </mat-error>
+                                                                </mat-form-field>
+                                                        </div>
+                                                </form>
+                                                <button type="submit" class="replybtn" id="addbtn"
+                                                        (click)="next()">Continue</button>
+
+
+                                        </div>
+                                </div>
+
+                        </mat-tab>
+                        <mat-tab label="2.{{static_data.finance.finance_dis}}" [disabled]="isSelected(1)">
+                                <span class="tle"> {{static_data.finance.reprtyear}}</span> <br>
+                                <div class="block">
+                                        <span class="heading"> {{static_data.finance.business_interest}} </span> <br>
+                                        <span> A CareerBuilder survey reports that typos and grammatical errors can cost
+                                                you an
+                                                interview, as can not including a cover letter. </span>
+                                        <div style="display: flex;">
+                                                <div class="formright" style="width: 40%">
+                                                        <form class="businessform" id="create-info" autocomplete="off"
+                                                                [formGroup]="businessform">
+                                                                <div>
+                                                                        <mat-label class="width-20">Business Name
+                                                                        </mat-label>
+                                                                        <br>
+                                                                        <mat-form-field appearance="fill"
+                                                                                appearance="fill"
+                                                                                class="create-full-width"
+                                                                                [hideRequiredMarker]='hideRequiredMarker'>
+                                                                                <mat-label class="width-20"
+                                                                                        class="visuallyhidden">Gift
+                                                                                        Description
+                                                                                </mat-label>
+                                                                                <input matInput type="text"
+                                                                                        autocomplete="off" autofocus
+                                                                                        form-fields placeholder=""
+                                                                                        id="businessname" maxlength="80"
+                                                                                        formControlName="businessname"
+                                                                                        keyPrevent [AlphaSpace]="true">
+                                                                                <mat-error class="error">
+                                                                                </mat-error>
+                                                                        </mat-form-field>
+                                                                </div>
+                                                        </form>
+                                                </div>
+                                                <div class="formleft" style="width: 40%; ">
+                                                        <form class="businessform" id="create-info" autocomplete="off"
+                                                                [formGroup]="businessform">
+                                                                <div>
+                                                                        <mat-label class="width-20">Name of Person
+                                                                                Holding Interest
+                                                                        </mat-label>
+                                                                        <br>
+                                                                        <mat-form-field appearance="fill"
+                                                                                appearance="fill"
+                                                                                class="create-full-width"
+                                                                                [hideRequiredMarker]='hideRequiredMarker'>
+                                                                                <mat-label class="width-20"
+                                                                                        class="visuallyhidden">Gift
+                                                                                        Description
+                                                                                </mat-label>
+                                                                                <input matInput type="text"
+                                                                                        autocomplete="off" autofocus
+                                                                                        form-fields placeholder=""
+                                                                                        id="holdpersonintst"
+                                                                                        maxlength="80"
+                                                                                        formControlName="holdpersonintst"
+                                                                                        keyPrevent [AlphaSpace]="true">
+                                                                                <mat-error class="error">
+                                                                                </mat-error>
+                                                                        </mat-form-field>
+                                                                </div>
+                                                        </form>
+                                                </div>
+                                                <div class="addbtn" style="width: 20%">
+                                                        <button type="submit" class="add" id="addbtn"
+                                                                (click)="next()">Add</button>
+                                                </div>
+
+                                        </div>
+                                        <br>
+                                        <hr>
+                                        <table mat-table [dataSource]="dataSourcebusinessIntrst" multiTemplateDataRows>
+
+                                                <ng-container matColumnDef="businessname">
+                                                        <th mat-header-cell *matHeaderCellDef> </th>
+                                                        <td mat-cell *matCellDef="let element"> {{element.businessname}}
+                                                        </td>
+                                                </ng-container>
+
+                                                <ng-container matColumnDef="holdpersonintst">
+                                                        <th mat-header-cell *matHeaderCellDef> </th>
+                                                        <td mat-cell *matCellDef="let element"> {{element.holdpersonintst}} </td>
+                                                </ng-container>
+                                                <ng-container matColumnDef="icons">
+                                                        <th mat-header-cell *matHeaderCellDef> </th>
+                                                        <td mat-cell *matCellDef="let element">
+                                                                <span class="material-icons"
+                                                                        (click)="editbusiness(element)">mode_edit_outline</span>&nbsp;&nbsp;
+                                                                <span class="material-icons">delete_forever</span>
+                                                        </td>
+                                                </ng-container>
+                                                <tr mat-header-row *matHeaderRowDef="displayedColumnsbsns"></tr>
+                                                <tr mat-row *matRowDef="let row; columns: displayedColumnsbsns;"></tr>
+                                        </table>
+                                </div>
+
+                                <!-- source of income -->
+                                <div class="block">
+                                        <span class="heading"> {{static_data.finance.source_of_income}} </span> <br>
+                                        <span> {{static_data.finance.source1}} </span> <br>
+                                        <div style="display: flex">
+                                                <div class="sourceform" style="width: 40%">
+                                                        <form class="sourceform" id="create-info" autocomplete="off"
+                                                                [formGroup]="sourceform">
+                                                                <div>
+                                                                        <mat-label class="width-20">Gift Description
+                                                                        </mat-label>
+                                                                        <br>
+                                                                        <mat-form-field appearance="fill"
+                                                                                appearance="fill"
+                                                                                class="create-full-width"
+                                                                                [hideRequiredMarker]='hideRequiredMarker'>
+                                                                                <mat-label class="width-20"
+                                                                                        class="visuallyhidden">Gift
+                                                                                        Description
+                                                                                </mat-label>
+                                                                                <input matInput type="text"
+                                                                                        autocomplete="off" autofocus
+                                                                                        form-fields placeholder=""
+                                                                                        id="incomesource" maxlength="80"
+                                                                                        formControlName="incomesource"
+                                                                                        keyPrevent [AlphaSpace]="true">
+                                                                                <mat-error class="error">
+                                                                                </mat-error>
+                                                                        </mat-form-field>
+                                                                </div>
+                                                        </form>
+                                                </div>
+                                                <div class="formleft" style="width: 40%">
+
+                                                </div>
+                                                <div class="addbtn" style="width: 20%">
+                                                        <button type="submit" class="add" id="addbtn"
+                                                                (click)="next()">Add</button>
+                                                </div>
+
+                                        </div>
+                                        <br>
+                                        <hr>
+                                        <table mat-table [dataSource]="dataSourceIncome" multiTemplateDataRows>
+
+                                                <ng-container matColumnDef="incomesource">
+                                                        <th mat-header-cell *matHeaderCellDef> </th>
+                                                        <td mat-cell *matCellDef="let element"> {{element.incomesource}}
+                                                        </td>
+                                                </ng-container>
+                                                <ng-container matColumnDef="icons">
+                                                        <th mat-header-cell *matHeaderCellDef> </th>
+                                                        <td mat-cell *matCellDef="let element">
+                                                                <span class="material-icons"
+                                                                        (click)="editsourceincm(element)">mode_edit_outline</span>&nbsp;&nbsp;
+                                                                <span class="material-icons">delete_forever</span>
+                                                        </td>
+                                                </ng-container>
+                                                <tr mat-header-row *matHeaderRowDef="displayedColumnssource"></tr>
+                                                <tr mat-row *matRowDef="let row; columns: displayedColumnssource;"></tr>
+                                        </table>
+                                </div>
+
+                                <!-- lobby compensate -->
+                                <div class="block">
+                                        <span class="heading"> {{static_data.finance.lobby_comp}} </span> <br>
+                                        <span> {{static_data.finance.lobby1}} </span> <br>
+                                        <div style="display: flex">
+                                                <div class="sourceform" style="width: 40%">
+                                                        <form class="sourceform" id="create-info" autocomplete="off"
+                                                                [formGroup]="lobbycomform">
+                                                                <div>
+                                                                        <mat-label class="width-20">Employer or Person
+                                                                        </mat-label>
+                                                                        <br>
+                                                                        <mat-form-field appearance="fill"
+                                                                                appearance="fill"
+                                                                                class="create-full-width"
+                                                                                [hideRequiredMarker]='hideRequiredMarker'>
+                                                                                <mat-label class="width-20"
+                                                                                        class="visuallyhidden">Gift
+                                                                                        Description
+                                                                                </mat-label>
+                                                                                <input matInput type="text"
+                                                                                        autocomplete="off" autofocus
+                                                                                        form-fields placeholder=""
+                                                                                        id="employer" maxlength="80"
+                                                                                        formControlName="employer"
+                                                                                        keyPrevent [AlphaSpace]="true">
+                                                                                <mat-error class="error">
+                                                                                </mat-error>
+                                                                        </mat-form-field>
+                                                                </div>
+                                                        </form>
+                                                </div>
+                                                <div class="formleft" style="width: 40%">
+
+                                                </div>
+                                                <div class="addbtn" style="width: 20%">
+                                                        <button type="submit" class="add" id="addbtn"
+                                                                (click)="next()">Add</button>
+                                                </div>
+
+                                        </div>
+                                        <br>
+                                        <hr>
+                                        <table mat-table [dataSource]="dataSourcelobby" multiTemplateDataRows>
+
+                                                <ng-container matColumnDef="employer">
+                                                        <th mat-header-cell *matHeaderCellDef> </th>
+                                                        <td mat-cell *matCellDef="let element"> {{element.employer}}
+                                                        </td>
+                                                </ng-container>
+
+                                           
+                                                <ng-container matColumnDef="icons">
+                                                        <th mat-header-cell *matHeaderCellDef> </th>
+                                                        <td mat-cell *matCellDef="let element">
+                                                                <span class="material-icons"
+                                                                        (click)="editLobbyCmp(element)">mode_edit_outline</span>&nbsp;&nbsp;
+                                                                <span class="material-icons">delete_forever</span>
+                                                        </td>
+                                                </ng-container>
+                                                <tr mat-header-row *matHeaderRowDef="displayedColumnsLobbySrc"></tr>
+                                                <tr mat-row *matRowDef="let row; columns: displayedColumnsLobbySrc;"></tr>
+                                        </table>
+                                </div>
+
+                                <!-- private trust -->
+                                <div class="block">
+                                        <span class="heading"> {{static_data.finance.private_trust}} </span> <br>
+                                        <span> {{static_data.finance.private}} </span>
+                                        <div style="display: flex;">
+                                                <div class="formright" style="width: 40%">
+                                                        <form class="privatetrustform" id="create-info"
+                                                                autocomplete="off" [formGroup]="privatetrustform">
+                                                                <div>
+                                                                        <mat-label class="width-20">Name
+                                                                        </mat-label>
+                                                                        <br>
+                                                                        <mat-form-field appearance="fill"
+                                                                                appearance="fill"
+                                                                                class="create-full-width"
+                                                                                [hideRequiredMarker]='hideRequiredMarker'>
+                                                                                <mat-label class="width-20"
+                                                                                        class="visuallyhidden">
+                                                                                        Description
+                                                                                </mat-label>
+                                                                                <input matInput type="text"
+                                                                                        autocomplete="off" autofocus
+                                                                                        form-fields placeholder=""
+                                                                                        id="name" maxlength="80"
+                                                                                        formControlName="name"
+                                                                                        keyPrevent [AlphaSpace]="true">
+                                                                                <mat-error class="error">
+                                                                                </mat-error>
+                                                                        </mat-form-field>
+                                                                </div>
+                                                        </form>
+                                                </div>
+                                                <div class="formleft" style="width: 40%; ">
+                                                        <form class="privatetrustform" id="create-info"
+                                                                autocomplete="off" [formGroup]="privatetrustform">
+                                                                <div>
+                                                                        <mat-label class="width-20">Name of Person
+                                                                                Holding Interest
+                                                                        </mat-label>
+                                                                        <br>
+                                                                        <mat-form-field appearance="fill"
+                                                                                appearance="fill"
+                                                                                class="create-full-width"
+                                                                                [hideRequiredMarker]='hideRequiredMarker'>
+                                                                                <mat-label class="width-20"
+                                                                                        class="visuallyhidden">Gift
+                                                                                        Description
+                                                                                </mat-label>
+                                                                                <input matInput type="text"
+                                                                                        autocomplete="off" autofocus
+                                                                                        form-fields placeholder=""
+                                                                                        id="description" maxlength="80"
+                                                                                        formControlName="description"
+                                                                                        keyPrevent [AlphaSpace]="true">
+                                                                                <mat-error class="error">
+                                                                                </mat-error>
+                                                                        </mat-form-field>
+                                                                </div>
+                                                        </form>
+                                                </div>
+                                                <div class="addbtn" style="width: 20%">
+                                                        <button type="submit" class="add" id="addbtn"
+                                                                (click)="next()">Add</button>
+                                                </div>
+
+                                        </div>
+                                        <br>
+                                        <hr>
+                                        <table mat-table [dataSource]="dataSourceprivate" multiTemplateDataRows>
+
+                                                <ng-container matColumnDef="name">
+                                                        <th mat-header-cell *matHeaderCellDef> </th>
+                                                        <td mat-cell *matCellDef="let element"> {{element.name}}
+                                                        </td>
+                                                </ng-container>
+
+                                                <ng-container matColumnDef="description">
+                                                        <th mat-header-cell *matHeaderCellDef> </th>
+                                                        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+                                                </ng-container>
+                                                <ng-container matColumnDef="icons">
+                                                        <th mat-header-cell *matHeaderCellDef> </th>
+                                                        <td mat-cell *matCellDef="let element">
+                                                                <span class="material-icons"
+                                                                        (click)="editPrivateTrst(element)">mode_edit_outline</span>&nbsp;&nbsp;
+                                                                <span class="material-icons">delete_forever</span>
+                                                        </td>
+                                                </ng-container>
+                                                <tr mat-header-row *matHeaderRowDef="displayedColumnsprivateTrst"></tr>
+                                                <tr mat-row *matRowDef="let row; columns: displayedColumnsprivateTrst;"></tr>
+                                        </table>
+                                </div>
+
+                                <!-- property owner -->
+                                <div class="block">
+                                        <span class="heading"> {{static_data.finance.property_owner}} </span> <br>
+                                        <span> {{static_data.finance.prperty_owner1}} </span> <br> <br>
+                                        <span> {{static_data.finance.prperty_owner2}} </span> <br> <br><br><br>
+
+                                        <div style="display: flex">
+                                                <div class="sourceform" style="width: 40%">
+                                                        <form class="sourceform" id="create-info" autocomplete="off"
+                                                                [formGroup]="propertyownerform">
+                                                                <div>
+                                                                        <mat-label class="width-20">Employer or Person
+                                                                        </mat-label>
+                                                                        <br>
+                                                                        <mat-form-field appearance="fill"
+                                                                                appearance="fill"
+                                                                                class="create-full-width"
+                                                                                [hideRequiredMarker]='hideRequiredMarker'>
+                                                                                <mat-label class="width-20"
+                                                                                        class="visuallyhidden">Gift
+                                                                                        Description
+                                                                                </mat-label>
+                                                                                <input matInput type="text"
+                                                                                        autocomplete="off" autofocus
+                                                                                        form-fields placeholder=""
+                                                                                        id="streetcityname"
+                                                                                        maxlength="80"
+                                                                                        formControlName="streetcityname"
+                                                                                        keyPrevent [AlphaSpace]="true">
+                                                                                <mat-error class="error">
+                                                                                </mat-error>
+                                                                        </mat-form-field>
+                                                                </div>
+                                                        </form>
+                                                </div>
+                                                <div class="formleft" style="width: 40%">
+
+                                                </div>
+                                                <div class="addbtn" style="width: 20%">
+                                                        <button type="submit" class="add" id="addbtn"
+                                                                (click)="next()">Add</button>
+                                                </div>
+
+                                        </div>
+                                        <br>
+                                        <hr>
+                                        <table mat-table [dataSource]="dataSourceprptyowner" multiTemplateDataRows>
+
+                                                <ng-container matColumnDef="streetcityname">
+                                                        <th mat-header-cell *matHeaderCellDef> </th>
+                                                        <td mat-cell *matCellDef="let element"> {{element.streetcityname}}
+                                                        </td>
+                                                </ng-container>
+
+                                                <ng-container matColumnDef="icons">
+                                                        <th mat-header-cell *matHeaderCellDef> </th>
+                                                        <td mat-cell *matCellDef="let element">
+                                                                <span class="material-icons"
+                                                                        (click)="editProperty(element)">mode_edit_outline</span>&nbsp;&nbsp;
+                                                                <span class="material-icons">delete_forever</span>
+                                                        </td>
+                                                </ng-container>
+                                                <tr mat-header-row *matHeaderRowDef="displayedColumnsproperty"></tr>
+                                                <tr mat-row *matRowDef="let row; columns: displayedColumnsproperty;"></tr>
+                                        </table>
+                                </div>
+
+                                <!-- asset transfer -->
+                                <div class="block">
+                                        <span class="heading"> {{static_data.finance.asset_transfer}} </span> <br>
+                                        <span> {{static_data.finance.asset_transfer1}} </span>
+                                        <div style="display: flex;">
+                                                <div class="formright" style="width: 40%">
+                                                        <form class="assettransferform" id="create-info"
+                                                                autocomplete="off" [formGroup]="assettransferform">
+                                                                <div>
+                                                                        <mat-label class="width-20">Year Transferred   
+                                                                        </mat-label>
+                                                                        <br>
+                                                                        <mat-form-field appearance="fill"
+                                                                                appearance="fill"
+                                                                                class="create-full-width"
+                                                                                [hideRequiredMarker]='hideRequiredMarker'>
+                                                                                <mat-label class="width-20"
+                                                                                        class="visuallyhidden">
+                                                                                        Year Transferred   
+                                                                                </mat-label>
+                                                                                <input matInput type="text"
+                                                                                        autocomplete="off" autofocus
+                                                                                        form-fields placeholder=""
+                                                                                        id="year" maxlength="80"
+                                                                                        formControlName="year"
+                                                                                        keyPrevent [AlphaSpace]="true">
+                                                                                <mat-error class="error">
+                                                                                </mat-error>
+                                                                        </mat-form-field>
+                                                                </div>
+                                                        </form>
+                                                </div>
+                                                <div class="formleft" style="width: 40%; ">
+                                                        <form class="assettransferform" id="create-info"
+                                                                autocomplete="off" [formGroup]="assettransferform">
+                                                                <div>
+                                                                        <mat-label class="width-20"> Brief Description of Transferred Assets   
+                                                                        </mat-label>
+                                                                        <br>
+                                                                        <mat-form-field appearance="fill"
+                                                                                appearance="fill"
+                                                                                class="create-full-width"
+                                                                                [hideRequiredMarker]='hideRequiredMarker'>
+                                                                                <mat-label class="width-20"
+                                                                                        class="visuallyhidden">Brief Description of Transferred Assets
+                                                                                </mat-label>
+                                                                                <input matInput type="text"
+                                                                                        autocomplete="off" autofocus
+                                                                                        form-fields placeholder=""
+                                                                                        id="briefdescription"
+                                                                                        maxlength="80"
+                                                                                        formControlName="briefdescription"
+                                                                                        keyPrevent [AlphaSpace]="true">
+                                                                                <mat-error class="error">
+                                                                                </mat-error>
+                                                                        </mat-form-field>
+                                                                </div>
+                                                        </form>
+                                                </div>
+                                                <div class="addbtn" style="width: 20%">
+                                                        <button type="submit" class="add" id="addbtn"
+                                                                (click)="next()">Add</button>
+                                                </div>
+
+                                        </div>
+                                        <br>
+                                        <hr>
+                                        <table mat-table [dataSource]="dataSourceassettrnsfrm" multiTemplateDataRows>
+
+                                                <ng-container matColumnDef="year">
+                                                        <th mat-header-cell *matHeaderCellDef> </th>
+                                                        <td mat-cell *matCellDef="let element"> {{element.year}}
+                                                        </td>
+                                                </ng-container>
+
+                                                <ng-container matColumnDef="briefdescription">
+                                                        <th mat-header-cell *matHeaderCellDef> </th>
+                                                        <td mat-cell *matCellDef="let element"> {{element.briefdescription}} </td>
+                                                </ng-container>
+                                                <ng-container matColumnDef="icons">
+                                                        <th mat-header-cell *matHeaderCellDef> </th>
+                                                        <td mat-cell *matCellDef="let element">
+                                                                <span class="material-icons"
+                                                                        (click)="editAssetTransfer(element)">mode_edit_outline</span>&nbsp;&nbsp;
+                                                                <span class="material-icons">delete_forever</span>
+                                                        </td>
+                                                </ng-container>
+                                                <tr mat-header-row *matHeaderRowDef="displayedColumnsAsset"></tr>
+                                                <tr mat-row *matRowDef="let row; columns: displayedColumnsAsset;"></tr>
+                                        </table>
+                                </div>
+
+                                <!-- creditors -->
+                                <div class="block">
+                                        <span class="heading"> {{static_data.finance.creditors}} </span> <br>
+                                        <span> {{static_data.finance.creditors1}} </span> <br> <br>
+                                        <span> {{static_data.finance.creditors2}} </span> <br> <br><br><br>
+
+                                        <div style="display: flex">
+                                                <div class="sourceform" style="width: 40%">
+                                                        <form class="creditorsform" id="create-info" autocomplete="off"
+                                                                [formGroup]="creditorsform">
+                                                                <div>
+                                                                        <mat-label class="width-20">Creditor Name
+                                                                        </mat-label>
+                                                                        <br>
+                                                                        <mat-form-field appearance="fill"
+                                                                                appearance="fill"
+                                                                                class="create-full-width"
+                                                                                [hideRequiredMarker]='hideRequiredMarker'>
+                                                                                <mat-label class="width-20"
+                                                                                        class="visuallyhidden">Creditor
+                                                                                        Name
+                                                                                </mat-label>
+                                                                                <input matInput type="text"
+                                                                                        autocomplete="off" autofocus
+                                                                                        form-fields placeholder=""
+                                                                                        id="creditorname" maxlength="80"
+                                                                                        formControlName="creditorname"
+                                                                                        keyPrevent [AlphaSpace]="true">
+                                                                                <mat-error class="error">
+                                                                                </mat-error>
+                                                                        </mat-form-field>
+                                                                </div>
+                                                        </form>
+                                                </div>
+                                                <div class="formleft" style="width: 40%">
+
+                                                </div>
+                                                <div class="addbtn" style="width: 20%">
+                                                        <button type="submit" class="add" id="addbtn"
+                                                                (click)="next()">Add</button>
+                                                </div>
+
+                                        </div>
+                                        <br>
+                                        <hr>
+                                        <table mat-table [dataSource]="dataSourcecreditors" multiTemplateDataRows>
+
+                                                <ng-container matColumnDef="creditorname">
+                                                        <th mat-header-cell *matHeaderCellDef> </th>
+                                                        <td mat-cell *matCellDef="let element"> {{element.creditorname}}
+                                                        </td>
+                                                </ng-container>
+
+                                                <ng-container matColumnDef="icons">
+                                                        <th mat-header-cell *matHeaderCellDef> </th>
+                                                        <td mat-cell *matCellDef="let element">
+                                                                <span class="material-icons"
+                                                                        (click)="editCreditors(element)">mode_edit_outline</span>&nbsp;&nbsp;
+                                                                <span class="material-icons">delete_forever</span>
+                                                        </td>
+                                                </ng-container>
+                                                <tr mat-header-row *matHeaderRowDef="displayedColumnscreditors"></tr>
+                                                <tr mat-row *matRowDef="let row; columns: displayedColumnscreditors;"></tr>
+                                        </table>
+                                </div>
+
+                                <!-- Employers -->
+                                <div class="block">
+                                        <span class="heading"> {{static_data.finance.employers}} </span> <br>
+                                        <span> {{static_data.finance.employers1}} </span> <br> <br>
+                                        <!-- <span> {{static_data.finance.creditors2}} </span> <br> <br><br><br> -->
+
+                                        <div style="display: flex">
+                                                <div class="sourceform" style="width: 40%">
+                                                        <form class="employersform" id="create-info" autocomplete="off"
+                                                                [formGroup]="employersform">
+                                                                <div>
+                                                                        <mat-label class="width-20">Employer Name
+                                                                        </mat-label>
+                                                                        <br>
+                                                                        <mat-form-field appearance="fill"
+                                                                                appearance="fill"
+                                                                                class="create-full-width"
+                                                                                [hideRequiredMarker]='hideRequiredMarker'>
+                                                                                <mat-label class="width-20"
+                                                                                        class="visuallyhidden">Employer Name
+                                                                                </mat-label>
+                                                                                <input matInput type="text"
+                                                                                        autocomplete="off" autofocus
+                                                                                        form-fields placeholder=""
+                                                                                        id="employername" maxlength="80"
+                                                                                        formControlName="employername"
+                                                                                        keyPrevent [AlphaSpace]="true">
+                                                                                <mat-error class="error">
+                                                                                </mat-error>
+                                                                        </mat-form-field>
+                                                                </div>
+                                                        </form>
+                                                </div>
+                                                <div class="formleft" style="width: 40%">
+
+                                                </div>
+                                                <div class="addbtn" style="width: 20%">
+                                                        <button type="submit" class="add" id="addbtn"
+                                                                (click)="next()">Add</button>
+                                                </div>
+
+                                        </div>
+                                        <br>
+                                        <hr>
+                                        <table mat-table [dataSource]="dataSourceemployers" multiTemplateDataRows>
+
+                                                <ng-container matColumnDef="employername">
+                                                        <th mat-header-cell *matHeaderCellDef> </th>
+                                                        <td mat-cell *matCellDef="let element"> {{element.employername}}
+                                                        </td>
+                                                </ng-container>
+
+                                                <ng-container matColumnDef="icons">
+                                                        <th mat-header-cell *matHeaderCellDef> </th>
+                                                        <td mat-cell *matCellDef="let element">
+                                                                <span class="material-icons"
+                                                                        (click)="editEmployer(element)">mode_edit_outline</span>&nbsp;&nbsp;
+                                                                <span class="material-icons">delete_forever</span>
+                                                        </td>
+                                                </ng-container>
+                                                <tr mat-header-row *matHeaderRowDef="displayedColumnsEmployers"></tr>
+                                                <tr mat-row *matRowDef="let row; columns: displayedColumnsEmployers;"></tr>
+                                        </table>
+                                </div>
+
+
+                                <div style="margin-bottom: 30px;">
+                                        <mat-checkbox>{{static_data.filer.refund}}</mat-checkbox> <span> I did not receive more than $300(combined
+                                            total) in meals, tickets or free or reduced-priced admissions from the same for-profit pursuant to D.R.M.C &
+                                            2-50(b)</span> <br>
+                                        <div style="margin-top: 50px">
+                                            <mat-checkbox>{{static_data.filer.refund}}</mat-checkbox> <span> Was this statement prepared for you by
+                                                another person?</span> <br> <br>
+                                            <span> If Yes, who prepared this statement for you? </span>
+                                            <div>
+                                                <form class="add_gift_form" id="create-info" autocomplete="off" [formGroup]="checkboxnamefrm">
+                                                    <mat-form-field appearance="fill" appearance="fill" class="create-full-width" style="width: 35%"
+                                                        [hideRequiredMarker]='hideRequiredMarker'>
+                                                        <!-- <mat-label class="width-20" class="visuallyhidden">Gift Description
+                                            </mat-label> -->
+                                                        <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                                                            id="department" maxlength="80" formControlName="statmentprepname" keyPrevent
+                                                            [AlphaSpace]="true">
+                                                        <mat-error class="error">
+                                                        </mat-error>
+                                                    </mat-form-field>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <mat-checkbox>{{static_data.filer.refund}}</mat-checkbox> <span>Your cover letter is where you can show your passion for the position and the company, and highlight your most relevant qualifications. </span>
+                                
+                                        <div>
+                                                <form class="enddetails" id="create-info" autocomplete="off" [formGroup]="enddetails">
+                                                                <mat-label class="width-20" class="visuallyhidden">First Name
+                                                                        </mat-label> <br>
+                                                        <mat-form-field appearance="fill" appearance="fill" class="create-full-width" style="width: 35%"
+                                                            [hideRequiredMarker]='hideRequiredMarker'>
+                                                            <mat-label class="width-20" class="visuallyhidden">First Name
+                                                </mat-label> 
+                                                            <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                                                                id="department" maxlength="80" formControlName="firstName" keyPrevent
+                                                                [AlphaSpace]="true">
+                                                            <mat-error class="error">
+                                                            </mat-error>
+                                                        </mat-form-field> <br>
+                                                        <mat-label class="width-20" class="visuallyhidden">Last Name
+                                                                </mat-label> <br>
+                                                        <mat-form-field appearance="fill" appearance="fill" class="create-full-width" style="width: 35%"
+                                                        [hideRequiredMarker]='hideRequiredMarker'>
+                                                        <mat-label class="width-20" class="visuallyhidden">Last Name
+                                            </mat-label>
+                                                        <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                                                            id="department" maxlength="80" formControlName="lastname" keyPrevent
+                                                            [AlphaSpace]="true">
+                                                        <mat-error class="error">
+                                                        </mat-error>
+                                                    </mat-form-field> <br>
+                                                    <mat-form-field appearance="fill" appearance="fill" class="create-full-width" style="width: 35%"
+                                                    [hideRequiredMarker]='hideRequiredMarker'>
+                                                    <mat-label class="width-20" class="visuallyhidden">Email
+                                        </mat-label>
+                                                    <input matInput type="text" autocomplete="off" autofocus form-fields placeholder=""
+                                                        id="department" maxlength="80" formControlName="email" keyPrevent
+                                                        [AlphaSpace]="true">
+                                                    <mat-error class="error">
+                                                    </mat-error>
+                                                </mat-form-field>
+                                                    </form>
+                                        </div>
+                                
+                                        <div>
+                                    <div class="wrapper"  style="border: 1px solid #0f0f0f;border-style: dotted; margin-bottom: 30px">
+                                <div>
+                                        <canvas id="signature-pad"  class="signature-pad"></canvas>
+                                </div>
+                                
+                                <div class="low">
+                                        <button mat-button  color="primary"  style="color: #005596;" (click)="clear()"><span class="material-icons">
+                                                clear
+                                                </span></button> <hr>
+                                                <div class="sig">
+                                                        <span class="btn-sign-draw">Draw Signature</span>
+                                                </div>
+                                </div>
+                                        
+                                
+                                    <span style="color: #7a7575">Signed at: January 21, 2021 2:23pm America/Denver</span>
+                                    <div style="margin-bottom: 30px">
+                                            <button type="submit" class="savebtn" id="save">Save</button>
+                                            <button type="submit" class="submitbtn" id="submit">Submit</button>
+                                    </div>
+                                
+                                        </div>
+                        </div>
+
+                                
+                                    </div>
+
+                        </mat-tab>
+                </mat-tab-group>
+
+        </div>
+</div>

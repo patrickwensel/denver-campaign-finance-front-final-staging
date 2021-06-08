@@ -1,0 +1,154 @@
+<div>
+  <div>
+    <div class="container">
+      <div class="matform-Container">
+        <div fxLayout="row" fxLayout.sm="row" fxLayout.xs="column" class="mar-tp-header">
+          <div fxFlex="90" fxFlex.sm="90" fxFlex.xs="100" class="sub-section-1">
+            <div>
+              <!-- <h1 class="account-modules color-NavyBlue font-600">
+                {{ static_data.lobbyist.register.counsil }}
+              </h1> -->
+            </div>
+
+            <div>
+              <h2 class="account-modules text-color font-600">
+                {{ static_data.manage_committee.committee_registration }}
+              </h2>
+            </div>
+            <div>
+              <h2 class="account-modules color-NavyBlue">
+                {{ static_data.manage_committee.committee_information }}
+              </h2>
+              <div class="sub-section-2">
+                <app-current-committee [Id]="id"></app-current-committee>
+              </div>
+
+            </div>
+
+
+            <div>
+              <div class="padding-class">
+                <h2 class="account-modules color-NavyBlue">
+                  {{ static_data.manage_committee.committee_contaact }}
+                </h2>
+                <div class="sub-section-2">
+                  <app-current-committee-contact-information [Id]="id"></app-current-committee-contact-information>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="padding-class">
+                <h2 class="account-modules color-NavyBlue">
+                  {{ static_data.manage_committee.officer_contact_information }} {{id}}
+                </h2>
+                <div class="sub-section-1">
+                  <app-current-committee-officer-information [Id]="id">
+                  </app-current-committee-officer-information>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="padding-class">
+                <h2 class="account-modules color-NavyBlue">
+                  {{ static_data.manage_committee.bank_information }}
+                </h2>
+                <div class="sub-section-2">
+                  <app-current-committee-bank-information [Id]="id"></app-current-committee-bank-information>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="padding-class">
+                <h4 class="account-modules color-NavyBlue">{{ static_data.approve_deny.add_Note}}</h4>
+                <div class="sub-section-3">
+                  <form [formGroup]="addNoteForm" id="create-info">
+                    <div>
+                      <mat-label for="add_Note" class="width-20" class="visuallyhidden">{{
+                        static_data.approve_deny.add_Note}}</mat-label>
+                      <textarea aria-labelledby="add_Note create-info"
+                        attr.aria-label="{{ static_data.approve_deny.add_Note}}" class="deactive-modal" id="add_Note"
+                        formControlName="addNote" matInput resize="none"></textarea>
+                    </div>
+                    <br>
+                    <div class="btn-class" *ngIf="isNew">
+                      <span id="btn-class">
+                        <button title="deny" class="download-button" mat-flat-button mat-button
+                          (click)="validateApprove(false)">{{static_data.button.deny}}</button>
+                      </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <span id="save-btn">
+                        <button title="approve" id="addInfo" type="button" mat-flat-button color="primary"
+                          class="nrmlfillbtn" (click)="validateApprove(true)"> {{static_data.button.approve}}</button>
+                      </span>
+                    </div>
+                    <div class="btn-class" *ngIf="isActive">
+                      <span id="btn-class">
+                        <button title="deactivate" class="download-button" *ngIf="isActive" mat-flat-button mat-button
+                          (click)="deactivate(false)">{{static_data.button.deactivate}}</button>
+                      </span>
+                    </div>
+                    <div class="btn-class" *ngIf="isDenied">
+                      <span id="btn-class">
+                        <button title="deactivate" class="download-button" *ngIf="isDenied" mat-flat-button mat-button
+                          (click)="deactivate(true)">Activate</button>
+                      </span>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+
+            <div>
+              <div class="padding-class">
+                <h4 class="account-modules color-NavyBlue">{{ static_data.approve_deny.subject}}</h4>
+                <div class="sub-section-3">
+                  <form [formGroup]="msgForm" id="create-info-1">
+                    <div>
+                      <mat-label for="subject" class="width-20" class="visuallyhidden">{{
+                        static_data.approve_deny.subject}}</mat-label>
+                      <input id="subject" aria-labelledby="subject create-info-1"
+                        attr.aria-label="{{ static_data.approve_deny.subject}}" class="active-modal"
+                        formControlName="subject" matInput resize="none" />
+                    </div>
+                    <h4 class="account-modules color-NavyBlue">{{ static_data.approve_deny.message}}</h4>
+                    <div class="sub-section-3">
+                      <div>
+                        <mat-label for="message" class="width-20" class="visuallyhidden">{{
+                          static_data.approve_deny.message}}</mat-label>
+                        <textarea id="message" aria-labelledby="message create-info-1"
+                          attr.aria-label="{{ static_data.approve_deny.message}}" class="deactive-modal"
+                          formControlName="message" matInput resize="none"></textarea>
+                      </div>
+                    </div>
+                    <br>
+                    <div>
+                      <div class="backbtn">
+                        <span>
+                                <a  class="color-BrightBlue back-btn" href="javascript:void(0)"
+                                        (click)="back()">{{static_data?.button?.back}}</a>
+                        </span>
+                </div>
+                      <span class="btn-class">
+                        <button title="send" id="btnSend" type="button" mat-flat-button color="primary"
+                          class="nrmlfillbtn">
+                          {{static_data.button.send}}</button>
+                      </span>
+
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

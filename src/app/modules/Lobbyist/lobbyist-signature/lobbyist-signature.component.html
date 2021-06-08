@@ -1,0 +1,110 @@
+<div class="regisLobby">
+    <h2 class="header-pad-top font-400">
+        {{static_data.lobbyist.register.signature_lobby}}
+    </h2>
+</div>
+<div class="tab-width">
+<form class="create-form" id="create-info" autocomplete="off" [formGroup]="LobbySignatureForm">
+
+    <div class="flex">
+        <mat-label for="firstName" class="width-20">{{static_data.lobbyist.signature.first_name}}</mat-label>
+        <mat-form-field appearance="fill"  class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+            <input attr.aria-label="{{static_data.lobbyist.signature.first_name}}" matInput type="text" autocomplete="off" autofocus form-fields id="firstName"
+                formControlName="firstName" keyPrevent [AlphaSpace]="true" minlength="2" required>
+            <mat-error class="error">
+                {{errorService.checkErrorMessage(LobbySignatureForm.get('firstName'), 'firstName')}}
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+
+    <div class="flex">
+        <mat-label for="lastName"  class="width-20">{{static_data.lobbyist.signature.last_name}}</mat-label>
+        <mat-form-field class="create-full-width" appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+            <input attr.aria-label="{{static_data.lobbyist.signature.last_name}}" matInput type="text" autocomplete="off"   form-fields id="lastName"
+                formControlName="lastName" keyPrevent [AlphaSpace]="true" minlength="2" required>
+            <mat-error class="error">
+                {{errorService.checkErrorMessage(LobbySignatureForm.get('lastName'), 'lastName')}}
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+
+    <div class="flex">
+        <mat-label for="email" class="width-20">{{static_data.lobbyist.signature.email}}</mat-label>
+        <mat-form-field class="create-full-width" appearance="fill" [hideRequiredMarker]='hideRequiredMarker'>
+            <input attr.aria-label="{{static_data.lobbyist.signature.email}}" matInput type="text" autocomplete="off"   form-fields id="email"
+                formControlName="email" required>
+            <mat-error class="error">
+                {{errorService.checkErrorMessage(LobbySignatureForm.get('email'), 'email')}}
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+</form>
+</div>
+<!-- Signature -->
+<div style="margin-top: 25px;">
+    <div class="wrapper"  style="border: 1px solid #0f0f0f;border-style: dotted;">
+        <canvas id="signature-pad" class="signature-pad"></canvas>
+
+
+      </div>
+      <span style=" border-bottom: 5px solid red;"></span>
+      <div>
+      <span class="btn-sign-draw">Draw Signature</span>
+      <span class="btn-sign-clear">
+        <button mat-button  color="primary"  style="color: #005596;" (click)="clear()">{{static_data.button.clear}}</button>
+        <!-- <button mat-button color="primary"  style="color: #005596;" (click)="addDocModal(addDocTemplate)">Uplaod Signature</button> -->
+    </span>
+
+    <div *ngIf="!base64textString">
+        <h2 class="btn-sign-draw fil-upload-alg or_left"> <b>(OR)</b></h2>
+    </div>
+
+    <div *ngIf="base64textString">
+        <h3 class="btn-sign-draw fil-upload-alg file_disp_left"> <b>Signature File Uploaded:</b> {{fileName}} <span
+                class="material-icons" style="cursor: pointer;" (click)="remove()">delete_forever</span> </h3>
+    </div>
+    <div *ngIf="!base64textString" class="fil-upload-alg">
+        <button mat-flat-button color="primary" class="file_disp_left" (click)="addDocModal(addDocTemplate)"><b>Uplaod
+                Signature</b></button>
+    </div>
+    </div>
+
+</div>
+<!-- Signature -->
+<br><br><br>
+<div>
+    <span class="btn-mar-back">
+        <a href="javascript:void(0)" (click)="goBack()"> {{static_data.lobbyist.register.back}}</a>
+    </span>
+    <span class="btn-mar-align">
+        <button id="addInfo" type="button" mat-flat-button color="primary" class="nrmlfillbtn" (click)="submitLobbiestDetail()"> {{static_data.lobbyist.register.submit}}</button>
+    </span>
+</div>
+
+<ng-template #addDocTemp>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Upload Signature</h4>
+        <button class="newpopupclosebtn" mat-icon-button aria-label="Close" (click)="remove();modalRef.hide()">
+    <span class="material-icons">  close  </span>
+  </button>
+    </div>
+    <div class="modal-body ">
+
+        <form [formGroup]="addDocForm" novalidate class="o-Form" autocomplete="off">
+            <div class="form-group dran-drop-container u-padding-0 u-margin-bottom-15 relative" [ngClass]="hasError && !fileName ? 'mar-gap' : ''">
+                <input class="dran-drop-input" type="file" id="File" accept=".PNG,.png,.jpeg,.JPEG"  (change)="onFileChange($event)" #fileInput required>
+            </div>
+            <mat-error class="error" *ngIf="hasError && !fileName" class="err-font-style">
+                {{errorService.checkErrorMessage(addDocForm.get('File'), 'file')}}
+            </mat-error>
+        </form>
+
+    </div>
+    <div class="modal-footer">
+        <button mat-button color="primary" (click)="remove();modalRef.hide()">Cancel</button>
+        <button mat-button color="primary" (click)="uploadDoc()">Upload</button>
+    </div>
+</ng-template>

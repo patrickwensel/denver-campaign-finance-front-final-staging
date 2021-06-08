@@ -1,0 +1,45 @@
+<div>
+    <div>
+        <h4 class="color-BrightBlue text-font-family text-font-weght header-pad-top">
+            {{static_data.committee_registration.committee_registration_success.thank_you_message}}
+        </h4>
+    </div>
+    <div>
+        <h4 class="header-pad-top text-font-family">
+            <p>{{static_data.committee_registration.committee_registration_success.treasurer_message}} {{email}}</p>
+        </h4>
+    </div>
+    <br>
+    <div>
+        <button title="go to Treasurer" attr.aria-label="{{static_data.committee_registration.committee_registration_success.treasurer_btn}}"  id="btnTeasurer" type="button" mat-flat-button color="primary" (click)="downloadFile('URL')"
+            class="nrmlfillbtn btn-radius">{{static_data.committee_registration.committee_registration_success.treasurer_btn}}</button>
+    </div>
+    <br><br>
+    <div>
+        <h4 class="header-pad-top text-font-family">
+            <p>{{static_data.committee_registration.committee_registration_success.candidate_message}} {{email}}</p>
+        </h4>
+    </div>
+    <br>
+    <div>
+        <button   role="button"   title="go to candidate" attr.aria-label="{{static_data.committee_registration.committee_registration_success.candidate_btn}}"  id="btnCandidate" type="button" mat-flat-button color="primary" (click)="downloadFile('URL')"
+            class="nrmlfillbtn btn-radius">{{static_data.committee_registration.committee_registration_success.candidate_btn}}</button>
+    </div>
+    <br><br>
+    <div>
+        <h4 class="header-pad-top text-font-family">
+            <p>{{static_data.committee_registration.committee_registration_success.contact_us_message}}</p>
+        </h4>
+    </div>
+    <br>
+    <div>
+        <button    title="go to contact us" attr.aria-label="{{static_data.committee_registration.committee_registration_success.contact_us_btn}}"  id="btnContactUs" type="button" mat-flat-button color="primary" 
+            class="nrmlfillbtn btn-radius">{{static_data.committee_registration.committee_registration_success.contact_us_btn}}</button>
+    </div>
+    <br>
+    <div  style="float: right;">
+        <button    attr.title="{{(!session)?static_data.login?.log_in:static_data.button.back}}" attr.aria-label="{{static_data.login?.log_in}}"  id="btnContactUs" type="button" mat-flat-button color="primary" 
+            class="nrmlfillbtn btn-radius" (click)="goToLogin()">{{(!session)?static_data.login?.log_in:static_data.button.back}}</button>
+    </div>
+
+</div>

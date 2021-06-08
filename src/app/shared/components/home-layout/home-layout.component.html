@@ -1,0 +1,225 @@
+<!-- <div>
+    <mat-toolbar color="primary" style="background-color: #0f5597; position: fixed; z-index: 50;">
+        <div fxShow="true" fxHide.lt-md="true">
+            <a href="#" mat-button>Menu Item 1</a>
+            <a href="#" mat-button>Menu Item 2</a>
+            <a href="#" mat-button>Menu Item 3</a>
+            <a href="#" mat-button>Menu Item 4</a>
+            <a href="#" mat-button>Menu Item 5</a>
+            <a href="#" mat-button>Menu Item 6</a>
+        </div>
+        <div fxShow="true" fxHide.gt-sm="true">
+            <a href="#">Show Side Menu</a>
+        </div>
+        <span class="header-with">
+            <a href="javascript:void(0)">
+                <img src="assets/images/denver_logo.png" title="Logo" alt="LOGO">
+            </a>
+        </span>
+
+        <span class="example-spacer"></span>
+
+        <div class="btn-pad">
+            <span class="example-spacer"></span><button id="btnSpnaish" style="   border: 1px solid white !important;" class="btn-border-clr" type="button" mat-raised-button color="primary" class="nrmlfillbtn">{{static_data.header_section.btn_spanish}}</button>
+        </div>
+        <div class="btn-pad">
+            <span class="example-spacer"></span><button id="btnSpnaish" style="   border: 1px solid white !important;" class="btn-border-clr" type="button" mat-raised-button color="primary" class="nrmlfillbtn">{{static_data.header_section.btn_help}}</button>
+        </div>
+        <div class="btn-pad" id="closedir">
+            <span class="example-spacer"></span><button id="btnSpnaish" style="border: 1px solid white !important;background-color: white;color: #3f51b5;" class="btn-border-clr" type="button" mat-raised-button color="primary" clickOutside (clickOutside)="showProfile = false"
+                (click)="showProfile ? showProfile = false : showProfile = true" class="nrmlfillbtn">Account</button>
+        </div>
+
+        <div fxShow="true" fxHide.lt-md="true">
+
+        </div>
+
+
+    </mat-toolbar>
+
+    <app-sidenavcomponent *ngIf="noentity != 'true'" #sidenav></app-sidenavcomponent>
+
+</div>
+
+
+
+<div [hidden]="!showProfile" class="profile-content box-style" id="profileMenu">
+    <div class="width-100 margin-bottom-0 ">
+        <div class="padding-10">
+            <div class="width-100 margin-bottom-0 mar-over" *ngIf="!isadmin">
+                <button mat-button (click)="switchCommittee()">Switch Committee</button>
+            </div>
+            <div class="width-100 margin-bottom-0  mar-over">
+                <button mat-button (click)="changePwd()">Change Password</button>
+            </div>
+            <div class="width-100 margin-bottom-0  mar-over">
+                <button mat-button (click)="logout()">Log Out</button>
+            </div>
+            <div class="width-100 margin-bottom-0  mar-over">
+                <button (click)="goToHelp()" mat-button>Help</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+<div style="height: 100vh;">
+    <mat-toolbar color="primary" style="background-color: #0f5597; position: fixed; z-index: 50;">
+        <mat-toolbar-row>
+
+            <span class="header-with">
+        <a href="javascript:void(0)">
+            <img src="assets/images/denver_logo.png" title="Logo" alt="LOGO">
+        </a>
+    </span>
+            <span class="example-spacer"></span>
+            <span class="example-spacer"></span>
+
+            <div class="btn-pad web">
+                <span class="example-spacer"></span><button id="btnSpnaish" style="   border: 1px solid white !important;" class="btn-border-clr" type="button" mat-raised-button color="primary" class="nrmlfillbtn">{{static_data.header_section.btn_spanish}}</button>
+            </div>
+            <div class="btn-pad web">
+                <span class="example-spacer"></span><button id="btnSpnaish" style="   border: 1px solid white !important;" class="btn-border-clr" type="button" mat-raised-button color="primary" class="nrmlfillbtn">{{static_data.header_section.btn_help}}</button>
+            </div>
+            <div class="btn-pad web" id="closedir">
+                <span class="example-spacer"></span><button id="btnSpnaish" style="border: 1px solid white !important;background-color: white;color: #3f51b5;" class="btn-border-clr" type="button" mat-raised-button color="primary" clickOutside (clickOutside)="showProfile = false"
+                    (click)="showProfile ? showProfile = false : showProfile = true" class="nrmlfillbtn">Account</button>
+            </div>
+
+            <div class="btn-pad mobile">
+                <!-- <span class="example-spacer"></span><button id="btnSpnaish" style="   border: 1px solid white !important;" class="btn-border-clr" type="button" mat-raised-button color="primary" class="nrmlfillbtn">{{static_data.header_section.btn_spanish}}</button> -->
+                <mat-icon>
+                    language
+                </mat-icon>
+            </div>
+            <div class="btn-pad mobile">
+                <span class="example-spacer"></span>
+                <mat-icon>help_outline</mat-icon>
+            </div>
+            <div class="btn-pad mobile" id="closedirre">
+                <span class="example-spacer"></span>
+                <span (click)="showProfile ? showProfile = false : showProfile = true">
+                  <mat-icon >account_circle</mat-icon>
+                </span>
+            </div>
+
+            <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+              <mat-icon>menu</mat-icon>
+            </button>
+            <div fxShow="true" fxHide.lt-md="true">
+
+            </div>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <mat-sidenav-container fxFlexFill>
+        <mat-sidenav #sidenav style="margin-top: 60px !important; " position="end">
+            <mat-nav-list *ngIf="isadmin && (isnoentity != 'true')">
+                <div fxLayout="column" class="sidenavestyle ">
+                    <div [routerLink]="['/manage/manage_committee']" class="sidedata" [routerLinkActive]="['sidenav']" (click)="clickedAdminlabel('managecomittee')">
+                        <a mat-button class="txt-align">
+                            <mat-icon matsuffix>groups</mat-icon> {{static_data.header_section.managecomponent}}
+                        </a>
+                    </div>
+                    <div class="sidedata">
+                        <a mat-button class="txt-align">
+                            <mat-icon matsuffix>text_snippet</mat-icon> {{static_data.header_section.reviewFilling}}
+                        </a>
+                    </div>
+                    <div class="sidedata">
+                        <a mat-button class="txt-align">
+                            <mat-icon matsuffix>attach_money</mat-icon>{{static_data.header_section.payment}}
+                        </a>
+                    </div>
+                    <div [routerLink]="['/manage/messages']" [routerLinkActive]="['sidenav']" class="sidedata">
+                        <a mat-button class="txt-align">
+                            <mat-icon matsuffix>notifications</mat-icon>{{static_data.header_section.notification}}
+                        </a>
+                    </div>
+                    <div [routerLink]="['/system/Management']" [routerLinkActive]="['sidenav']" (click)="clickedAdminlabel( 'systemManagement')" class="sidedata">
+                        <a mat-button class="txt-align">
+                            <mat-icon matsuffix>calendar_today</mat-icon>{{static_data.header_section.systemManagement}}
+                        </a>
+                    </div>
+
+                    <div class="sidedata" [routerLink]="['/calendar/calendar']" [routerLinkActive]="['sidenav']" (click)="clickedAdminlabel( 'calender')">
+                        <a mat-button class="txt-align">
+                            <mat-icon matsuffix>event</mat-icon>{{static_data.header_section.calendar}}
+                        </a>
+                    </div>
+                    <a mat-button></a>
+                </div>
+            </mat-nav-list>
+            <mat-nav-list *ngIf="!isadmin && (isnoentity != 'true') && (hidesidenav != true) ">
+                <div fxLayout="column" class="sidenavestyle">
+                    <div [routerLink]="['/dashboard/']" [routerLinkActive]="['sidenav']" (click)="clickedlabel(0, 'filling')" class="sidedata">
+                        <a mat-button class="txt-align">
+                            <mat-icon matsuffix>text_snippet</mat-icon> {{static_data.header_section.filling}}
+                        </a>
+                    </div>
+                    <div *ngIf="islobby== 'Lobbyist'" (click)="clickedlabel(1, 'registration')" class="sidedata">
+                        <a mat-button class="txt-align">
+                            <mat-icon matsuffix>groups</mat-icon> {{static_data.header_section.registration}}
+                        </a>
+                    </div>
+                    <div *ngIf="islobby != 'Lobbyist' && !iscover" (click)="clickedlabel(1, 'committeeinfo')" class="sidedata">
+                        <a mat-button class="txt-align">
+                            <mat-icon matsuffix>groups</mat-icon> {{static_data.header_section.Committee_information}}
+                        </a>
+                    </div>
+                    <div (click)="clickedlabel(2, 'fineandfees')" class="sidedata" *ngIf="!iscover">
+                        <a mat-button class="txt-align">
+                            <mat-icon matsuffix>attach_money</mat-icon>{{static_data.header_section.fine_and_fees}}
+                        </a>
+                    </div>
+                    <div class="sidedata" *ngIf="iscover">
+                        <a mat-button class="txt-align">
+                            <mat-icon matsuffix>attach_money</mat-icon>{{static_data.header_section.penalites}}
+                        </a>
+                    </div>
+
+                    <div [routerLink]="['/manage/messages']" [routerLinkActive]="['sidenav']">
+                        <a mat-button class="txt-align" class="sidedata">
+                            <mat-icon matsuffix>notifications </mat-icon>{{static_data.header_section.notification}}
+                        </a>
+                    </div>
+                    <div [routerLink]="['/calendar/calendar']" [routerLinkActive]="['sidenav']">
+                        <a mat-button class="txt-align" class="sidedata">
+                            <mat-icon matsuffix>event</mat-icon>{{static_data.header_section.calendar}}
+                        </a>
+                    </div>
+                    <!-- Public layout routing here .... -->
+
+                    <!-- <div [routerLink]="['/Public/']" [routerLinkActive]="['sidenav']" (click)="clickedlabel(2, 'public')" class="sidedata">
+                    <a mat-button class="txt-align">
+                        <mat-icon matsuffix>text_snippet</mat-icon> Public
+                    </a>
+                </div> -->
+                    <a mat-button></a>
+                </div>
+            </mat-nav-list>
+        </mat-sidenav>
+        <!-- <mat-sidenav-content fxFlexFill>Main content</mat-sidenav-content> -->
+        <app-sidenavcomponent *ngIf="noentity != 'true'"></app-sidenavcomponent>
+    </mat-sidenav-container>
+</div>
+
+<div [hidden]="!showProfile" class="profile-content box-style" id="profileMenu">
+    <div class="width-100 margin-bottom-0 ">
+        <div class="padding-10">
+            <div class="width-100 margin-bottom-0 mar-over " *ngIf="!isadmin">
+                <button mat-button (click)="switchCommittee()" class="menu-btns">Switch Committee</button>
+            </div>
+            <div class="width-100 margin-bottom-0  mar-over">
+                <button mat-button (click)="changePwd()" class="menu-btns">Change Password</button>
+            </div>
+            <div class="width-100 margin-bottom-0  mar-over">
+                <button mat-button (click)="logout()" class="menu-btns">Log Out</button>
+            </div>
+            <div class="width-100 margin-bottom-0  mar-over">
+                <button (click)="goToHelp()" mat-button class="menu-btns">Help</button>
+            </div>
+        </div>
+    </div>
+</div>

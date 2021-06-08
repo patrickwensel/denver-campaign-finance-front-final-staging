@@ -1,0 +1,280 @@
+<div class="giftreport">
+  <div class="head">
+      <span class="title"> Financial Disclosure Statement</span>
+  </div>
+
+  <span class="out-class">Report Year  {{currentYear}}</span><br>
+  <span class="out-class">Contact Information</span><br>
+<br><br>
+  <div class="navigatepadding">
+    <div>
+        <span class="fontcolorblck"> {{static_data.giftreport.areyou}} </span>
+        <span class="value"> Elected </span>
+        <hr>
+    </div>
+    <div>
+        <span class="fontcolorblck"> {{static_data.giftreport.youwereelected}} </span>
+        <span class="value"> City Councilmember </span>
+        <hr>
+    </div>
+    <div>
+        <span class="fontcolorblck">
+            {{static_data.giftreport.firstname}} </span>
+        <span class="value"> Jaime </span>
+        <hr>
+    </div>
+    <div>
+        <span class="fontcolorblck">
+            {{static_data.giftreport.lastname}} </span>
+        <span class="value"> Torres </span>
+        <hr>
+    </div>
+    <div>
+        <span class="fontcolorblck">
+            {{static_data.giftreport.city}} </span>
+        <span class="value">Denver</span>
+        <hr>
+    </div>
+    <div>
+        <span class="fontcolorblck">
+            {{static_data.giftreport.state}} </span>
+        <span class="value">Co</span>
+        <hr>
+    </div>
+
+</div>
+
+<br><br>
+<div class="list-report">
+  <br>
+  <span class="out-class">Financial Disclosure</span><br><br>
+  <span class="out-class">Business Interest</span><br>
+
+  <span> I or my spouse/domestic partner own at least 1% of a business or an interest in a business valued at over $5,000. This category includes sticks, LLC, or LLP memberships, or other similar ownership interests.</span>
+<br><br><br>
+  <table class="table-class" mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="dategiftreceived">
+          <th mat-header-cell *matHeaderCellDef> Business Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="donororg">
+          <th mat-header-cell *matHeaderCellDef> Name of Person Holding Interest </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+<br><br><br>
+
+
+<div class="list-report">
+  <br>
+
+  <span class="out-class"> Source of Income </span><br><br>
+
+  <span> I received income in excess of $2,000 from any source other than the City and Country of Denver, including capital gains, whether or not they are taxable. This could include interest, dividends, or other investment income. You do not need to report income from the City.</span><br><br>
+
+  <span> If "Yes", list the sources of income received that exceeded $2,000. Amounts of such incomes need not be disclosed. </span>
+<br><br><br>
+  <table class="table-class" mat-table [dataSource]="dataSource1">
+
+      <ng-container matColumnDef="dategiftreceived">
+          <th mat-header-cell *matHeaderCellDef> Source of Income </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedSourceColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedSourceColumns;"></tr>
+  </table>
+</div>
+
+<br><br><br>
+<div class="list-report">
+  <br>
+
+  <span class="out-class"> Lobbying Compensation </span><br><br>
+
+  <span> I was compensated for lobbying for a person or entity, including an employer, other than the City. </span><br><br>
+
+<br><br>
+  <table class="table-class" mat-table [dataSource]="dataSource1">
+
+      <ng-container matColumnDef="dategiftreceived">
+          <th mat-header-cell *matHeaderCellDef> Employer or Person </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedSourceColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedSourceColumns;"></tr>
+  </table>
+</div>
+
+<br><br><br>
+<div class="list-report">
+  <br>
+
+  <span class="out-class"> Private Trust </span><br><br>
+
+  <span> I benefit from a private trust with assets valued at $5,000 or more. </span><br><br>
+
+<br><br>
+  <table class="table-class" mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="dategiftreceived">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="donororg">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
+<br><br><br>
+<div class="list-report">
+  <br>
+
+  <span class="out-class"> Property Ownership </span><br><br>
+
+  <span> I own property or interest in a property, or had an option to purchase property in Colorado during {{currentYear}}. This includes rental properties and properties co-owned with another person, and properties held through a corporation or partnership. This does not include your personal home. </span><br><br>
+
+  <span>If you only own your personal home and have no other interests in real property, please select "No". </span>
+<br><br>
+  <table class="table-class" mat-table [dataSource]="dataSource1">
+
+      <ng-container matColumnDef="dategiftreceived">
+          <th mat-header-cell *matHeaderCellDef> Street Name and City </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedSourceColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedSourceColumns;"></tr>
+  </table>
+</div>
+
+
+<br><br><br>
+<div>
+<span class="out-class"> Asset Transfers </span><br><br>
+
+  <span> I transferred assets of $5,000 or more to an immediate family member in the last two years. This can include gifts of cash, items, or real properly. </span><br><br>
+
+  <br><br>
+  <table class="table-class" mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="dategiftreceived">
+          <th mat-header-cell *matHeaderCellDef> Year Transferred </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="donororg">
+        <th mat-header-cell *matHeaderCellDef> Brief Description of Transferred Assets </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
+
+<br><br><br>
+<div>
+  <span class="out-class"> Creditors </span><br><br>
+
+    <span> During {{currentYear}}, Iowed one or more creditor(s) an amount in excess of $5,000. This can include home and car loans, and credit card balances over $5,000 carried from month - to month. </span><br><br>
+
+    <span> If "Yes", list name of each creditor to whom you owed an amount in excess of $5,000 at any time during {{currentYear}}. </span>
+
+    <br><br>
+    <table class="table-class" mat-table [dataSource]="dataSource1">
+
+        <ng-container matColumnDef="dategiftreceived">
+            <th mat-header-cell *matHeaderCellDef> Creditors Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedSourceColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedSourceColumns;"></tr>
+    </table>
+  </div>
+
+  <br><br><br>
+  <div>
+    <span class="out-class"> Employers </span><br><br>
+
+      <span> List the name of any current employer and any employer for whom the officer worked during the period fron January 1 through December 31 of {{currentYear}}. </span><br><br>
+
+      <span> If "Yes", list name of each creditor to whom you owed an amount in excess of $5,000 at any time during {{currentYear}}. </span>
+
+      <br><br>
+      <table class="table-class" mat-table [dataSource]="dataSource1">
+
+          <ng-container matColumnDef="dategiftreceived">
+              <th mat-header-cell *matHeaderCellDef> Employer Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+          </ng-container>
+
+
+          <tr mat-header-row *matHeaderRowDef="displayedSourceColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedSourceColumns;"></tr>
+      </table>
+    </div>
+
+
+    <br><br><br>
+<div>
+      <mat-checkbox class="check"></mat-checkbox> <span> Was this statement prepared for you by another person?</span> <br><br>
+      <span class="statement"> If yes, who prepared this statement for you?</span><br><br>
+
+      <form class="create-form" id="create-info" autocomplete="off" formGroup="giftForm">
+        <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+          <mat-label for="name" class="width-20" class="visuallyhidden">{{static_data.committee_registration.commitee_contact.address_2}}</mat-label>
+          <input attr.aria-label="{{static_data.public_funding.name}}" matInput type="text" autocomplete="off" form-fields placeholder="" id="name"
+          formControlName="name" keyPrevent AlphaSpace="true" maxlength="80">
+          <!-- <mat-error class="error">
+              {{errorService.checkErrorMessage(createCommitteeInformationForm.get('address2'), 'committee-address2')}}
+          </mat-error> -->
+      </mat-form-field><br>
+
+
+
+      <mat-checkbox></mat-checkbox> <span class="declare_statement">By checking this box, I declare that I have this Officer Semi-Annual Gift Disclosure Statement and that the information provided is true, correct, and accurately lists all amount and </span><br>
+        <span class="statement"> sources of gifts I received during the reporting period.</span> <br><br>
+
+        <mat-label for="firstName" class="width-20">{{static_data.public_funding.firstName}}</mat-label><br><br>
+
+        <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+          <mat-label for="firstName" class="width-20" class="visuallyhidden">{{static_data.public_funding.firstName}}</mat-label>
+          <input attr.aria-label="{{static_data.public_funding.firstName}}" matInput type="text" autocomplete="off" form-fields placeholder="" id="firstName"
+          formControlName="firstName" keyPrevent AlphaSpace="true" maxlength="80">
+          <!-- <mat-error class="error">
+              {{errorService.checkErrorMessage(createCommitteeInformationForm.get('address2'), 'committee-address2')}}
+          </mat-error> -->
+      </mat-form-field><br>
+
+
+      <mat-label for="lastName" class="width-20">{{static_data.public_funding.lastName}}</mat-label><br><br>
+      <mat-form-field appearance="fill" appearance="fill" class="create-full-width" [hideRequiredMarker]='hideRequiredMarker'>
+
+        <mat-label for="lastName" class="width-20" class="visuallyhidden">{{static_data.public_funding.lastName}}</mat-label>
+        <input attr.aria-label="{{static_data.public_funding.lastName}}" matInput type="text" autocomplete="off" form-fields placeholder="" id="lastName"
+        formControlName="lastName" keyPrevent AlphaSpace="true" maxlength="80">
+        <!-- <mat-error class="error">
+            {{errorService.checkErrorMessage(createCommitteeInformationForm.get('address2'), 'committee-address2')}}
+        </mat-error> -->
+    </mat-form-field><br>
+</form>
+      </div>
+
+  </div>

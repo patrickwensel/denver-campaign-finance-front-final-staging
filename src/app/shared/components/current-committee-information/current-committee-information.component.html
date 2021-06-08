@@ -1,0 +1,154 @@
+<!-- <div fxFlex="30" class="sub-section-2" style="margin-top: 5%;"> -->
+<div fxLayout="row">
+    <!-- <h2 class="account-modules color-NavyBlue "></h2> -->
+</div>
+
+<div fxLayout="row">
+    <!-- <h2 class="account-modules color-NavyBlue "></h2> -->
+</div>
+<!-- Committee -->
+
+<div *ngIf="filerType && showHeader" fxLayout="row" style="margin-top: 10%;">
+    <h2 class="account-modules  text-color font-sze-large ">{{static_data.Switch_Committee.current_selection}}</h2>
+</div>
+<div *ngIf="filerType == 'committee'">
+    <!-- color: #a6a2a2;text-align: right; -->
+    <div fxLayout="row" class="mar-tp-header">
+        <label fxFlex="50" class=" text-color font-600">{{static_data.Switch_Committee.Committee_name}}</label> <span
+            style="color: #000000;text-align: right;" fxFlex="50">{{committeeInformation?.entityName}}</span>
+    </div>
+    <hr style="height: 2px;background-color: #002d56;">
+
+    <div fxLayout="row" class="mar-tp-header">
+        <label fxFlex="50" class=" text-color font-600">{{static_data.Switch_Committee.Committee_id}}</label> <span
+            style="color: #000000;text-align: right;" fxFlex="50">{{committeeInformation?.contactId}}</span>
+    </div>
+    <hr style="height: 2px;background-color: #002d56;">
+    <div fxLayout="row" class="mar-tp-header">
+        <label fxFlex="50" class=" text-color font-600">{{static_data.Switch_Committee.Committee_type}}</label> 
+        <!-- <span style="color: #000000;text-align: right;" fxFlex="50">{{committeeInformation?.entityType}}</span> -->
+            <span style="color: #000000;text-align: right;" fxFlex="50"> {{committeeInformation?.entityType=='COM-CAN'?"Candidate Committee":committeeInformation?.entityType=='COM-IC'?"Issue Committee":committeeInformation?.entityType=='COM-PAC'?"Political Action Committee":committeeInformation?.entityType=='COM-OFF'?"Officer Committee":committeeInformation?.entityType}}</span>
+    </div>
+    <hr style="height: 2px;background-color: #002d56;" *ngIf="committeeInformation?.entityType=='COM-CAN'">
+    <div fxLayout="row" class="mar-tp-header" *ngIf="committeeInformation?.entityType=='COM-CAN'">
+        <label fxFlex="50" class=" text-color font-600">{{static_data.Switch_Committee.Candidate_name}} </label> <span
+            style="color: #000000;text-align: right;" fxFlex="50">{{committeeInformation?.candidateName}}</span>
+    </div>
+    <!-- issue committee -->
+    <hr style="height: 2px;background-color: #002d56;" *ngIf="committeeInformation?.entityType=='COM-IC'">
+    <div fxLayout="row" class="mar-tp-header" *ngIf="committeeInformation?.entityType=='COM-IC'">
+        <label fxFlex="50" class=" text-color font-600">{{static_data.Switch_Committee.ballot_issue}} </label> <span
+            style="color: #000000;text-align: right;" fxFlex="50">{{committeeInformation?.ballotIssue}}</span>
+    </div>
+    <hr style="height: 2px;background-color: #002d56;" *ngIf="committeeInformation?.entityType=='COM-IC'">
+    <div fxLayout="row" class="mar-tp-header" *ngIf="committeeInformation?.entityType=='COM-IC'">
+        <label fxFlex="50" class=" text-color font-600">{{static_data.Switch_Committee.position}} </label> <span
+            style="color: #000000;text-align: right;" fxFlex="50">{{committeeInformation?.positionDesc}}</span>
+    </div>
+    <!-- issue committee -->
+    <hr style="height: 2px;background-color: #002d56;">
+    <div fxLayout="row" class="mar-tp-header">
+        <label fxFlex="50" class=" text-color font-sze font-600">{{static_data.Switch_Committee.treasurer_name}}</label>
+        <span style="text-align: right;" fxFlex="50">{{committeeInformation?.treasurerName}}</span>
+    </div>
+    <hr style="height: 2px;background-color: #002d56;"
+        *ngIf="committeeInformation?.entityType=='COM-CAN' || committeeInformation?.entityType=='COM-IC'">
+    <div fxLayout="row" class="mar-tp-header"
+        *ngIf="committeeInformation?.entityType=='COM-CAN' || committeeInformation?.entityType=='COM-IC'">
+        <label fxFlex="50" class=" text-color font-600">{{static_data.Switch_Committee.election_date}}</label> <span
+            style="color: #000000;text-align: right;" fxFlex="50">{{committeeInformation?.electionDate |
+            date:masterDate.dateFormat}}</span>
+    </div>
+    <hr style="height: 2px;background-color: #002d56;" *ngIf="committeeInformation?.entityType=='COM-CAN'">
+
+    <div fxLayout="row" class="mar-tp-header" *ngIf="committeeInformation?.entityType=='COM-CAN'">
+        <label fxFlex="50" class=" text-color font-sze font-600">{{static_data.Switch_Committee.public_fund}} </label>
+        <span style="text-align: right;" fxFlex="50">{{committeeInformation?.publicFund}}</span>
+    </div>
+    <hr style="height: 2px;background-color: #002d56;" *ngIf="committeeInformation?.entityType!='COM-CAN'">
+
+    <div fxLayout="row" class="mar-tp-header" *ngIf="committeeInformation?.entityType!='COM-CAN'">
+        <label fxFlex="50" class=" text-color font-sze font-600">{{static_data.Switch_Committee.purpose}} </label> <span
+            style="text-align: right;" fxFlex="50">{{committeeInformation?.purposeDesc}}</span>
+    </div>
+    <hr style="height: 2px;background-color: #002d56;">
+</div>
+<!-- Committee -->
+
+<!-- Lobbyist -->
+
+<div *ngIf="filerType == 'Lobbyist'">
+
+    <!-- color: #a6a2a2;text-align: right; -->
+    <div fxLayout="row" class="mar-tp-header">
+        <label fxFlex="50" class=" text-color font-600">{{static_data.Switch_Committee.lobby_name}}</label> <span
+            style="color: #000000;text-align: right;" fxFlex="50">{{committeeInformation?.entityName }}</span>
+    </div>
+    <hr style="height: 2px;background-color: #002d56;">
+
+    <div fxLayout="row" class="mar-tp-header">
+        <label fxFlex="50" class=" text-color font-600">{{static_data.Switch_Committee.lobby_id}}</label> <span
+            style="color: #000000;text-align: right;" fxFlex="50">{{committeeInformation?.contactId }}</span>
+    </div>
+    <hr style="height: 2px;background-color: #002d56;">
+    <div fxLayout="row" class="mar-tp-header">
+        <label fxFlex="50" class=" text-color font-600">{{static_data.Switch_Committee.lobby_type}}</label>
+         <!-- <span style="color: #000000;text-align: right;" fxFlex="50">{{committeeInformation?.entityType }}</span> -->
+            <span style="color: #000000;text-align: right;" fxFlex="50"> {{committeeInformation?.entityType=='LOB-O'?"Organization":committeeInformation?.entityType=='LOB-I'?"Individual":committeeInformation?.entityType}}</span>
+    </div>
+    <hr style="height: 2px;background-color: #002d56;" *ngIf="committeeInformation?.entityType=='LOB-O'">
+    <div fxLayout="row" class="mar-tp-header" *ngIf="committeeInformation?.entityType=='LOB-O'">
+        <label fxFlex="50" class=" text-color font-600">{{static_data.Switch_Committee.org_name}} </label> <span
+            style="color: #000000;text-align: right;" fxFlex="50">{{committeeInformation?.orgName }}</span>
+    </div>
+    <!-- issue committee -->
+    <hr style="height: 2px;background-color: #002d56;">
+    <div fxLayout="row" class="mar-tp-header">
+        <label fxFlex="50" class=" text-color font-600">{{static_data.Switch_Committee.prim_reg_lobby_name}} </label>
+        <span style="color: #000000;text-align: right;" fxFlex="50">{{committeeInformation?.primaryName }}</span>
+    </div>
+    <hr style="height: 2px;background-color: #002d56;">
+</div>
+<!-- Lobbyist -->
+
+<!-- IE -->
+
+<div *ngIf="filerType == 'ie'">
+
+    <!-- color: #000000;text-align: right; -->
+    <div fxLayout="row" class="mar-tp-header">
+        <label fxFlex="50" class=" text-color font-600">{{static_data.Switch_Committee.ie_name}}</label> <span
+            style="color: #000000;text-align: right;" fxFlex="50">{{committeeInformation?.entityName }}</span>
+    </div>
+    <hr style="height: 2px;background-color: #002d56;">
+
+    <div fxLayout="row" class="mar-tp-header">
+        <label fxFlex="50" class=" text-color font-600">{{static_data.Switch_Committee.ie_id}}</label> <span
+            style="color: #000000;text-align: right;" fxFlex="50">{{committeeInformation?.contactId}}</span>
+    </div>
+    <hr style="height: 2px;background-color: #002d56;">
+    <div fxLayout="row" class="mar-tp-header">
+        <label fxFlex="50" class=" text-color font-600">{{static_data.Switch_Committee.ie_type}}</label>
+         <!-- <span style="color: #000000;text-align: right;" fxFlex="50">{{committeeInformation?.entityType }}</span> -->
+         <span style="color: #000000;text-align: right;" fxFlex="50"> {{committeeInformation?.entityType=='FT-ORG'?"Organization":committeeInformation?.entityType=='FT-IND'?"Individual":committeeInformation?.entityType}}</span>
+    </div>
+    <hr style="height: 2px;background-color: #002d56;" *ngIf="committeeInformation?.entityType=='FT-ORG'">
+    <div fxLayout="row" class="mar-tp-header" *ngIf="committeeInformation?.entityType=='FT-ORG'">
+        <label fxFlex="50" class=" text-color font-600">{{static_data.Switch_Committee.ie_org_name}} </label> <span
+            style="color: #000000;text-align: right;" fxFlex="50">{{committeeInformation?.orgName }}</span>
+    </div>
+    <!-- issue committee -->
+    <hr style="height: 2px;background-color: #002d56;" *ngIf="committeeInformation?.entityType !='FT-ORG'">
+    <div fxLayout="row" class="mar-tp-header" *ngIf="committeeInformation?.entityType !='FT-ORG'">
+        <label fxFlex="50" class=" text-color font-600">{{static_data.Switch_Committee.ie_employer}} </label> <span
+            style="color: #000000;text-align: right;" fxFlex="50">{{committeeInformation?.orgName }}</span>
+    </div>
+    <hr style="height: 2px;background-color: #002d56;" *ngIf="committeeInformation?.entityType !='FT-ORG'">
+    <div fxLayout="row" class="mar-tp-header" *ngIf="committeeInformation?.entityType !='FT-ORG'">
+        <label fxFlex="50" class=" text-color font-600">{{static_data.Switch_Committee.ie_occupation}} </label> <span
+            style="color: #000000;text-align: right;" fxFlex="50">{{committeeInformation?.occupationDesc }}</span>
+    </div>
+
+    <hr style="height: 2px;background-color: #002d56;">
+</div>
+<!-- IE -->

@@ -1,0 +1,25 @@
+<div class="matpopupheader-section">
+    <h2>{{static_data.manage_users.heading?.make_treasurer}} <span style="float: right;cursor: pointer;"
+            class="material-icons">
+            disabled_by_default
+        </span></h2>
+
+</div>
+<div class="matpopupbody-section">
+    <div class="textonfos" style="line-height: 2.5;font-family: sans-serif;">
+        <p>Are you sure you want to make {{data.name}} Treasure of this committee?</p>
+        <p></p>
+        <p></p>
+        <p>Clicking 'Yes' will send {{data.name}} a notification to confirm this change. If confirmed within 48 hours,
+            Your account will be changed to an officer account, and you will no longer be able to access this page or
+            change your account back to Treasure </p>
+        <p></p>
+        <p></p>
+        <p>Are you sure you want to proceed?</p>
+        <p></p>
+    </div>
+    <div class="footer">
+        <button mat-button (click)="onNoClick()" class="bg-none-btn nyan-clr mar-5">No</button>
+        <button mat-button [mat-dialog-close]="data.id" class="delete-btn">Yes</button>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+.Candidate_aff {
+  margin-bottom: 5%;
+}
+
+.treasurer {
+  margin-bottom: 5%;
+}
+.filing {
+  margin-bottom: 5%;
+}
+.waiver {
+  margin-bottom: 5%;
+}
+.audit {
+  margin-bottom: 5%;
+}
+.misc {
+  margin-bottom: 5%;
+}
+
+.documents {
+  padding-left: 20px;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  color: #063461;
+  font-size: 20px;
+}
+
+.uploadclss {
+  color: #073d6e;
+  float: left;
+  border: 2px solid rgb(15 85 151);
+  padding: 8px 40px;
+  font-weight: 500;
+  background: white;
+  margin-right: 40px;
+}
+
+.grid-date {
+  display: grid;
+  grid-template-columns: 350px 350px  ;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+mat-label {
+margin-top: 10px;
+width: 100px;
+margin-right: 20px;
+}
+
+
+.head {
+  color: #0f5597;
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 30px;
+  line-height: 1.5;
+  // padding-left: 20px;
+}
+
+
+.doc_add {
+  margin-bottom: 100px;
+}
